@@ -52,17 +52,14 @@ include_once("db_connect.php");
       <option value="Administratia">Administraţia</option>
       <option value="Consultativa">Consultaivă</option>
       <option value="Endoscopie">Endoscopie</option>
-			</select>
-      <br>
+			</select><br>
 
 			<label class="col-sm-2">Nr. de blancuri:</label>
       <div class="col-sm-4">
 			<input type="text" name="number" class="form-control" required>
       </div>
-
-
-                    <label class="col-sm-2">Tipul de hirtie</label>
-                    <div class="col-sm-4">
+              <label class="col-sm-2">Tipul de hirtie</label>
+                <div class="col-sm-4">
                         <select class="form-control" id="tip" name="tip" required>
                             <option value="">SELECT</option>
                             <option value="A4">A4</option>
@@ -73,11 +70,7 @@ include_once("db_connect.php");
                             <option value="Plic_C6">Plicuri C6</option>
                             <option value="Plic_DL">Plicuri DL</option>
                         </select>
-                      </div>
-                    <br><br>
-
-
-
+                      </div> <br><br>
 
 		</div>
 		<div class="modal-footer">
@@ -103,7 +96,7 @@ include_once("db_connect.php");
 
 <div class="col-sm-12 text-center">
 
-  <div class="col-md-2 form-group"> 	<!--		Show Numbers Of Rows 		-->
+  <div class="col-md-1 form-group"> 	<!--		Show Numbers Of Rows 		-->
 
 			 		<select class  ="form-control" name="state" id="maxRows">
 						 <option value="5000">Arata toate rândurile</option>
@@ -118,13 +111,14 @@ include_once("db_connect.php");
 
 			  	</div>
 
+<div class="col-md-3">
+          <div class="input-group input-daterange">
+              <input type="text" class="form-control" name="from_date" id="from_date" placeholder="De pe data...">
+              <div class="input-group-addon">to</div>
+              <input type="text" class="form-control" name="to_date" id="to_date" placeholder="Pâna pe data...">
+          </div>
+        </div>
 
-  <div class="col-md-2">
-  <input type="text" name="from_date" id="from_date" class="form-control" placeholder="De pe data..."/>
-</div>
-  <div class="col-md-2">
-  <input type="text" name="to_date" id="to_date" class="form-control" placeholder="Pâna pe data..."/>
-</div>
   <div class="col-md-2">
   <input type="button" name="range" id="range" value="Vizualizare" class="btn btn-success"/>
   <input type="button" name="reset" id="reset" value="Reset" class="btn btn-success"/>
