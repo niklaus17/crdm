@@ -1,0 +1,41 @@
+
+  /* Remove the navbar's default margin-bottom and rounded borders */
+  .navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+  .loginform {
+    padding: 25px;
+  }
+
+  .img-responsive {
+    width:100%
+  }
+
+    .wrapper {
+        width: auto;
+        margin: auto;
+    }
+
+    .page-header h2{
+        margin-top: 0;
+}
+
+ .glyphicon {
+   margin: 0 5px;
+}
+
+
+.rotate {
+  text-align: center;
+  white-space: nowrap;
+  width: 1.3em;
+}
+.rotate div{
+transform: rotate(-90.0deg);
+}
+
+.progress {
+  margin-top: 10px;
+}
