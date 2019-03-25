@@ -121,12 +121,12 @@ include_once("db_connect.php");
 
   <div class="col-md-2">
   <input type="button" name="range" id="range" value="Vizualizare" class="btn btn-success"/>
-  <input type="button" name="reset" id="reset" value="Reset" class="btn btn-success"/>
+  <input type="button" name="reset" id="reset" value="Reset" class="btn btn-danger"/>
 </div>
 
   <div class="col-md-2">
        <div class="input-group">
-          <input class="form-control" id="myInput" type="text" placeholder="Search..">
+          <input class="form-control" id="myInput" type="text" placeholder="Caută...">
             <div class="input-group-btn">
                 <button class="btn btn-default" id="myInput" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </div>
@@ -147,7 +147,7 @@ include_once("db_connect.php");
 					<td>Secția</td>
 					<td>Nr. de blancuri</td>
 					<td>Utilizator</td>
-					<td>Editeaza / Sterge</td>
+					<td>Editează / Șterge</td>
     	</tr>
       <?php
           $count=1;
