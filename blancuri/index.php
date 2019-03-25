@@ -10,7 +10,7 @@ include_once("db_connect.php");
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"/>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
-<title>Adaugă conținut</title>
+<title>CRDM - Blancuri</title>
 
 <body>
 
@@ -373,7 +373,7 @@ $(document).ready(function(){
 });
 </script>
 
-
+<!-- Paginarea in tabel -->
 <script>
 getPagination('#table-id');
 //getPagination('.table-class');
