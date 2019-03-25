@@ -294,7 +294,7 @@ include_once("db_connect.php");
   		</div>
   		<div class="modal-footer">
       <button type="submit" name="btn-update" id="update" class="btn btn-primary">Editati</button>
-  		 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>       
+  		 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
        </form>
   		</div>
   	 </div>
@@ -453,7 +453,6 @@ $(this).hide();
     // END OF PAGINATION
 }
 
-
 $(function(){
 // Just to append id number for each row
 $('table tr:eq(0)').prepend('<th> Nr. </th>')
@@ -465,8 +464,5 @@ id++
 $(this).prepend('<td>'+id+'</td>');
 });
 })
-
 </script>
-
-
 </body>
