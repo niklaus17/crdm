@@ -139,7 +139,7 @@ include_once("db_connect.php");
 	</div><br>
 
 		<table class="table table-bordered table-striped" id= "table-id">
-
+      <thead>
     	<tr class="success " style="font-weight:bold">
 
 					<td>Data</td>
@@ -167,12 +167,13 @@ include_once("db_connect.php");
           while($row = mysqli_fetch_array ($result_set) )
           {
       ?>
+    </thead>
 <tbody id="myTable">
     <tr>
 				<td><?= $row['day'] ?></td>
 				<td><?= $row['model'] ?></td>
 				<td><?= $row['section'] ?></td>
-				<td><?= $row['number'] ?> - (<?= $row['tip'] ?>)</td>
+				<td><?= $row['number'] ?> - ( <?= $row['tip'] ?> )</td>
 				<td><?= $row['name'] ?></td>
 				<td>
 							<?php if (isset($_SESSION['userid'])) { ?>
@@ -205,9 +206,9 @@ include_once("db_connect.php");
 	</div><!-- /.modal -->
   <?php 	} ?>
 	<!-- /END .modal-For Delete file insert-->
-
+</tbody>
     </table>
-    </tbody>
+
 
     <!--		Start Pagination -->
 			<div class='pagination-container' >
