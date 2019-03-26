@@ -7,7 +7,7 @@ include_once("db_connect.php");
 if(isset($_POST["login"])) {
 	$email=$_POST["email"];
 	$password=$_POST["password"];
-	$sql_query="SELECT id, email, password, first_name, last_name FROM user WHERE email='$email' AND password='$password'";
+	$sql_query="SELECT id, email, password, first_name, last_name FROM user WHERE email='$email' AND password=md5('$password')";
 	$resultset = mysqli_query($conn, $sql_query) or die("database error:". mysqli_error($conn));
 	$row=mysqli_fetch_array($resultset);
 	if(mysqli_num_rows($resultset)>0) {
