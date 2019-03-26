@@ -79,7 +79,6 @@ INSERT INTO `user` (`id`, `email`, `password`, `first_name`, `last_name`) VALUES
 --
 -- Индексы сохранённых таблиц
 --
-
 --
 -- Индексы таблицы `user`
 --
