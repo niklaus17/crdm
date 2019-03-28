@@ -121,7 +121,9 @@ include_once("db_connect.php");
 
   <div class="col-md-2">
   <input type="button" name="range" id="range" value="Vizualizare" class="btn btn-success"/>
-  <input type="button" name="reset" id="reset" value="Reset" class="btn btn-danger"/>
+  <button type="submit" id="pdf" name="generate_pdf" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i>
+  Raport PDF</button>
+
 </div>
 
   <div class="col-md-2">
@@ -145,13 +147,15 @@ include_once("db_connect.php");
 					<td>Data</td>
 					<td>Modelul blancului</td>
 					<td>Secția</td>
-					<td>Nr. de blancuri</td>
+					<td>Nr. de blancuri / formatul</td>
 					<td>Utilizator</td>
 					<td>Editează / Șterge</td>
     	</tr>
       <?php
           $count=1;
           if(isset($_COOKIE['from_date']) && isset($_COOKIE['to_date'])) {
+            $_POST['from_date'] = $_COOKIE['from_date'];
+            $_POST['to_date'] = $_COOKIE['to_date'];
             $sql="SELECT * FROM blancuri where day BETWEEN '" . $_COOKIE["from_date"] . "' AND '".$_COOKIE["to_date"]."'";
           } else {
             $sql="SELECT * FROM blancuri order by id DESC";
@@ -297,7 +301,6 @@ include_once("db_connect.php");
   </div>
   <?php 	} ?>
 
-
 <!-- Confirm pentru delete modal -->
 <script>
 		$('.confirm-delete').on('click', function(e) {
@@ -317,6 +320,18 @@ $(document).ready(function(){
 		$("#from_date").datepicker();
 		$("#to_date").datepicker();
 	});
+
+
+  $('#pdf').click(function () {
+    url = '';
+      <?php if(isset($_POST['from_date'])) {?>
+          url = `generate_pdf.php?from_date=<?=$_POST['from_date']?>\&to_date=<?=$_POST['to_date']?>`;
+        <?php } else {?>
+          url = `generate_pdf.php`;
+        <?php } ?>
+        window.open(url, '_blank');
+  })
+
   $('#range').click(function(){
 		var from_date = $('#from_date').val();
 		var to_date = $('#to_date').val();
@@ -328,7 +343,7 @@ $(document).ready(function(){
 		}
 		else
 		{
-			alert("Please Select the Date");
+			alert("Selectați data!");
 		}
 	});
 });
@@ -371,35 +386,22 @@ $(document).ready(function(){
 <!-- Paginarea in tabel -->
 <script>
 getPagination('#table-id');
-//getPagination('.table-class');
-//getPagination('table');
-
 function getPagination (table){
-
 var lastPage = 1 ;
-
 $('#maxRows').on('change',function(evt){
-//$('.paginationprev').html('');						// reset pagination
-
-
 lastPage = 1 ;
 $('.pagination').find("li").slice(1, -1).remove();
 var trnum = 0 ;									// reset tr counter
 var maxRows = parseInt($(this).val());			// get Max Rows from select option
-
 if(maxRows == 5000 ){
-
 $('.pagination').hide();
 }else {
-
 $('.pagination').show();
 }
-
 var totalRows = $(table+' tbody tr').length;		// numbers of rows
 $(table+' tr:gt(0)').each(function(){			// each TR in  table and not the header
 trnum++;									// Start Counter
 if (trnum > maxRows ){						// if tr number gt maxRows
-
 $(this).hide();							// fade it out
 }if (trnum <= maxRows ){$(this).show();}// else fade in Important in case if it ..
 });											//  was fade out to fade it in
@@ -417,9 +419,7 @@ $('.pagination li').on('click',function(evt){		// on click each page
 evt.stopImmediatePropagation();
 evt.preventDefault();
 var pageNum = $(this).attr('data-page');	// get it's number
-
 var maxRows = parseInt($('#maxRows').val());			// get Max Rows from select option
-
 if(pageNum == "prev" ){
 if(lastPage == 1 ){return;}
 pageNum  = --lastPage ;
@@ -428,7 +428,6 @@ if(pageNum == "next" ){
 if(lastPage == ($('.pagination li').length -2) ){return;}
 pageNum  = ++lastPage ;
 }
-
 lastPage = pageNum ;
 var trIndex = 0 ;							// reset tr counter
 $('.pagination li').removeClass('active');	// remove active class from all li
@@ -447,17 +446,16 @@ $(this).hide();
             // end of on select change
     // END OF PAGINATION
 }
-
 $(function(){
 // Just to append id number for each row
 $('table tr:eq(0)').prepend('<th> Nr. </th>')
-
 var id = 0;
-
 $('table tr:gt(0)').each(function(){
 id++
 $(this).prepend('<td>'+id+'</td>');
 });
 })
 </script>
+
+
 </body>
