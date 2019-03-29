@@ -9,12 +9,15 @@ class PDF extends FPDF
 function Header()
 {
     // Logo
-    $this->Image('img/logo_dark.png',10,12,70);
+    $this->Image('img/logo_dark.png',10,9,70);
     $this->SetFont('Arial','B',12);
     // Move to the right
-    $this->Cell(110);
+    $this->Cell(92);
     // Title
-    $this->Cell(82,8,'Raport pentru blancuri tiparite',1,0,'C');
+    $this->Cell(50,6,'Blancuri tiparite de pe: ',0,0,'C');
+    $this->SetTextColor(255,102,102);
+    $this->Cell(25,6,$_GET['from_date'],1);
+    $this->Cell(25,6,$_GET['to_date'],1);
     // Line break
     $this->Ln(15);
 }
@@ -28,6 +31,7 @@ function Footer()
     $this->SetFont('Arial','I',8);
     // Page number
     $this->Cell(0,10,'Pagina '.$this->PageNo().'/{nb}',0,0,'C');
+
 }
 }
 
@@ -71,6 +75,18 @@ $pdf->Cell(35,8,substr($row['section'], 0, 15) . '...',1);
 $pdf->Cell(20,8,$row['number'],1, null, 'C');
 $pdf->Cell(15,8,$row['tip'],1, null, 'C');
 $pdf->Cell(30,8,$row['name'],1,);
+
 }
+
+
+
+
+    $pdf->Ln(20);
+    $pdf->Cell(30,6,'Total cantitatea: ',0,0,'C');
+    $pdf->SetTextColor(255,102,102);
+    $pdf->Cell(15,6,$row['number'],1, null, 'C');
+    $pdf->Cell(15,6,$row['tip'],1, null, 'C');
+
 $pdf->Output();
+
 ?>

@@ -19,7 +19,7 @@ if(isset($_POST["login"])) {
 	mysqli_close($conn);
 }
 if (isset($_SESSION['userid'])) {
-	echo "<script>window.open('index.php');</script>";
+	echo "<script>window.open('blancuri.php');</script>";
 }
 
 
@@ -41,8 +41,10 @@ if (isset($_SESSION['userid'])) {
 						<input type="password" name="password" placeholder="Your Password" required class="form-control" />
 					</div>
 					<div class="form-group">
-						<input type="submit" name="login" value="Login" class="btn btn-dark" />
+						<input type="submit" name="login" value="Login" class="btn btn-success" />
+						<a href="index.php" class="btn btn-danger" role="button">Cancel</a>
 					</div>
+
 				</fieldset>
 			</form>
 	</div>
