@@ -11,6 +11,14 @@
       </a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
+      <?php if (isset($_SESSION['userid'])) { ?>
+      <ul class="nav navbar-nav">
+        <li><a href="blancuri.php">Blancuri</a></li>
+        <li><a href="section.php">Add section</a></li>
+        <li><a href="type.php">Add type</a></li>
+<?php } else { ?>
+  <?php } ?>
+      </ul>
 
       <ul class="nav navbar-nav navbar-right">
 

@@ -1,10 +1,12 @@
 <?php
 session_start();
 include('header.php');
+include('navbar.php');
+include_once("db_connect.php");
 ?>
 
 <title>CRDM</title>
-<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+
 <style>
             html, body {
                 background-color: #fff;
@@ -58,43 +60,26 @@ include('header.php');
             }
         </style>
 <body>
-        <div class="flex-center position-ref full-height">
-                            <div class="top-right links">
-                                            <a href="login.php">Login</a>
+  <div class="flex-center position-ref full-height">
+    <div class="top-right links">
+      <!-- <a href="login.php">Login</a> -->
+    </div>
 
-                                    </div>
+    <div class="content">
+      <div class="title m-b-md crdm">Centrul Republican de Diagnosticare Medicala</div>
+    </div>
+  </div>
 
-            <div class="content">
-                <div class="title m-b-md crdm">Centrul Republican de Diagnosticare Medicala</div>
-
-
-            </div>
-        </div>
-        <script type="text/javascript">
-
-        window.addEventListener('load', changeHeader);
-          window.addEventListener('resize', changeHeader);
-
-          function changeHeader() {
-            if(window.innerWidth < 620) {
-              document.querySelector('.crdm').innerText = 'CRDM';
+  <script type="text/javascript">
+    window.addEventListener('load', changeHeader);
+    window.addEventListener('resize', changeHeader);
+      function changeHeader() {
+        if(window.innerWidth < 620) {
+            document.querySelector('.crdm').innerText = 'CRDM';
             } else {
               document.querySelector('.crdm').innerText = 'Centrul Republican de Diagnosticare Medicala';
             }
           }
-        </script>
+  </script>
 
-        <script type="text/javascript">
-
-                window.addEventListener('load', changeHeader);
-                  window.addEventListener('resize', changeHeader);
-
-                  function changeHeader() {
-                    if(window.innerWidth < 620) {
-                      document.querySelector('.crdm').innerText = 'CRDM';
-                    } else {
-                      document.querySelector('.crdm').innerText = 'Centrul Republican de Diagnosticare Medicala';
-                    }
-                  }
-                </script>
 </body>

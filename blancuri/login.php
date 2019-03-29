@@ -19,7 +19,8 @@ if(isset($_POST["login"])) {
 	mysqli_close($conn);
 }
 if (isset($_SESSION['userid'])) {
-	echo "<script>window.open('blancuri.php');</script>";
+	// echo "<script>window.open('blancuri.php');</script>";
+	header("location: blancuri.php");
 }
 
 
