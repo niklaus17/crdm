@@ -13,15 +13,16 @@ if(isset($_POST["login"])) {
 	if(mysqli_num_rows($resultset)>0) {
 		$_SESSION["userid"]=$row["id"];
 		$_SESSION["name"]=$row["first_name"]." ".$row["last_name"];
-		header("location: user.php");
 	} else {
 		echo "Login details not correct! Please try again.";
 	}
 	mysqli_close($conn);
 }
 if (isset($_SESSION['userid'])) {
-	header("location: index.php");
+	echo "<script>window.open('index.php');</script>";
 }
+
+
 ?>
 
 <title>Please Login</title>

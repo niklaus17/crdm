@@ -14,7 +14,7 @@ function Header()
     // Move to the right
     $this->Cell(110);
     // Title
-    $this->Cell(80,8,'Raport pentru blancuri tiparite',1,0,'C');
+    $this->Cell(82,8,'Raport pentru blancuri tiparite',1,0,'C');
     // Line break
     $this->Ln(15);
 }
@@ -55,7 +55,7 @@ $pdf->SetFont('Arial','B',10);
 $pdf->SetFillColor(204,255,204);
 $pdf->Cell(10,8,$display_heading['id'],1, null, 'C', true);
 $pdf->Cell(25,8,$display_heading['day'],1, null, 'C', true);
-$pdf->Cell(55,8,$display_heading['model'],1, null, 'C', true);
+$pdf->Cell(57,8,$display_heading['model'],1, null, 'C', true);
 $pdf->Cell(35,8,$display_heading['section'],1, null, 'C', true);
 $pdf->Cell(20,8,$display_heading['number'],1, null, 'C', true);
 $pdf->Cell(15,8,$display_heading['tip'],1, null, 'C', true);
@@ -66,7 +66,7 @@ foreach($result as $row) {
 $pdf->Ln();
 $pdf->Cell(10,8,$row['id'],1, null, 'C');
 $pdf->Cell(25,8,$row['day'],1, null, 'C');
-$pdf->Cell(55,8,$row['model'],1);
+$pdf->Cell(57,8,$row['model'],1);
 $pdf->Cell(35,8,substr($row['section'], 0, 15) . '...',1);
 $pdf->Cell(20,8,$row['number'],1, null, 'C');
 $pdf->Cell(15,8,$row['tip'],1, null, 'C');

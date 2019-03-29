@@ -442,7 +442,7 @@ $(this).hide();
 }); 										// end of for each tr in table
 });										// end of on click pagination list
 
-}).val(10).change();
+}).val(15).change();
             // end of on select change
     // END OF PAGINATION
 }
