@@ -77,19 +77,19 @@ $pdf->Cell(15,8,$row['tip'],1, null, 'C');
 $pdf->Cell(30,8,$row['name'],1,);
 
 }
-
-    $pdf->Ln(20);
-    $pdf->Cell(30,6,'Total cantitatea: ',0,'C');
-    $pdf->SetTextColor(255,102,102);
-    $pdf->Cell(15,6,$row['number'],1, null, 'C');
-    $pdf->Cell(15,6,$row['tip'],1, null, 'C');
-
-    $pdf->Ln(10);
-
-    $pdf->Cell(30,6,'Total cantitatea: ',0,'C');
-    $pdf->SetTextColor(255,102,102);
-    $pdf->Cell(15,6,$row['number'],1, null, 'C');
-    $pdf->Cell(15,6,$row['tip'],1, null, 'C');
+    //
+    // $pdf->Ln(20);
+    // $pdf->Cell(30,6,'Total cantitatea: ',0,'C');
+    // $pdf->SetTextColor(255,102,102);
+    // $pdf->Cell(15,6,$row['number'],1, null, 'C');
+    // $pdf->Cell(15,6,$row['tip'],1, null, 'C');
+    //
+    // $pdf->Ln(10);
+    //
+    // $pdf->Cell(30,6,'Total cantitatea: ',0,'C');
+    // $pdf->SetTextColor(255,102,102);
+    // $pdf->Cell(15,6,$row['number'],1, null, 'C');
+    // $pdf->Cell(15,6,$row['tip'],1, null, 'C');
 
 $pdf->Output();
 

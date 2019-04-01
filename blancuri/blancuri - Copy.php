@@ -62,14 +62,13 @@ include_once("db_connect.php");
                 <div class="col-sm-4">
                         <select class="form-control" id="tip" name="tip" required>
                             <option value="">SELECT</option>
-                            <?php
-                                $sql="SELECT * FROM tipul";
-                                $result_set=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
-                                while($row = mysqli_fetch_array ($result_set) )
-                                {
-                                  echo "<option value=\"" . $row['id'] . "\">" . $row['format'] ."</option>";
-                                }
-                            ?>
+                            <option value="A4">A4</option>
+                            <option value="A5">A5</option>
+                            <option value="A3">A3</option>
+                            <option value="Plic_CD">Plicuri CD</option>
+                            <option value="Plic_C5">Plicuri C5</option>
+                            <option value="Plic_C6">Plicuri C6</option>
+                            <option value="Plic_DL">Plicuri DL</option>
                         </select>
                       </div> <br><br>
 
