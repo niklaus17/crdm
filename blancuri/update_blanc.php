@@ -17,5 +17,5 @@ if(isset($_POST['btn-update']))
   mysqli_query($conn, $query) or die("database error: ". mysqli_error($conn));
  }
 
-   header('Location:  index.php');
+   header('Location:  blancuri.php');
  ?>

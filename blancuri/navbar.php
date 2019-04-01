@@ -16,7 +16,7 @@
         <li><a href="blancuri.php">Blancuri</a></li>
         <li><a href="section.php">Add section</a></li>
         <li><a href="type.php">Add type</a></li>
-<?php } else { ?>
+      <?php } else { ?>
   <?php } ?>
       </ul>
 

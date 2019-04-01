@@ -60,13 +60,11 @@ include_once("db_connect.php");
             }
         </style>
 <body>
+
   <div class="flex-center position-ref full-height">
-    <div class="top-right links">
-      <!-- <a href="login.php">Login</a> -->
-    </div>
 
     <div class="content">
-      <div class="title m-b-md crdm">Centrul Republican de Diagnosticare Medicala</div>
+      <div class="title m-b-md crdm">Centrul Republican de Diagnosticare Medicală</div>
     </div>
   </div>
 
@@ -77,7 +75,7 @@ include_once("db_connect.php");
         if(window.innerWidth < 620) {
             document.querySelector('.crdm').innerText = 'CRDM';
             } else {
-              document.querySelector('.crdm').innerText = 'Centrul Republican de Diagnosticare Medicala';
+              document.querySelector('.crdm').innerText = 'Centrul Republican de Diagnosticare Medicală';
             }
           }
   </script>

@@ -18,5 +18,5 @@ if(isset($_POST['btn-upload']))
  }
  ?>
  <script>
- 		window.location.href='index.php';
+ 		window.location.href='blancuri.php';
  		</script>

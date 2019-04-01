@@ -82,16 +82,7 @@ include_once("db_connect.php");
 	</div>
 </div>
 
-		 <?php
-		}
-	else {
-			?>
-					<h3 class="jumbotron text-center"><a href="login.php"> Va rugam sa va logati ...</a></h3>
-			<?php  }
-			 if(isset($_GET['fail']))
-			{
-				?>
-		  <?php		}		?>
+
 
 
 <div class="col-sm-12 text-center">
@@ -300,6 +291,17 @@ include_once("db_connect.php");
   	</div>
   </div>
   <?php 	} ?>
+
+  <?php
+ }
+else {
+   ?>
+       <h3 class="jumbotron text-center"><a href="login.php"> Va rugam sa va logati ...</a></h3>
+   <?php  }
+    if(isset($_GET['fail']))
+   {
+     ?>
+   <?php		}		?>
 
 <!-- Confirm pentru delete modal -->
 <script>
