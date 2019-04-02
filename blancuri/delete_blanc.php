@@ -8,6 +8,6 @@ include_once("db_connect.php");
 
 
 
-    header('Location:index.php');
+    header('Location:blancuri.php');
 
 ?>

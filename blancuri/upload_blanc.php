@@ -8,11 +8,12 @@ if(isset($_POST['btn-upload']))
   $id = $_POST['id'];
  	$day = $_POST['day'];
 	$model = $_POST["model"];
-  $section = $_POST["section"];
+  $section_id = $_POST["section_id"];
   $number = $_POST["number"];
-  $tip = $_POST["tip"];
+  $tip_id = $_POST["tip_id"];
   $name = $_SESSION['name'];
- 	$sql="INSERT INTO blancuri(day, model, section, number, tip, name) VALUES( '$day', '$model', '$section', '$number', '$tip', '$name')";
+
+ 	$sql="INSERT INTO blancuri(day, model, section_id, number, tip_id, name) VALUES( '$day', '$model', '$section_id', '$number', '$tip_id', '$name')";
 
  	mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
  }

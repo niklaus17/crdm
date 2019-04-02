@@ -37,22 +37,17 @@ include_once("db_connect.php");
 
 			<label>Alege-ți secția</label>
 			<input type="hidden" name="id" id="id" value="">
-			<select name="section" id="section" class="form-control" required>
-			<option value="">SELECT</option>
-      <option value="LCD Laboratorul de Diagnostic Clinic">LCD Laboratorul de Diagnostic Clinic</option>
-			<option value="USG Sectia Ultrasonografie Generala">USG Secţia Ultrasonografie Generală</option>
-      <option value="RTC Sectia Radiologie si tomografie computerizata">RTC Secţia Radiologie si tomografie computerizata</option>
-			<option value="DF Sectia Diagnostic Functional">DF Secţia Diagnostic Funcțional</option>
-			<option value="ESVM Sectia Ecocardiografie si Studiul Vaselor Magistrale">ESVM Secţia Ecocardiografie și Studiul Vaselor Magistrale</option>
-			<option value="LMN Laboratorul Medicina Nucleara">LMN Laboratorul Medicină Nucleară</option>
-      <option value="IRM Imagistica prin rezonanta magnetica">IRM Imagistică prin rezonanță magnetică</option>
-      <option value="SMEI Monitorizare, Evaluare si Integrare">SMEI Monitorizare, Evaluare și Integrare</option>
-      <option value="IT Tehnologii Informationale">Tehnologii Informaționale</option>
-      <option value="Resurse Umane">Resurse Umane</option>
-      <option value="Administratia">Administraţia</option>
-      <option value="Consultativa">Consultaivă</option>
-      <option value="Endoscopie">Endoscopie</option>
-			</select><br>
+			<select name="section_id" id="section_id" class="form-control" required>
+            <option value="">SELECT</option>
+            <?php
+                $sql="SELECT * FROM sectie";
+                $result_set=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
+                while($row = mysqli_fetch_array ($result_set) )
+                {
+                  echo "<option value=\"" . $row['id'] . "\">" . $row['section'] ."</option>";
+                }
+            ?>
+      </select><br>
 
 			<label class="col-sm-2">Nr. de blancuri:</label>
       <div class="col-sm-4">
@@ -60,7 +55,7 @@ include_once("db_connect.php");
       </div>
               <label class="col-sm-2">Tipul de hirtie</label>
                 <div class="col-sm-4">
-                        <select class="form-control" id="tip" name="tip" required>
+                        <select class="form-control" id="tip_id" name="tip_id" required>
                             <option value="">SELECT</option>
                             <?php
                                 $sql="SELECT * FROM tipul";
@@ -168,8 +163,22 @@ include_once("db_connect.php");
     <tr>
 				<td><?= $row['day'] ?></td>
 				<td><?= $row['model'] ?></td>
-				<td><?= $row['section'] ?></td>
-				<td><?= $row['number'] ?> - ( <?= $row['tip'] ?> )</td>
+				<td>
+          <?php
+          $section_id = $row['section_id'];
+          $section_query = "SELECT  section from sectie where id = " . $section_id;
+          $result = mysqli_query($conn, $section_query) or die(mysqli_error($conn));
+          $section_name = mysqli_fetch_assoc($result)['section'];
+          echo $section_name;
+          ?>
+         </td>
+				<td><?= $row['number'] ?> - ( <?php
+          $type_id =  $row['tip_id'];
+          $type_query = "SELECT  format from tipul where id = " . $type_id;
+          $result = mysqli_query($conn, $type_query)  or die(mysqli_error($conn));
+          $type_name = mysqli_fetch_assoc($result)['format'];
+          echo $type_name;
+        ?> )</td>
 				<td><?= $row['name'] ?></td>
 				<td>
 							<?php if (isset($_SESSION['userid'])) { ?>
@@ -191,7 +200,7 @@ include_once("db_connect.php");
 			<h4 class="modal-title">Confirmă ștergera</h4>
 		  </div>
 		  <div class="modal-body">
-			<p>Șterge <?php echo '<span class="text-danger" >' . $row["model"] . ' ' . $row["section"] . '</span> '; ?></p>
+			<p>Șterge <?php echo '<span class="text-danger" >' . $row["model"] . ' ' . $row["section_id"] . '</span> '; ?></p>
 		  </div>
 		  <div class="modal-footer">
 			 <a class="btn btn-danger" href="delete_blanc.php?id=<?php echo $row['id'] ?>">Confirmă</a>
@@ -242,21 +251,16 @@ include_once("db_connect.php");
   			<input type="text" name="model" id="model" class="form-control" required><br>
   			<label>Alege-ți secția</label>
   			<input type="hidden" name="id" id="edit-id">
-  			<select name="section" id="section" class="form-control">
-  			<option value="">SELECT</option>
-        <option value="LCD Laboratorul de Diagnostic Clinic">LCD Laboratorul de Diagnostic Clinic</option>
-  			<option value="USG Sectia Ultrasonografie Generala">USG Secţia Ultrasonografie Generală</option>
-        <option value="RTC Sectia Radiologie si tomografie computerizata">RTC Secţia Radiologie si tomografie computerizata</option>
-  			<option value="DF Sectia Diagnostic Functional">DF Secţia Diagnostic Funcțional</option>
-  			<option value="ESVM Sectia Ecocardiografie si Studiul Vaselor Magistrale">ESVM Secţia Ecocardiografie și Studiul Vaselor Magistrale</option>
-  			<option value="LMN Laboratorul Medicina Nucleara">LMN Laboratorul Medicină Nucleară</option>
-        <option value="IRM Imagistica prin rezonanta magnetica">IRM Imagistică prin rezonanță magnetică</option>
-        <option value="SMEI Monitorizare, Evaluare si Integrare">SMEI Monitorizare, Evaluare și Integrare</option>
-        <option value="IT Tehnologii Informationale">Tehnologii Informaționale</option>
-        <option value="Resurse Umane">Resurse Umane</option>
-        <option value="Administratia">Administraţia</option>
-        <option value="Consultativa">Consultaivă</option>
-        <option value="Endoscopie">Endoscopie</option>
+  			<select name="section_id" id="section_id" class="form-control">
+        <option value="">SELECT</option>
+        <?php
+            $sql="SELECT * FROM sectie";
+            $result_set=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
+            while($row = mysqli_fetch_array ($result_set) )
+            {
+              echo "<option value=\"" . $row['id'] . "\">" . $row['section'] ."</option>";
+            }
+        ?>
   			</select>
         <br>
 
@@ -267,15 +271,16 @@ include_once("db_connect.php");
 
         <label class="col-sm-2">Tipul de hirtie</label>
         <div class="col-sm-4">
-            <select class="form-control" id="tip" name="tip" required>
-                <option value="">SELECT</option>
-                <option value="A4">A4</option>
-                <option value="A5">A5</option>
-                <option value="A3">A3</option>
-                <option value="Plic_CD">Plicuri CD</option>
-                <option value="Plic_C5">Plicuri C5</option>
-                <option value="Plic_C6">Plicuri C6</option>
-                <option value="Plic_DL">Plicuri DL</option>
+            <select class="form-control" id="tip_id" name="tip_id" required>
+              <option value="">SELECT</option>
+              <?php
+                  $sql="SELECT * FROM tipul";
+                  $result_set=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
+                  while($row = mysqli_fetch_array ($result_set) )
+                  {
+                    echo "<option value=\"" . $row['id'] . "\">" . $row['format'] ."</option>";
+                  }
+              ?>
             </select>
           </div>
 
@@ -366,10 +371,10 @@ $('#reset').click( function() {
       $("#edit-id").val(data[0].id);
       $("#day").val(data[0].day);
       $("#model").val(data[0].model);
-      $(`#section option[value="${data[0].section}"]`).attr('selected', 'selected');
+      $(`#section_id option[value="${data[0].section_id}"]`).attr('selected', 'selected');
       $("#number").val(data[0].number);
-      $(`#tip option[value="${data[0].tip}"]`).attr('selected','selected');
-      $("#name").val(data[0].tip);
+      $(`#tip_id option[value="${data[0].tip_id}"]`).attr('selected','selected');
+      $("#name").val(data[0].name);
     });
   });
 </script>

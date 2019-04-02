@@ -14,18 +14,18 @@ while($row = mysqli_fetch_array($result)){
     $id = $row['id'];
     $day = $row['day'];
     $model = $row['model'];
-    $section = $row['section'];
+    $section_id = $row['section_id'];
     $number = $row['number'];
-    $tip = $row['tip'];
+    $tip_id = $row['tip_id'];
     $name = $row['name'];
 
     array_push($return_arr, array(
       "id" => $id,
       "day" => $day,
       "model" => $model,
-			'section' => $section,
+			'section_id' => $section_id,
 			'number' => $number,
-      'tip' => $tip,
+      'tip_id' => $tip_id,
       "name" => $name,
 			));
 }

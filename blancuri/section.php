@@ -25,7 +25,7 @@ include_once("db_connect.php");
 		<div class="modal-body">
 			<form action="upload_sectie.php" method="post" enctype="multipart/form-data" id="insert_form">
 
-			<label>Sectia</label>
+			<label>Secția</label>
 			<input type="text" name="section" class="form-control" required><br>
 
 		</div>
@@ -42,7 +42,7 @@ include_once("db_connect.php");
 <div class="col-sm-6 text-center">
 
 	<div align="right">
-  <button type="button" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Adăugați formatul</button>
+  <button type="button" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Adăugați secția</button>
 	</div><br>
 
 		<table class="table table-bordered table-striped">
@@ -50,7 +50,7 @@ include_once("db_connect.php");
     	<tr class="success " style="font-weight:bold">
 
         <td>Nr.</td>
-        <td>Sectia</td>
+        <td>Secția</td>
         <td>Editează / Șterge</td>
         </tr>
 
@@ -105,7 +105,7 @@ include_once("db_connect.php");
               		<div class="modal-body">
               			<form action="update_sectie.php" method="post" enctype="multipart/form-data" id="edit_form">
 
-              			<label>Modelul blancului:</label>
+              			<label>Secția</label>
                     <input type="hidden" name="id" value="<?=$row['id']?>">
               			<input type="text" name="section"  class="form-control" required><br>
               		</div>
