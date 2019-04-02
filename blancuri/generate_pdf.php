@@ -3,6 +3,22 @@
 include_once("db_connect.php");
 include_once('fpdf.php');
 
+$from_date = '';
+$to_date = '';
+
+if(isset($_GET['from_date']) && isset($_GET['to_date'])) {
+  $from_date = $_GET['from_date'];
+  $to_date = $_GET['to_date'];
+} else {
+  $dates_query = "SELECT MIN(day) as from_date from blancuri";
+  $result = mysqli_query($conn, $dates_query)  or die(mysqli_error($conn));
+  $from_date = mysqli_fetch_assoc($result)['from_date'];
+
+  $dates_query = "SELECT MAX(day) as to_date from blancuri";
+  $result = mysqli_query($conn, $dates_query)  or die(mysqli_error($conn));
+  $to_date =  mysqli_fetch_assoc($result)['to_date'];
+}
+
 class PDF extends FPDF
 {
 // Page header
@@ -16,8 +32,13 @@ function Header()
     // Title
     $this->Cell(50,6,'Blancuri tiparite de pe: ',0,0,'C');
     $this->SetTextColor(255,102,102);
-    // $this->Cell(25,6,$_GET['from_date'],1);
-    // $this->Cell(25,6,$_GET['to_date'],1);
+
+
+    global $from_date, $to_date;
+
+
+    $this->Cell(25,6,$from_date,1);
+    $this->Cell(25,6,$to_date,1);
     // Line break
     $this->Ln(15);
 }
@@ -39,13 +60,8 @@ function Footer()
 
 $display_heading = array('id'=>'Nr.', 'day'=> 'Data', 'model'=> 'Modelul blancului','section_id'=> 'Sectia','number'=> 'Cantitate','tip_id'=> 'Tip','name'=> 'Utilizatorul',);
 
-if(isset($_GET['from_date']) && isset($_GET['to_date'])) {
-  $result = mysqli_query($conn, "SELECT id, day, model, section_id, number, tip_id, name FROM blancuri WHERE day BETWEEN '" . $_GET["from_date"] . "' AND  '" . $_GET["to_date"] . "'") or die("database error:". mysqli_error($connString));
+$result = mysqli_query($conn, "SELECT id, day, model, section_id, number, tip_id, name FROM blancuri WHERE day BETWEEN '" . $from_date . "' AND  '" . $to_date . "'") or die("database error:". mysqli_error($connString));
 
-} else {
-  $result = mysqli_query($conn, "SELECT id, day, model, section_id, number, tip_id, name FROM blancuri") or die("database error:". mysqli_error($connString));
-
-}
 
 $header = mysqli_query($conn, "SHOW columns FROM blancuri");
 
@@ -93,7 +109,7 @@ $pdf->Cell(30,8,$row['name'],1,);
 }
 
 $pdf->Ln(20);
-$count_query = "SELECT SUM(number) as total, tip_id FROM blancuri GROUP BY tip_id";
+$count_query = "SELECT SUM(number) as total, tip_id FROM blancuri WHERE day BETWEEN '" . $from_date . "' AND  '" . $to_date . "' GROUP BY tip_id"  ;
 $result = mysqli_query($conn, $count_query)  or die(mysqli_error($conn));
 
 foreach($result as $row) {
