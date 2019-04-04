@@ -1,8 +1,6 @@
 <?php
-session_start();
 include('header.php');
 include('navbar.php');
-include_once("db_connect.php");
 ?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
@@ -14,7 +12,7 @@ include_once("db_connect.php");
 
 <body>
 
-<?php if (isset($_SESSION['userid'])) { ?>
+<?php if (isset($_SESSION['user'])) { ?>
 
 <!-- /.modal-For insert date -->
 
@@ -134,7 +132,7 @@ include_once("db_connect.php");
 					<td>Secția</td>
 					<td>Nr. de blancuri / formatul</td>
 					<td>Utilizator</td>
-					<td>Editează / Șterge</td>
+					<td>Acțiune</td>
     	</tr>
       <?php
           $count=1;
@@ -179,11 +177,14 @@ include_once("db_connect.php");
         ?> )</td>
 				<td><?= $row['name'] ?></td>
 				<td>
-							<?php if (isset($_SESSION['userid'])) { ?>
+							<?php if (isset($_SESSION['user'])) { ?>
 
             <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal">
     					<i class="glyphicon glyphicon-edit text-primary"></i>
-    				</a >
+    				</a ><?php		}		?>
+
+
+            <?php if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) { ?>
 						<a href="#" class="confirm-delete" data-id="<?php  echo $row["id"] ?>"><i class="glyphicon glyphicon-trash text-danger"></i></a>
 							<?php		}		?>
 			  </td>
@@ -232,7 +233,7 @@ include_once("db_connect.php");
 
 
 <!-- /.modal-For Update date -->
-<?php if (isset($_SESSION['userid'])) { ?>
+<?php if (isset($_SESSION['user'])) { ?>
 
   <div id="edit_data_Modal" class="modal fade">
    <div class="modal-dialog">

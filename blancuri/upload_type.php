@@ -1,12 +1,10 @@
 <?php
-session_start();
 
 include_once 'db_connect.php';
 if(isset($_POST['btn-upload']))
 {
-  $id = $_POST['id'];
   $format = $_POST["format"];
- 	$sql="INSERT INTO tipul (id, format) VALUES('$id', '$format')";
+ 	$sql="INSERT INTO tipul (format) VALUES('$format')";
 
  	mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
  }

@@ -1,52 +1,41 @@
 <?php
-session_start();
 include('header.php');
-include_once("db_connect.php");
-
-
-if(isset($_POST["login"])) {
-	$email=$_POST["email"];
-	$password=$_POST["password"];
-	$sql_query="SELECT id, email, password, first_name, last_name FROM user WHERE email='$email' AND password=md5('$password')";
-	$resultset = mysqli_query($conn, $sql_query) or die("database error:". mysqli_error($conn));
-	$row=mysqli_fetch_array($resultset);
-	if(mysqli_num_rows($resultset)>0) {
-		$_SESSION["userid"]=$row["id"];
-		$_SESSION["name"]=$row["first_name"]." ".$row["last_name"];
-	} else {
-		echo "Login details not correct! Please try again.";
-	}
-	mysqli_close($conn);
-}
-if (isset($_SESSION['userid'])) {
-	// echo "<script>window.open('blancuri.php');</script>";
-	header("location: index.php");
-}
-
-
+include('db_connect.php');
 ?>
 
-<title>Please Login</title>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration system PHP and MySQL</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
 
-<div class="container-fluid loginform">
-		<div class="col-md-4 col-md-offset-4 well">
-			<form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="loginform">
-				<fieldset>
-					<legend>Login</legend>
-					<div class="form-group">
-						<label for="name">Email</label>
-						<input type="text" name="email" placeholder="Your Email" required class="form-control" />
-					</div>
-					<div class="form-group">
-						<label for="name">Password</label>
-						<input type="password" name="password" placeholder="Your Password" required class="form-control" />
-					</div>
-					<div class="form-group">
-						<input type="submit" name="login" value="Login" class="btn btn-success" />
-						<a href="index.php" class="btn btn-danger" role="button">Cancel</a>
-					</div>
-
-				</fieldset>
-			</form>
+	<div class="header">
+		<h2>Login</h2>
 	</div>
-</div>
+
+	<form method="post" action="login.php">
+
+		<?php echo display_error();?>
+
+		<div class="input-group">
+	      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+	      <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+	    </div>
+	    <div class="input-group">
+	      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+	      <input id="password" type="password" class="form-control" name="password" placeholder="Parola">
+	    </div>
+
+		<div class="input-group">
+			<button type="submit" class="btn btn-success" name="login_btn">Login</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  <a href="index.php"><button type="button" class="btn btn-danger">Cancel</button></a>
+		</div>
+
+
+	</form>
+
+
+</body>
+</html>

@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('header.php');
 include('navbar.php');
 include_once("db_connect.php");
@@ -10,7 +9,7 @@ include_once("db_connect.php");
 
 <body>
 
-<?php if (isset($_SESSION['userid'])) { ?>
+<?php if (isset($_SESSION['user'])) { ?>
 
 <!-- /.modal-For insert date -->
 

@@ -11,7 +11,7 @@ if(isset($_POST['btn-update']))
   $section_id = $_POST["section_id"];
   $number = $_POST["number"];
   $tip_id = $_POST["tip_id"];
-  $name = $_SESSION['name'];
+  $name = $_SESSION['user']['username'];
   $query = "UPDATE blancuri SET day='$day', model='$model', section_id='$section_id', number='$number', tip_id='$tip_id', name='$name' where id='$id' ";
 
   mysqli_query($conn, $query) or die("database error: ". mysqli_error($conn));
