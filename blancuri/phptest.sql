@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 04 2019 г., 07:26
--- Версия сервера: 10.1.38-MariaDB
--- Версия PHP: 7.3.2
+-- Время создания: Апр 04 2019 г., 21:12
+-- Версия сервера: 10.1.37-MariaDB
+-- Версия PHP: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -46,7 +46,8 @@ INSERT INTO `blancuri` (`id`, `day`, `model`, `section_id`, `number`, `tip_id`, 
 (1, '2019-04-02', 'Arhitect', 1, 500, 1, 'niculita nicolae'),
 (2, '2019-04-10', 'hemoleucograma', 5, 100, 1, 'niculita nicolae'),
 (3, '2019-04-12', 'immulite', 5, 600, 3, 'niculita nicolae'),
-(4, '2019-04-09', 'hemoleucograma', 7, 34, 5, 'niculita nicolae');
+(18, '2019-04-11', 'wzdgvbmz', 10, 500, 2, 'nicolae'),
+(19, '2019-04-09', 'Arhitect', 11, 500, 2, 'valea');
 
 -- --------------------------------------------------------
 
@@ -81,65 +82,6 @@ INSERT INTO `sectie` (`id`, `section`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `sections`
---
-
-CREATE TABLE `sections` (
-  `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `cabinet` varchar(10) NOT NULL,
-  `percentage` int(11) NOT NULL,
-  `data_insert` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Дамп данных таблицы `sections`
---
-
-INSERT INTO `sections` (`id`, `name`, `cabinet`, `percentage`, `data_insert`) VALUES
-(1, 'usg', '214', 0, '2019-03-20'),
-(2, 'usg', '215', 0, '2019-01-28'),
-(3, 'usg', '216', 0, '2019-01-28'),
-(4, 'usg', '220', 0, '2019-01-28'),
-(5, 'usg', '222', 0, '2019-01-28'),
-(6, 'df', '312', 75, '2019-01-28'),
-(8, 'df', '323', 75, '2019-01-28'),
-(12, 'df', '316', 75, '2019-01-28'),
-(13, 'df', '324', 75, '2019-01-28'),
-(14, 'esvm', '617', 75, '2019-01-28'),
-(15, 'esvm', '618', 75, '2019-01-28'),
-(16, 'esvm', '624', 75, '2019-01-28'),
-(18, 'esvm', '619', 75, '2019-01-28'),
-(19, 'lcd', '11', 75, '2019-01-28'),
-(20, 'lcd', '20', 75, '2019-01-28'),
-(21, 'lmn', '002', 75, '2019-01-28'),
-(22, 'lmn', '011', 75, '2019-01-28');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `tbl_uploads`
---
-
-CREATE TABLE `tbl_uploads` (
-  `id` int(10) NOT NULL,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `file` varchar(100) NOT NULL,
-  `type` varchar(30) NOT NULL,
-  `size` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Дамп данных таблицы `tbl_uploads`
---
-
-INSERT INTO `tbl_uploads` (`id`, `first_name`, `last_name`, `file`, `type`, `size`) VALUES
-(5, '192.168.1.1', '230', '75270-printvsa.pdf', 'application/pdf', 33017);
-
--- --------------------------------------------------------
-
---
 -- Структура таблицы `tipul`
 --
 
@@ -169,19 +111,19 @@ INSERT INTO `tipul` (`id`, `format`) VALUES
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `first_name` varchar(100) NOT NULL,
-  `last_name` varchar(100) NOT NULL
+  `username` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `user_type` varchar(20) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Дамп данных таблицы `user`
 --
 
-INSERT INTO `user` (`id`, `email`, `password`, `first_name`, `last_name`) VALUES
-(1, 'erast@crdm.md', '77bf72cef38fefae6507bd5cfc71464b', 'stinca', 'erast\r\n'),
-(2, 'nicu@crdm.md', '098f6bcd4621d373cade4e832627b4f6', 'niculita', 'nicolae');
+INSERT INTO `user` (`id`, `username`, `email`, `user_type`, `password`) VALUES
+(1, 'nicolae', 'nicu@crdm.md', 'admin', '098f6bcd4621d373cade4e832627b4f6'),
+(6, 'valea', 'valentina.mihalco@gmail.com', 'user', 'c1eb7df636e486e7cd59c14b884d9881');
 
 --
 -- Индексы сохранённых таблиц
@@ -197,18 +139,6 @@ ALTER TABLE `blancuri`
 -- Индексы таблицы `sectie`
 --
 ALTER TABLE `sectie`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `sections`
---
-ALTER TABLE `sections`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `tbl_uploads`
---
-ALTER TABLE `tbl_uploads`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -231,31 +161,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT для таблицы `blancuri`
 --
 ALTER TABLE `blancuri`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT для таблицы `sectie`
 --
 ALTER TABLE `sectie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT для таблицы `sections`
---
-ALTER TABLE `sections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
---
--- AUTO_INCREMENT для таблицы `tbl_uploads`
---
-ALTER TABLE `tbl_uploads`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT для таблицы `tipul`
 --
 ALTER TABLE `tipul`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT для таблицы `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
