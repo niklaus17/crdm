@@ -85,7 +85,7 @@ include_once("db_connect.php");
 
   <div class="col-md-1 form-group"> 	<!--		Show Numbers Of Rows 		-->
 
-			 		<select class  ="form-control" name="state" id="maxRows">
+			 		<select class="form-control" name="state" id="maxRows">
 						 <option value="5000">Arata toate rândurile</option>
 						 <option value="5">5</option>
 						 <option value="10">10</option>
@@ -106,12 +106,10 @@ include_once("db_connect.php");
           </div>
         </div>
 
-  <div class="col-md-2">
-  <input type="button" name="range" id="range" value="Vizualizare" class="btn btn-success"/>
-  <button type="submit" id="pdf" name="generate_pdf" class="btn btn-primary"><i class="fa fa-pdf" aria-hidden="true"></i>
-  Raport PDF</button>
-
-</div>
+  <div class="col-md-3">
+    <input type="button" name="range" id="range" value="Vizualizare" class="btn btn-success"/>
+    <button type="submit" id="pdf" name="generate_pdf" class="btn btn-primary">Raport PDF</button>
+ </div>
 
   <div class="col-md-2">
        <div class="input-group">
