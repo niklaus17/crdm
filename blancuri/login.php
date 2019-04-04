@@ -20,7 +20,7 @@ if(isset($_POST["login"])) {
 }
 if (isset($_SESSION['userid'])) {
 	// echo "<script>window.open('blancuri.php');</script>";
-	header("location: blancuri.php");
+	header("location: index.php");
 }
 
 
