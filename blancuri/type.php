@@ -54,6 +54,7 @@ include_once("db_connect.php");
         </tr>
 
         <?php
+        $count=1;
         $sql="SELECT * FROM tipul order by id";
         $result_set=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
         while($row = mysqli_fetch_array ($result_set) )
@@ -61,7 +62,7 @@ include_once("db_connect.php");
         ?>
 
      <tr>
-        <td><?= $row['id'] ?></td>
+        <td><?= $count++ ?></td>
 				<td><?= $row['format'] ?></td>
 				<td>
             <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal<?= $row['id']?>">
