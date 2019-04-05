@@ -39,8 +39,9 @@ include_once("db_connect.php");
 
 <div class="col-sm-6 text-center">
 
-	<div align="right">
+	<div align="center">
   <button type="button" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Adăugați formatul</button>
+  <a href="home.php"><button type="button" class="btn btn-danger">Cancel</button></a>
 	</div><br>
 
 		<table class="table table-bordered table-striped">

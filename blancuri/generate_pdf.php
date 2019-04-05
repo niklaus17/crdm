@@ -26,12 +26,12 @@ function Header()
 {
     // Logo
     $this->Image('img/logo_dark.png',10,9,70);
-    $this->SetFont('Helvetica','I',12);
+    $this->SetFont('Helvetica','B',12);
     // Move to the right
     $this->Cell(92);
     // Title
     $this->Cell(50,6,'Blancuri tiparite de pe: ',0,0,'C');
-    $this->SetTextColor(255,102,102);
+    $this->SetTextColor(07,39,69);
 
 
     global $from_date, $to_date;

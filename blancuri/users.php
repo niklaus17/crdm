@@ -20,7 +20,10 @@ include_once("db_connect.php");
 	}
 	</style>
 </head>
+
 <body>
+
+	<div class="col-md-4 col-md-offset-4">
 	<div class="header">
 		<h2>Admin - Home Page</h2>
 	</div>
@@ -102,6 +105,7 @@ include_once("db_connect.php");
 
 			<a href="home.php"><button type="button" class="btn btn-danger">Cancel</button></a>
 
+</div>
 </div>
 
 

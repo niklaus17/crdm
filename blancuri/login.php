@@ -11,6 +11,7 @@ include('db_connect.php');
 </head>
 <body>
 
+<div class="col-md-4 col-md-offset-4">
 	<div class="header">
 		<h2>Login</h2>
 	</div>
@@ -36,6 +37,7 @@ include('db_connect.php');
 
 	</form>
 
+</div>
 
 </body>
 </html>
