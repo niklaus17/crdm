@@ -14,6 +14,8 @@ include('db_connect.php');
 	</style>
 </head>
 <body>
+
+	<div class="col-md-4 col-md-offset-4">
 	<div class="header">
 		<h2>Register</h2>
 	</div>
@@ -50,5 +52,6 @@ include('db_connect.php');
 			Already a member? <a href="login.php">Sign in</a>
 		</p>
 	</form>
+</div>
 </body>
 </html>

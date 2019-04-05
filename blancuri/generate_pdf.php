@@ -83,10 +83,11 @@ $pdf->Cell(20,8,$display_heading['number'],1, null, 'C', true);
 $pdf->Cell(18,8,$display_heading['tip_id'],1, null, 'C', true);
 $pdf->Cell(30,8,$display_heading['name'],1, null, 'C', true);
 
-
+$i = 1;
 foreach($result as $row) {
 $pdf->Ln();
-$pdf->Cell(10,8,$row['id'],1, null, 'C');
+
+$pdf->Cell(10,8,$i++,1, null, 'C');
 $pdf->Cell(20,8,$row['day'],1, null, 'C');
 $pdf->Cell(57,8,$row['model'],1);
 
