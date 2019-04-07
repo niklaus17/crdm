@@ -24,28 +24,28 @@ include_once("db_connect.php");
 		<div class="modal-body">
 			<form action="upload_sectie.php" method="post" enctype="multipart/form-data" id="insert_form">
 
-			<label>Secția</label>
+			<label>Denumirea secției:</label>
 			<input type="text" name="section" class="form-control" required><br>
 
 		</div>
 		<div class="modal-footer">
       <button type="submit" name="btn-upload" class="btn btn-primary">Încărcați</button>
-		 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		 <button type="button" class="btn btn-default" data-dismiss="modal">Anulează</button>
 		</div>
     </form>
 	 </div>
 	</div>
 </div>
 
+	<div class="col-md-6 col-md-offset-3 centered">
 
-<div class="col-sm-6 text-center">
 
-	<div align="center">
+  	<div align="center">
   <button type="button" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Adăugați secția</button>
-    <a href="home.php"><button type="button" class="btn btn-danger">Cancel</button></a>
+    <a href="home.php"><button type="button" class="btn btn-danger">Anulează</button></a>
 	</div><br>
 
-		<table class="table table-bordered table-striped">
+		<table class="table table-bordered table-striped" style="text-align: center;">
 
     	<tr class="success " style="font-weight:bold">
 
@@ -112,7 +112,7 @@ include_once("db_connect.php");
               		</div>
               		<div class="modal-footer">
                   <button type="submit" name="btn-update" id="update" class="btn btn-primary">Editati</button>
-              		 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              		 <button type="button" class="btn btn-default" data-dismiss="modal">Anulează</button>
                    </form>
               		</div>
               	 </div>

@@ -23,13 +23,13 @@ include_once("db_connect.php");
 		<div class="modal-body">
 			<form action="upload_type.php" method="post" enctype="multipart/form-data" id="insert_form">
 
-			<label>Modelul blancului:</label>
+			<label>Formatul hârtiei:</label>
 			<input type="text" name="format" class="form-control" required><br>
 
 		</div>
 		<div class="modal-footer">
       <button type="submit" name="btn-upload" class="btn btn-primary">Încărcați</button>
-		 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		 <button type="button" class="btn btn-default" data-dismiss="modal">Anulează</button>
 		</div>
     </form>
 	 </div>
@@ -37,14 +37,14 @@ include_once("db_connect.php");
 </div>
 
 
-<div class="col-sm-6 text-center">
+	<div class="col-md-4 col-md-offset-4">
 
 	<div align="center">
   <button type="button" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Adăugați formatul</button>
-  <a href="home.php"><button type="button" class="btn btn-danger">Cancel</button></a>
+  <a href="home.php"><button type="button" class="btn btn-danger">Anulează</button></a>
 	</div><br>
 
-		<table class="table table-bordered table-striped">
+		<table class="table table-bordered table-striped" style="text-align: center;">
 
     	<tr class="success " style="font-weight:bold">
 

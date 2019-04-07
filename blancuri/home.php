@@ -21,7 +21,7 @@ include_once("db_connect.php");
 	</style>
 </head>
 <body>
-	<div class="col-md-4 col-md-offset-4">
+	<div class="col-md-6 col-md-offset-3">
 	<div class="header">
 		<h2>Admin - Home Page</h2>
 	</div>
@@ -49,11 +49,11 @@ include_once("db_connect.php");
 					<small>
 						<i  style="color: #888;">(<?php echo ucfirst($_SESSION['user']['user_type']); ?>)</i>
 						<br><br>
-						 <a href="create_user.php"><button type="submit" class="btn btn-success" name="register_btn"> + Create user</button></a>&nbsp;&nbsp;&nbsp;
-						 <a href="section.php"><button type="submit" class="btn btn-success" name=""> + Add section</button></a>&nbsp;&nbsp;&nbsp;
-						 <a href="type.php"><button type="submit" class="btn btn-success" name=""> + Add type</button></a>&nbsp;&nbsp;&nbsp;
-						 <a href="users.php"><button type="submit" class="btn btn-success" name="">View users</button></a>&nbsp;&nbsp;&nbsp;<br>
-						<a href="index.php"><button type="button" class="btn btn-danger">Cancel</button></a>
+						 <a href="create_user.php"><button type="submit" class="btn btn-success" name="register_btn">+ Adaugă utilizator</button></a>
+						 <a href="section.php"><button type="submit" class="btn btn-success" name="">+ Adaugă secție</button></a>
+						 <a href="type.php"><button type="submit" class="btn btn-success" name="">+ Adaugă format</button></a>
+						 <a href="users.php"><button type="submit" class="btn btn-success" name="">Vezi utilizatorii</button></a><br><br>
+						<a href="index.php"><button type="button" class="btn btn-danger">Anulează</button></a>
 					</small>
 
 				<?php endif ?>

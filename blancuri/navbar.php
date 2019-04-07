@@ -14,7 +14,7 @@ include('db_connect.php');
       <a class="navbar-brand" href="index.php"><img src="img/logo_white.png"  width="" height="25" alt="">
       </a>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
+    <div class="collapse navbar-collapse">
       <?php if (isset($_SESSION['user'])) { ?>
       <ul class="nav navbar-nav">
         <li><a href="blancuri.php">Blancuri</a></li>

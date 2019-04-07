@@ -23,9 +23,9 @@ include_once("db_connect.php");
 
 <body>
 
-	<div class="col-md-4 col-md-offset-4">
+	<div class="col-md-6 col-md-offset-3">
 	<div class="header">
-		<h2>Admin - Home Page</h2>
+		<h2>Admin - Utilizatorii</h2>
 	</div>
 	<div class="content">
 		<!-- notification message -->
@@ -55,13 +55,13 @@ include_once("db_connect.php");
 					</small>
 	</div>
 </div>
-						<table class="table table-bordered table-striped">
+						<table class="table table-bordered table-striped" style="text-align: center;">
 
 						 <tr class="success " style="font-weight:bold">
 								 <td>Nr.</td>
-								 <td>User name</td>
+								 <td>Numele utilizator</td>
 								 <td>Email</td>
-								 <td>User type</td>
+								 <td>Tipul utilizator</td>
 								 <td>Șterge</td>
 						 </tr>
 
@@ -103,8 +103,8 @@ include_once("db_connect.php");
 							 <?php 	} ?>
 
 						 	</table>
-
-			<a href="home.php"><button type="button" class="btn btn-danger">Cancel</button></a>
+      <a href="create_user.php"><button type="submit" class="btn btn-success" name="register_btn">+ Adaugă utilizator</button></a>
+			<a href="home.php"><button type="button" class="btn btn-danger">Anulează</button></a>
 
 </div>
 </div>
