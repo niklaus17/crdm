@@ -1,8 +1,8 @@
 <?php
-// include('header.php');
 include('db_connect.php');
 ?>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">

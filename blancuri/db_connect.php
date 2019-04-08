@@ -37,16 +37,16 @@ mysqli_set_charset($conn,"utf8");
 
 		// form validation: ensure that the form is correctly filled
 		if (empty($username)) {
-			array_push($errors, "Username is required");
+			array_push($errors, "Numele de utilizator este necesar");
 		}
 		if (empty($email)) {
-			array_push($errors, "Email is required");
+			array_push($errors, "E-mailul este necesar");
 		}
 		if (empty($password_1)) {
-			array_push($errors, "Password is required");
+			array_push($errors, "Parola este necesara");
 		}
 		if ($password_1 != $password_2) {
-			array_push($errors, "The two passwords do not match");
+			array_push($errors, "Cele două parole nu se potrivesc");
 		}
 
 		// register user if there are no errors in the form
@@ -58,7 +58,7 @@ mysqli_set_charset($conn,"utf8");
 				$query = "INSERT INTO user (email, username, user_type, password)
 						  VALUES('$email','$username', '$user_type', '$password')";
 				mysqli_query($conn, $query);
-				$_SESSION['success']  = "New user successfully created!!";
+				$_SESSION['success']  = "Utilizatorul nou creat!";
 				header('location: home.php');
 			}else{
 				$query = "INSERT INTO user (email,username, user_type, password)
@@ -69,7 +69,7 @@ mysqli_set_charset($conn,"utf8");
 				$logged_in_user_id = mysqli_insert_id($conn);
 
 				$_SESSION['user'] = getUserById($logged_in_user_id); // put logged in user in session
-				$_SESSION['success']  = "You are now logged in";
+				$_SESSION['success']  = "Sunteți conectat acum";
 				header('location: index.php');
 			}
 
@@ -97,10 +97,10 @@ mysqli_set_charset($conn,"utf8");
 
 		// make sure form is filled properly
 		if (empty($email)) {
-			array_push($errors, "Email is required");
+			array_push($errors, "E-mailul este necesar");
 		}
 		if (empty($password)) {
-			array_push($errors, "Password is required");
+			array_push($errors, "Parola este necesara");
 		}
 
 		// attempt login if no errors on form
@@ -116,16 +116,16 @@ mysqli_set_charset($conn,"utf8");
 				if ($logged_in_user['user_type'] == 'admin') {
 
 					$_SESSION['user'] = $logged_in_user;
-					$_SESSION['success']  = "You are now logged in";
+					$_SESSION['success']  = "Sunteți conectat acum";
 					header('location: home.php');
 				}else{
 					$_SESSION['user'] = $logged_in_user;
-					$_SESSION['success']  = "You are now logged in";
+					$_SESSION['success']  = "Sunteți conectat acum";
 
 					header('location: index.php');
 				}
 			}else {
-				array_push($errors, "Wrong Email/password combination");
+				array_push($errors, "Combinație greșită de e-mail / parolă");
 			}
 		}
 	}
