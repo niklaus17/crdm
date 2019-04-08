@@ -14,7 +14,7 @@ include('db_connect.php');
       <a class="navbar-brand" href="index.php"><img src="img/logo_white.png"  width="" height="25" alt="">
       </a>
     </div>
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse" id="myNavbar">
       <?php if (isset($_SESSION['user'])) { ?>
       <ul class="nav navbar-nav">
         <li class="active"><a href="blancuri.php">Blancuri</a></li>
@@ -30,7 +30,7 @@ include('db_connect.php');
                       <strong style="color: white;"><?php echo $_SESSION['user']['username']?> </strong><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                           <?php if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) { ?>
-                            <li><a href="home.php"><i class="icon-cog"></i> Setings</a></li>
+                            <li><a href="home.php"><i class="icon-cog"></i> Setări</a></li>
                             <?php		}		?>
                             <li class="divider"></li>
                             <li><a href="#" class="confirm-logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
