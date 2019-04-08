@@ -33,7 +33,7 @@ include('db_connect.php');
                             <li><a href="home.php"><i class="icon-cog"></i> Setings</a></li>
                             <?php		}		?>
                             <li class="divider"></li>
-                            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+                            <li><a href="#" class="confirm-logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
                           <?php } else { ?>
                             <li><p class="navbar-text">Sunteți delogat!</p></li>
                             <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
@@ -45,3 +45,31 @@ include('db_connect.php');
     </div>
   </div>
 </nav>
+
+<!-- /.modal-For logout -->
+	<div id="logout_Modal" class="modal fade">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h4 class="modal-title">Logout <i class="glyphicon glyphicon-lock"></i></h4>
+		  </div>
+		  <div class="modal-body">
+			<h3>Sigur doriți să vă deconectați?</h3>
+		  </div>
+		  <div class="modal-footer">
+			 <a class="btn btn-success" href="logout.php">Confirmă</a>
+			  <a href="#" data-dismiss="modal" class="btn btn-danger btn-cancel">Anulează</a>
+		  </div>
+		</div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+
+  <!-- Confirm pentru logout modal -->
+  <script>
+  		$('.confirm-logout').on('click', function(e) {
+  			e.preventDefault();
+  			$('#logout_Modal').modal('show');
+  		});
+  </script>
