@@ -8,16 +8,6 @@ include('navbar.php');
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"/>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
-<script>document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.datepicker');
-    var instances = M.Datepicker.init(elems, options);
-  });
-
-  $(document).ready(function(){
-    $('.datepicker').datepicker();
-  });
-</script>
-
 <title>CRDM - Blancuri</title>
 
 <body>
@@ -468,5 +458,14 @@ $(this).prepend('<td>'+id+'</td>');
 })
 </script>
 
+<script>document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems, options);
+  });
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+</script>
 
 </body>

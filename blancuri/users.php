@@ -2,12 +2,6 @@
 include('header.php');
 include('navbar.php');
 include_once("db_connect.php");
-
-	if (!isAdmin()) {
-		$_SESSION['msg'] = "You must log in first as admin";
-		header('location: login.php');
-	}
-
 ?>
 
 <head>
@@ -22,30 +16,18 @@ include_once("db_connect.php");
 </head>
 
 <body>
-
+<?php if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) { ?>
 	<div class="col-md-6 col-md-offset-3">
 	<div class="header">
 		<h2>Admin - Utilizatorii</h2>
 	</div>
 	<div class="content">
-		<!-- notification message -->
-		<?php if (isset($_SESSION['success'])) : ?>
-			<div class="error success" >
-				<h3>
-					<?php
-						echo $_SESSION['success'];
-						unset($_SESSION['success']);
-					?>
-				</h3>
-			</div>
-		<?php endif ?>
 
 		<!-- logged in user information -->
 		<div class="profile_info">
 			<img src="img/admin_profile.jpg"  >
 
 			<div>
-				<?php  if (isset($_SESSION['user'])) : ?>
 					<strong><?php echo $_SESSION['user']['username']; ?></strong>
 
 					<small>
@@ -109,7 +91,15 @@ include_once("db_connect.php");
 </div>
 </div>
 
-
+<?php
+}
+else {
+ ?>
+		 <h3 class="jumbotron text-center"><a href="login.php">Trebuie să vă conectați mai întâi ca administrator ...</a></h3>
+ <?php  }
+ {
+	 ?>
+	 <?php		}		?>
 
 	<!-- Confirm pentru delete modal -->
 	<script>
@@ -122,4 +112,3 @@ include_once("db_connect.php");
 
 </body>
 </html>
-<?php endif ?>

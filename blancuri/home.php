@@ -2,12 +2,6 @@
 include('header.php');
 include('navbar.php');
 include_once("db_connect.php");
-
-	if (!isAdmin()) {
-		$_SESSION['msg'] = "You must log in first as admin";
-		header('location: login.php');
-	}
-
 ?>
 
 <head>
@@ -21,6 +15,9 @@ include_once("db_connect.php");
 	</style>
 </head>
 <body>
+
+	<?php if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) { ?>
+
 	<div class="col-md-6 col-md-offset-3">
 	<div class="header">
 		<h2>Admin - Home Page</h2>
@@ -62,5 +59,15 @@ include_once("db_connect.php");
 
 	</div>
 
+	<?php
+ }
+else {
+	 ?>
+			 <h3 class="jumbotron text-center"><a href="login.php">Trebuie să vă conectați mai întâi ca administrator ...</a></h3>
+	 <?php  }
+	 {
+		 ?>
+	   <?php		}		?>
+		 
 </body>
 </html>

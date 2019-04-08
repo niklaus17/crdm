@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 04 2019 г., 21:12
+-- Время создания: Апр 08 2019 г., 20:57
 -- Версия сервера: 10.1.37-MariaDB
 -- Версия PHP: 7.3.0
 
@@ -47,7 +47,7 @@ INSERT INTO `blancuri` (`id`, `day`, `model`, `section_id`, `number`, `tip_id`, 
 (2, '2019-04-10', 'hemoleucograma', 5, 100, 1, 'niculita nicolae'),
 (3, '2019-04-12', 'immulite', 5, 600, 3, 'niculita nicolae'),
 (18, '2019-04-11', 'wzdgvbmz', 10, 500, 2, 'nicolae'),
-(19, '2019-04-09', 'Arhitect', 11, 500, 2, 'valea');
+(19, '2019-04-08', 'Arhitect', 11, 500, 5, 'valea');
 
 -- --------------------------------------------------------
 
@@ -123,7 +123,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `email`, `user_type`, `password`) VALUES
 (1, 'nicolae', 'nicu@crdm.md', 'admin', '098f6bcd4621d373cade4e832627b4f6'),
-(6, 'valea', 'valentina.mihalco@gmail.com', 'user', 'c1eb7df636e486e7cd59c14b884d9881');
+(6, 'valea', 'valentina.mihalco@gmail.com', 'user', 'c1eb7df636e486e7cd59c14b884d9881'),
+(7, 'niklaus', 'kaleann17@gmail.com', 'user', '21232f297a57a5a743894a0e4a801fc3');
 
 --
 -- Индексы сохранённых таблиц
@@ -167,19 +168,19 @@ ALTER TABLE `blancuri`
 -- AUTO_INCREMENT для таблицы `sectie`
 --
 ALTER TABLE `sectie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT для таблицы `tipul`
 --
 ALTER TABLE `tipul`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

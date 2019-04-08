@@ -8,7 +8,7 @@ include_once("db_connect.php");
 
 <body>
 
-<?php if (isset($_SESSION['user'])) { ?>
+	<?php if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) { ?>
 
 <!-- /.modal-For insert date -->
 
@@ -122,12 +122,15 @@ include_once("db_connect.php");
           </table>
         </div>
 
-<?php }
-
-else {
- ?>
-     <h3 class="jumbotron text-center"><a href="login.php"> Va rugam sa va logati ...</a></h3>
- <?php  } ?>
+        <?php
+       }
+      else {
+      	 ?>
+      			 <h3 class="jumbotron text-center"><a href="login.php">Trebuie să vă conectați mai întâi ca administrator ...</a></h3>
+      	 <?php  }
+      	 {
+      		 ?>
+      	   <?php		}		?>
 
 <!-- Confirm pentru delete modal -->
 <script>
