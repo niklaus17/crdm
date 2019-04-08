@@ -52,6 +52,7 @@ form, .content {
 	color: white;
 	border: none;
 	border-radius: 5px;
+	margin-top: 5px;
 }
 .error {
 	width: 92%;

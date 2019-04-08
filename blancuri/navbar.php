@@ -17,7 +17,7 @@ include('db_connect.php');
     <div class="collapse navbar-collapse" id="myNavbar">
       <?php if (isset($_SESSION['user'])) { ?>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="blancuri.php">Blancuri</a></li>
+        <li><a href="blancuri.php">Blancuri</a></li>
       <?php } else { ?>
   <?php } ?>
       </ul>

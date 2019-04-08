@@ -50,7 +50,7 @@ include_once("db_connect.php");
 
         <td>Nr.</td>
         <td>Formatul</td>
-        <td>Editează / Șterge</td>
+        <td>Acțiuni</td>
         </tr>
 
         <?php

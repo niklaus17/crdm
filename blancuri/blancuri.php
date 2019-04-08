@@ -8,6 +8,16 @@ include('navbar.php');
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"/>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
+<script>document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems, options);
+  });
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+</script>
+
 <title>CRDM - Blancuri</title>
 
 <body>
@@ -28,7 +38,7 @@ include('navbar.php');
 			<form action="upload_blanc.php" method="post" enctype="multipart/form-data" id="insert_form">
 
 			<label>Data:</label>
-			<input type="date" name="day" class="form-control" required><br>
+			<input type="date" name="day" class="form-control datepicker" required><br>
 
 			<label>Modelul blancului:</label>
 			<input type="text" name="model" class="form-control" required><br>
@@ -199,7 +209,7 @@ include('navbar.php');
 			<h4 class="modal-title">Confirmă ștergera</h4>
 		  </div>
 		  <div class="modal-body">
-			<p>Șterge <?php echo '<span class="text-danger" >' . $row["model"] . ' ' . $row["section_id"] . '</span> '; ?></p>
+			<p>Șterge <?php echo '<span class="text-danger" >' . $row["model"] . '</span> '; ?></p>
 		  </div>
 		  <div class="modal-footer">
 			 <a class="btn btn-danger" href="delete_blanc.php?id=<?php echo $row['id'] ?>">Confirmă</a>
@@ -245,7 +255,7 @@ include('navbar.php');
   		<div class="modal-body">
   			<form action="update_blanc.php" method="post" enctype="multipart/form-data" id="edit_form">
   			<label>Data:</label>
-  			<input type="date" name="day" id="day" class="form-control" required><br>
+  			<input type="date" name="day" id="day" class="form-control datepicker" required><br>
   			<label>Modelul blancului:</label>
   			<input type="text" name="model" id="model" class="form-control" required><br>
   			<label>Alege-ți secția</label>
@@ -327,7 +337,6 @@ $(document).ready(function(){
 		$("#to_date").datepicker();
 	});
 
-
   $('#pdf').click(function () {
     url = '';
       <?php if(isset($_POST['from_date'])) {?>
@@ -353,12 +362,8 @@ $(document).ready(function(){
 		}
 	});
 });
-$('#reset').click( function() {
-  document.cookie = 'from_date=; Max-Age=-99999999;';
-  document.cookie = 'to_date=; Max-Age=-99999999;';
-  location.reload();
-})
 </script>
+
 
 <!-- Modal Edit -->
 <script type="text/javascript">
