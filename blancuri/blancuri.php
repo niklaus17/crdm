@@ -303,7 +303,6 @@ else {
    ?>
        <h3 class="jumbotron text-center"><a href="login.php"> Va rugam sa va logati ...</a></h3>
    <?php  }
-    if(isset($_GET['fail']))
    {
      ?>
    <?php		}		?>

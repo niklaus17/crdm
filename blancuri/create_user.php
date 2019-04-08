@@ -14,6 +14,8 @@ include_once("db_connect.php");
 </head>
 <body>
 
+<?php if (isset($_SESSION['user'])) { ?>
+
 	<div class="col-md-4 col-md-offset-4">
 	<div class="header">
 		<h2>Admin - Creează utilizator</h2>
@@ -30,7 +32,7 @@ include_once("db_connect.php");
 
 		<div class="input-group">
 	      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-	      <input type="text" class="form-control" name="email" placeholder="Email" value="<?php echo $email; ?>">
+	      <input type="email" class="form-control" name="email" placeholder="Email" value="<?php echo $email; ?>">
 	    </div>
 
 		<div class="input-group">
@@ -58,5 +60,15 @@ include_once("db_connect.php");
 		</div>
 		</div>
 	</form>
+
+	<?php
+ }
+else {
+	 ?>
+			 <h3 class="jumbotron text-center"><a href="login.php"> Va rugam sa va logati ...</a></h3>
+	 <?php  }
+	 {
+		 ?>
+	   <?php		}		?>
 </body>
 </html>
