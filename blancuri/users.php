@@ -116,6 +116,14 @@ include_once("db_connect.php");
 				<option value="admin">Admin</option>
   			</select>
         <br>
+				
+				<label>Password</label>
+				<div class="input-group" id="show_hide_password">
+					<input class="form-control" type="password" name="password" id="password">
+					<div class="input-group-addon">
+						<a href=""><i class="glyphicon glyphicon-eye-open" aria-hidden="true"></i></a>
+					</div>
+				</div><br>
 
   		<div class="modal-footer">
       <button type="submit" name="btn-update" id="update" class="btn btn-primary">Editati</button>
@@ -160,6 +168,22 @@ else {
 			});
 	</script>
 
+<script>
+$(document).ready(function() {
+    $("#show_hide_password a").on('click', function(event) {
+        event.preventDefault();
+        if($('#show_hide_password input').attr("type") == "text"){
+            $('#show_hide_password input').attr('type', 'password');
+            $('#show_hide_password i').addClass( "glyphicon-eye-close" );
+            $('#show_hide_password i').removeClass( "glyphicon-eye" );
+        }else if($('#show_hide_password input').attr("type") == "password"){
+            $('#show_hide_password input').attr('type', 'text');
+            $('#show_hide_password i').removeClass( "glyphicon-eye-close" );
+            $('#show_hide_password i').addClass( "glyphicon-eye" );
+        }
+    });
+});
+</script>
 
 </body>
 </html>
