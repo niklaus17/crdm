@@ -105,7 +105,7 @@ $result = mysqli_query($conn, $type_query)  or die(mysqli_error($conn));
 $type_name = mysqli_fetch_assoc($result)['format'];
 $pdf->Cell(18,8,$type_name,1, null, 'C');
 
-$pdf->Cell(30,8,$row['name'],1,);
+$pdf->Cell(30,8,$row['name'],1);
 
 }
 
