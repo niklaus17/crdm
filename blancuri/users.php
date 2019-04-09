@@ -44,7 +44,7 @@ include_once("db_connect.php");
 								 <td>Numele utilizator</td>
 								 <td>Email</td>
 								 <td>Tipul utilizator</td>
-								 <td>Șterge</td>
+								 <td>Actiuni</td>
 						 </tr>
 
 						 <?php
@@ -61,6 +61,9 @@ include_once("db_connect.php");
 				 				<td><?= $row['email'] ?></td>
 				 				<td><?= $row['user_type'] ?></td>
 				 				<td>
+									<a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal">
+										<i class="glyphicon glyphicon-edit text-primary"></i>
+									</a >
 									<a href="#" class="confirm-delete" data-id="<?php  echo $row["id"] ?>"><i class="glyphicon glyphicon-trash text-danger"></i></a>
 						   </td>
 							 <!-- /.modal-For Delete date -->
@@ -91,6 +94,38 @@ include_once("db_connect.php");
 </div>
 </div>
 
+<!-- /.modal-For Update date -->
+
+  <div id="edit_data_Modal" class="modal fade">
+   <div class="modal-dialog">
+    <div class="modal-content">
+     <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title">Editati informația necesară</h4>
+     </div>
+  		<div class="modal-body">
+  			<form action="update_users.php" method="post" enctype="multipart/form-data" id="edit_form">
+  			<label>Username:</label>
+  			<input type="text" name="username" id="username" class="form-control" required><br>
+  			<label>Email:</label>
+  			<input type="email" name="email" id="email" class="form-control" ><br>
+  			<label>User type</label>
+  			<input type="hidden" name="id" id="edit-id">
+  			<select name="user_type" id="user_type" class="form-control">
+				<option value="user">User</option>
+				<option value="admin">Admin</option>
+  			</select>
+        <br>
+
+  		<div class="modal-footer">
+      <button type="submit" name="btn-update" id="update" class="btn btn-primary">Editati</button>
+  		 <button type="button" class="btn btn-danger" data-dismiss="modal">Anulează</button>
+       </form>
+  		</div>
+  	 </div>
+  	</div>
+  </div>
+
 <?php
 }
 else {
@@ -100,6 +135,21 @@ else {
  {
 	 ?>
 	 <?php		}		?>
+
+	 <!-- Modal Edit -->
+	 <script type="text/javascript">
+	   $(".modal-edit").click(function() {
+	     id = $(this).data('id');
+	     $.get("getUsers.php", {id: id}).done( function(data) {
+	       data = JSON.parse(data);
+	       $("#edit-id").val(data[0].id);
+	       $("#username").val(data[0].username);
+	       $("#email").val(data[0].email);
+	       $("#user_type").val(data[0].user_type);
+	       $("#password").val(data[0].password);
+	     });
+	   });
+	 </script>
 
 	<!-- Confirm pentru delete modal -->
 	<script>
