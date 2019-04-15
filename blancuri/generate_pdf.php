@@ -33,9 +33,7 @@ function Header()
     $this->Cell(50,6,'Blancuri tiparite de pe: ',0,0,'C');
     $this->SetTextColor(07,39,69);
 
-
     global $from_date, $to_date;
-
 
     $this->Cell(25,6,$from_date,1);
     $this->Cell(25,6,$to_date,1);
@@ -70,8 +68,7 @@ $pdf = new PDF();
 $pdf->AddPage();
 //foter page
 $pdf->AliasNbPages();
-$pdf->SetFont('Arial','',10);
-
+$pdf->SetFont('Arial','B',10);
 
 
 $pdf->SetFillColor(204,255,204);
@@ -87,6 +84,7 @@ $i = 1;
 foreach($result as $row) {
 $pdf->Ln();
 
+$pdf->SetFont('Arial','',10);
 $pdf->Cell(10,8,$i++,1, null, 'C');
 $pdf->Cell(20,8,$row['day'],1, null, 'C');
 $pdf->Cell(57,8,$row['model'],1);
@@ -120,8 +118,11 @@ foreach($result as $row) {
   $result = mysqli_query($conn, $type_query)  or die(mysqli_error($conn));
   $type_name = mysqli_fetch_assoc($result)['format'];
 
+  $pdf->SetFont('Arial','B',10);
   $pdf->Cell(30,6,'Total cantitatea: ',0,'C');
+  $pdf->SetFont('Arial','',10);
   $pdf->Cell(15,6, $row['total'],1, null, 'C');
+  $pdf->SetFont('Arial','B',10);
   $pdf->Cell(20,6,$type_name,1, null, 'C');
   $pdf->Ln(10);
 
