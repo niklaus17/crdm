@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 08 2019 г., 20:57
--- Версия сервера: 10.1.37-MariaDB
--- Версия PHP: 7.3.0
+-- Время создания: Апр 23 2019 г., 14:10
+-- Версия сервера: 10.1.38-MariaDB
+-- Версия PHP: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,23 +31,45 @@ SET time_zone = "+00:00";
 CREATE TABLE `blancuri` (
   `id` int(11) NOT NULL,
   `day` date NOT NULL,
-  `model` varchar(100) CHARACTER SET utf8 COLLATE utf8_romanian_ci NOT NULL,
+  `model` varchar(100) NOT NULL,
   `section_id` int(11) NOT NULL,
   `number` int(100) NOT NULL,
   `tip_id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL
+  `name` varchar(50) NOT NULL,
+  `file_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Дамп данных таблицы `blancuri`
 --
 
-INSERT INTO `blancuri` (`id`, `day`, `model`, `section_id`, `number`, `tip_id`, `name`) VALUES
-(1, '2019-04-02', 'Arhitect', 1, 500, 1, 'niculita nicolae'),
-(2, '2019-04-10', 'hemoleucograma', 5, 100, 1, 'niculita nicolae'),
-(3, '2019-04-12', 'immulite', 5, 600, 3, 'niculita nicolae'),
-(18, '2019-04-11', 'wzdgvbmz', 10, 500, 2, 'nicolae'),
-(19, '2019-04-08', 'Arhitect', 11, 500, 5, 'valea');
+INSERT INTO `blancuri` (`id`, `day`, `model`, `section_id`, `number`, `tip_id`, `name`, `file_id`) VALUES
+(12, '2019-04-13', 'Arhitect', 2, 500, 1, 'Nicolae', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `ip`
+--
+
+CREATE TABLE `ip` (
+  `id` int(11) NOT NULL,
+  `section_id` int(11) NOT NULL,
+  `cabinet` varchar(255) NOT NULL,
+  `numepc` varchar(50) NOT NULL,
+  `ip` varchar(100) NOT NULL,
+  `mac` varchar(30) NOT NULL,
+  `net` varchar(50) NOT NULL,
+  `coment` varchar(255) NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `ip`
+--
+
+INSERT INTO `ip` (`id`, `section_id`, `cabinet`, `numepc`, `ip`, `mac`, `net`, `coment`, `name`) VALUES
+(11, 4, '214', 'dfgbf', '192.168.55.34', '34647577', 'Da', 'bdbcv  eg bdbgf', 'Nicolae');
 
 -- --------------------------------------------------------
 
@@ -65,8 +87,7 @@ CREATE TABLE `sectie` (
 --
 
 INSERT INTO `sectie` (`id`, `section`) VALUES
-(1, 'LCD Laboratorul de Diagnostic Clinic'),
-(2, 'USG Secţia Ultrasonografie Generală'),
+(2, 'LCD Laboratorul de Diagnostic Clinic'),
 (3, 'RTC Secţia Radiologie si tomografie computerizată'),
 (4, 'DF Secţia Diagnostic Funcțional'),
 (5, 'ESVM Secţia Ecocardiografie și Studiul Vaselor Magistrale'),
@@ -122,9 +143,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `user_type`, `password`) VALUES
-(1, 'nicolae', 'nicu@crdm.md', 'admin', '098f6bcd4621d373cade4e832627b4f6'),
-(6, 'valea', 'valentina.mihalco@gmail.com', 'user', 'c1eb7df636e486e7cd59c14b884d9881'),
-(7, 'niklaus', 'kaleann17@gmail.com', 'user', '21232f297a57a5a743894a0e4a801fc3');
+(9, 'Nicolae', 'nicu@crdm.md', 'admin', '098f6bcd4621d373cade4e832627b4f6'),
+(11, 'Test', 'test@test.com', 'user', '098f6bcd4621d373cade4e832627b4f6');
 
 --
 -- Индексы сохранённых таблиц
@@ -134,6 +154,12 @@ INSERT INTO `user` (`id`, `username`, `email`, `user_type`, `password`) VALUES
 -- Индексы таблицы `blancuri`
 --
 ALTER TABLE `blancuri`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `ip`
+--
+ALTER TABLE `ip`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -162,7 +188,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT для таблицы `blancuri`
 --
 ALTER TABLE `blancuri`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT для таблицы `ip`
+--
+ALTER TABLE `ip`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT для таблицы `sectie`
@@ -180,7 +212,7 @@ ALTER TABLE `tipul`
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
