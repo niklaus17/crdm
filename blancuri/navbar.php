@@ -18,6 +18,7 @@ include('db_connect.php');
       <?php if (isset($_SESSION['user'])) { ?>
       <ul class="nav navbar-nav">
         <li><a href="blancuri.php">Blancuri</a></li>
+        <li><a href="ip.php">IP</a></li>
       <?php } else { ?>
   <?php } ?>
       </ul>
