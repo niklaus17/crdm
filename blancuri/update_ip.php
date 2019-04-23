@@ -8,6 +8,7 @@ if(isset($_POST['btn-update']))
   $id = $_POST['id'];
   $section_id = $_POST["section_id"];
  	$cabinet = $_POST['cabinet'];
+  $numepc = $_POST['numepc'];
 
   $nums = $_POST["ip"];
   $ip = "";
@@ -26,7 +27,7 @@ if(isset($_POST['btn-update']))
 
   $name = $_SESSION['user']['username'];
 
-  $query = "UPDATE ip SET section_id='$section_id', cabinet='$cabinet', ip='$ip', mac='$mac', net='$net', coment='$coment', name='$name' where id='$id' ";
+  $query = "UPDATE ip SET section_id='$section_id', cabinet='$cabinet', numepc='$numepc', ip='$ip', mac='$mac', net='$net', coment='$coment', name='$name' where id='$id' ";
 
   mysqli_query($conn, $query) or die("database error: ". mysqli_error($conn));
  }

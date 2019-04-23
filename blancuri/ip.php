@@ -40,16 +40,27 @@ include('navbar.php');
           ?>
         </select><br>
 
-        <label>Cabinetul:</label>
-        <input type="text" name="cabinet" class="form-control" required><br>
+        <label class="col-sm-2">Cabinetul:</label>
+        <div class="col-sm-4">
+        <input type="text" name="cabinet" class="form-control" required>
+        </div>
 
+        <label class="col-sm-2">Nume PC:</label>
+        <div class="col-sm-4">
+  			<input type="text" name="numepc" class="form-control" required>
+        </div><br>
+
+        <div class="col-sm-12">
         <label>IP:</label>
         <div id="demo" class="well"></div>
+      </div><br>
 
-        <label>Mac address:</label>
-        <input type="text" name="mac" class="form-control" required><br>
+        <label class="col-sm-2">Mac address:</label>
+        <div class="col-sm-4">
+        <input type="text" name="mac" class="form-control" required>
+      </div><br>
 
-        <label>Conexiune net:</label><br>
+        <label>Conexiune net:</label>&nbsp;&nbsp;
         <input name="net" type="radio" value="Da"> Da &nbsp;&nbsp;
         <input name="net" type="radio" value="Nu"> Nu <br><br>
 
@@ -103,6 +114,7 @@ include('navbar.php');
 
           <td>Secția</td>
 					<td>Cabinetul</td>
+          <td>Nume PC</td>
 					<td>IP</td>
 					<td>Mac address</td>
           <td>Internet</td>
@@ -133,7 +145,7 @@ include('navbar.php');
         ?>
        </td>
 				<td><?= $row['cabinet'] ?></td>
-
+        <td><?= $row['numepc'] ?></td>
 				<td><?= $row['ip'] ?></td>
         <td><?= $row['mac'] ?></td>
         <td><?= $row['net'] ?></td>
@@ -222,16 +234,27 @@ include('navbar.php');
     			</select>
           <br>
 
-          <label>Cabinetul:</label>
-          <input type="text" name="cabinet" id="cabinet" class="form-control" required><br>
+          <label class="col-sm-2">Cabinetul:</label>
+           <div class="col-sm-4">
+          <input type="text" name="cabinet" id="cabinet" class="form-control" required>
+           </div>
 
-          <label>IP:</label>
+           <label class="col-sm-2">Nume PC:</label>
+           <div class="col-sm-4">
+           <input type="text" name="numepc" id="numepc" class="form-control" required>
+           </div><br>
+
+          <div class="col-sm-12">
+          <label >IP:</label>
           <div id="demo2" class="well" ></div>
+        </div><br>
 
-          <label>Mac address:</label>
-          <input type="text" name="mac" id="mac" class="form-control" required><br>
-          <label>Conexiune net:</label><br>
+          <label class="col-sm-2">Mac address:</label>
+           <div class="col-sm-4">
+          <input type="text" name="mac" id="mac" class="form-control" required>
+        </div><br>&nbsp;&nbsp;
 
+          <label>Conexiune net:</label><br>&nbsp;&nbsp;
           <input name="net" type="radio" id="netDa" value="Da"> Da &nbsp;&nbsp;
           <input name="net" type="radio" id="netNu" value="Nu"> Nu <br><br>
 
@@ -280,6 +303,7 @@ else {
       $("#edit-id").val(data[0].id);
       $(`#section_id option[value="${data[0].section_id}"]`).attr('selected', 'selected');
       $("#cabinet").val(data[0].cabinet);
+      $("#numepc").val(data[0].numepc);
       ip = data[0].ip;
       ip = ip.split('.');
 
