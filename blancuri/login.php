@@ -6,7 +6,7 @@ include('db_connect.php');
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Registration system PHP and MySQL</title>
+	<title>Login</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
@@ -29,6 +29,7 @@ include('db_connect.php');
 	      <input id="password" type="password" class="form-control" name="password" placeholder="Parola">
 	    </div>
 
+
 		<div class="input-group">
 			<button type="submit" class="btn btn-success" name="login_btn">Login</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		  <a href="index.php"><button type="button" class="btn btn-danger">Cancel</button></a>
@@ -38,6 +39,7 @@ include('db_connect.php');
 	</form>
 
 </div>
+
 
 </body>
 </html>

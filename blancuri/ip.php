@@ -42,12 +42,12 @@ include('navbar.php');
 
         <label class="col-sm-2">Cabinetul:</label>
         <div class="col-sm-4">
-        <input type="text" name="cabinet" class="form-control" required>
+        <input type="text" name="cabinet" class="form-control">
         </div>
 
         <label class="col-sm-2">Nume PC:</label>
         <div class="col-sm-4">
-  			<input type="text" name="numepc" class="form-control" required>
+  			<input type="text" name="numepc" class="form-control">
         </div><br>
 
         <div class="col-sm-12">
@@ -57,7 +57,7 @@ include('navbar.php');
 
         <label class="col-sm-2">Mac address:</label>
         <div class="col-sm-4">
-        <input type="text" name="mac" class="form-control" required>
+        <input type="text" name="mac" class="form-control">
       </div><br>
 
         <label>Conexiune net:</label>&nbsp;&nbsp;
@@ -105,7 +105,7 @@ include('navbar.php');
 
 
 	<div align="right">
-  <button type="button" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Adăugați </button>
+  <button type="button" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Adăugați</button>
 	</div><br>
 
 		<table class="table table-bordered table-striped" id= "table-id">
@@ -158,6 +158,10 @@ include('navbar.php');
             <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal">
     					<i class="glyphicon glyphicon-edit text-primary"></i>
     				</a >
+          </a ><?php		}		?>
+
+
+          <?php if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) { ?>
 
 						<a href="#" class="confirm-delete" data-id="<?php  echo $row["id"] ?>"><i class="glyphicon glyphicon-trash text-danger"></i></a>
 							<?php		}		?>
@@ -236,12 +240,12 @@ include('navbar.php');
 
           <label class="col-sm-2">Cabinetul:</label>
            <div class="col-sm-4">
-          <input type="text" name="cabinet" id="cabinet" class="form-control" required>
+          <input type="text" name="cabinet" id="cabinet" class="form-control">
            </div>
 
            <label class="col-sm-2">Nume PC:</label>
            <div class="col-sm-4">
-           <input type="text" name="numepc" id="numepc" class="form-control" required>
+           <input type="text" name="numepc" id="numepc" class="form-control">
            </div><br>
 
           <div class="col-sm-12">
@@ -251,7 +255,7 @@ include('navbar.php');
 
           <label class="col-sm-2">Mac address:</label>
            <div class="col-sm-4">
-          <input type="text" name="mac" id="mac" class="form-control" required>
+          <input type="text" name="mac" id="mac" class="form-control">
         </div><br>&nbsp;&nbsp;
 
           <label>Conexiune net:</label><br>&nbsp;&nbsp;
