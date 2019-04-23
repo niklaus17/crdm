@@ -21,11 +21,12 @@ if(isset($_POST['btn-update']))
   $ip = $ip;
 
   $mac = $_POST["mac"];
+  $net = $_POST["net"];
   $coment = $_POST["coment"];
 
   $name = $_SESSION['user']['username'];
 
-  $query = "UPDATE ip SET section_id='$section_id', cabinet='$cabinet', ip='$ip', mac='$mac', coment='$coment' where id='$id' ";
+  $query = "UPDATE ip SET section_id='$section_id', cabinet='$cabinet', ip='$ip', mac='$mac', net='$net', coment='$coment', name='$name' where id='$id' ";
 
   mysqli_query($conn, $query) or die("database error: ". mysqli_error($conn));
  }

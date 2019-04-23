@@ -49,8 +49,12 @@ include('navbar.php');
         <label>Mac address:</label>
         <input type="text" name="mac" class="form-control" required><br>
 
-      <label for="comment">Comentariu:</label>
-      <textarea class="form-control" rows="3" name="coment" id="comment"></textarea>
+        <label>Conexiune net:</label><br>
+        <input name="net" type="radio" value="Da"> Da &nbsp;&nbsp;
+        <input name="net" type="radio" value="Nu"> Nu <br><br>
+
+        <label for="comment">Comentariu:</label>
+        <textarea class="form-control" rows="3" name="coment" id="comment"></textarea>
 
 
 		</div>
@@ -101,7 +105,9 @@ include('navbar.php');
 					<td>Cabinetul</td>
 					<td>IP</td>
 					<td>Mac address</td>
+          <td>Internet</td>
           <td>Comentariu</td>
+          <td>Utilizator</td>
 					<td>Acțiune</td>
     	</tr>
       <?php
@@ -130,16 +136,17 @@ include('navbar.php');
 
 				<td><?= $row['ip'] ?></td>
         <td><?= $row['mac'] ?></td>
+        <td><?= $row['net'] ?></td>
         <td><?= $row['coment'] ?></td>
+        <td><?= $row['name'] ?></td>
+
 				<td>
 							<?php if (isset($_SESSION['user'])) { ?>
 
             <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal">
     					<i class="glyphicon glyphicon-edit text-primary"></i>
-    				</a ><?php		}		?>
+    				</a >
 
-
-            <?php if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) { ?>
 						<a href="#" class="confirm-delete" data-id="<?php  echo $row["id"] ?>"><i class="glyphicon glyphicon-trash text-danger"></i></a>
 							<?php		}		?>
 			  </td>
@@ -223,6 +230,10 @@ include('navbar.php');
 
           <label>Mac address:</label>
           <input type="text" name="mac" id="mac" class="form-control" required><br>
+          <label>Conexiune net:</label><br>
+
+          <input name="net" type="radio" id="netDa" value="Da"> Da &nbsp;&nbsp;
+          <input name="net" type="radio" id="netNu" value="Nu"> Nu <br><br>
 
          <label for="comment">Comentariu:</label>
          <textarea class="form-control" rows="3" name="coment" id="coment"></textarea>
@@ -277,6 +288,13 @@ else {
       $($("#demo2 .ipv4-cell")[2]).val(ip[2]);
       $($("#demo2 .ipv4-cell")[3]).val(ip[3]);
       $("#mac").val(data[0].mac);
+      $("#net").val(data[0].net);
+      if (data[0].net == 'Da') {
+        $("#netDa").prop("checked", true);
+      }
+      else {
+        $("#netNu").prop("checked", true);
+      }
       $("#coment").val(data[0].coment);
     });
   });

@@ -20,10 +20,11 @@ if(isset($_POST['btn-upload']))
   $ip = $ip;
 
   $mac = $_POST["mac"];
+  $net = $_POST["net"];
   $coment = $_POST["coment"];
   $name = $_SESSION['user']['username'];
 
- 	$sql="INSERT INTO ip(section_id, cabinet, ip, mac, coment) VALUES('$section_id', '$cabinet', '$ip', '$mac', '$coment')";
+ 	$sql="INSERT INTO ip(section_id, cabinet, ip, mac, net, coment, name) VALUES('$section_id', '$cabinet', '$ip', '$mac', '$net', '$coment', '$name')";
 
  	mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
  }

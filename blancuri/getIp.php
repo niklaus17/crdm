@@ -16,15 +16,19 @@ while($row = mysqli_fetch_array($result)){
     $cabinet = $row['cabinet'];
     $ip = $row['ip'];
     $mac = $row['mac'];
+    $net = $row['net'];
     $coment = $row['coment'];
+    $name = $row['name'];
 
     array_push($return_arr, array(
       "id" => $id,
       'section_id' => $section_id,
       "cabinet" => $cabinet,
       "mac" => $mac,
-			'coment' => $coment,
-      "ip" => $ip
+      "net" => $net,
+			"coment" => $coment,
+      "ip" => $ip,
+      "name" => $name,
 			));
 }
 
