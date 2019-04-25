@@ -14,7 +14,7 @@ include_once("db_connect.php");
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
-                position: fixed;
+                overflow: hidden;
             }
 
             .full-height {
