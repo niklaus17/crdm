@@ -19,6 +19,7 @@ include('db_connect.php');
       <ul class="nav navbar-nav">
         <li><a href="blancuri.php">Blancuri</a></li>
         <li><a href="ip.php">IP</a></li>
+        <li><a href="formular.php">Formular</a></li>
       <?php } else { ?>
   <?php } ?>
       </ul>
