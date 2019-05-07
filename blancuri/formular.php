@@ -21,8 +21,35 @@ include('navbar.php');
   		<div class="modal-body">
   			<form action="upload_formular.php" method="post" enctype="multipart/form-data" id="insert_form">
 
-<label>Date dispozitiv medical:</label>
 
+          <label>Date beneficiar:</label>
+          <table class="table table-bordered">
+            <tr>
+              <th style="vertical-align: middle;">Cabinetul:</th>
+              <td><input type="text" name="cabinet" class="form-control"></td>
+              <th rowspan="2" style="vertical-align: middle;">Executor:</th>
+              <td rowspan="2" style="vertical-align: middle;"><input type="text" name="executor" class="form-control"></td>
+            </tr>
+            <tr>
+              <th style="vertical-align: middle;">Sectia:</th>
+              <td><input type="hidden" name="id" id="id" value="">
+                <select name="section_id" id="section_id" class="form-control">
+                      <option value="">SELECT</option>
+                      <?php
+                          $sql="SELECT * FROM sectie";
+                          $result_set=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
+                          while($row = mysqli_fetch_array ($result_set) )
+                          {
+                            echo "<option value=\"" . $row['id'] . "\">" . $row['section'] ."</option>";
+                          }
+                      ?>
+                </select>
+              </td>
+            </tr>
+          </table>
+
+
+<label>Date dispozitiv medical:</label>
 <table class="table table-bordered">
   <tr>
     <td>Denumire dispozitiv:</td>
@@ -41,32 +68,6 @@ include('navbar.php');
     <td><input type="text" name="producator_dispozitiv" class="form-control"></td>
     <td>Numar inventar:</td>
     <td colspan="4"><input type="text" name="numar_inventar" class="form-control"></td>
-  </tr>
-</table>
-
-<label>Date beneficiar:</label>
-<table class="table table-bordered">
-  <tr>
-    <th style="vertical-align: middle;">Cabinetul:</th>
-    <td><input type="text" class="form-control"></td>
-    <th rowspan="2" style="vertical-align: middle;">Executor:</th>
-    <td rowspan="2" style="vertical-align: middle;"><input type="text" class="form-control"></td>
-  </tr>
-  <tr>
-    <th style="vertical-align: middle;">Sectia:</th>
-    <td><input type="hidden" name="id" id="id" value="">
-      <select name="section_id" id="section_id" class="form-control">
-            <option value="">SELECT</option>
-            <?php
-                $sql="SELECT * FROM sectie";
-                $result_set=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
-                while($row = mysqli_fetch_array ($result_set) )
-                {
-                  echo "<option value=\"" . $row['id'] . "\">" . $row['section'] ."</option>";
-                }
-            ?>
-      </select>
-    </td>
   </tr>
 </table>
 
@@ -196,7 +197,11 @@ include('navbar.php');
           <?php if (isset($_SESSION['user'])) { ?>
     <td>
 
-        <i type="submit" id="pdf" name="generate_pdf" class="glyphicon glyphicon-eye-open text-primary"></i>
+      <a href="raport.php" data-id="<?= $row['id'] ?>" target="_blank">
+         <i class="glyphicon glyphicon-eye-open text-primary"></i>
+      </a>
+
+
 
         <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal">
           <i class="glyphicon glyphicon-edit text-primary"></i>
@@ -216,10 +221,10 @@ include('navbar.php');
   <h4 class="modal-title">Confirmă ștergera</h4>
   </div>
   <div class="modal-body">
-  <p>Șterge <?php echo '<span class="text-danger" >' . $row["model"] . '</span> '; ?></p>
+  <p>Șterge <?php echo '<span class="text-danger" >' . $row["cabinet"] . '</span> '; ?></p>
   </div>
   <div class="modal-footer">
-   <a class="btn btn-danger" href="delete_blanc.php?id=<?php echo $row['id'] ?>">Confirmă</a>
+   <a class="btn btn-danger" href="delete_formular.php?id=<?php echo $row['id'] ?>">Confirmă</a>
     <a href="#" data-dismiss="modal" class="btn btn-secondary btn-cancel">Anulează</a>
   </div>
 </div><!-- /.modal-content -->
@@ -231,12 +236,12 @@ include('navbar.php');
 </table>
 </div>
 
-<script type="text/javascript">
-    $('#pdf').click(function () {
-      url = '';
-            url = `generate_pdf_form.php`;
-
-          window.open(url, '_blank');
-    })
+<!-- Confirm pentru delete modal -->
+<script>
+		$('.confirm-delete').on('click', function(e) {
+			e.preventDefault();
+			var id = $(this).data('id');
+			$('#delete_Modal' + id).modal('show');
+		});
 </script>
 </body>

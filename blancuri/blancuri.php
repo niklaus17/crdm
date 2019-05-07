@@ -96,13 +96,13 @@ include('navbar.php');
 
 			  	</div>
 
-<div class="col-md-3">
+    <div class="col-md-3">
           <div class="input-group input-daterange">
               <input type="text" class="form-control" name="from_date" id="from_date" placeholder="De pe data...">
               <div class="input-group-addon">to</div>
               <input type="text" class="form-control" name="to_date" id="to_date" placeholder="Pâna pe data...">
           </div>
-        </div>
+    </div>
 
   <div class="col-md-3">
     <input type="button" name="range" id="range" value="Vizualizare" class="btn btn-success"/>

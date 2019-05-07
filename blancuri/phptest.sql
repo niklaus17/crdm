@@ -149,7 +149,21 @@ INSERT INTO `user` (`id`, `username`, `email`, `user_type`, `password`) VALUES
 --
 -- Индексы сохранённых таблиц
 --
+CREATE TABLE `formular` (
+  `id` int(11) NOT NULL,
 
+  `cabinet` varchar(100) NOT NULL,
+  `section_id` int(11) NOT NULL,
+  `executor` varchar(100) NOT NULL,
+
+  `nume_dispozitiv` varchar(100) NOT NULL,
+  `anul_producerii_dispozitiv` date NOT NULL,
+  `model_dispozitiv` varchar(100) NOT NULL,
+  `nr_serie_dispozitiv` varchar(100) NOT NULL,
+  `producator_dispozitiv` varchar(100) NOT NULL,
+  `numar_inventar` varchar(100) NOT NULL
+  `name` varchar(50) NOT NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
 -- Индексы таблицы `blancuri`
 --
