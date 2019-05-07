@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Апр 23 2019 г., 14:10
+-- Время создания: Май 07 2019 г., 15:24
 -- Версия сервера: 10.1.38-MariaDB
 -- Версия PHP: 7.3.2
 
@@ -45,6 +45,33 @@ CREATE TABLE `blancuri` (
 
 INSERT INTO `blancuri` (`id`, `day`, `model`, `section_id`, `number`, `tip_id`, `name`, `file_id`) VALUES
 (12, '2019-04-13', 'Arhitect', 2, 500, 1, 'Nicolae', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `formular`
+--
+
+CREATE TABLE `formular` (
+  `id` int(11) NOT NULL,
+  `cabinet` varchar(100) NOT NULL,
+  `section_id` int(11) NOT NULL,
+  `executor` varchar(100) NOT NULL,
+  `nume_dispozitiv` varchar(100) NOT NULL,
+  `anul_producerii_dispozitiv` date NOT NULL,
+  `model_dispozitiv` varchar(100) NOT NULL,
+  `nr_serie_dispozitiv` varchar(100) NOT NULL,
+  `producator_dispozitiv` varchar(100) NOT NULL,
+  `numar_inventar` varchar(100) NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `formular`
+--
+
+INSERT INTO `formular` (`id`, `cabinet`, `section_id`, `executor`, `nume_dispozitiv`, `anul_producerii_dispozitiv`, `model_dispozitiv`, `nr_serie_dispozitiv`, `producator_dispozitiv`, `numar_inventar`, `name`) VALUES
+(3, '817', 13, 'pizdabolsiku', 'nokia', '1997-05-22', '3030', 'L3125', 'tsdvxcve3456475', 'wer3454dst34', 'Nicolae');
 
 -- --------------------------------------------------------
 
@@ -149,25 +176,17 @@ INSERT INTO `user` (`id`, `username`, `email`, `user_type`, `password`) VALUES
 --
 -- Индексы сохранённых таблиц
 --
-CREATE TABLE `formular` (
-  `id` int(11) NOT NULL,
 
-  `cabinet` varchar(100) NOT NULL,
-  `section_id` int(11) NOT NULL,
-  `executor` varchar(100) NOT NULL,
-
-  `nume_dispozitiv` varchar(100) NOT NULL,
-  `anul_producerii_dispozitiv` date NOT NULL,
-  `model_dispozitiv` varchar(100) NOT NULL,
-  `nr_serie_dispozitiv` varchar(100) NOT NULL,
-  `producator_dispozitiv` varchar(100) NOT NULL,
-  `numar_inventar` varchar(100) NOT NULL
-  `name` varchar(50) NOT NULL,
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
 -- Индексы таблицы `blancuri`
 --
 ALTER TABLE `blancuri`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `formular`
+--
+ALTER TABLE `formular`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -205,10 +224,16 @@ ALTER TABLE `blancuri`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- AUTO_INCREMENT для таблицы `formular`
+--
+ALTER TABLE `formular`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT для таблицы `ip`
 --
 ALTER TABLE `ip`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблицы `sectie`
