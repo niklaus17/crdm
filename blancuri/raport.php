@@ -30,11 +30,6 @@ include('db_connect.php');
       tr, td {
         border: 1px solid black;
       }
-
-      td {
-        margin-left: 5px;
-      }
-
 }
 
     table {
@@ -44,10 +39,7 @@ include('db_connect.php');
 
      tr, td {
        border: 1px solid black;
-     }
-
-     td {
-       margin-left: 5px;
+       padding-left: 5px;
      }
 
   </style>
@@ -85,7 +77,7 @@ include('db_connect.php');
         <td rowspan="2"><?= $row['executor'] ?></td>
       </tr>
       <tr>
-        <th style="vertical-align: middle;">Sectia:</th>
+        <th>Sectia:</th>
         <td>
           <?php
           $section_id = $row['section_id'];
@@ -118,7 +110,84 @@ include('db_connect.php');
           <td>Numar inventar:</td>
           <td colspan="4"><?= $row['numar_inventar'] ?></td>
         </tr>
-      </table>
+      </table><br><br>
+
+      <strong><label>Date piesa/accesoriu:</label></strong>
+      <table width="100%">
+        <tr>
+          <td>Denumire piesa/accesoriu:</td>
+          <td><?= $row['denumire_piesa'] ?></td>
+          <td>Anul producerii:</td>
+          <td><?= $row['anul_producerii_piesa'] ?></td>
+        </tr>
+        <tr>
+          <td>Model:</td>
+          <td><?= $row['model_piesa'] ?></td>
+          <td>Nr. serie:</td>
+          <td colspan="4"><?= $row['nr_serie_dispozitiv_piesa'] ?></td>
+        </tr>
+        <tr>
+          <td>Producator:</td>
+          <td><?= $row['producator_piesa'] ?></td>
+          <td>Part number:</td>
+          <td colspan="4"><?= $row['part_number'] ?></td>
+        </tr>
+      </table><br><br>
+
+      <strong><label>Date cu privire la dispozitivul medical pentru care a fost instalata piesa/accesoriul:</label></strong>
+      <table width="100%">
+          <tr>
+            <td>Denumire piesa/accesoriu:</td>
+            <td><?= $row['denumire_piesa_instal'] ?></td>
+            <td>Anul producerii:</td>
+            <td><?= $row['anul_producerii_piesa_instal'] ?></td>
+          </tr>
+          <tr>
+            <td>Model:</td>
+            <td><?= $row['model_piesa_instal'] ?></td>
+            <td>Nr. serie:</td>
+            <td><?= $row['nr_serie_dispozitiv_instal'] ?></td>
+          </tr>
+          <tr>
+            <td>Producator:</td>
+            <td><?= $row['producator_piesa_instal'] ?></td>
+            <td>Altele*:</td>
+            <td><?= $row['altele'] ?></td>
+          </tr>
+      </table><br><br>
+
+      <strong><label>Inspectie/Test de functionalitate:</label></strong>
+      <table width="100%">
+        <tr>
+          <td>Data instalarii/ Monatarii:</td>
+          <td><?= $row['data_instalarii'] ?></td>
+          <td>Perioada de garantie:</td>
+          <td><?= $row['garantie'] ?> luni</td>
+        </tr>
+        <tr>
+          <td>Test de operare (verificarea functionalitatii)</td>
+          <td colspan="4"><?= $row['net'] ?></td>
+        </tr>
+      </table><br><br>
+
+      <strong><label for="comment">Comentarii:</label></strong>
+      <table width="100%">
+        <tr>
+          <td><?= $row['comentarii'] ?></td>
+        </tr>
+      </table><br><br>
+
+      <table width="100%">
+        <tr>
+          <td><strong>Beneficiar:</strong></td>
+          <td><strong>Executor/Furnizor:</strong></td>
+        </tr>
+        <tr>
+          <td width="50%"><?= $row['beneficiar'] ?></td>
+          <td><?= $row['furnizor'] ?></td>
+        </tr>
+      </table><br><br>
+
       <?php		}		?>
   </div>
 
