@@ -50,7 +50,8 @@ include('db_connect.php');
 
 <div class="head">
 
-      <h3 align="right">Aprobat___________________________<br>
+      <h3 align="right">
+          Aprobat___________________________<br>
           Nume / Prenume___________________________<br>
           Data___________________________
       </h3>
