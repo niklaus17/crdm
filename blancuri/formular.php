@@ -197,12 +197,9 @@ include('navbar.php');
           <?php if (isset($_SESSION['user'])) { ?>
     <td>
 
-      <a href="raport.php" data-id="<?= $row['id'] ?>" target="_blank">
+        <a href="raport.php" data-id="<?= $row['id'] ?>" target="_blank">
          <i class="glyphicon glyphicon-eye-open text-primary"></i>
-      </a>
-
-
-
+        </a>
         <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal">
           <i class="glyphicon glyphicon-edit text-primary"></i>
         </a >
@@ -235,6 +232,53 @@ include('navbar.php');
 </tbody>
 </table>
 </div>
+
+<?php if (isset($_SESSION['user'])) { ?>
+
+  <div id="edit_data_Modal" class="modal fade">
+   <div class="modal-dialog">
+    <div class="modal-content">
+     <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title">Editati informația necesară</h4>
+     </div>
+  		<div class="modal-body">
+        <label>Date beneficiar:</label>
+        <table class="table table-bordered">
+          <tr>
+            <th style="vertical-align: middle;">Cabinetul:</th>
+            <td><input type="text" id="cabinet" class="form-control" disabled></td>
+            <th style="vertical-align: middle;">Executor:</th>
+            <td style="vertical-align: middle;"><input type="text" id="executor" class="form-control" disabled></td>
+          </tr>
+          </table>
+
+          <label>Selectați un fișier pentru încărcare PDF:</label>
+			    <input type="file" name="file" accept=".pdf,.html" class="form-control"/><br>
+
+      </div>
+      <div class="modal-footer">
+      <button type="submit" name="btn-update" id="update" class="btn btn-primary">Editati</button>
+       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       </form>
+      </div>
+     </div>
+    </div>
+  </div>
+  <?php 	} ?>
+
+  <!-- Modal Edit -->
+  <script type="text/javascript">
+    $(".modal-edit").click(function() {
+      id = $(this).data('id');
+      $.get("getFormular.php", {id: id}).done( function(data) {
+        data = JSON.parse(data);
+        $("#edit-id").val(data[0].id);
+        $("#cabinet").val(data[0].cabinet);
+        $("#executor").val(data[0].executor);
+      });
+    });
+  </script>
 
 <!-- Confirm pentru delete modal -->
 <script>

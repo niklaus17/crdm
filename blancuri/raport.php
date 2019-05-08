@@ -187,6 +187,10 @@ include('db_connect.php');
           <td width="50%"><?= $row['beneficiar'] ?></td>
           <td><?= $row['furnizor'] ?></td>
         </tr>
+        <tr>
+          <td><strong>Semnatura:</strong></td>
+          <td><strong>Semnatura:</strong></td>
+        </tr>
       </table><br><br>
 
       <?php		}		?>
