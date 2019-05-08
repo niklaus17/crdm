@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 07 2019 г., 19:28
+-- Время создания: Май 08 2019 г., 14:46
 -- Версия сервера: 10.1.38-MariaDB
--- Версия PHP: 7.3.4
+-- Версия PHP: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -57,6 +57,7 @@ CREATE TABLE `formular` (
   `comentarii` varchar(100) NOT NULL,
   `beneficiar` varchar(50) NOT NULL,
   `furnizor` varchar(50) NOT NULL,
+  `file` varchar(100) NOT NULL,
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -64,8 +65,8 @@ CREATE TABLE `formular` (
 -- Дамп данных таблицы `formular`
 --
 
-INSERT INTO `formular` (`id`, `cabinet`, `section_id`, `executor`, `nume_dispozitiv`, `anul_producerii_dispozitiv`, `model_dispozitiv`, `nr_serie_dispozitiv`, `producator_dispozitiv`, `numar_inventar`, `denumire_piesa`, `model_piesa`, `producator_piesa`, `anul_producerii_piesa`, `nr_serie_dispozitiv_piesa`, `part_number`, `denumire_piesa_instal`, `model_piesa_instal`, `producator_piesa_instal`, `anul_producerii_piesa_instal`, `nr_serie_dispozitiv_instal`, `altele`, `data_instalarii`, `garantie`, `net`, `comentarii`, `beneficiar`, `furnizor`, `name`) VALUES
-(15, '456', 4, 'bunerfgbdf', 'usi', '2019-05-15', 'Uzi321', 'FDXVX', 'imast', 'RYFGHMDGH', 'Hard Drive', 'SSDjrt', 'hrtsjs', '2019-05-30', '23566rhfzgn', 'bnvnng', 'sjth', 'jghERWEER', 'RETRRETR', '2019-05-10', 'TYRTYRT', 'TYRTYRT', '2019-05-17', 556, 'Da', 'er4q5yyw56yrhzfz rwtyj tj ', '56wthtgh', 'rthss', 'Nicolae');
+INSERT INTO `formular` (`id`, `cabinet`, `section_id`, `executor`, `nume_dispozitiv`, `anul_producerii_dispozitiv`, `model_dispozitiv`, `nr_serie_dispozitiv`, `producator_dispozitiv`, `numar_inventar`, `denumire_piesa`, `model_piesa`, `producator_piesa`, `anul_producerii_piesa`, `nr_serie_dispozitiv_piesa`, `part_number`, `denumire_piesa_instal`, `model_piesa_instal`, `producator_piesa_instal`, `anul_producerii_piesa_instal`, `nr_serie_dispozitiv_instal`, `altele`, `data_instalarii`, `garantie`, `net`, `comentarii`, `beneficiar`, `furnizor`, `file`, `name`) VALUES
+(15, '456', 4, 'bunerfgbdf', 'usi', '2019-05-15', 'Uzi321', 'FDXVX', 'imast', 'RYFGHMDGH', 'Hard Drive', 'SSDjrt', 'hrtsjs', '2019-05-30', '23566rhfzgn', 'bnvnng', 'sjth', 'jghERWEER', 'RETRRETR', '2019-05-10', 'TYRTYRT', 'TYRTYRT', '2019-05-17', 556, 'Da', 'er4q5yyw56yrhzfz rwtyj tj ', '56wthtgh', 'rthss', '', 'Nicolae');
 
 --
 -- Индексы сохранённых таблиц
