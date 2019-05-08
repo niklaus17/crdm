@@ -75,21 +75,21 @@ include('navbar.php');
 <table class="table table-bordered">
   <tr>
     <td>Denumire piesa/accesoriu:</td>
-    <td><input type="text" class="form-control"></td>
+    <td><input type="text" name="denumire_piesa" class="form-control"></td>
     <td>Anul producerii:</td>
-    <td><input type="date" class="form-control"></td>
+    <td><input type="date" name="anul_producerii_piesa" class="form-control"></td>
   </tr>
   <tr>
     <td>Model:</td>
-    <td><input type="text" class="form-control"></td>
+    <td><input type="text" name="model_piesa" class="form-control"></td>
     <td>Nr. serie:</td>
-    <td colspan="4"><input type="text" class="form-control"></td>
+    <td colspan="4"><input type="text" name="nr_serie_dispozitiv_piesa" class="form-control"></td>
   </tr>
   <tr>
     <td>Producator:</td>
-    <td><input type="text" class="form-control"></td>
+    <td><input type="text" name="producator_piesa" class="form-control"></td>
     <td>Part number:</td>
-    <td colspan="4"><input type="text" class="form-control"></td>
+    <td colspan="4"><input type="text" name="part_number" class="form-control"></td>
   </tr>
 </table>
 
@@ -97,21 +97,21 @@ include('navbar.php');
 <table class="table table-bordered">
     <tr>
       <td>Denumire piesa/accesoriu:</td>
-      <td><input type="text" class="form-control"></td>
+      <td><input type="text" name="denumire_piesa_instal" class="form-control"></td>
       <td>Anul producerii:</td>
-      <td><input type="date" class="form-control"></td>
+      <td><input type="date" name="anul_producerii_piesa_instal" class="form-control"></td>
     </tr>
     <tr>
       <td>Model:</td>
-      <td><input type="text" class="form-control"></td>
+      <td><input type="text" name="model_piesa_instal" class="form-control"></td>
       <td>Nr. serie:</td>
-      <td><input type="text" class="form-control"></td>
+      <td><input type="text" name="nr_serie_dispozitiv_instal" class="form-control"></td>
     </tr>
     <tr>
       <td>Producator:</td>
-      <td><input type="text" class="form-control"></td>
+      <td><input type="text" name="producator_piesa_instal" class="form-control"></td>
       <td>Altele*:</td>
-      <td><input type="text" class="form-control"></td>
+      <td><input type="text" name="altele" class="form-control"></td>
     </tr>
 </table>
 
@@ -119,9 +119,9 @@ include('navbar.php');
 <table class="table table-bordered">
   <tr>
     <td>Data instalarii/ Monatarii:</td>
-    <td><input type="date" class="form-control"></td>
+    <td><input type="date" name="data_instalarii" class="form-control"></td>
     <td>Perioada de garantie:</td>
-    <td><input type="number" class="form-control" placeholder="luni"></td>
+    <td><input type="number" name="garantie" class="form-control" placeholder="luni"></td>
   </tr>
   <tr>
     <td>Test de operare (verificarea functionalitatii)</td>
@@ -133,7 +133,7 @@ include('navbar.php');
 </table>
 
 <label for="comment">Comentarii:</label>
-<textarea class="form-control" rows="3" name="coment" id="comment"></textarea><br>
+<textarea class="form-control" rows="3" name="comentarii"></textarea><br>
 
 <table class="table table-bordered">
   <tr>
@@ -141,8 +141,8 @@ include('navbar.php');
     <td><strong>Executor/Furnizor:</strong></td>
   </tr>
   <tr>
-    <td><input type="text" class="form-control" placeholder="nume, prenume"></td>
-    <td><input type="text" class="form-control" placeholder="nume, prenume"></td>
+    <td><input type="text" name="beneficiar" class="form-control" placeholder="nume, prenume"></td>
+    <td><input type="text" name="furnizor" class="form-control" placeholder="nume, prenume"></td>
   </tr>
 </table>
 </div>
