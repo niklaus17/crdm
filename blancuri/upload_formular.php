@@ -6,10 +6,9 @@ if(isset($_POST['btn-upload']))
 
   $id = $_POST['id'];
 
-   $cabinet = $_POST['cabinet'];
-   $section_id = $_POST['section_id'];
-   $executor = $_POST['executor'];
-
+  $cabinet = $_POST['cabinet'];
+  $section_id = $_POST['section_id'];
+  $executor = $_POST['executor'];
  	$nume_dispozitiv = $_POST['nume_dispozitiv'];
 	$anul_producerii_dispozitiv = $_POST["anul_producerii_dispozitiv"];
   $model_dispozitiv = $_POST["model_dispozitiv"];

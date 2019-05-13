@@ -7,8 +7,19 @@ include('db_connect.php');
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Raport</title>
+    <link rel="shortcut icon" href="img/logo.png" />
 
-  <style>
+
+  <style media="print">
+    tr, td {
+      border: 1px solid black;
+    }
+    table {
+       border-collapse: collapse;
+        margin-top: 10px;
+     }
+  </style>
+  <style media="screen">
 
     .page {
       width: 21cm;
@@ -26,12 +37,6 @@ include('db_connect.php');
       margin: 0;
     }
 
-    @media print {
-      tr, td {
-        border: 1px solid black;
-      }
-}
-
     table {
        border-collapse: collapse;
         margin-top: 10px;
@@ -41,6 +46,8 @@ include('db_connect.php');
        border: 1px solid black;
        padding-left: 5px;
      }
+
+     tr { border: solid thin; }
 
   </style>
 </head>
@@ -63,7 +70,7 @@ include('db_connect.php');
     </div><br><br>
 
     <?php
-      $sql="SELECT * FROM formular";
+      $sql="SELECT * FROM formular where id =" . $_GET['id'];
         $result_set=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
         while($row = mysqli_fetch_array ($result_set) )
         {
@@ -94,10 +101,10 @@ include('db_connect.php');
     <strong><label>Date dispozitiv medical:</label></strong>
       <table width="100%">
         <tr>
-          <td>Denumire dispozitiv:</td>
-          <td><?= $row['nume_dispozitiv'] ?></td>
-          <td>Anul producerii: </td>
-          <td><?= $row['anul_producerii_dispozitiv'] ?></td>
+          <td width="25%">Denumire dispozitiv:</td>
+          <td width="30%"><?= $row['nume_dispozitiv'] ?></td>
+          <td width="20%">Anul producerii: </td>
+          <td width="25%"><?= $row['anul_producerii_dispozitiv'] ?></td>
         </tr>
         <tr>
           <td>Model:</td>
@@ -116,10 +123,10 @@ include('db_connect.php');
       <strong><label>Date piesa/accesoriu:</label></strong>
       <table width="100%">
         <tr>
-          <td>Denumire piesa/accesoriu:</td>
-          <td><?= $row['denumire_piesa'] ?></td>
-          <td>Anul producerii:</td>
-          <td><?= $row['anul_producerii_piesa'] ?></td>
+          <td width="25%">Denumire piesa/accesoriu:</td>
+          <td width="30%"><?= $row['denumire_piesa'] ?></td>
+          <td width="20%">Anul producerii:</td>
+          <td width="25%"><?= $row['anul_producerii_piesa'] ?></td>
         </tr>
         <tr>
           <td>Model:</td>
@@ -138,10 +145,10 @@ include('db_connect.php');
       <strong><label>Date cu privire la dispozitivul medical pentru care a fost instalata piesa/accesoriul:</label></strong>
       <table width="100%">
           <tr>
-            <td>Denumire piesa/accesoriu:</td>
-            <td><?= $row['denumire_piesa_instal'] ?></td>
-            <td>Anul producerii:</td>
-            <td><?= $row['anul_producerii_piesa_instal'] ?></td>
+            <td width="25%">Denumire piesa/accesoriu:</td>
+            <td width="30%"><?= $row['denumire_piesa_instal'] ?></td>
+            <td width="20%">Anul producerii:</td>
+            <td width="25%"><?= $row['anul_producerii_piesa_instal'] ?></td>
           </tr>
           <tr>
             <td>Model:</td>

@@ -171,6 +171,7 @@ include('navbar.php');
       <td>Model</td>
       <td>Producator</td>
       <td>Anul producerii</td>
+      <td>File</td>
       <td>Utilizator</td>
       <td>Acțiune</td>
   </tr>
@@ -192,12 +193,13 @@ include('navbar.php');
     <td><?= $row['model_dispozitiv'] ?></td>
     <td><?= $row['producator_dispozitiv'] ?></td>
     <td><?= $row['anul_producerii_dispozitiv'] ?></td>
+    <td><?= $row['file'] ?></td>
     <td><?= $row['name'] ?></td>
 
           <?php if (isset($_SESSION['user'])) { ?>
     <td>
 
-        <a href="raport.php" data-id="<?= $row['id'] ?>" target="_blank">
+        <a href="raport.php?id=<?php echo $row['id'] ?>" target="_blank">
          <i class="glyphicon glyphicon-eye-open text-primary"></i>
         </a>
         <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal">
@@ -218,24 +220,26 @@ include('navbar.php');
   <h4 class="modal-title">Confirmă ștergera</h4>
   </div>
   <div class="modal-body">
-  <p>Șterge <?php echo '<span class="text-danger" >' . $row["cabinet"] . '</span> '; ?></p>
+  <p>Șterge <?php echo '<span class="text-danger" >Cabinetul: ' . $row["cabinet"] . ', Executor: ' . $row["executor"] . '<br />' . $row["file"] . '</span> '; ?></p>
   </div>
   <div class="modal-footer">
-   <a class="btn btn-danger" href="delete_formular.php?id=<?php echo $row['id'] ?>">Confirmă</a>
+    <a class="btn btn-danger" href="delete_formular.php?id=<?php echo $row['id'] ?>&delete=1&file=<?php  echo $row["file"] ?>">Confirmă</a>
     <a href="#" data-dismiss="modal" class="btn btn-secondary btn-cancel">Anulează</a>
   </div>
 </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+
 <?php 	} ?>
 <!-- /END .modal-For Delete file insert-->
 </tbody>
 </table>
 </div>
-
 <?php if (isset($_SESSION['user'])) { ?>
 
-  <div id="edit_data_Modal" class="modal fade">
+  <div id="edit_data_Modal<?= $row['id']?>" class="modal fade">
    <div class="modal-dialog">
     <div class="modal-content">
      <div class="modal-header">
@@ -243,18 +247,21 @@ include('navbar.php');
       <h4 class="modal-title">Editati informația necesară</h4>
      </div>
   		<div class="modal-body">
-        <label>Date beneficiar:</label>
-        <table class="table table-bordered">
-          <tr>
-            <th style="vertical-align: middle;">Cabinetul:</th>
-            <td><input type="text" id="cabinet" class="form-control" disabled></td>
-            <th style="vertical-align: middle;">Executor:</th>
-            <td style="vertical-align: middle;"><input type="text" id="executor" class="form-control" disabled></td>
-          </tr>
-          </table>
 
-          <label>Selectați un fișier pentru încărcare PDF:</label>
-			    <input type="file" name="file" accept=".pdf,.html" class="form-control"/><br>
+        	<form action="update_formular.php" method="post" enctype="multipart/form-data" id="edit_form">
+
+            <label>Date beneficiar:</label>
+            <table class="table table-bordered">
+              <tr>
+                <th style="vertical-align: middle;">Cabinetul:</th>
+                <td><input type="text" id="cabinet" class="form-control" disabled></td>
+                <th style="vertical-align: middle;">Executor:</th>
+                <td style="vertical-align: middle;"><input type="text" id="executor" class="form-control" disabled></td>
+              </tr>
+              </table>
+              <input type="hidden" name="id" id="edit-id">
+              <label>Selectați un fișier pentru încărcare PDF:</label>
+    			    <input type="file" name="file" accept=".pdf,.html" id="file" class="form-control"/><br>
 
       </div>
       <div class="modal-footer">
@@ -276,7 +283,12 @@ include('navbar.php');
         $("#edit-id").val(data[0].id);
         $("#cabinet").val(data[0].cabinet);
         $("#executor").val(data[0].executor);
+        $("#file").val(data[0].file);
+
       });
+
+
+      console.log($("#edit-id").val());
     });
   </script>
 
