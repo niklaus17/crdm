@@ -10,6 +10,7 @@ if(isset($_POST['btn-update']))
 
 	$file = $_FILES['file']['name'];
   $file_loc = $_FILES['file']['tmp_name'];
+	$data = $_FILES['file']['data'];
 
 	$folder="uploads/";
 
@@ -26,7 +27,7 @@ if(isset($_POST['btn-update']))
 	if(move_uploaded_file($file_loc,$folder.$final_file))
 	{
 		// $sql="INSERT INTO formular ( file ) VALUES ( '$final_file' )";
-    $query = "UPDATE formular SET file='$final_file' where id='$id' ";
+    $query = "UPDATE formular SET file='$final_file', data='$data' where id='$id' ";
 		mysqli_query($conn, $query) or die("database error: ". mysqli_error($conn));
 		?>
 		<script>

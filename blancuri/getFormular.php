@@ -14,13 +14,13 @@ while($row = mysqli_fetch_array($result)){
     $id = $row['id'];
     $cabinet = $row['cabinet'];
     $section_id = $row['section_id'];
-    $executor = $row['executor'];
+    $nr_serie_dispozitiv = $row['nr_serie_dispozitiv'];
 
     array_push($return_arr, array(
       "id" => $id,
       "cabinet" => $cabinet,
       'section_id' => $section_id,
-      "executor" => $executor,
+      "nr_serie_dispozitiv" => $nr_serie_dispozitiv,
 			));
 }
 

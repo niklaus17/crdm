@@ -56,7 +56,7 @@ function Footer()
 
 
 
-$display_heading = array('id'=>'Nr.', 'day'=> 'Data', 'model'=> 'Modelul blancului','section_id'=> 'Sectia','number'=> 'Cantitate','tip_id'=> 'Tip','name'=> 'Utilizatorul',);
+$display_heading = array('id'=>'Nr.', 'day'=> 'Data', 'model'=> 'Modelul blancului','section_id'=> 'Sectia','number'=> 'Cantitate','tip_id'=> 'Tip','name'=> 'Utilizator',);
 
 $result = mysqli_query($conn, "SELECT id, day, model, section_id, number, tip_id, name FROM blancuri WHERE day BETWEEN '" . $from_date . "' AND  '" . $to_date . "'") or die("database error:". mysqli_error($connString));
 
@@ -74,11 +74,11 @@ $pdf->SetFont('Arial','B',10);
 $pdf->SetFillColor(204,255,204);
 $pdf->Cell(10,8,$display_heading['id'],1, null, 'C', true);
 $pdf->Cell(20,8,$display_heading['day'],1, null, 'C', true);
-$pdf->Cell(57,8,$display_heading['model'],1, null, 'C', true);
+$pdf->Cell(67,8,$display_heading['model'],1, null, 'C', true);
 $pdf->Cell(37,8,$display_heading['section_id'],1, null, 'C', true);
 $pdf->Cell(20,8,$display_heading['number'],1, null, 'C', true);
 $pdf->Cell(18,8,$display_heading['tip_id'],1, null, 'C', true);
-$pdf->Cell(30,8,$display_heading['name'],1, null, 'C', true);
+$pdf->Cell(20,8,$display_heading['name'],1, null, 'C', true);
 
 $i = 1;
 foreach($result as $row) {
@@ -87,7 +87,7 @@ $pdf->Ln();
 $pdf->SetFont('Arial','',10);
 $pdf->Cell(10,8,$i++,1, null, 'C');
 $pdf->Cell(20,8,$row['day'],1, null, 'C');
-$pdf->Cell(57,8,$row['model'],1);
+$pdf->Cell(67,8,$row['model'],1);
 
 $section_id = $row['section_id'];
 $section_query = "SELECT  section from sectie where id = " . $section_id;
@@ -103,7 +103,7 @@ $result = mysqli_query($conn, $type_query)  or die(mysqli_error($conn));
 $type_name = mysqli_fetch_assoc($result)['format'];
 $pdf->Cell(18,8,$type_name,1, null, 'C');
 
-$pdf->Cell(30,8,$row['name'],1);
+$pdf->Cell(20,8,$row['name'],1);
 
 }
 

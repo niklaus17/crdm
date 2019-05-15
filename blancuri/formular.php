@@ -9,7 +9,6 @@ include('navbar.php');
   <?php if (isset($_SESSION['user'])) { ?>
 
   <!-- /.modal-For insert date -->
-
   <div id="add_data_Modal" class="modal fade">
    <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -20,7 +19,6 @@ include('navbar.php');
 
   		<div class="modal-body">
   			<form action="upload_formular.php" method="post" enctype="multipart/form-data" id="insert_form">
-
 
           <label>Date beneficiar:</label>
           <table class="table table-bordered">
@@ -156,101 +154,80 @@ include('navbar.php');
   	</div>
   </div>
 
-<div class="col-sm-12 text-center">
-  <div align="right">
-  <button type="button" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning">Formular de instalare</button>
-  </div><br>
-  <?php		}		?>
-
-
-<table class="table table-bordered table-striped" id= "table-id">
-  <thead>
-  <tr class="success " style="font-weight:bold">
-
-      <td>Denumire dispozitiv</td>
-      <td>Model</td>
-      <td>Producator</td>
-      <td>Anul producerii</td>
-      <td>File</td>
-      <td>Utilizator</td>
-      <td>Acțiune</td>
-  </tr>
-
-  <?php
-      $count=1;
-        $sql="SELECT * FROM formular order by id DESC";
-      ?>
-      <?php
-      $result_set=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
-      while($row = mysqli_fetch_array ($result_set) )
-      {
-  ?>
-
-</thead>
-<tbody id="myTable">
-<tr>
-    <td><?= $row['nume_dispozitiv'] ?></td>
-    <td><?= $row['model_dispozitiv'] ?></td>
-    <td><?= $row['producator_dispozitiv'] ?></td>
-    <td><?= $row['anul_producerii_dispozitiv'] ?></td>
-    <td><?= $row['file'] ?></td>
-    <td><?= $row['name'] ?></td>
-
-          <?php if (isset($_SESSION['user'])) { ?>
-    <td>
-
-        <a href="raport.php?id=<?php echo $row['id'] ?>" target="_blank">
-         <i class="glyphicon glyphicon-eye-open text-primary"></i>
-        </a>
-        <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal">
-          <i class="glyphicon glyphicon-edit text-primary"></i>
-        </a >
-
-        <a href="#" class="confirm-delete" data-id="<?php  echo $row["id"] ?>"><i class="glyphicon glyphicon-trash text-danger"></i></a>
-          <?php		}		?>
-    </td>
-</tr>
-
-<!-- /.modal-For Delete date -->
-<div id="delete_Modal<?= $row["id"]?>" class="modal fade">
-<div class="modal-dialog">
-<div class="modal-content">
-  <div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-  <h4 class="modal-title">Confirmă ștergera</h4>
-  </div>
-  <div class="modal-body">
-  <p>Șterge <?php echo '<span class="text-danger" >Cabinetul: ' . $row["cabinet"] . ', Executor: ' . $row["executor"] . '<br />' . $row["file"] . '</span> '; ?></p>
-  </div>
-  <div class="modal-footer">
-    <a class="btn btn-danger" href="delete_formular.php?id=<?php echo $row['id'] ?>&delete=1&file=<?php  echo $row["file"] ?>">Confirmă</a>
-    <a href="#" data-dismiss="modal" class="btn btn-secondary btn-cancel">Anulează</a>
-  </div>
-</div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
-
-<?php 	} ?>
-<!-- /END .modal-For Delete file insert-->
-</tbody>
-</table>
-
-<div class="col-md-8 col-sm-8">
+<div class="col-md-12 col-sm-12">
    <div class="panel panel-default">
         <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Tabs</h4></div>
      <div class="panel-body">
 
-             <ul class="nav nav-tabs">
-               <li class="active"><a href="#A" data-toggle="tab">Section 1</a></li>
-               <li><a href="#B" data-toggle="tab">Section 2</a></li>
-               <li><a href="#C" data-toggle="tab">Section 3</a></li>
-             </ul>
-             <div class="tabbable">
-               <div class="tab-content">
-                 <div class="tab-pane active" id="A">
-                   <div class="well well-sm">I'm in Section A.</div>
+     <ul class="nav nav-tabs">
+       <li class="active"><a href="#A" data-toggle="tab">Section 1</a></li>
+       <li><a href="#B" data-toggle="tab">Section 2</a></li>
+       <li><a href="#C" data-toggle="tab">Section 3</a></li>
+     </ul>
+     <div class="tabbable">
+       <div class="tab-content">
+         <div class="tab-pane active" id="A">
+           <div class="well well-sm">
+             <div class="container" id="tourpackages-carousel">
+  <div class="row">
+    <div class="col-lg-12"><h1>My Card <a class="btn icon-btn btn-primary pull-right" data-toggle="modal" data-target="#add_data_Modal"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle"></span> Add New Card</a></h1></div>
+
+    <?php
+       $sql="SELECT * FROM formular order by id DESC";
+    ?>
+    <?php
+      $result_set=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
+      while($row = mysqli_fetch_array ($result_set) )
+      {
+    ?>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+      <div class="thumbnail">
+          <div class="caption">
+            <div class='col-lg-12'>
+                <span>Adaugat de : <?= $row['name'] ?></span>
+                <a href="#" class="confirm-delete" data-id="<?php  echo $row["id"] ?>"><span class="glyphicon glyphicon-trash pull-right text-primary"></span></a>
+            </div>
+            <div class='col-lg-12 well well-add-card'>
+              <h4>Cabinetul: <?= $row['cabinet'] ?></h4>
+                <h4>Nr. serie: <?= $row['nr_serie_dispozitiv'] ?></h4>
+            </div>
+            <div class='col-lg-12'>
+                <p><a href="uploads/<?php echo $row['file'] ?>" target="_blank"><?= $row['file'] ?></a> - Data instalarii <?= $row['data_instalarii'] ?></p>
+            </div>
+
+            <a href="raport.php?id=<?php echo $row['id'] ?>" target="_blank">
+              <button type="button" class="btn btn-danger btn-xs">Print raport</button>
+            </a>
+            <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal">
+              <button type="button" class="btn btn-primary btn-xs">Add file</button>
+            </a>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- /.modal-For Delete date -->
+    <div id="delete_Modal<?= $row["id"]?>" class="modal fade">
+    <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h4 class="modal-title">Confirmă ștergera</h4>
+      </div>
+      <div class="modal-body">
+      <p>Șterge <?php echo '<span class="text-danger" >Cabinetul: ' . $row["cabinet"] . ', Executor: ' . $row["executor"] . '<br />' . $row["file"] . '</span> '; ?></p>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-danger" href="delete_formular.php?id=<?php echo $row['id'] ?>&delete=1&file=<?php  echo $row["file"] ?>">Confirmă</a>
+        <a href="#" data-dismiss="modal" class="btn btn-secondary btn-cancel">Anulează</a>
+      </div>
+    </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+<?php		}		?>
+  </div><!-- End row -->
+</div><!-- End container -->
+                   </div>
                  </div>
                  <div class="tab-pane" id="B">
                    <div class="well well-sm">Howdy, I'm in Section B.</div>
@@ -261,24 +238,12 @@ include('navbar.php');
                </div>
              </div> <!-- /tabbable -->
 
-             <div class="col-sm-12 text-center">
-               <ul class="pagination center-block" style="display:inline-block;">
-                 <li><a href="#">«</a></li>
-                 <li><a href="#">1</a></li>
-                 <li><a href="#">2</a></li>
-                 <li><a href="#">3</a></li>
-                 <li><a href="#">4</a></li>
-                 <li><a href="#">5</a></li>
-                 <li><a href="#">»</a></li>
-               </ul>
-             </div>
-
          </div>
       </div>
  </div>
 
 </div>
-<?php if (isset($_SESSION['user'])) { ?>
+
 
   <div id="edit_data_Modal<?= $row['id']?>" class="modal fade">
    <div class="modal-dialog">
@@ -296,8 +261,8 @@ include('navbar.php');
               <tr>
                 <th style="vertical-align: middle;">Cabinetul:</th>
                 <td><input type="text" id="cabinet" class="form-control" disabled></td>
-                <th style="vertical-align: middle;">Executor:</th>
-                <td style="vertical-align: middle;"><input type="text" id="executor" class="form-control" disabled></td>
+                <th style="vertical-align: middle;">Nr. serie:</th>
+                <td style="vertical-align: middle;"><input type="text" id="nr_serie_dispozitiv" class="form-control" disabled></td>
               </tr>
               </table>
               <input type="hidden" name="id" id="edit-id">
@@ -313,7 +278,17 @@ include('navbar.php');
      </div>
     </div>
   </div>
-  <?php 	} ?>
+
+
+<?php
+}
+else {
+ ?>
+     <h3 class="jumbotron text-center"><a href="login.php"> Va rugam sa va logati ...</a></h3>
+ <?php  }
+ {
+   ?>
+ <?php		}		?>
 
   <!-- Modal Edit -->
   <script type="text/javascript">
@@ -323,7 +298,7 @@ include('navbar.php');
         data = JSON.parse(data);
         $("#edit-id").val(data[0].id);
         $("#cabinet").val(data[0].cabinet);
-        $("#executor").val(data[0].executor);
+        $("#nr_serie_dispozitiv").val(data[0].nr_serie_dispozitiv);
         $("#file").val(data[0].file);
 
       });

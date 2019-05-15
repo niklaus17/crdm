@@ -13,6 +13,7 @@ include('db_connect.php');
   <style media="print">
     tr, td {
       border: 1px solid black;
+      padding-left: 2px;
     }
     table {
        border-collapse: collapse;
@@ -181,7 +182,7 @@ include('db_connect.php');
       <strong><label for="comment">Comentarii:</label></strong>
       <table width="100%">
         <tr>
-          <td><?= $row['comentarii'] ?></td>
+          <td>|<?= $row['comentarii'] ?></td>
         </tr>
       </table><br><br>
 
@@ -191,7 +192,7 @@ include('db_connect.php');
           <td><strong>Executor/Furnizor:</strong></td>
         </tr>
         <tr>
-          <td width="50%"><?= $row['beneficiar'] ?></td>
+          <td width="50%">|<?= $row['beneficiar'] ?></td>
           <td><?= $row['furnizor'] ?></td>
         </tr>
         <tr>

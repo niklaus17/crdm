@@ -117,7 +117,7 @@ mysqli_set_charset($conn,"utf8");
 
 					$_SESSION['user'] = $logged_in_user;
 					$_SESSION['success']  = "Sunteți conectat acum";
-					header('location: home.php');
+					header('location: index.php');
 				}else{
 					$_SESSION['user'] = $logged_in_user;
 					$_SESSION['success']  = "Sunteți conectat acum";
