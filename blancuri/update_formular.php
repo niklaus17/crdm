@@ -7,16 +7,10 @@ if(isset($_POST['btn-update']))
 
 
   $id = $_POST['id'];
-
 	$file = $_FILES['file']['name'];
   $file_loc = $_FILES['file']['tmp_name'];
-	$data = $_FILES['file']['data'];
 
 	$folder="uploads/";
-
-	// new file size in KB
-	// $new_size = $file_size/1024;
-	// new file size in KB
 
 	// make file name in lower case
 	$new_file_name = strtolower($file);
@@ -26,10 +20,11 @@ if(isset($_POST['btn-update']))
 
 	if(move_uploaded_file($file_loc,$folder.$final_file))
 	{
-		// $sql="INSERT INTO formular ( file ) VALUES ( '$final_file' )";
-    $query = "UPDATE formular SET file='$final_file', data='$data' where id='$id' ";
-		mysqli_query($conn, $query) or die("database error: ". mysqli_error($conn));
+
+		$sql="INSERT INTO uploads ( file, formular_id) VALUES('$final_file', '$id')";
+		mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
 		?>
+
 		<script>
 		alert('successfully uploaded');
         window.location.href='formular.php?success';
