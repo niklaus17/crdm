@@ -23,12 +23,13 @@ if(isset($_POST['btn-upload']))
 
 		$sql="INSERT INTO uploads ( file, formular_id) VALUES('$final_file', '$id')";
 		mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
+		$_REQUEST['success'] = 'success';
 		?>
 
 		<script>
-		alert('successfully uploaded');
         window.location.href='formular.php?success';
         </script>
+
 		<?php
 	}
 	else
