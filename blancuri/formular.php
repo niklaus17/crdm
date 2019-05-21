@@ -237,7 +237,6 @@ include('navbar.php');
 
                         <?php
                            $sql="SELECT * FROM formular order by id DESC";
-
                           $result_set=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
                           while($row = mysqli_fetch_array ($result_set) )
                           {
@@ -247,7 +246,7 @@ include('navbar.php');
                             <div class="caption">
                               <div class='col-lg-12'>
                                 <span>Adaugat de : <?= $row['name'] ?></span>
-                                <a href="#" class="confirm-delete" data-id="<?php  echo $row[" id "] ?>"><span class="glyphicon glyphicon-trash pull-right text-primary"></span></a>
+                                <a href="#" class="confirm-delete" data-toggle="modal" data-target="#delete_Modal<?= $row['id']?>" data-id="<?php  echo $row[" id "] ?>"><span class="glyphicon glyphicon-trash pull-right text-primary"></span></a>
                               </div>
                               <div class='col-lg-12 well well-add-card'>
                                 <h4>Cabinetul: <?= $row['cabinet'] ?></h4>
@@ -261,7 +260,7 @@ include('navbar.php');
                                 echo '<ul>';
                                 while($rowIn = mysqli_fetch_array ($result_set_files) )
                                 {
-                                  echo "<a href=\"uploads/" . $rowIn['file'] . "\" target=\"blank\" > <li>" . $rowIn['file'] . " din " .  $rowIn['data_upload'] ."</li></a>";
+                                  echo "<li><a href=\"uploads/" . $rowIn['file'] . "\" target=\"blank\" > " . $rowIn['file'] . "</a> din " .  explode(' ', $rowIn['data_upload'])[0] ."</li>";
                                 }
                                 echo '</ul>'
                               ?>
@@ -281,7 +280,7 @@ include('navbar.php');
                 </div>
 
                 <!-- /.modal-For Delete date -->
-                <div id="delete_Modal<?= $row[" id "]?>" class="modal fade">
+                <div id="delete_Modal<?= $row['id']?>" class="modal fade">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -290,10 +289,10 @@ include('navbar.php');
                       </div>
                       <div class="modal-body">
                         <p>Șterge
-                          <?php echo '<span class="text-danger" >Cabinetul: ' . $row["cabinet"] . ', Executor: ' . $row["executor"] . '<br />' . $row["file"] . '</span> '; ?></p>
+                          <?php echo '<span class="text-danger" >Cabinetul: ' . $row["cabinet"] . ', Executor: ' . $row["executor"] . '</span> '; ?></p>
                       </div>
                       <div class="modal-footer">
-                        <a class="btn btn-danger" href="delete_formular.php?id=<?php echo $row['id'] ?>&delete=1&file=<?php  echo $row[" file "] ?>">Confirmă</a>
+                        <a class="btn btn-danger" href="delete_formular.php?id=<?php echo $row['id'] ?>">Confirmă</a>
                         <a href="#" data-dismiss="modal" class="btn btn-secondary btn-cancel">Anulează</a>
                       </div>
                     </div>
@@ -369,18 +368,16 @@ else {
             $(".modal-edit").click(function() {
               id =  $(this).data('id');
               console.log("clicked " +id + ".");
-
               $('#formular_id').val(id);
-
             });
           </script>
 
           <!-- Confirm pentru delete modal -->
-          <script>
+          <!-- <script>
             $('.confirm-delete').on('click', function(e) {
               e.preventDefault();
               var id = $(this).data('id');
               $('#delete_Modal' + id).modal('show');
             });
-          </script>
+          </script> -->
   </body>
