@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 13 2019 г., 13:46
+-- Время создания: Май 23 2019 г., 07:41
 -- Версия сервера: 10.1.38-MariaDB
 -- Версия PHP: 7.3.2
 
@@ -44,7 +44,8 @@ CREATE TABLE `blancuri` (
 --
 
 INSERT INTO `blancuri` (`id`, `day`, `model`, `section_id`, `number`, `tip_id`, `name`, `file_id`) VALUES
-(12, '2019-04-13', 'Arhitect', 2, 500, 1, 'Nicolae', 0);
+(12, '2019-04-13', 'Arhitect', 2, 500, 1, 'Nicolae', 0),
+(13, '2019-05-21', 'IMMULITE', 2, 500, 1, 'Nicolae', 0);
 
 -- --------------------------------------------------------
 
@@ -81,7 +82,6 @@ CREATE TABLE `formular` (
   `comentarii` varchar(100) NOT NULL,
   `beneficiar` varchar(50) NOT NULL,
   `furnizor` varchar(50) NOT NULL,
-  `file` varchar(100) NOT NULL,
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -89,9 +89,9 @@ CREATE TABLE `formular` (
 -- Дамп данных таблицы `formular`
 --
 
-INSERT INTO `formular` (`id`, `cabinet`, `section_id`, `executor`, `nume_dispozitiv`, `anul_producerii_dispozitiv`, `model_dispozitiv`, `nr_serie_dispozitiv`, `producator_dispozitiv`, `numar_inventar`, `denumire_piesa`, `model_piesa`, `producator_piesa`, `anul_producerii_piesa`, `nr_serie_dispozitiv_piesa`, `part_number`, `denumire_piesa_instal`, `model_piesa_instal`, `producator_piesa_instal`, `anul_producerii_piesa_instal`, `nr_serie_dispozitiv_instal`, `altele`, `data_instalarii`, `garantie`, `net`, `comentarii`, `beneficiar`, `furnizor`, `file`, `name`) VALUES
-(16, '214', 9, 'Grisa ', 'rsdfthfg', '2019-05-08', 'gnfgnfgnfn', 'gnmbvnmbnm', 'fnfnfbnfngfgfgjhstyjuty', 'ghjngbmgnmnm nm ', ' g nhgbnbn', 'vbnbnbngbnthh', 'jdtytsyjghghjhjghsjs', '2019-05-13', 'mghnmgmhmgh', 'ghjthngthytnvnvngh', 'svbgn gb gbgb', 'agfhfg 4te ngdhm mgh', 'fjjwtyjdghwjusfgj', '2019-05-24', 'fgnhjcgbadfgbhadfb', 'grhtrghdfGFDgG', '2039-05-12', 23423, 'Da', 'GHDFNB NVSG AHBGHHFDGDhgfgnhdn', 'fgfgghrathbcvnsg', 'fnbgfnbvdsxnvnshnmgh', 'printvsa.pdf', 'Nicolae'),
-(23, 'efthjegh', 2, 'tjehgh', 'gbng', '0000-00-00', 'ngfhnfgn', 'ngfnfgn', 'nfgnfgnf', 'nfngsfgn', 'fg', 'vbnbnbngbnthh', 'jdtytsyjghghjhjghsjs', '0000-00-00', 'mghnmgmhmgh', 'ghjthngthytnvnvngh', 'scfbnwfgn', '', '', '0000-00-00', '', '', '0000-00-00', 0, '', '', '', '', 'contract.pdf', 'Nicolae');
+INSERT INTO `formular` (`id`, `cabinet`, `section_id`, `executor`, `nume_dispozitiv`, `anul_producerii_dispozitiv`, `model_dispozitiv`, `nr_serie_dispozitiv`, `producator_dispozitiv`, `numar_inventar`, `denumire_piesa`, `model_piesa`, `producator_piesa`, `anul_producerii_piesa`, `nr_serie_dispozitiv_piesa`, `part_number`, `denumire_piesa_instal`, `model_piesa_instal`, `producator_piesa_instal`, `anul_producerii_piesa_instal`, `nr_serie_dispozitiv_instal`, `altele`, `data_instalarii`, `garantie`, `net`, `comentarii`, `beneficiar`, `furnizor`, `name`) VALUES
+(1, '214', 2, 'pizdabolsiku', 'huine', '0000-00-00', '7896', 'serie cacasca', 'bnfgbnfgbvfbsr ', 'kghghjk', ' g nhgbnbn', 'vbnbnbngbnthh', 'jdtytsyjghghjhjghsjs', '2019-05-21', 'mghnmgmhmgh', 'ghjthngthytnvnvngh', 'svbgn gb gbgb', 'agfhfg 4te ngdhm mgh', 'fjjwtyjdghwjusfgj', '0000-00-00', 'fgnhjcgbadfgbhadfb', 'grhtrghdfGFDgG', '2019-05-21', 23, 'Nu', 'cvhc', 'fgfgghrathbcvnsg', 'fnbgfnbvdsxnvnshnmgh', 'Nicolae'),
+(4, '817', 8, '', '', '0000-00-00', '', 'tghkjh', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '0000-00-00', 0, '', '', '', '', 'Nicolae');
 
 -- --------------------------------------------------------
 
@@ -116,7 +116,7 @@ CREATE TABLE `ip` (
 --
 
 INSERT INTO `ip` (`id`, `section_id`, `cabinet`, `numepc`, `ip`, `mac`, `net`, `coment`, `name`) VALUES
-(11, 4, '214', 'dfgbf', '192.168.55.34', '34647577', 'Da', 'bdbcv  eg bdbgf', 'Nicolae');
+(11, 4, '214', 'dfgbf', '192.168.55.34', '34647577', 'Nu', 'Comentariu comentator', 'Nicolae');
 
 -- --------------------------------------------------------
 
@@ -170,6 +170,34 @@ INSERT INTO `tipul` (`id`, `format`) VALUES
 (5, 'Plicuri C5'),
 (6, 'Plicuri C6'),
 (7, 'Plicuri DL');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `uploads`
+--
+
+CREATE TABLE `uploads` (
+  `id` int(11) NOT NULL,
+  `file` varchar(100) NOT NULL,
+  `data_upload` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `formular_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `uploads`
+--
+
+INSERT INTO `uploads` (`id`, `file`, `data_upload`, `formular_id`) VALUES
+(1, '91528-laura-postu.pdf', '2019-05-21 05:08:06', 1),
+(2, 'contract.pdf', '2019-05-21 05:08:34', 1),
+(4, 'report_15.05.2019.pdf', '2019-05-21 08:38:20', 4),
+(5, 'report_15.05.2019-(1).pdf', '2019-05-21 09:26:53', 4),
+(6, '91528-laura-postu.pdf', '2019-05-21 10:04:58', 4),
+(7, 'printvsa.pdf', '2019-05-21 10:07:11', 4),
+(8, 'report_15.05.2019.pdf', '2019-05-21 10:07:35', 4),
+(9, '91528-laura-postu.pdf', '2019-05-21 10:08:05', 4),
+(10, '91528-laura-postu.pdf', '2019-05-21 10:19:16', 1);
 
 -- --------------------------------------------------------
 
@@ -228,6 +256,12 @@ ALTER TABLE `tipul`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `uploads`
+--
+ALTER TABLE `uploads`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `user`
 --
 ALTER TABLE `user`
@@ -241,13 +275,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT для таблицы `blancuri`
 --
 ALTER TABLE `blancuri`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT для таблицы `formular`
 --
 ALTER TABLE `formular`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `ip`
@@ -266,6 +300,12 @@ ALTER TABLE `sectie`
 --
 ALTER TABLE `tipul`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT для таблицы `uploads`
+--
+ALTER TABLE `uploads`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `user`
