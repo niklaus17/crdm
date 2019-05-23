@@ -83,7 +83,7 @@ include('navbar.php');
                     </td>
                     <td>Anul producerii:</td>
                     <td>
-                      <input type="date" name="anul_producerii_dispozitiv" class="form-control">
+                      <input type="date" name="anul_producerii_dispozitiv" class="form-control datepicker">
                     </td>
                   </tr>
                   <tr>
@@ -117,7 +117,7 @@ include('navbar.php');
                     </td>
                     <td>Anul producerii:</td>
                     <td>
-                      <input type="date" name="anul_producerii_piesa" class="form-control">
+                      <input type="date" name="anul_producerii_piesa" class="form-control datepicker">
                     </td>
                   </tr>
                   <tr>
@@ -151,7 +151,7 @@ include('navbar.php');
                     </td>
                     <td>Anul producerii:</td>
                     <td>
-                      <input type="date" name="anul_producerii_piesa_instal" class="form-control">
+                      <input type="date" name="anul_producerii_piesa_instal" class="form-control datepicker">
                     </td>
                   </tr>
                   <tr>
@@ -181,7 +181,7 @@ include('navbar.php');
                   <tr>
                     <td>Data instalarii/ Monatarii:</td>
                     <td>
-                      <input type="date" name="data_instalarii" class="form-control">
+                      <input type="date" name="data_instalarii" class="form-control datepicker">
                     </td>
                     <td>Perioada de garantie:</td>
                     <td>
@@ -279,7 +279,7 @@ include('navbar.php');
                     </td>
                     <td>Anul producerii:</td>
                     <td>
-                      <input type="date" name="anul_producerii_dispozitiv" class="form-control">
+                      <input type="date" name="anul_producerii_dispozitiv" class="form-control datepicker">
                     </td>
                   </tr>
                   <tr>
@@ -321,7 +321,7 @@ include('navbar.php');
                     </td>
                     <td style="vertical-align: middle;">Data: <br> Ore:</td>
                     <td>
-                      <input type="date" name="data_instalarii" class="form-control"><br>
+                      <input type="date" name="data_instalarii" class="form-control datepicker"><br>
                       <input type="number" name="ore" class="form-control" placeholder="ore">
                     </td>
                   </tr>
@@ -637,5 +637,11 @@ else {
           }
         }
         );
+        </script>
+
+        <script>
+          $(document).ready(function(){
+            $('.datepicker').datepicker();
+          });
         </script>
   </body>
