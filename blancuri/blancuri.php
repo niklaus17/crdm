@@ -23,7 +23,7 @@ include('navbar.php');
 			<form action="upload_blanc.php" method="post" enctype="multipart/form-data" id="insert_form">
 
 			<label>Data:</label>
-			<input type="date" name="day" class="form-control datepicker" required><br>
+			<input type="text" name="day" class="form-control datepicker" required><br>
 
 			<label>Modelul blancului:</label>
 			<input type="text" name="model" class="form-control" required><br>
@@ -453,11 +453,7 @@ $(this).prepend('<td>'+id+'</td>');
 })
 </script>
 
-<script>document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.datepicker');
-    var instances = M.Datepicker.init(elems, options);
-  });
-
+<script>
   $(document).ready(function(){
     $('.datepicker').datepicker();
   });

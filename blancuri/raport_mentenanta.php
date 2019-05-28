@@ -67,11 +67,11 @@ include('db_connect.php');
 
 
     <div style="text-align: center">
-      <h3 style="text-transform: padding: 0px; margin: 0px;">Formular de instalare a piesei de schimb/accesoriu la dispozitivul medical</h3>
+      <h3 style="text-transform: padding: 0px; margin: 0px;">Fișa de mentenanță a dispozitivului medical</h3>
     </div><br><br>
 
     <?php
-      $sql="SELECT * FROM formular where id =" . $_GET['id'];
+      $sql="SELECT * FROM formular_3 where id =" . $_GET['id'];
         $result_set=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
         while($row = mysqli_fetch_array ($result_set) )
         {
@@ -116,91 +116,71 @@ include('db_connect.php');
         <tr>
           <td>Producător:</td>
           <td><?= $row['producator_dispozitiv'] ?></td>
-          <td>Numar inventar:</td>
+          <td>Număr inventar:</td>
           <td colspan="4"><?= $row['numar_inventar'] ?></td>
         </tr>
       </table><br><br>
 
-      <strong><label>Date piesă/accesoriu:</label></strong>
+      <strong><label>Durata de exploatare a dispozitivului medical:</label></strong>
       <table width="100%">
         <tr>
-          <td width="25%">Denumire piesă/accesoriu:</td>
-          <td width="30%"><?= $row['denumire_piesa'] ?></td>
-          <td width="20%">Anul producerii:</td>
-          <td width="25%"><?= $row['anul_producerii_piesa'] ?></td>
+          <td>Data de procurare:</td>
+          <td><?= $row['data_proc'] ?></td>
+          <td>Data de instalare:</td>
+          <td><?= $row['data_inst'] ?></td>
+          <td>Termen de exploatare:</td>
+          <td><?= $row['term_expl'] ?> luni</td>
         </tr>
-        <tr>
-          <td>Model:</td>
-          <td><?= $row['model_piesa'] ?></td>
-          <td>Nr. serie:</td>
-          <td colspan="4"><?= $row['nr_serie_dispozitiv_piesa'] ?></td>
-        </tr>
-        <tr>
-          <td>Producător:</td>
-          <td><?= $row['producator_piesa'] ?></td>
-          <td>Part number:</td>
-          <td colspan="4"><?= $row['part_number'] ?></td>
-        </tr>
-      </table><br><br>
+      </table>
+      <br>
 
-      <strong><label>Date cu privire la dispozitivul medical pentru care a fost instalată piesa/accesoriul:</label></strong>
-      <table width="100%">
-          <tr>
-            <td width="25%">Denumire piesă/accesoriu:</td>
-            <td width="30%"><?= $row['denumire_piesa_instal'] ?></td>
-            <td width="20%">Anul producerii:</td>
-            <td width="25%"><?= $row['anul_producerii_piesa_instal'] ?></td>
-          </tr>
-          <tr>
-            <td>Model:</td>
-            <td><?= $row['model_piesa_instal'] ?></td>
-            <td>Nr. serie:</td>
-            <td><?= $row['nr_serie_dispozitiv_instal'] ?></td>
-          </tr>
-          <tr>
-            <td>Producător:</td>
-            <td><?= $row['producator_piesa_instal'] ?></td>
-            <td>Altele*:</td>
-            <td><?= $row['altele'] ?></td>
-          </tr>
-      </table><br><br>
-
-      <strong><label>Inspecție/Test de funcționalitate:</label></strong>
       <table width="100%">
         <tr>
-          <td>Data instalării/ Montării:</td>
-          <td><?= $row['data_instalarii'] ?></td>
-          <td>Perioada de garanție:</td>
-          <td><?= $row['garantie'] ?> luni</td>
+          <th>Mentenață</th>
+          <th>Supus</th>
+          <th colspan="3">Rsponsabil, informații de contact:</th>
         </tr>
         <tr>
-          <td>Test de operare (verificarea funcționalității)</td>
-          <td colspan="4"><?= $row['net'] ?></td>
+          <td>Mentenață preventivă:</td>
+          <td><?= $row['chek'] ?></td>
+          <td colspan="2"><?= $row['respons'] ?></td>
         </tr>
-      </table><br><br>
+        <tr>
+          <td>Verificarea periodică:</td>
+          <td><?= $row['chek1'] ?></td>
+          <td>Periodicitatea:</td>
+          <td><?= $row['luni'] ?> luni</td>
+        </tr>
+      </table><br>
 
       <strong><label for="comment">Comentarii:</label></strong>
       <table width="100%">
         <tr>
-          <td width="20%"><?= $row['comentarii'] ?></td>
+          <td style="height: 20px;"><?= $row['comentarii'] ?></td>
         </tr>
-      </table><br><br>
+      </table><br><br><br>
 
       <table width="100%" >
         <tr style="border:none;">
-          <td style="border:none;" width="60%"><strong>Beneficiar: </strong> <?= $row['beneficiar'] ?></td>
+          <td style="border:none;" width="60%"><strong> Șef secție: </strong> <?= $row['beneficiar'] ?></td>
           <td style="border:none;">Semnătura ____________________</td>
         </tr>
       </table><br>
       <table width="100%" >
         <tr style="border:none;">
-          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['furnizor'] ?></td>
+          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer1'] ?></td>
           <td style="border:none;">Semnătura ____________________</td>
         </tr>
-      </table>
+      </table><br>
       <table width="100%" >
         <tr style="border:none;">
-          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['furnizor1'] ?></td>
+          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer2'] ?></td>
+          <td style="border:none;">Semnătura ____________________</td>
+        </tr>
+      </table><br>
+      <table width="100%" >
+        <tr style="border:none;">
+          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer3'] ?></td>
           <td style="border:none;">Semnătura ____________________</td>
         </tr>
       </table>

@@ -67,7 +67,7 @@ include('db_connect.php');
 
 
     <div style="text-align: center">
-      <h3 style="text-transform: padding: 0px; margin: 0px;">Fisa de deservire a dispozitivul medical</h3>
+      <h3 style="text-transform: padding: 0px; margin: 0px;">Fișa de deservire a dispozitivul medical</h3>
     </div><br><br>
 
     <?php
@@ -86,7 +86,7 @@ include('db_connect.php');
         <td rowspan="2"><?= $row['executor'] ?></td>
       </tr>
       <tr>
-        <th>Sectia:</th>
+        <th>Secția:</th>
         <td>
           <?php
           $section_id = $row['section_id'];
@@ -114,37 +114,37 @@ include('db_connect.php');
           <td colspan="4"><?= $row['nr_serie_dispozitiv'] ?></td>
         </tr>
         <tr>
-          <td>Producator:</td>
+          <td>Producător:</td>
           <td><?= $row['producator_dispozitiv'] ?></td>
           <td>Numar inventar:</td>
           <td colspan="4"><?= $row['numar_inventar'] ?></td>
         </tr>
       </table><br><br>
 
-      <strong><label>Descrierea defectiunii:</label></strong>
+      <strong><label>Descrierea defecțiunii:</label></strong>
       <table width="100%">
         <tr>
           <td><?= $row['desc_defect'] ?></td>
         </tr>
       </table><br>
 
-      <strong><label>Cauza defectiunii:</label></strong>
+      <strong><label>Cauza defecțiunii:</label></strong>
       <table width="100%">
         <tr>
           <td>|<?= $row['cauza_defect'] ?></td>
         </tr>
       </table><br>
 
-      <strong><label>Raport de reparatie:</label></strong>
+      <strong><label>Raport de reparație:</label></strong>
       <table width="100%">
         <tr>
-          <td rowspan="2" style="vertical-align: middle;">Actiuni intreprinse:</td>
+          <td rowspan="2" style="vertical-align: middle;">Acțiuni întreprinse:</td>
           <td><?= $row['actiuni'] ?></td>
           <td style="vertical-align: middle;">Data: <br> Ore:</td>
           <td><?= $row['data_instalarii'] ?> <br> <?= $row['ore'] ?></td>
         </tr>
         <tr>
-          <td>Testarea functionarii dupa reparatie:</td>
+          <td>Testarea funcționării după reparație:</td>
           <td colspan="2"><?= $row['chek'] ?></td>
         </tr>
       </table><br>
@@ -152,21 +152,41 @@ include('db_connect.php');
       <strong><label>Materiale utilizate:</label></strong>
       <table width="100%">
         <tr>
-          <td>|<?= $row['materiale'] ?></td>
+          <td style="height: 20px;"><?= $row['materiale'] ?></td>
         </tr>
       </table><br>
 
       <strong><label for="comment">Comentarii:</label></strong>
       <table width="100%">
         <tr>
-          <td>|<?= $row['comentarii'] ?></td>
+          <td style="height: 20px;"><?= $row['comentarii'] ?></td>
         </tr>
-      </table><br><br>
+      </table><br><br><br>
 
-      <p><strong> Sef sectie:</strong> <?= $row['beneficiar'] ?> &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  Semnatura ____________________</p>
-      <p><strong>Executor/Inginer: </strong> <?= $row['inginer1'] ?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  Semnatura ____________________</p>
-      <p><strong>Executor/Inginer: </strong> <?= $row['inginer2'] ?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  Semnatura ____________________</p>
-      <p><strong>Executor/Inginer: </strong> <?= $row['inginer3'] ?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  Semnatura ____________________</p>
+      <table width="100%" >
+        <tr style="border:none;">
+          <td style="border:none;" width="60%"><strong> Șef secție: </strong> <?= $row['beneficiar'] ?></td>
+          <td style="border:none;">Semnătura ____________________</td>
+        </tr>
+      </table><br>
+      <table width="100%" >
+        <tr style="border:none;">
+          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer1'] ?></td>
+          <td style="border:none;">Semnătura ____________________</td>
+        </tr>
+      </table><br>
+      <table width="100%" >
+        <tr style="border:none;">
+          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer2'] ?></td>
+          <td style="border:none;">Semnătura ____________________</td>
+        </tr>
+      </table><br>
+      <table width="100%" >
+        <tr style="border:none;">
+          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer3'] ?></td>
+          <td style="border:none;">Semnătura ____________________</td>
+        </tr>
+      </table>
 
 
       <?php		}		?>

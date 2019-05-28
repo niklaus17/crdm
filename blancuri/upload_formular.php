@@ -33,17 +33,18 @@ if(isset($_POST['btn-upload']))
   $comentarii = $_POST["comentarii"];
   $beneficiar = $_POST["beneficiar"];
   $furnizor = $_POST["furnizor"];
+  $furnizor1 = $_POST["furnizor1"];
   $name = $_SESSION['user']['username'];
 
  	$sql="INSERT INTO formular(cabinet, section_id, executor, nume_dispozitiv, anul_producerii_dispozitiv, model_dispozitiv, nr_serie_dispozitiv,
     producator_dispozitiv, numar_inventar, denumire_piesa, model_piesa, producator_piesa, anul_producerii_piesa, nr_serie_dispozitiv_piesa, part_number,
     denumire_piesa_instal, model_piesa_instal, producator_piesa_instal, anul_producerii_piesa_instal, nr_serie_dispozitiv_instal, altele, data_instalarii, garantie,
-    net, comentarii, beneficiar, furnizor, name)
+    net, comentarii, beneficiar, furnizor, furnizor1, name)
 
         VALUES('$cabinet', '$section_id', '$executor', '$nume_dispozitiv', '$anul_producerii_dispozitiv', '$model_dispozitiv', '$nr_serie_dispozitiv',
           '$producator_dispozitiv', '$numar_inventar', '$denumire_piesa', '$model_piesa', '$producator_piesa', '$anul_producerii_piesa', '$nr_serie_dispozitiv_piesa',
           '$part_number', '$denumire_piesa_instal', '$model_piesa_instal', '$producator_piesa_instal', '$anul_producerii_piesa_instal', '$nr_serie_dispozitiv_instal',
-          '$altele', '$data_instalarii', '$garantie', '$net', '$comentarii', '$beneficiar', '$furnizor', '$name')";
+          '$altele', '$data_instalarii', '$garantie', '$net', '$comentarii', '$beneficiar', '$furnizor', '$furnizor1', '$name')";
 
  	mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
  }

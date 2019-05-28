@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 23 2019 г., 07:41
+-- Время создания: Май 27 2019 г., 09:53
 -- Версия сервера: 10.1.38-MariaDB
 -- Версия PHP: 7.3.2
 
@@ -90,8 +90,47 @@ CREATE TABLE `formular` (
 --
 
 INSERT INTO `formular` (`id`, `cabinet`, `section_id`, `executor`, `nume_dispozitiv`, `anul_producerii_dispozitiv`, `model_dispozitiv`, `nr_serie_dispozitiv`, `producator_dispozitiv`, `numar_inventar`, `denumire_piesa`, `model_piesa`, `producator_piesa`, `anul_producerii_piesa`, `nr_serie_dispozitiv_piesa`, `part_number`, `denumire_piesa_instal`, `model_piesa_instal`, `producator_piesa_instal`, `anul_producerii_piesa_instal`, `nr_serie_dispozitiv_instal`, `altele`, `data_instalarii`, `garantie`, `net`, `comentarii`, `beneficiar`, `furnizor`, `name`) VALUES
-(1, '214', 2, 'pizdabolsiku', 'huine', '0000-00-00', '7896', 'serie cacasca', 'bnfgbnfgbvfbsr ', 'kghghjk', ' g nhgbnbn', 'vbnbnbngbnthh', 'jdtytsyjghghjhjghsjs', '2019-05-21', 'mghnmgmhmgh', 'ghjthngthytnvnvngh', 'svbgn gb gbgb', 'agfhfg 4te ngdhm mgh', 'fjjwtyjdghwjusfgj', '0000-00-00', 'fgnhjcgbadfgbhadfb', 'grhtrghdfGFDgG', '2019-05-21', 23, 'Nu', 'cvhc', 'fgfgghrathbcvnsg', 'fnbgfnbvdsxnvnshnmgh', 'Nicolae'),
-(4, '817', 8, '', '', '0000-00-00', '', 'tghkjh', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '0000-00-00', 0, '', '', '', '', 'Nicolae');
+(4, '817', 8, '', '', '0000-00-00', '', 'tghkjh', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '0000-00-00', 0, '', '', '', '', 'Nicolae'),
+(5, '817', 0, 'Violinca', '', '0000-00-00', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '0000-00-00', 0, '', '', '', '', 'Nicolae');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `formular_2`
+--
+
+CREATE TABLE `formular_2` (
+  `id` int(11) NOT NULL,
+  `cabinet` varchar(50) NOT NULL,
+  `section_id` int(11) NOT NULL,
+  `executor` varchar(50) NOT NULL,
+  `nume_dispozitiv` varchar(50) NOT NULL,
+  `anul_producerii_dispozitiv` date NOT NULL,
+  `model_dispozitiv` varchar(50) NOT NULL,
+  `nr_serie_dispozitiv` varchar(50) NOT NULL,
+  `producator_dispozitiv` varchar(50) NOT NULL,
+  `numar_inventar` varchar(50) NOT NULL,
+  `desc_defect` varchar(100) NOT NULL,
+  `cauza_defect` varchar(100) NOT NULL,
+  `actiuni` varchar(100) NOT NULL,
+  `data_instalarii` date NOT NULL,
+  `ore` int(50) NOT NULL,
+  `chek` varchar(50) NOT NULL,
+  `materiale` varchar(100) NOT NULL,
+  `comentarii` varchar(100) NOT NULL,
+  `beneficiar` varchar(100) NOT NULL,
+  `inginer1` varchar(100) NOT NULL,
+  `inginer2` varchar(100) NOT NULL,
+  `inginer3` varchar(100) NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `formular_2`
+--
+
+INSERT INTO `formular_2` (`id`, `cabinet`, `section_id`, `executor`, `nume_dispozitiv`, `anul_producerii_dispozitiv`, `model_dispozitiv`, `nr_serie_dispozitiv`, `producator_dispozitiv`, `numar_inventar`, `desc_defect`, `cauza_defect`, `actiuni`, `data_instalarii`, `ore`, `chek`, `materiale`, `comentarii`, `beneficiar`, `inginer1`, `inginer2`, `inginer3`, `name`) VALUES
+(2, '546498', 7, 'execut', 'dedis', '2019-05-17', 'model', 'seri12', 'producator', 'inventar numer', 'descr', '', 'actiuni sdgaufvbvdagvafda\r\nafghagf\r\nadfgadfhgf\r\nsfgjs\r\ngjgh\r\njghjghjghjg\r\n', '2019-05-09', 213, 'Nefunctional', 'mater', 'coment2', 'benef', 'Inginer1', 'Inginer2', 'Inginer3', 'Nicolae');
 
 -- --------------------------------------------------------
 
@@ -189,15 +228,10 @@ CREATE TABLE `uploads` (
 --
 
 INSERT INTO `uploads` (`id`, `file`, `data_upload`, `formular_id`) VALUES
-(1, '91528-laura-postu.pdf', '2019-05-21 05:08:06', 1),
-(2, 'contract.pdf', '2019-05-21 05:08:34', 1),
 (4, 'report_15.05.2019.pdf', '2019-05-21 08:38:20', 4),
-(5, 'report_15.05.2019-(1).pdf', '2019-05-21 09:26:53', 4),
 (6, '91528-laura-postu.pdf', '2019-05-21 10:04:58', 4),
-(7, 'printvsa.pdf', '2019-05-21 10:07:11', 4),
-(8, 'report_15.05.2019.pdf', '2019-05-21 10:07:35', 4),
-(9, '91528-laura-postu.pdf', '2019-05-21 10:08:05', 4),
-(10, '91528-laura-postu.pdf', '2019-05-21 10:19:16', 1);
+(12, 'printvsa.pdf', '2019-05-23 08:44:58', 5),
+(13, 'contract.pdf', '2019-05-23 09:56:07', 2);
 
 -- --------------------------------------------------------
 
@@ -235,6 +269,12 @@ ALTER TABLE `blancuri`
 -- Индексы таблицы `formular`
 --
 ALTER TABLE `formular`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `formular_2`
+--
+ALTER TABLE `formular_2`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -281,7 +321,13 @@ ALTER TABLE `blancuri`
 -- AUTO_INCREMENT для таблицы `formular`
 --
 ALTER TABLE `formular`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT для таблицы `formular_2`
+--
+ALTER TABLE `formular_2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `ip`
@@ -305,7 +351,7 @@ ALTER TABLE `tipul`
 -- AUTO_INCREMENT для таблицы `uploads`
 --
 ALTER TABLE `uploads`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT для таблицы `user`
