@@ -182,7 +182,7 @@ include('db_connect.php');
       <strong><label for="comment">Comentarii:</label></strong>
       <table width="100%">
         <tr>
-          <td width="20%"><?= $row['comentarii'] ?></td>
+          <td style="height: 20px;"><?= $row['comentarii'] ?></td>
         </tr>
       </table><br><br>
 
@@ -197,7 +197,7 @@ include('db_connect.php');
           <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['furnizor'] ?></td>
           <td style="border:none;">Semnătura ____________________</td>
         </tr>
-      </table>
+      </table><br>
       <table width="100%" >
         <tr style="border:none;">
           <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['furnizor1'] ?></td>

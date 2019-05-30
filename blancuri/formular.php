@@ -16,16 +16,13 @@ include('navbar.php');
     }
   </style>
 
-
-
-
   <title>CRDM - Formular</title>
   <?php
     if (isset($_GET['success'])) {
       ?>
 
       <div class="alert alert-success">
-        <strong>Success!</strong> Success alert.
+        <strong>Success!</strong> Incarcare cu success!
       </div>
 
     <?php } ?>
@@ -50,7 +47,7 @@ include('navbar.php');
                   <tr>
                     <th style="vertical-align: middle;">Cabinetul:</th>
                     <td>
-                      <input type="text" name="cabinet" class="form-control">
+                      <input type="text" name="cabinet" class="form-control" required>
                     </td>
                     <th rowspan="2" style="vertical-align: middle;">Executor:</th>
                     <td rowspan="2" style="vertical-align: middle;">
@@ -85,7 +82,7 @@ include('navbar.php');
                     </td>
                     <td>Anul producerii:</td>
                     <td>
-                      <input type="text" name="anul_producerii_dispozitiv" autocomplete="off" class="form-control datepicker-here">
+                      <input type="text" name="anul_producerii_dispozitiv" autocomplete="off" class="form-control datepicker-here"  placeholder="yyyy-mm-dd">
                     </td>
                   </tr>
                   <tr>
@@ -105,7 +102,7 @@ include('navbar.php');
                     </td>
                     <td>Număr inventar:</td>
                     <td colspan="4">
-                      <input type="text" name="numar_inventar" class="form-control">
+                      <input type="text" name="numar_inventar" class="form-control" required>
                     </td>
                   </tr>
                 </table>
@@ -119,7 +116,7 @@ include('navbar.php');
                     </td>
                     <td>Anul producerii:</td>
                     <td>
-                      <input type="text" name="anul_producerii_piesa" autocomplete="off" class="form-control datepicker-here">
+                      <input type="text" name="anul_producerii_piesa" autocomplete="off" class="form-control datepicker-here"  placeholder="yyyy-mm-dd">
                     </td>
                   </tr>
                   <tr>
@@ -153,7 +150,7 @@ include('navbar.php');
                     </td>
                     <td>Anul producerii:</td>
                     <td>
-                      <input type="text" name="anul_producerii_piesa_instal" autocomplete="off" class="form-control datepicker-here">
+                      <input type="text" name="anul_producerii_piesa_instal" autocomplete="off" class="form-control datepicker-here"  placeholder="yyyy-mm-dd">
                     </td>
                   </tr>
                   <tr>
@@ -183,7 +180,7 @@ include('navbar.php');
                   <tr>
                     <td>Data instalarii/ Montării:</td>
                     <td>
-                      <input type="text" name="data_instalarii" autocomplete="off" class="form-control datepicker-here">
+                      <input type="text" name="data_instalarii" autocomplete="off" class="form-control datepicker-here"  placeholder="yyyy-mm-dd">
                     </td>
                     <td>Perioada de garanție:</td>
                     <td>
@@ -246,7 +243,7 @@ include('navbar.php');
                   <tr>
                     <th style="vertical-align: middle;">Cabinetul:</th>
                     <td>
-                      <input type="text" name="cabinet" class="form-control">
+                      <input type="text" name="cabinet" class="form-control" required>
                     </td>
                     <th rowspan="2" style="vertical-align: middle;">Executor:</th>
                     <td rowspan="2" style="vertical-align: middle;">
@@ -302,7 +299,7 @@ include('navbar.php');
                     </td>
                     <td>Numar inventar:</td>
                     <td colspan="4">
-                      <input type="text" name="numar_inventar" class="form-control">
+                      <input type="text" name="numar_inventar" class="form-control" required>
                     </td>
                   </tr>
                 </table>
@@ -389,7 +386,7 @@ include('navbar.php');
                   <tr>
                     <th style="vertical-align: middle;">Cabinetul:</th>
                     <td>
-                      <input type="text" name="cabinet" class="form-control">
+                      <input type="text" name="cabinet" class="form-control" required>
                     </td>
                     <th rowspan="2" style="vertical-align: middle;">Executor:</th>
                     <td rowspan="2" style="vertical-align: middle;">
@@ -424,7 +421,7 @@ include('navbar.php');
                     </td>
                     <td>Anul producerii:</td>
                     <td>
-                      <input type="text" name="anul_producerii_dispozitiv" autocomplete="off" class="form-control datepicker-here">
+                      <input type="text" name="anul_producerii_dispozitiv" autocomplete="off" class="form-control datepicker-here"  placeholder="yyyy-mm-dd">
                     </td>
                   </tr>
                   <tr>
@@ -444,7 +441,7 @@ include('navbar.php');
                     </td>
                     <td>Număr inventar:</td>
                     <td colspan="4">
-                      <input type="text" name="numar_inventar" class="form-control">
+                      <input type="text" name="numar_inventar" class="form-control" required>
                     </td>
                   </tr>
                 </table>
@@ -453,11 +450,9 @@ include('navbar.php');
                 <table class="table table-bordered">
                   <tr>
                     <td>Data de procurare:</td>
-                    <td><input type="text" name="data_proc" autocomplete="off" class="form-control datepicker-here"></td>
+                    <td><input type="text" name="data_proc" autocomplete="off" class="form-control datepicker-here" placeholder="yyyy-mm-dd"></td>
                     <td>Data de instalare:</td>
-                    <td><input type="text" name="data_inst" autocomplete="off" class="form-control datepicker-here"></td>
-                    <td>Termen de exploatare:</td>
-                    <td><input type="number" name="term_expl" class="form-control" placeholder="luni"></td>
+                    <td><input type="text" name="data_inst" autocomplete="off" class="form-control datepicker-here" placeholder="yyyy-mm-dd"></td>
                   </tr>
                 </table>
                 <br>
@@ -561,7 +556,7 @@ include('navbar.php');
                   <tr>
                     <td>4</td>
                     <td>Data de non-utilizare a dispozitivului medical:</td>
-                    <td><input type="text" name="data_non" class="form-control datepicker" placeholder="mm/dd/yyyy"></td>
+                    <td><input type="text" name="data_non" autocomplete="off" class="form-control datepicker-here" placeholder="yyyy-mm-dd"></td>
                   </tr>
                 </table>
 
@@ -575,7 +570,7 @@ include('navbar.php');
                   <tr>
                     <td>6</td>
                     <td>Anul producerii:</td>
-                    <td><input type="text" name="anul_producerii" class="form-control datepicker" placeholder="mm/dd/yyyy"></td>
+                    <td><input type="text" name="anul_producerii" autocomplete="off" class="form-control datepicker-here" placeholder="yyyy-mm-dd"></td>
                   </tr>
                   <tr>
                     <td>7</td>
@@ -609,7 +604,7 @@ include('navbar.php');
                   <tr>
                     <td>12</td>
                     <td>Data dării în exploatare:</td>
-                    <td><input type="text" name="data_exploatare" class="form-control datepicker" placeholder="mm/dd/yyyy"></td>
+                    <td><input type="text" name="data_exploatare" autocomplete="off" class="form-control datepicker-here" placeholder="yyyy-mm-dd"></td>
                   </tr>
                   <tr>
                     <td>13</td>
@@ -677,9 +672,6 @@ include('navbar.php');
 
       <div class="col-md-12 col-sm-12">
         <div class="panel panel-default">
-          <div class="panel-heading"><a href="#" class="pull-right">View all</a>
-            <h4>Tabs</h4>
-          </div>
           <div class="panel-body">
 
             <ul class="nav nav-tabs">
@@ -719,22 +711,40 @@ include('navbar.php');
                               </div>
                               <div class='col-lg-12 well well-add-card'>
                                 <h4>Cabinetul: <?= $row['cabinet'] ?></h4>
-                                <h4>Nr. serie: <?= $row['nr_serie_dispozitiv'] ?></h4>
+                                <h4>Nr. inventar: <?= $row['numar_inventar'] ?></h4>
                               </div>
                               <div class='col-lg-12'>
 
-                              <?php
-                                $sql="SELECT * FROM uploads where formular_id = " .   $row['id'];
-                                $result_set_files=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
-                                echo '<ul>';
-                                while($rowIn = mysqli_fetch_array ($result_set_files) )
-                                {
-                                  echo "<li><a href=\"uploads/" . $rowIn['file'] . "\" target=\"blank\" > " . $rowIn['file'] . "</a> din " .  explode(' ', $rowIn['data_upload'])[0] .
-                                  "<span class='glyphicon glyphicon-trash pull-right text-primary confirm-delete-file' data-id=" . $rowIn['id'] . " style='cursor:pointer'></span>"."</li>";
-                                }
-                                echo '</ul>'
-                              ?>
-                      </div>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="myModal<?= $row['id']?>" role="dialog">
+                                          <div class="modal-dialog modal-md">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Fișiere încarcate</h4>
+                                              </div>
+                                              <div class="modal-body">
+                                                <?php
+                                                  $sql="SELECT * FROM uploads where formular_id = " .   $row['id'];
+                                                  $result_set_files=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
+                                                  $total = $result_set_files->num_rows;
+                                                  echo '<ul>';
+                                                  while($rowIn = mysqli_fetch_array ($result_set_files) )
+                                                  {
+                                                    echo "<li><a href=\"uploads/" . $rowIn['file'] . "\" target=\"blank\" > " . $rowIn['file'] . "</a> din " .  explode(' ', $rowIn['data_upload'])[0] .
+                                                    "<span class='glyphicon glyphicon-trash pull-right text-primary confirm-delete-file' data-id=" . $rowIn['id'] . " style='cursor:pointer'></span>"."</li>";
+                                                  }
+                                                  echo '</ul>'
+                                                ?>
+                                              </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                              </div>
 
                       <a href="raport_instal.php?id=<?php echo $row['id'] ?>" target="_blank">
                         <button type="button" class="btn btn-danger btn-xs">Print raport</button>
@@ -742,6 +752,7 @@ include('navbar.php');
                       <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#upload_data_Modal">
                         <button type="button" class="btn btn-primary btn-xs btn-add-file">Add file</button>
                       </a>
+                      <button type="button" class="btn btn-info btn-xs btn-add-file" data-toggle="modal" data-target="#myModal<?= $row['id']?>">View files <span class="badge"> <?= $total ?></span></button>
 
                     </div>
                   </div>
@@ -805,23 +816,39 @@ include('navbar.php');
                         </div>
                         <div class='col-lg-12 well well-add-card'>
                           <h4>Cabinetul: <?= $row['cabinet'] ?></h4>
-                          <h4>Nr. serie: <?= $row['nr_serie_dispozitiv'] ?></h4>
+                          <h4>Nr. inventar: <?= $row['numar_inventar'] ?></h4>
                         </div>
                         <div class='col-lg-12'>
 
-                        <?php
-                          $sql="SELECT * FROM uploads where formular_id = " .   $row['id'];
-                          $result_set_files=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
-                          echo '<ul>';
-                          while($rowIn = mysqli_fetch_array ($result_set_files) )
-                          {
-                            echo "<li><a href=\"uploads/" . $rowIn['file'] . "\" target=\"blank\" > " . $rowIn['file'] . "</a> din " .  explode(' ', $rowIn['data_upload'])[0] .
-                            "<span class='glyphicon glyphicon-trash pull-right text-primary confirm-delete-file' data-id=" . $rowIn['id'] . " style='cursor:pointer'></span>"."</li>";
-                          }
-                          echo '</ul>'
-                        ?>
+                          <!-- Modal -->
+                          <div class="modal fade" id="myModal2<?= $row['id']?>" role="dialog">
+                            <div class="modal-dialog modal-md">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Fișiere încarcate</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <?php
+                                    $sql="SELECT * FROM uploads where formular_id = " .   $row['id'];
+                                    $result_set_files=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
+                                    $total = $result_set_files->num_rows;
+                                    echo '<ul>';
+                                    while($rowIn = mysqli_fetch_array ($result_set_files) )
+                                    {
+                                      echo "<li><a href=\"uploads/" . $rowIn['file'] . "\" target=\"blank\" > " . $rowIn['file'] . "</a> din " .  explode(' ', $rowIn['data_upload'])[0] .
+                                      "<span class='glyphicon glyphicon-trash pull-right text-primary confirm-delete-file' data-id=" . $rowIn['id'] . " style='cursor:pointer'></span>"."</li>";
+                                    }
+                                    echo '</ul>'
+                                  ?>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
 
-                  </p>
                 </div>
 
                 <a href="raport_deservire.php?id=<?php echo $row['id'] ?>" target="_blank">
@@ -830,6 +857,8 @@ include('navbar.php');
                 <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#upload_data_Modal">
                   <button type="button" class="btn btn-primary btn-xs btn-add-file">Add file</button>
                 </a>
+
+                <button type="button" class="btn btn-info btn-xs btn-add-file" data-toggle="modal" data-target="#myModal2<?= $row['id']?>">View files <span class="badge"> <?= $total ?></span></button>
 
               </div>
             </div>
@@ -890,28 +919,44 @@ include('navbar.php');
                       <div class="caption">
                         <div class='col-lg-12'>
                           <span>Adaugat de : <?= $row['name'] ?></span>
-                          <a href="#" class="confirm-delete" data-toggle="modal" data-target="#delete_Modal_2<?= $row['id']?>" data-id="<?php  echo $row[" id "] ?>"><span class="glyphicon glyphicon-trash pull-right text-primary"></span></a>
+                          <a href="#" class="confirm-delete" data-toggle="modal" data-target="#delete_Modal_3<?= $row['id']?>" data-id="<?php  echo $row[" id "] ?>"><span class="glyphicon glyphicon-trash pull-right text-primary"></span></a>
                         </div>
                         <div class='col-lg-12 well well-add-card'>
                           <h4>Cabinetul: <?= $row['cabinet'] ?></h4>
-                          <h4>Nr. serie: <?= $row['nr_serie_dispozitiv'] ?></h4>
+                          <h4>Nr. inventar: <?= $row['numar_inventar'] ?></h4>
                         </div>
                         <div class='col-lg-12'>
 
-                        <?php
-                          $sql="SELECT * FROM uploads where formular_id = " .   $row['id'];
-                          $result_set_files=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
-                          echo '<ul>';
-                          while($rowIn = mysqli_fetch_array ($result_set_files) )
-                          {
-                            echo "<li><a href=\"uploads/" . $rowIn['file'] . "\" target=\"blank\" > " . $rowIn['file'] . "</a> din " .  explode(' ', $rowIn['data_upload'])[0] .
-                            "<span class='glyphicon glyphicon-trash pull-right text-primary confirm-delete-file' data-id=" . $rowIn['id'] . " style='cursor:pointer'></span>"."</li>";
-                          }
-                          echo '</ul>'
-                        ?>
+                          <!-- Modal -->
+                          <div class="modal fade" id="myModal3<?= $row['id']?>" role="dialog">
+                            <div class="modal-dialog modal-md">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Fișiere încarcate</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <?php
+                                    $sql="SELECT * FROM uploads where formular_id = " .   $row['id'];
+                                    $result_set_files=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
+                                    $total = $result_set_files->num_rows;
+                                    echo '<ul>';
+                                    while($rowIn = mysqli_fetch_array ($result_set_files) )
+                                    {
+                                      echo "<li><a href=\"uploads/" . $rowIn['file'] . "\" target=\"blank\" > " . $rowIn['file'] . "</a> din " .  explode(' ', $rowIn['data_upload'])[0] .
+                                      "<span class='glyphicon glyphicon-trash pull-right text-primary confirm-delete-file' data-id=" . $rowIn['id'] . " style='cursor:pointer'></span>"."</li>";
+                                    }
+                                    echo '</ul>'
+                                  ?>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
 
-                  </p>
-                </div>
+                        </div>
 
                 <a href="raport_mentenanta.php?id=<?php echo $row['id'] ?>" target="_blank">
                   <button type="button" class="btn btn-danger btn-xs">Print raport</button>
@@ -919,13 +964,14 @@ include('navbar.php');
                 <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#upload_data_Modal">
                   <button type="button" class="btn btn-primary btn-xs btn-add-file">Add file</button>
                 </a>
+                <button type="button" class="btn btn-info btn-xs btn-add-file" data-toggle="modal" data-target="#myModal3<?= $row['id']?>">View files <span class="badge"> <?= $total ?></span></button>
 
               </div>
             </div>
           </div>
 
           <!-- /.modal-For Delete date -->
-          <div id="delete_Modal_2<?= $row['id']?>" class="modal fade">
+          <div id="delete_Modal_3<?= $row['id']?>" class="modal fade">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -961,8 +1007,7 @@ include('navbar.php');
               <div class="container" id="tourpackages-carousel">
                 <div class="row">
                   <div class="col-lg-12">
-                      <a class="btn icon-btn btn-primary pull-right"
-                      data-toggle="modal" data-target="#add_data_Modal_4">
+                      <a class="btn icon-btn btn-primary pull-right" data-toggle="modal" data-target="#add_data_Modal_4">
                       <span class="glyphicon btn-glyphicon glyphicon-plus img-circle"></span>
                       Add New Card 4
                     </a>
@@ -979,7 +1024,7 @@ include('navbar.php');
                       <div class="caption">
                         <div class='col-lg-12'>
                           <span>Adaugat de : <?= $row['name'] ?></span>
-                          <a href="#" class="confirm-delete" data-toggle="modal" data-target="#delete_Modal_2<?= $row['id']?>" data-id="<?php  echo $row[" id "] ?>"><span class="glyphicon glyphicon-trash pull-right text-primary"></span></a>
+                          <a href="#" class="confirm-delete" data-toggle="modal" data-target="#delete_Modal_4<?= $row['id']?>" data-id="<?php  echo $row[" id "] ?>"><span class="glyphicon glyphicon-trash pull-right text-primary"></span></a>
                         </div>
                         <div class='col-lg-12 well well-add-card'>
                           <h4>Numar inventar: <?= $row['numar_inventar'] ?></h4>
@@ -987,20 +1032,36 @@ include('navbar.php');
                         </div>
                         <div class='col-lg-12'>
 
-                        <?php
-                          $sql="SELECT * FROM uploads where formular_id = " .   $row['id'];
-                          $result_set_files=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
-                          echo '<ul>';
-                          while($rowIn = mysqli_fetch_array ($result_set_files) )
-                          {
-                            echo "<li><a href=\"uploads/" . $rowIn['file'] . "\" target=\"blank\" > " . $rowIn['file'] . "</a> din " .  explode(' ', $rowIn['data_upload'])[0] .
-                            "<span class='glyphicon glyphicon-trash pull-right text-primary confirm-delete-file' data-id=" . $rowIn['id'] . " style='cursor:pointer'></span>"."</li>";
-                          }
-                          echo '</ul>'
-                        ?>
+                          <!-- Modal -->
+                          <div class="modal fade" id="myModal4<?= $row['id']?>" role="dialog">
+                            <div class="modal-dialog modal-md">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Fișiere încarcate</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <?php
+                                    $sql="SELECT * FROM uploads where formular_id = " .   $row['id'];
+                                    $result_set_files=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
+                                    $total = $result_set_files->num_rows;
+                                    echo '<ul>';
+                                    while($rowIn = mysqli_fetch_array ($result_set_files) )
+                                    {
+                                      echo "<li><a href=\"uploads/" . $rowIn['file'] . "\" target=\"blank\" > " . $rowIn['file'] . "</a> din " .  explode(' ', $rowIn['data_upload'])[0] .
+                                      "<span class='glyphicon glyphicon-trash pull-right text-primary confirm-delete-file' data-id=" . $rowIn['id'] . " style='cursor:pointer'></span>"."</li>";
+                                    }
+                                    echo '</ul>'
+                                  ?>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
 
-                  </p>
-                </div>
+                        </div>
 
                 <a href="raport_defectare.php?id=<?php echo $row['id'] ?>" target="_blank">
                   <button type="button" class="btn btn-danger btn-xs">Print raport</button>
@@ -1008,13 +1069,14 @@ include('navbar.php');
                 <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#upload_data_Modal">
                   <button type="button" class="btn btn-primary btn-xs btn-add-file">Add file</button>
                 </a>
+                <button type="button" class="btn btn-info btn-xs btn-add-file" data-toggle="modal" data-target="#myModal4<?= $row['id']?>">View files <span class="badge"> <?= $total ?></span></button>
 
               </div>
             </div>
           </div>
 
           <!-- /.modal-For Delete date -->
-          <div id="delete_Modal_2<?= $row['id']?>" class="modal fade">
+          <div id="delete_Modal_4<?= $row['id']?>" class="modal fade">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -1026,7 +1088,7 @@ include('navbar.php');
                     <?php echo '<span class="text-danger" >Nr. inventar: ' . $row["numar_inventar"] . ', Nume dispozitiv: ' . $row["nume_dispozitiv"] . '</span> '; ?></p>
                 </div>
                 <div class="modal-footer">
-                  <a class="btn btn-danger" href="delete_formular_3.php?id=<?php echo $row['id'] ?>">Confirmă</a>
+                  <a class="btn btn-danger" href="delete_formular_4.php?id=<?php echo $row['id'] ?>">Confirmă</a>
                   <a href="#" data-dismiss="modal" class="btn btn-secondary btn-cancel">Anulează</a>
                 </div>
               </div>
@@ -1134,4 +1196,5 @@ else {
           })
         })
         </script>
+
   </body>

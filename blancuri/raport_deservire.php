@@ -124,14 +124,14 @@ include('db_connect.php');
       <strong><label>Descrierea defecțiunii:</label></strong>
       <table width="100%">
         <tr>
-          <td><?= $row['desc_defect'] ?></td>
+          <td style="height: 20px;"><?= $row['desc_defect'] ?></td>
         </tr>
       </table><br>
 
       <strong><label>Cauza defecțiunii:</label></strong>
       <table width="100%">
         <tr>
-          <td>|<?= $row['cauza_defect'] ?></td>
+          <td style="height: 20px;"><?= $row['cauza_defect'] ?></td>
         </tr>
       </table><br>
 

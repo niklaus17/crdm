@@ -18,7 +18,6 @@ if(isset($_POST['btn-upload']))
 
   $data_proc = $_POST["data_proc"];
   $data_inst = $_POST["data_inst"];
-  $term_expl = $_POST["term_expl"];
   $chek = $_POST["chek"];
   $respons = $_POST["respons"];
   $chek1 = $_POST["chek1"];
@@ -32,10 +31,10 @@ if(isset($_POST['btn-upload']))
   $name = $_SESSION['user']['username'];
 
  	$sql="INSERT INTO formular_3(cabinet, section_id, executor, nume_dispozitiv, anul_producerii_dispozitiv, model_dispozitiv, nr_serie_dispozitiv,
-    producator_dispozitiv, numar_inventar, data_proc, data_inst, term_expl, chek, respons, chek1, luni, comentarii, beneficiar, inginer1, inginer2, inginer3, name)
+    producator_dispozitiv, numar_inventar, data_proc, data_inst, chek, respons, chek1, luni, comentarii, beneficiar, inginer1, inginer2, inginer3, name)
 
         VALUES('$cabinet', '$section_id', '$executor', '$nume_dispozitiv', '$anul_producerii_dispozitiv', '$model_dispozitiv', '$nr_serie_dispozitiv',
-          '$producator_dispozitiv', '$numar_inventar', '$data_proc', '$data_inst', '$term_expl', '$chek', '$respons', '$chek1', '$luni', '$comentarii', '$beneficiar', '$inginer1', '$inginer2', '$inginer3', '$name')";
+          '$producator_dispozitiv', '$numar_inventar', '$data_proc', '$data_inst', '$chek', '$respons', '$chek1', '$luni', '$comentarii', '$beneficiar', '$inginer1', '$inginer2', '$inginer3', '$name')";
 
  	mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
  }

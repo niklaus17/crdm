@@ -138,7 +138,7 @@ include('db_connect.php');
       <tr>
         <td width="5%">11</td>
         <td width="40%">Uzura:</td>
-        <td><<?= $row['uzura'] ?></td>
+        <td><?= $row['uzura'] ?></td>
       </tr>
       <tr>
         <td>12</td>
@@ -147,7 +147,7 @@ include('db_connect.php');
       </tr>
       <tr>
         <td>13</td>
-        <td>Termenul de eploatare:</td>
+        <td>Termenul de exploatare:</td>
         <td><?= $row['termen'] ?></td>
       </tr>
       <tr>

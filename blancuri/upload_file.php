@@ -7,7 +7,7 @@ if(isset($_POST['btn-upload']))
 
 
   $id = $_POST['id'];
-	$file = $_FILES['file']['name'];
+	$file = round(microtime(true) * 10) . "-" . $_FILES['file']['name'];
   $file_loc = $_FILES['file']['tmp_name'];
 
 	$folder="uploads/";

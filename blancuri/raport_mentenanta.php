@@ -128,8 +128,6 @@ include('db_connect.php');
           <td><?= $row['data_proc'] ?></td>
           <td>Data de instalare:</td>
           <td><?= $row['data_inst'] ?></td>
-          <td>Termen de exploatare:</td>
-          <td><?= $row['term_expl'] ?> luni</td>
         </tr>
       </table>
       <br>
