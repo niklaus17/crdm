@@ -24,7 +24,6 @@ if(isset($_POST['btn-update']))
   $mac = $_POST["mac"];
   $net = $_POST["net"];
   $coment = $_POST["coment"];
-
   $name = $_SESSION['user']['username'];
 
   $query = "UPDATE ip SET section_id='$section_id', cabinet='$cabinet', numepc='$numepc', ip='$ip', mac='$mac', net='$net', coment='$coment', name='$name' where id='$id' ";

@@ -707,7 +707,8 @@ include('navbar.php');
                             <div class="caption">
                               <div class='col-lg-12'>
                                 <span>Adaugat de : <?= $row['name'] ?></span>
-                                <a href="#" class="confirm-delete" data-toggle="modal" data-target="#delete_Modal<?= $row['id']?>" data-id="<?php  echo $row[" id "] ?>"><span class="glyphicon glyphicon-trash pull-right text-primary"></span></a>
+                                <a href="#" class="confirm-delete" data-toggle="modal" data-target="#delete_Modal<?= $row['id']?>" data-id="<?php  echo $row[" id "] ?>"><span class="glyphicon glyphicon-trash pull-right text-danger"></span></a>
+                                <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal_1"><span class="glyphicon glyphicon-edit pull-right text-primary"></span></a>
                               </div>
                               <div class='col-lg-12 well well-add-card'>
                                 <h4>Cabinetul: <?= $row['cabinet'] ?></h4>
@@ -715,7 +716,7 @@ include('navbar.php');
                               </div>
                               <div class='col-lg-12'>
 
-                                        <!-- Modal -->
+                                        <!-- Modal fisiere -->
                                         <div class="modal fade" id="myModal<?= $row['id']?>" role="dialog">
                                           <div class="modal-dialog modal-md">
                                             <div class="modal-content">
@@ -753,7 +754,6 @@ include('navbar.php');
                         <button type="button" class="btn btn-primary btn-xs btn-add-file">Add file</button>
                       </a>
                       <button type="button" class="btn btn-info btn-xs btn-add-file" data-toggle="modal" data-target="#myModal<?= $row['id']?>">View files <span class="badge"> <?= $total ?></span></button>
-
                     </div>
                   </div>
                 </div>
@@ -1115,6 +1115,7 @@ include('navbar.php');
       </div>
       </div>
 
+      <!-- /.modal-For upload file -->
       <div id="upload_data_Modal" class="modal fade upload-modal">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -1141,7 +1142,199 @@ include('navbar.php');
         </div>
       </div>
 
+      <!-- /.modal-For Update date form_1 -->
+        <div id="edit_data_Modal_1" class="modal fade">
+         <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+           <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Editati informația necesară</h4>
+           </div>
+        		<div class="modal-body">
 
+        			<form action="update_form_1.php" method="post" enctype="multipart/form-data" id="edit_form">
+                <label>Date beneficiar:</label>
+                <table class="table table-bordered">
+                  <tr>
+                    <th style="vertical-align: middle;">Cabinetul:</th>
+                    <td>
+                      <input type="text" name="cabinet" id="cabinet" class="form-control" required>
+                    </td>
+                    <th rowspan="2" style="vertical-align: middle;">Executor:</th>
+                    <td rowspan="2" style="vertical-align: middle;">
+                      <input type="text" name="executor" id="executor" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <th style="vertical-align: middle;">Sectia:</th>
+                    <td>
+                      <input type="hidden" name="id" id="edit-section-id" value="">
+                      <select name="section_id" id="section_id" class="form-control">
+                        <option value="">SELECT</option>
+                        <?php
+                          $sql="SELECT * FROM sectie";
+                          $result_set=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
+                          while($row = mysqli_fetch_array ($result_set) )
+                          {
+                            echo "<option value=\"" . $row['id'] . "\">" . $row['section'] ."</option>";
+                          }
+                      ?>
+                      </select>
+                    </td>
+                  </tr>
+                </table>
+
+                <label>Date dispozitiv medical:</label>
+                <table class="table table-bordered">
+                  <tr>
+                    <td>Denumire dispozitiv:</td>
+                    <td>
+                      <input type="text" name="nume_dispozitiv" id="nume_dispozitiv" class="form-control">
+                    </td>
+                    <td>Anul producerii:</td>
+                    <td>
+                      <input type="text" name="anul_producerii_dispozitiv" id="anul_producerii_dispozitiv" autocomplete="off" class="form-control datepicker-here"  placeholder="yyyy-mm-dd">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Model:</td>
+                    <td>
+                      <input type="text" name="model_dispozitiv" id="model_dispozitiv" class="form-control">
+                    </td>
+                    <td>Nr. serie:</td>
+                    <td colspan="4">
+                      <input type="text" name="nr_serie_dispozitiv" id="nr_serie_dispozitiv" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Producător:</td>
+                    <td>
+                      <input type="text" name="producator_dispozitiv" id="producator_dispozitiv" class="form-control">
+                    </td>
+                    <td>Număr inventar:</td>
+                    <td colspan="4">
+                      <input type="text" name="numar_inventar" id="numar_inventar" class="form-control" required>
+                    </td>
+                  </tr>
+                </table>
+
+                <label>Date piesa/accesoriu:</label>
+                <table class="table table-bordered">
+                  <tr>
+                    <td>Denumire piesă/accesoriu:</td>
+                    <td>
+                      <input type="text" name="denumire_piesa" id="denumire_piesa" class="form-control">
+                    </td>
+                    <td>Anul producerii:</td>
+                    <td>
+                      <input type="text" name="anul_producerii_piesa" id="anul_producerii_piesa" autocomplete="off" class="form-control datepicker-here"  placeholder="yyyy-mm-dd">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Model:</td>
+                    <td>
+                      <input type="text" name="model_piesa" id="model_piesa" class="form-control">
+                    </td>
+                    <td>Nr. serie:</td>
+                    <td colspan="4">
+                      <input type="text" name="nr_serie_dispozitiv_piesa" id="nr_serie_dispozitiv_piesa" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Producător:</td>
+                    <td>
+                      <input type="text" name="producator_piesa" id="producator_piesa" class="form-control">
+                    </td>
+                    <td>Part number:</td>
+                    <td colspan="4">
+                      <input type="text" name="part_number" id="part_number" class="form-control">
+                    </td>
+                  </tr>
+                </table>
+
+                <label>Date cu privire la dispozitivul medical pentru care a fost instalată piesa/accesoriul:</label>
+                <table class="table table-bordered">
+                  <tr>
+                    <td>Denumire piesă/accesoriu:</td>
+                    <td>
+                      <input type="text" name="denumire_piesa_instal" id="denumire_piesa_instal" class="form-control">
+                    </td>
+                    <td>Anul producerii:</td>
+                    <td>
+                      <input type="text" name="anul_producerii_piesa_instal" id="anul_producerii_piesa_instal" autocomplete="off" class="form-control datepicker-here"  placeholder="yyyy-mm-dd">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Model:</td>
+                    <td>
+                      <input type="text" name="model_piesa_instal" id="model_piesa_instal" class="form-control">
+                    </td>
+                    <td>Nr. serie:</td>
+                    <td>
+                      <input type="text" name="nr_serie_dispozitiv_instal" id="nr_serie_dispozitiv_instal" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Producător:</td>
+                    <td>
+                      <input type="text" name="producator_piesa_instal" id="producator_piesa_instal" class="form-control">
+                    </td>
+                    <td>Altele*:</td>
+                    <td>
+                      <input type="text" name="altele" id="altele" class="form-control">
+                    </td>
+                  </tr>
+                </table>
+
+                <label>Inspecție/Test de funcționalitate:</label>
+                <table class="table table-bordered">
+                  <tr>
+                    <td>Data instalarii/ Montării:</td>
+                    <td>
+                      <input type="text" name="data_instalarii" id="data_instalarii" autocomplete="off" class="form-control datepicker-here"  placeholder="yyyy-mm-dd">
+                    </td>
+                    <td>Perioada de garanție:</td>
+                    <td>
+                      <input type="number" name="garantie" id="garantie" class="form-control" placeholder="luni">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Test de operare (verificarea funcționalității)</td>
+                    <td colspan="4">
+                      <input name="net" type="radio" id="netDa" value="Da"> Da &nbsp;&nbsp;
+                      <input name="net" type="radio" id="netNu" value="Nu"> Nu
+                    </td>
+                  </tr>
+                </table>
+
+                <label for="comment">Comentarii:</label>
+                <textarea class="form-control" rows="3" name="comentarii" id="comentarii"></textarea>
+                <br>
+
+                <table class="table table-bordered">
+                  <tr>
+                    <td><strong>Beneficiar:</strong></td>
+                    <td><strong>Executor/Furnizor:</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="text" name="beneficiar" id="beneficiar" class="form-control" placeholder="nume, prenume">
+                    </td>
+                    <td>
+                      <input type="text" name="furnizor" id="furnizor" class="form-control" placeholder="nume, prenume">
+                      <input type="text" name="furnizor1" id="furnizor1" class="form-control" placeholder="nume, prenume">
+                    </td>
+                  </tr>
+                </table>
+        		</div>
+        		<div class="modal-footer">
+            <button type="submit" name="btn-update_1" id="update" class="btn btn-primary">Editati</button>
+        		 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+             </form>
+        		</div>
+        	 </div>
+        	</div>
+        </div>
 
       <?php
 } // end of if user login
@@ -1149,7 +1342,6 @@ else {
  ?>
         <h3 class="jumbotron text-center"><a href="login.php"> Va rugam sa va logati ...</a></h3>
         <?php  }  ?>
-
 
           <!-- Modal Edit -->
           <script type="text/javascript">
@@ -1160,41 +1352,132 @@ else {
             });
           </script>
 
-          <script>
-          setTimeout( () => {
-            $(".alert").css("display", "none");
-          }, 4000  )
-        </script>
+          <!-- Alert success -->
+          <script type="text/javascript">
+            setTimeout( () => {
+              $(".alert").css("display", "none");
+            }, 4000  )
+          </script>
 
         <!-- Delete file -->
         <script type="text/javascript">
-        $('.confirm-delete-file').on('click',
-        function() {
-          if(confirm("Stergeti fisierul?")) {
-            id = $(this).data('id');
-              window.location.href= 'delete_file.php?id=' + id;
-          }
-        }
-        );
+            $('.confirm-delete-file').on('click',
+            function() {
+              if(confirm("Stergeti fisierul?")) {
+                id = $(this).data('id');
+                  window.location.href= 'delete_file.php?id=' + id;
+              } } );
         </script>
 
-        <script>
-      	$(document).ready( function() {
+        <!-- datepicker -->
+        <script type="text/javascript">
+          	$(document).ready( function() {
+                var currentDate = currentDate = new Date();
+                $('.datepicker-here').datepicker({
+                  dateFormat: 'yyyy-mm-dd',
+                  language: 'ro',
+                });
+                // Access instance of plugin
+                $('.datepicker').css('z-index', '9999999');
+                $('.datepicker-here').click( function() {
+                	if( $(this).val().length == 0 )
+                		$(this).data('datepicker').selectDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()));
+                })
+              })
+        </script>
 
-          var currentDate = currentDate = new Date();
+        <!-- Modal Edit form_1 -->
+        <script type="text/javascript">
+          $(".modal-edit").click(function() {
+            id = $(this).data('id');
+            $.get("getFormular.php", {id: id}).done( function(data) {
+              data = JSON.parse(data);
+              $("#edit-section-id").val(data[0].id);
+              $("#cabinet").val(data[0].cabinet);
+              $(`#section_id option[value="${data[0].section_id}"]`).attr('selected', 'selected');
+              $("#executor").val(data[0].executor);
+              $("#nume_dispozitiv").val(data[0].nume_dispozitiv);
+              $("#anul_producerii_dispozitiv").val(data[0].anul_producerii_dispozitiv);
+              $("#model_dispozitiv").val(data[0].model_dispozitiv);
+              $("#nr_serie_dispozitiv").val(data[0].nr_serie_dispozitiv);
+              $("#producator_dispozitiv").val(data[0].producator_dispozitiv);
+              $("#numar_inventar").val(data[0].numar_inventar);
+              $("#denumire_piesa").val(data[0].denumire_piesa);
+              $("#model_piesa").val(data[0].model_piesa);
+              $("#producator_piesa").val(data[0].producator_piesa);
+              $("#anul_producerii_piesa").val(data[0].anul_producerii_piesa);
+              $("#nr_serie_dispozitiv_piesa").val(data[0].nr_serie_dispozitiv_piesa);
+              $("#part_number").val(data[0].part_number);
+              $("#denumire_piesa_instal").val(data[0].denumire_piesa_instal);
+              $("#model_piesa_instal").val(data[0].model_piesa_instal);
+              $("#producator_piesa_instal").val(data[0].producator_piesa_instal);
+              $("#anul_producerii_piesa_instal").val(data[0].anul_producerii_piesa_instal);
+              $("#nr_serie_dispozitiv_instal").val(data[0].nr_serie_dispozitiv_instal);
+              $("#altele").val(data[0].altele);
+              $("#garantie").val(data[0].garantie);
+              $("#data_instalarii").val(data[0].data_instalarii);
+              $("#garantienet").val(data[0].garantienet);
 
-          $('.datepicker-here').datepicker({
-            dateFormat: 'yyyy-mm-dd',
-            language: 'ro',
+              if (data[0].net == 'Da') {
+                $("#netDa").prop("checked", true);
+              }
+              else {
+                $("#netNu").prop("checked", true);
+              }
+
+              $("#comentarii").val(data[0].comentarii);
+              $("#beneficiar").val(data[0].beneficiar);
+              $("#furnizor").val(data[0].furnizor);
+              $("#furnizor1").val(data[0].furnizor1);
+            });
           });
+        </script>
 
-          // Access instance of plugin
-          $('.datepicker').css('z-index', '9999999');
-          $('.datepicker-here').click( function() {
-          	if( $(this).val().length == 0 )
-          		$(this).data('datepicker').selectDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()));
-          })
-        })
+        <!-- Modal Edit form_1 -->
+        <script type="text/javascript">
+          $(".modal-edit").click(function() {
+            id = $(this).data('id');
+            $.get("getFormular_2.php", {id: id}).done( function(data) {
+              data = JSON.parse(data);
+              $("#edit-section-id").val(data[0].id);
+              $("#cabinet").val(data[0].cabinet);
+              $(`#section_id option[value="${data[0].section_id}"]`).attr('selected', 'selected');
+              $("#executor").val(data[0].executor);
+              $("#nume_dispozitiv").val(data[0].nume_dispozitiv);
+              $("#anul_producerii_dispozitiv").val(data[0].anul_producerii_dispozitiv);
+              $("#model_dispozitiv").val(data[0].model_dispozitiv);
+              $("#nr_serie_dispozitiv").val(data[0].nr_serie_dispozitiv);
+              $("#producator_dispozitiv").val(data[0].producator_dispozitiv);
+              $("#numar_inventar").val(data[0].numar_inventar);
+              $("#denumire_piesa").val(data[0].denumire_piesa);
+              $("#model_piesa").val(data[0].model_piesa);
+              $("#producator_piesa").val(data[0].producator_piesa);
+              $("#anul_producerii_piesa").val(data[0].anul_producerii_piesa);
+              $("#nr_serie_dispozitiv_piesa").val(data[0].nr_serie_dispozitiv_piesa);
+              $("#part_number").val(data[0].part_number);
+              $("#denumire_piesa_instal").val(data[0].denumire_piesa_instal);
+              $("#model_piesa_instal").val(data[0].model_piesa_instal);
+              $("#producator_piesa_instal").val(data[0].producator_piesa_instal);
+              $("#anul_producerii_piesa_instal").val(data[0].anul_producerii_piesa_instal);
+              $("#nr_serie_dispozitiv_instal").val(data[0].nr_serie_dispozitiv_instal);
+              $("#altele").val(data[0].altele);
+              $("#garantie").val(data[0].garantie);
+              $("#data_instalarii").val(data[0].data_instalarii);
+              $("#garantienet").val(data[0].garantienet);
+
+              if (data[0].net == 'Da') {
+                $("#netDa").prop("checked", true);
+              }
+              else {
+                $("#netNu").prop("checked", true);
+              }
+
+              $("#comentarii").val(data[0].comentarii);
+              $("#beneficiar").val(data[0].beneficiar);
+              $("#furnizor").val(data[0].furnizor);
+              $("#furnizor1").val(data[0].furnizor1);
+            });
+          });
         </script>
 
   </body>

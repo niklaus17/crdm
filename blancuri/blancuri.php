@@ -23,7 +23,7 @@ include('navbar.php');
 			<form action="upload_blanc.php" method="post" enctype="multipart/form-data" id="insert_form">
 
 			<label>Data:</label>
-			<input type="text" name="day" class="form-control datepicker" required><br>
+			<input type="text" name="day" autocomplete="off" class="form-control datepicker-here" placeholder="yyyy-mm-dd" required><br>
 
 			<label>Modelul blancului:</label>
 			<input type="text" name="model" class="form-control" required><br>
@@ -240,7 +240,7 @@ include('navbar.php');
   		<div class="modal-body">
   			<form action="update_blanc.php" method="post" enctype="multipart/form-data" id="edit_form">
   			<label>Data:</label>
-  			<input type="date" name="day" id="day" class="form-control datepicker" required><br>
+  			<input type="text" name="day" id="day" autocomplete="off" class="form-control datepicker-here" placeholder="yyyy-mm-dd" required><br>
   			<label>Modelul blancului:</label>
   			<input type="text" name="model" id="model" class="form-control" required><br>
   			<label>Alege-ți secția</label>
@@ -454,9 +454,22 @@ $(this).prepend('<td>'+id+'</td>');
 </script>
 
 <script>
-  $(document).ready(function(){
-    $('.datepicker').datepicker();
+$(document).ready( function() {
+
+  var currentDate = currentDate = new Date();
+
+  $('.datepicker-here').datepicker({
+    dateFormat: 'yyyy-mm-dd',
+    language: 'ro',
   });
+
+  // Access instance of plugin
+  $('.datepicker').css('z-index', '9999999');
+  $('.datepicker-here').click( function() {
+    if( $(this).val().length == 0 )
+      $(this).data('datepicker').selectDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()));
+  })
+})
 </script>
 
 </body>
