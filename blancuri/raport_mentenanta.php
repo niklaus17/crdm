@@ -81,9 +81,9 @@ include('db_connect.php');
     <table width="100%">
       <tr>
         <th>Cabinetul:</th>
-        <td><?= $row['cabinet'] ?></td>
+        <td><?= $row['cabinet3'] ?></td>
         <th rowspan="2" style="vertical-align: middle;">Executor:</th>
-        <td rowspan="2"><?= $row['executor'] ?></td>
+        <td rowspan="2"><?= $row['executor3'] ?></td>
       </tr>
       <tr>
         <th>Secția:</th>
@@ -103,21 +103,21 @@ include('db_connect.php');
       <table width="100%">
         <tr>
           <td width="25%">Denumire dispozitiv:</td>
-          <td width="30%"><?= $row['nume_dispozitiv'] ?></td>
+          <td width="30%"><?= $row['nume_dispozitiv3'] ?></td>
           <td width="20%">Anul producerii: </td>
-          <td width="25%"><?= $row['anul_producerii_dispozitiv'] ?></td>
+          <td width="25%"><?= $row['anul_producerii_dispozitiv3'] ?></td>
         </tr>
         <tr>
           <td>Model:</td>
-          <td><?= $row['model_dispozitiv'] ?></td>
+          <td><?= $row['model_dispozitiv3'] ?></td>
           <td>Nr. serie:</td>
-          <td colspan="4"><?= $row['nr_serie_dispozitiv'] ?></td>
+          <td colspan="4"><?= $row['nr_serie_dispozitiv3'] ?></td>
         </tr>
         <tr>
           <td>Producător:</td>
-          <td><?= $row['producator_dispozitiv'] ?></td>
+          <td><?= $row['producator_dispozitiv3'] ?></td>
           <td>Număr inventar:</td>
-          <td colspan="4"><?= $row['numar_inventar'] ?></td>
+          <td colspan="4"><?= $row['numar_inventar3'] ?></td>
         </tr>
       </table><br><br>
 
@@ -140,45 +140,45 @@ include('db_connect.php');
         </tr>
         <tr>
           <td>Mentenață preventivă:</td>
-          <td><?= $row['chek'] ?></td>
+          <td><?= $row['chek1_3'] ?></td>
           <td colspan="2"><?= $row['respons'] ?></td>
         </tr>
         <tr>
           <td>Verificarea periodică:</td>
-          <td><?= $row['chek1'] ?></td>
+          <td><?= $row['chek2_3'] ?></td>
           <td>Periodicitatea:</td>
-          <td><?= $row['luni'] ?> luni</td>
+          <td><?= $row['luni3'] ?> luni</td>
         </tr>
       </table><br>
 
       <strong><label for="comment">Comentarii:</label></strong>
       <table width="100%">
         <tr>
-          <td style="height: 20px;"><?= $row['comentarii'] ?></td>
+          <td style="height: 20px;"><?= $row['comentarii3'] ?></td>
         </tr>
       </table><br><br><br>
 
       <table width="100%" >
         <tr style="border:none;">
-          <td style="border:none;" width="60%"><strong> Șef secție: </strong> <?= $row['beneficiar'] ?></td>
+          <td style="border:none;" width="60%"><strong> Șef secție: </strong> <?= $row['beneficiar3'] ?></td>
           <td style="border:none;">Semnătura ____________________</td>
         </tr>
       </table><br>
       <table width="100%" >
         <tr style="border:none;">
-          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer1'] ?></td>
+          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer1_3'] ?></td>
           <td style="border:none;">Semnătura ____________________</td>
         </tr>
       </table><br>
       <table width="100%" >
         <tr style="border:none;">
-          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer2'] ?></td>
+          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer2_3'] ?></td>
           <td style="border:none;">Semnătura ____________________</td>
         </tr>
       </table><br>
       <table width="100%" >
         <tr style="border:none;">
-          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer3'] ?></td>
+          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer3_3'] ?></td>
           <td style="border:none;">Semnătura ____________________</td>
         </tr>
       </table>

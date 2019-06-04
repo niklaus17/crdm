@@ -243,11 +243,11 @@ include('navbar.php');
                   <tr>
                     <th style="vertical-align: middle;">Cabinetul:</th>
                     <td>
-                      <input type="text" name="cabinet" class="form-control" required>
+                      <input type="text" name="cabinet2" class="form-control" required>
                     </td>
                     <th rowspan="2" style="vertical-align: middle;">Executor:</th>
                     <td rowspan="2" style="vertical-align: middle;">
-                      <input type="text" name="executor" class="form-control">
+                      <input type="text" name="executor2" class="form-control">
                     </td>
                   </tr>
                   <tr>
@@ -339,7 +339,7 @@ include('navbar.php');
                 <br>
 
                 <label for="comentarii">Comentarii:</label>
-                <textarea class="form-control" rows="2" name="comentarii"></textarea>
+                <textarea class="form-control" rows="2" name="comentarii2"></textarea>
                 <br>
 
                 <table class="table table-bordered">
@@ -386,11 +386,11 @@ include('navbar.php');
                   <tr>
                     <th style="vertical-align: middle;">Cabinetul:</th>
                     <td>
-                      <input type="text" name="cabinet" class="form-control" required>
+                      <input type="text" name="cabinet3" class="form-control" required>
                     </td>
                     <th rowspan="2" style="vertical-align: middle;">Executor:</th>
                     <td rowspan="2" style="vertical-align: middle;">
-                      <input type="text" name="executor" class="form-control">
+                      <input type="text" name="executor3" class="form-control">
                     </td>
                   </tr>
                   <tr>
@@ -417,31 +417,31 @@ include('navbar.php');
                   <tr>
                     <td>Denumire dispozitiv:</td>
                     <td>
-                      <input type="text" name="nume_dispozitiv" class="form-control">
+                      <input type="text" name="nume_dispozitiv3" class="form-control">
                     </td>
                     <td>Anul producerii:</td>
                     <td>
-                      <input type="text" name="anul_producerii_dispozitiv" autocomplete="off" class="form-control datepicker-here"  placeholder="yyyy-mm-dd">
+                      <input type="text" name="anul_producerii_dispozitiv3" autocomplete="off" class="form-control datepicker-here"  placeholder="yyyy-mm-dd">
                     </td>
                   </tr>
                   <tr>
                     <td>Model:</td>
                     <td>
-                      <input type="text" name="model_dispozitiv" class="form-control">
+                      <input type="text" name="model_dispozitiv3" class="form-control">
                     </td>
                     <td>Nr. serie:</td>
                     <td colspan="4">
-                      <input type="text" name="nr_serie_dispozitiv" class="form-control">
+                      <input type="text" name="nr_serie_dispozitiv3" class="form-control">
                     </td>
                   </tr>
                   <tr>
                     <td>Producător:</td>
                     <td>
-                      <input type="text" name="producator_dispozitiv" class="form-control">
+                      <input type="text" name="producator_dispozitiv3" class="form-control">
                     </td>
                     <td>Număr inventar:</td>
                     <td colspan="4">
-                      <input type="text" name="numar_inventar" class="form-control" required>
+                      <input type="text" name="numar_inventar3" class="form-control" required>
                     </td>
                   </tr>
                 </table>
@@ -466,24 +466,24 @@ include('navbar.php');
                   <tr>
                     <td>Mentenața preventivă:</td>
                     <td>
-                      <input name="chek" type="radio" value="Da"> Da &nbsp;&nbsp;
-                      <input name="chek" type="radio" value="Nu"> Nu
+                      <input name="chek1_3" type="radio" value="Da"> Da &nbsp;&nbsp;
+                      <input name="chek1_3" type="radio" value="Nu"> Nu
                     </td>
                     <td colspan="2"><input type="text" name="respons" class="form-control"></td>
                   </tr>
                   <tr>
                     <td>Verificarea periodică:</td>
                     <td>
-                      <input name="chek1" type="radio" value="Da"> Da &nbsp;&nbsp;
-                      <input name="chek1" type="radio" value="Nu"> Nu
+                      <input name="chek2_3" type="radio" value="Da"> Da &nbsp;&nbsp;
+                      <input name="chek2_3" type="radio" value="Nu"> Nu
                     </td>
                     <td>Periodicitatea:</td>
-                    <td><input type="number" name="luni" class="form-control" placeholder="luni"></td>
+                    <td><input type="number" name="luni3" class="form-control" placeholder="luni"></td>
                   </tr>
                 </table>
 
                 <label for="comentarii">Comentarii:</label>
-                <textarea class="form-control" rows="2" name="comentarii"></textarea>
+                <textarea class="form-control" rows="2" name="comentarii3"></textarea>
                 <br>
 
                 <table class="table table-bordered">
@@ -493,12 +493,12 @@ include('navbar.php');
                   </tr>
                   <tr>
                     <td>
-                      <input type="text" name="beneficiar" class="form-control" placeholder="nume, prenume">
+                      <input type="text" name="beneficiar3" class="form-control" placeholder="nume, prenume">
                     </td>
                     <td>
-                      <input type="text" name="inginer1" class="form-control" placeholder="nume, prenume">
-                      <input type="text" name="inginer2" class="form-control" placeholder="nume, prenume">
-                      <input type="text" name="inginer3" class="form-control" placeholder="nume, prenume">
+                      <input type="text" name="inginer1_3" class="form-control" placeholder="nume, prenume">
+                      <input type="text" name="inginer2_3" class="form-control" placeholder="nume, prenume">
+                      <input type="text" name="inginer3_3" class="form-control" placeholder="nume, prenume">
                     </td>
                   </tr>
                 </table>
@@ -526,9 +526,9 @@ include('navbar.php');
               <div class="modal-body">
 
                 <label>Formular de:</label> &nbsp;&nbsp;
-                <input name="chek1" type="radio" value="defectare"> Defectare &nbsp;&nbsp;
-                <input name="chek1" type="radio" value="conservare"> Conservare &nbsp;&nbsp;
-                <input name="chek1" type="radio" value="casare"> Casare<br>
+                <input name="chek1_4" type="radio" value="defectare"> Defectare &nbsp;&nbsp;
+                <input name="chek1_4" type="radio" value="conservare"> Conservare &nbsp;&nbsp;
+                <input name="chek1_4" type="radio" value="casare"> Casare<br>
 
                 <label>Se completează de către secția medicală:</label>
                 <table class="table table-bordered">
@@ -575,7 +575,7 @@ include('navbar.php');
                   <tr>
                     <td>7</td>
                     <td>Nume dispozitiv:</td>
-                    <td><input type="text" name="nume_dispozitiv" class="form-control"></td>
+                    <td><input type="text" name="nume_dispozitiv4" class="form-control"></td>
                   </tr>
                   <tr>
                     <td>8</td>
@@ -644,7 +644,7 @@ include('navbar.php');
                   </tr>
                   <tr>
                     <td>
-                      <input type="text" name="beneficiar" class="form-control" placeholder="nume, prenume">
+                      <input type="text" name="beneficiar4" class="form-control" placeholder="nume, prenume">
                     </td>
                     <td>
                       <input type="text" name="contabil" class="form-control" placeholder="nume, prenume">
@@ -653,9 +653,9 @@ include('navbar.php');
                       <input type="text" name="it" class="form-control" placeholder="nume, prenume">
                     </td>
                     <td>
-                      <input type="text" name="inginer1" class="form-control" placeholder="nume, prenume">
-                      <input type="text" name="inginer2" class="form-control" placeholder="nume, prenume">
-                      <input type="text" name="inginer3" class="form-control" placeholder="nume, prenume">
+                      <input type="text" name="inginer1_4" class="form-control" placeholder="nume, prenume">
+                      <input type="text" name="inginer2_4" class="form-control" placeholder="nume, prenume">
+                      <input type="text" name="inginer3_4" class="form-control" placeholder="nume, prenume">
                     </td>
                   </tr>
                 </table>
@@ -676,8 +676,8 @@ include('navbar.php');
 
             <ul class="nav nav-tabs">
               <li class="active"><a href="#A" data-toggle="tab">Formular de instalare</a></li>
-              <li><a href="#B" data-toggle="tab">Fisa de deservire</a></li>
-              <li><a href="#C" data-toggle="tab">Fisa de mentenanta</a></li>
+              <li><a href="#B" data-toggle="tab">Fișă de deservire</a></li>
+              <li><a href="#C" data-toggle="tab">Fișă de mentenanță</a></li>
               <li><a href="#D" data-toggle="tab">Formular de defectare</a></li>
             </ul>
 
@@ -692,7 +692,7 @@ include('navbar.php');
                             <a class="btn icon-btn btn-primary pull-right"
                             data-toggle="modal" data-target="#add_data_Modal">
                             <span class="glyphicon btn-glyphicon glyphicon-plus img-circle"></span>
-                            Add New Card
+                            Adaugă formular de instalare
                           </a>
                         </div>
 
@@ -797,7 +797,7 @@ include('navbar.php');
                       <a class="btn icon-btn btn-primary pull-right"
                       data-toggle="modal" data-target="#add_data_Modal_2">
                       <span class="glyphicon btn-glyphicon glyphicon-plus img-circle"></span>
-                      Add New Card 2
+                      Adaugă fișă de deservire
                     </a>
                   </div>
 
@@ -855,10 +855,9 @@ include('navbar.php');
                 <a href="raport_deservire.php?id=<?php echo $row['id'] ?>" target="_blank">
                   <button type="button" class="btn btn-danger btn-xs">Print raport</button>
                 </a>
-                <a href="#" class="modal-edit_2" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#upload_data_Modal">
+                <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#upload_data_Modal">
                   <button type="button" class="btn btn-primary btn-xs btn-add-file">Add file</button>
                 </a>
-
                 <button type="button" class="btn btn-info btn-xs btn-add-file" data-toggle="modal" data-target="#myModal2<?= $row['id']?>">View files <span class="badge"> <?= $total ?></span></button>
 
               </div>
@@ -905,7 +904,7 @@ include('navbar.php');
                       <a class="btn icon-btn btn-primary pull-right"
                       data-toggle="modal" data-target="#add_data_Modal_3">
                       <span class="glyphicon btn-glyphicon glyphicon-plus img-circle"></span>
-                      Add New Card 3
+                      Adaugă fișă de mentenanță
                     </a>
                   </div>
 
@@ -1011,7 +1010,7 @@ include('navbar.php');
                   <div class="col-lg-12">
                       <a class="btn icon-btn btn-primary pull-right" data-toggle="modal" data-target="#add_data_Modal_4">
                       <span class="glyphicon btn-glyphicon glyphicon-plus img-circle"></span>
-                      Add New Card 4
+                      Adaugă formular de defectare
                     </a>
                   </div>
 
@@ -1897,11 +1896,11 @@ else {
               $("#data_instalarii2").val(data[0].data_instalarii2);
               $("#ore").val(data[0].ore);
 
-              if (data[0].net == 'Da') {
-                $("#nefunctional").prop("checked", true);
+              if (data[0].chek == 'Functional') {
+                $("#functional").prop("checked", true);
               }
               else {
-                $("#functional").prop("checked", true);
+                $("#nefunctional").prop("checked", true);
               }
 
               $("#materiale").val(data[0].materiale);

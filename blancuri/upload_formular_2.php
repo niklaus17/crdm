@@ -12,7 +12,7 @@ if(isset($_POST['btn-upload']))
  	$nume_dispozitiv2 = $_POST['nume_dispozitiv2'];
 	$anul_producerii_dispozitiv2 = $_POST["anul_producerii_dispozitiv2"];
   $model_dispozitiv2 = $_POST["model_dispozitiv2"];
-  $nr_serie_dispozitiv2 = $_POST["nr_serie_dispoziti2v"];
+  $nr_serie_dispozitiv2 = $_POST["nr_serie_dispozitiv2"];
   $producator_dispozitiv2 = $_POST["producator_dispozitiv2"];
   $numar_inventar2 = $_POST["numar_inventar2"];
   $desc_defect = $_POST["desc_defect"];

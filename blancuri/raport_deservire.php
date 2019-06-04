@@ -81,9 +81,9 @@ include('db_connect.php');
     <table width="100%">
       <tr>
         <th>Cabinetul:</th>
-        <td><?= $row['cabinet'] ?></td>
+        <td><?= $row['cabinet2'] ?></td>
         <th rowspan="2" style="vertical-align: middle;">Executor:</th>
-        <td rowspan="2"><?= $row['executor'] ?></td>
+        <td rowspan="2"><?= $row['executor2'] ?></td>
       </tr>
       <tr>
         <th>Secția:</th>
@@ -103,21 +103,21 @@ include('db_connect.php');
       <table width="100%">
         <tr>
           <td width="25%">Denumire dispozitiv:</td>
-          <td width="30%"><?= $row['nume_dispozitiv'] ?></td>
+          <td width="30%"><?= $row['nume_dispozitiv2'] ?></td>
           <td width="20%">Anul producerii: </td>
-          <td width="25%"><?= $row['anul_producerii_dispozitiv'] ?></td>
+          <td width="25%"><?= $row['anul_producerii_dispozitiv2'] ?></td>
         </tr>
         <tr>
           <td>Model:</td>
-          <td><?= $row['model_dispozitiv'] ?></td>
+          <td><?= $row['model_dispozitiv2'] ?></td>
           <td>Nr. serie:</td>
-          <td colspan="4"><?= $row['nr_serie_dispozitiv'] ?></td>
+          <td colspan="4"><?= $row['nr_serie_dispozitiv2'] ?></td>
         </tr>
         <tr>
           <td>Producător:</td>
-          <td><?= $row['producator_dispozitiv'] ?></td>
+          <td><?= $row['producator_dispozitiv2'] ?></td>
           <td>Numar inventar:</td>
-          <td colspan="4"><?= $row['numar_inventar'] ?></td>
+          <td colspan="4"><?= $row['numar_inventar2'] ?></td>
         </tr>
       </table><br><br>
 
@@ -141,7 +141,7 @@ include('db_connect.php');
           <td rowspan="2" style="vertical-align: middle;">Acțiuni întreprinse:</td>
           <td><?= $row['actiuni'] ?></td>
           <td style="vertical-align: middle;">Data: <br> Ore:</td>
-          <td><?= $row['data_instalarii'] ?> <br> <?= $row['ore'] ?></td>
+          <td><?= $row['data_instalarii2'] ?> <br> <?= $row['ore'] ?></td>
         </tr>
         <tr>
           <td>Testarea funcționării după reparație:</td>
@@ -159,13 +159,13 @@ include('db_connect.php');
       <strong><label for="comment">Comentarii:</label></strong>
       <table width="100%">
         <tr>
-          <td style="height: 20px;"><?= $row['comentarii'] ?></td>
+          <td style="height: 20px;"><?= $row['comentarii2'] ?></td>
         </tr>
       </table><br><br><br>
 
       <table width="100%" >
         <tr style="border:none;">
-          <td style="border:none;" width="60%"><strong> Șef secție: </strong> <?= $row['beneficiar'] ?></td>
+          <td style="border:none;" width="60%"><strong> Șef secție: </strong> <?= $row['beneficiar2'] ?></td>
           <td style="border:none;">Semnătura ____________________</td>
         </tr>
       </table><br>

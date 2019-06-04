@@ -72,7 +72,7 @@ include('db_connect.php');
     {
 ?>
     <div style="text-align: center">
-      <h3 style="text-transform: padding: 0px; margin: 0px;">Formular de  <?= $row['chek1'] ?> a dispozitivului medical</h3>
+      <h3 style="text-transform: padding: 0px; margin: 0px;">Formular de  <?= $row['chek1_4'] ?> a dispozitivului medical</h3>
     </div><br><br>
 
     <strong><label>Se completează de către secția medicală:</label></strong>
@@ -90,7 +90,7 @@ include('db_connect.php');
       <tr>
         <td>3</td>
         <td>Număr inventar:</td>
-        <td><?= $row['numar_inventar'] ?></td>
+        <td><?= $row['numar_inventar4'] ?></td>
       </tr>
       <tr>
         <td>4</td>
@@ -114,7 +114,7 @@ include('db_connect.php');
       <tr>
         <td>7</td>
         <td>Nume dispozitiv:</td>
-        <td><?= $row['nume_dispozitiv'] ?></td>
+        <td><?= $row['nume_dispozitiv4'] ?></td>
       </tr>
       <tr>
         <td>8</td>
@@ -129,7 +129,7 @@ include('db_connect.php');
       <tr>
         <td>10</td>
         <td>Număr inventar:</td>
-        <td><?= $row['numar_inventar_2'] ?></td>
+        <td><?= $row['numar_inventar2_4'] ?></td>
       </tr>
     </table><br>
 
@@ -187,25 +187,25 @@ include('db_connect.php');
 
       <table width="100%" >
         <tr style="border:none;">
-          <td style="border:none;" width="60%"><strong> Șef secție: </strong> <?= $row['beneficiar'] ?></td>
+          <td style="border:none;" width="60%"><strong> Șef secție: </strong> <?= $row['beneficiar4'] ?></td>
           <td style="border:none;">Semnătura ____________________</td>
         </tr>
       </table><br>
       <table width="100%" >
         <tr style="border:none;">
-          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer1'] ?></td>
+          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer1_4'] ?></td>
           <td style="border:none;">Semnătura ____________________</td>
         </tr>
       </table><br>
       <table width="100%" >
         <tr style="border:none;">
-          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer2'] ?></td>
+          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer2_4'] ?></td>
           <td style="border:none;">Semnătura ____________________</td>
         </tr>
       </table><br>
       <table width="100%" >
         <tr style="border:none;">
-          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer3'] ?></td>
+          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer3_4'] ?></td>
           <td style="border:none;">Semnătura ____________________</td>
         </tr>
       </table>
