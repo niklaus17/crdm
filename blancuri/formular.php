@@ -827,11 +827,11 @@ include('navbar.php');
                               <div class="modal-content">
                                 <div class="modal-header">
                                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                  <h4 class="modal-title">Fișiere încarcate</h4>
+                                  <h4 class="modal-title">Fișiere încarcate 2</h4>
                                 </div>
                                 <div class="modal-body">
                                   <?php
-                                    $sql="SELECT * FROM uploads where formular_id = " .   $row['id'];
+                                    $sql="SELECT * FROM uploads2 where formular_id = " . $row['id'];
                                     $result_set_files=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
                                     $total = $result_set_files->num_rows;
                                     echo '<ul>';
@@ -855,8 +855,8 @@ include('navbar.php');
                 <a href="raport_deservire.php?id=<?php echo $row['id'] ?>" target="_blank">
                   <button type="button" class="btn btn-danger btn-xs">Print raport</button>
                 </a>
-                <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#upload_data_Modal">
-                  <button type="button" class="btn btn-primary btn-xs btn-add-file">Add file</button>
+                <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#upload_data_Modal_2">
+                  <button type="button" class="btn btn-primary btn-xs btn-add-file">Add file 2</button>
                 </a>
                 <button type="button" class="btn btn-info btn-xs btn-add-file" data-toggle="modal" data-target="#myModal2<?= $row['id']?>">View files <span class="badge"> <?= $total ?></span></button>
 
@@ -938,7 +938,7 @@ include('navbar.php');
                                 </div>
                                 <div class="modal-body">
                                   <?php
-                                    $sql="SELECT * FROM uploads where formular_id = " .   $row['id'];
+                                    $sql="SELECT * FROM uploads3 where formular_id = " .   $row['id'];
                                     $result_set_files=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
                                     $total = $result_set_files->num_rows;
                                     echo '<ul>';
@@ -962,7 +962,7 @@ include('navbar.php');
                 <a href="raport_mentenanta.php?id=<?php echo $row['id'] ?>" target="_blank">
                   <button type="button" class="btn btn-danger btn-xs">Print raport</button>
                 </a>
-                <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#upload_data_Modal">
+                <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#upload_data_Modal_3">
                   <button type="button" class="btn btn-primary btn-xs btn-add-file">Add file</button>
                 </a>
                 <button type="button" class="btn btn-info btn-xs btn-add-file" data-toggle="modal" data-target="#myModal3<?= $row['id']?>">View files <span class="badge"> <?= $total ?></span></button>
@@ -1044,7 +1044,7 @@ include('navbar.php');
                                 </div>
                                 <div class="modal-body">
                                   <?php
-                                    $sql="SELECT * FROM uploads where formular_id = " .   $row['id'];
+                                    $sql="SELECT * FROM uploads4 where formular_id = " .   $row['id'];
                                     $result_set_files=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
                                     $total = $result_set_files->num_rows;
                                     echo '<ul>';
@@ -1068,7 +1068,7 @@ include('navbar.php');
                 <a href="raport_defectare.php?id=<?php echo $row['id'] ?>" target="_blank">
                   <button type="button" class="btn btn-danger btn-xs">Print raport</button>
                 </a>
-                <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#upload_data_Modal">
+                <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#upload_data_Modal_4">
                   <button type="button" class="btn btn-primary btn-xs btn-add-file">Add file</button>
                 </a>
                 <button type="button" class="btn btn-info btn-xs btn-add-file" data-toggle="modal" data-target="#myModal4<?= $row['id']?>">View files <span class="badge"> <?= $total ?></span></button>
@@ -1137,6 +1137,87 @@ include('navbar.php');
             </div>
             <div class="modal-footer">
               <button type="submit" name="btn-upload" class="btn-upload" class="btn btn-primary">Upload</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- /.modal-For upload file 2 -->
+      <div id="upload_data_Modal_2" class="modal fade upload-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Editati informația necesară</h4>
+            </div>
+            <div class="modal-body">
+
+              <form action="upload_file_2.php" method="post" enctype="multipart/form-data" id="edit_form">
+
+                <input type="hidden" name="id" id="formular_id2">
+                <label>Selectați un fișier pentru încărcare PDF:</label>
+                <input type="file" name="file" accept=".pdf" id="file" class="form-control" />
+                <br>
+
+            </div>
+            <div class="modal-footer">
+              <button type="submit" name="btn-upload2" class="btn-upload" class="btn btn-primary">Upload</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- /.modal-For upload file 3 -->
+      <div id="upload_data_Modal_3" class="modal fade upload-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Editati informația necesară</h4>
+            </div>
+            <div class="modal-body">
+
+              <form action="upload_file_3.php" method="post" enctype="multipart/form-data" id="edit_form">
+
+                <input type="hidden" name="id" id="formular_id3">
+                <label>Selectați un fișier pentru încărcare PDF:</label>
+                <input type="file" name="file" accept=".pdf" id="file" class="form-control" />
+                <br>
+
+            </div>
+            <div class="modal-footer">
+              <button type="submit" name="btn-upload3" class="btn-upload" class="btn btn-primary">Upload</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- /.modal-For upload file 4 -->
+      <div id="upload_data_Modal_4" class="modal fade upload-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Editati informația necesară</h4>
+            </div>
+            <div class="modal-body">
+
+              <form action="upload_file_4.php" method="post" enctype="multipart/form-data" id="edit_form">
+
+                <input type="hidden" name="id" id="formular_id4">
+                <label>Selectați un fișier pentru încărcare PDF:</label>
+                <input type="file" name="file" accept=".pdf" id="file" class="form-control" />
+                <br>
+
+            </div>
+            <div class="modal-footer">
+              <button type="submit" name="btn-upload4" class="btn-upload" class="btn btn-primary">Upload</button>
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </form>
             </div>
@@ -1783,13 +1864,17 @@ else {
         <h3 class="jumbotron text-center"><a href="login.php"> Va rugam sa va logati ...</a></h3>
         <?php  }  ?>
 
-          <!-- Modal Edit -->
+          <!-- Modal Upload File -->
           <script type="text/javascript">
             $(".modal-edit").click(function() {
               id =  $(this).data('id');
               $('#formular_id').val(id);
+              $('#formular_id2').val(id);
+              $('#formular_id3').val(id);
+              $('#formular_id4').val(id);
             });
           </script>
+
 
           <!-- Alert success -->
           <script type="text/javascript">

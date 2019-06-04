@@ -93,9 +93,9 @@ include('navbar.php');
 
     <div class="col-md-3">
           <div class="input-group input-daterange">
-              <input type="text" class="form-control" name="from_date" id="from_date" placeholder="De pe data...">
+              <input type="text" class="form-control datepicker-here" name="from_date" id="from_date" placeholder="De pe data...">
               <div class="input-group-addon">to</div>
-              <input type="text" class="form-control" name="to_date" id="to_date" placeholder="Pâna pe data...">
+              <input type="text" class="form-control datepicker-here" name="to_date" id="to_date" placeholder="Pâna pe data...">
           </div>
     </div>
 
@@ -314,9 +314,6 @@ else {
 <!-- Date range -->
 <script>
 $(document).ready(function(){
-	$.datepicker.setDefaults({
-		dateFormat: 'yy-mm-dd'
-	});
 	$(function(){
 		$("#from_date").datepicker();
 		$("#to_date").datepicker();
