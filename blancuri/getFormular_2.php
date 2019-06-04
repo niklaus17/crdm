@@ -5,72 +5,58 @@ $return_arr = array();
 $id = $_GET['id'];
 
 
-$query = "SELECT * FROM formular where id = '$id'";
+$query = "SELECT * FROM formular_2 where id = '$id'";
 
 $result = mysqli_query($conn,$query);
 
 while($row = mysqli_fetch_array($result)){
 
   $id = $row['id'];
-  $cabinet = $row['cabinet'];
+  $cabinet2 = $row['cabinet2'];
   $section_id = $row['section_id'];
-  $executor = $row['executor'];
-  $nume_dispozitiv = $row['nume_dispozitiv'];
-  $anul_producerii_dispozitiv = $row['anul_producerii_dispozitiv'];
-  $model_dispozitiv = $row['model_dispozitiv'];
-  $nr_serie_dispozitiv = $row['nr_serie_dispozitiv'];
-  $producator_dispozitiv = $row['producator_dispozitiv'];
-  $numar_inventar = $row['numar_inventar'];
-  $denumire_piesa = $row['denumire_piesa'];
-  $model_piesa = $row['model_piesa'];
-  $producator_piesa = $row['producator_piesa'];
-  $anul_producerii_piesa = $row['anul_producerii_piesa'];
-  $nr_serie_dispozitiv_piesa = $row['nr_serie_dispozitiv_piesa'];
-  $part_number = $row['part_number'];
-  $denumire_piesa_instal = $row['denumire_piesa_instal'];
-  $model_piesa_instal = $row['model_piesa_instal'];
-  $producator_piesa_instal = $row['producator_piesa_instal'];
-  $anul_producerii_piesa_instal = $row['anul_producerii_piesa_instal'];
-  $nr_serie_dispozitiv_instal = $row['nr_serie_dispozitiv_instal'];
-  $altele = $row['altele'];
-  $data_instalarii = $row['data_instalarii'];
-  $garantie = $row['garantie'];
-  $net = $row['net'];
-  $comentarii = $row['comentarii'];
-  $beneficiar = $row['beneficiar'];
-  $furnizor = $row['furnizor'];
-  $furnizor1 = $row['furnizor1'];
+  $executor2 = $row['executor2'];
+ 	$nume_dispozitiv2 = $row['nume_dispozitiv2'];
+	$anul_producerii_dispozitiv2 = $row['anul_producerii_dispozitiv2'];
+  $model_dispozitiv2 = $row['model_dispozitiv2'];
+  $nr_serie_dispozitiv2 = $row['nr_serie_dispozitiv2'];
+  $producator_dispozitiv2 = $row['producator_dispozitiv2'];
+  $numar_inventar2 = $row['numar_inventar2'];
+  $desc_defect = $row['desc_defect'];
+  $cauza_defect = $row['cauza_defect'];
+  $actiuni = $row['actiuni'];
+  $data_instalarii2 = $row['data_instalarii2'];
+  $ore = $row['ore'];
+  $chek = $row['chek'];
+  $materiale = $row['materiale'];
+  $comentarii2 = $row['comentarii2'];
+  $beneficiar2 = $row['beneficiar2'];
+  $inginer1 = $row['inginer1'];
+  $inginer2 = $row['inginer2'];
+  $inginer3 = $row['inginer3'];
 
     array_push($return_arr, array(
       'id' => $id,
-      'cabinet' => $cabinet,
+      'cabinet2' => $cabinet2,
       'section_id' => $section_id,
-      'executor' => $executor,
-      'nume_dispozitiv' => $nume_dispozitiv,
-      'anul_producerii_dispozitiv' => $anul_producerii_dispozitiv,
-      'model_dispozitiv' => $model_dispozitiv,
-      'nr_serie_dispozitiv' => $nr_serie_dispozitiv,
-      'producator_dispozitiv' => $producator_dispozitiv,
-      'numar_inventar' => $numar_inventar,
-      'denumire_piesa' => $denumire_piesa,
-      'model_piesa' => $model_piesa,
-      'producator_piesa' => $producator_piesa,
-      'anul_producerii_piesa' => $anul_producerii_piesa,
-      'nr_serie_dispozitiv_piesa' => $nr_serie_dispozitiv_piesa,
-      'part_number' => $part_number,
-      'denumire_piesa_instal' => $denumire_piesa_instal,
-      'model_piesa_instal' => $model_piesa_instal,
-      'producator_piesa_instal' => $producator_piesa_instal,
-      'anul_producerii_piesa_instal' => $anul_producerii_piesa_instal,
-      'nr_serie_dispozitiv_instal' => $nr_serie_dispozitiv_instal,
-      'altele' => $altele,
-      'data_instalarii' => $data_instalarii,
-      'garantie' => $garantie,
-      'net' => $net,
-      'comentarii' => $comentarii,
-      'beneficiar' => $beneficiar,
-      'furnizor' => $furnizor,
-      'furnizor1' => $furnizor1,
+      'executor2' => $executor2,
+     	'nume_dispozitiv2' => $nume_dispozitiv2,
+    	'anul_producerii_dispozitiv2' => $anul_producerii_dispozitiv2,
+      'model_dispozitiv2' => $model_dispozitiv2,
+      'nr_serie_dispozitiv2' => $nr_serie_dispozitiv2,
+      'producator_dispozitiv2' => $producator_dispozitiv2,
+      'numar_inventar2' => $numar_inventar2,
+      'desc_defect' => $desc_defect,
+      'cauza_defect' => $cauza_defect,
+      'actiuni' => $actiuni,
+      'data_instalarii2' => $data_instalarii2,
+      'ore' => $ore,
+      'chek' => $chek,
+      'materiale' => $materiale,
+      'comentarii2' => $comentarii2,
+      'beneficiar2' => $beneficiar2,
+      'inginer1' => $inginer1,
+      'inginer2' => $inginer2,
+      'inginer3' => $inginer3,
 			));
 }
 
