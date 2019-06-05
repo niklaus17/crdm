@@ -28,7 +28,7 @@ include('navbar.php');
     <?php } ?>
 
   <body>
-    <?php if (isset($_SESSION['user'])) { ?>
+      <?php if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) { ?>
 
       <!-- /.modal-For insert date -->
       <div id="add_data_Modal" class="modal fade">
@@ -1861,7 +1861,7 @@ include('navbar.php');
 } // end of if user login
 else {
  ?>
-        <h3 class="jumbotron text-center"><a href="login.php"> Va rugam sa va logati ...</a></h3>
+        <h3 class="jumbotron text-center"><a href="login.php"> Vă rugăm să vă logați cu drepturi de administrator ...</a></h3>
         <?php  }  ?>
 
           <!-- Modal Upload File -->
