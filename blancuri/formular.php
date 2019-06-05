@@ -827,7 +827,7 @@ include('navbar.php');
                               <div class="modal-content">
                                 <div class="modal-header">
                                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                  <h4 class="modal-title">Fișiere încarcate 2</h4>
+                                  <h4 class="modal-title">Fișiere încarcate</h4>
                                 </div>
                                 <div class="modal-body">
                                   <?php
@@ -838,7 +838,7 @@ include('navbar.php');
                                     while($rowIn = mysqli_fetch_array ($result_set_files) )
                                     {
                                       echo "<li><a href=\"uploads/" . $rowIn['file'] . "\" target=\"blank\" > " . $rowIn['file'] . "</a> din " .  explode(' ', $rowIn['data_upload'])[0] .
-                                      "<span class='glyphicon glyphicon-trash pull-right text-primary confirm-delete-file' data-id=" . $rowIn['id'] . " style='cursor:pointer'></span>"."</li>";
+                                      "<span class='glyphicon glyphicon-trash pull-right text-primary confirm-delete-file2' data-id=" . $rowIn['id'] . " style='cursor:pointer'></span>"."</li>";
                                     }
                                     echo '</ul>'
                                   ?>
@@ -856,7 +856,7 @@ include('navbar.php');
                   <button type="button" class="btn btn-danger btn-xs">Print raport</button>
                 </a>
                 <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#upload_data_Modal_2">
-                  <button type="button" class="btn btn-primary btn-xs btn-add-file">Add file 2</button>
+                  <button type="button" class="btn btn-primary btn-xs btn-add-file">Add file</button>
                 </a>
                 <button type="button" class="btn btn-info btn-xs btn-add-file" data-toggle="modal" data-target="#myModal2<?= $row['id']?>">View files <span class="badge"> <?= $total ?></span></button>
 
@@ -945,7 +945,7 @@ include('navbar.php');
                                     while($rowIn = mysqli_fetch_array ($result_set_files) )
                                     {
                                       echo "<li><a href=\"uploads/" . $rowIn['file'] . "\" target=\"blank\" > " . $rowIn['file'] . "</a> din " .  explode(' ', $rowIn['data_upload'])[0] .
-                                      "<span class='glyphicon glyphicon-trash pull-right text-primary confirm-delete-file' data-id=" . $rowIn['id'] . " style='cursor:pointer'></span>"."</li>";
+                                      "<span class='glyphicon glyphicon-trash pull-right text-primary confirm-delete-file3' data-id=" . $rowIn['id'] . " style='cursor:pointer'></span>"."</li>";
                                     }
                                     echo '</ul>'
                                   ?>
@@ -1051,7 +1051,7 @@ include('navbar.php');
                                     while($rowIn = mysqli_fetch_array ($result_set_files) )
                                     {
                                       echo "<li><a href=\"uploads/" . $rowIn['file'] . "\" target=\"blank\" > " . $rowIn['file'] . "</a> din " .  explode(' ', $rowIn['data_upload'])[0] .
-                                      "<span class='glyphicon glyphicon-trash pull-right text-primary confirm-delete-file' data-id=" . $rowIn['id'] . " style='cursor:pointer'></span>"."</li>";
+                                      "<span class='glyphicon glyphicon-trash pull-right text-primary confirm-delete-file4' data-id=" . $rowIn['id'] . " style='cursor:pointer'></span>"."</li>";
                                     }
                                     echo '</ul>'
                                   ?>
@@ -1890,6 +1890,36 @@ else {
               if(confirm("Stergeti fisierul?")) {
                 id = $(this).data('id');
                   window.location.href= 'delete_file.php?id=' + id;
+              } } );
+        </script>
+
+        <!-- Delete file 2 -->
+        <script type="text/javascript">
+            $('.confirm-delete-file2').on('click',
+            function() {
+              if(confirm("Stergeti fisierul?")) {
+                id = $(this).data('id');
+                  window.location.href= 'delete_file_2.php?id=' + id;
+              } } );
+        </script>
+
+        <!-- Delete file 3 -->
+        <script type="text/javascript">
+            $('.confirm-delete-file3').on('click',
+            function() {
+              if(confirm("Stergeti fisierul?")) {
+                id = $(this).data('id');
+                  window.location.href= 'delete_file_3.php?id=' + id;
+              } } );
+        </script>
+
+        <!-- Delete file 4 -->
+        <script type="text/javascript">
+            $('.confirm-delete-file4').on('click',
+            function() {
+              if(confirm("Stergeti fisierul?")) {
+                id = $(this).data('id');
+                  window.location.href= 'delete_file_4.php?id=' + id;
               } } );
         </script>
 
