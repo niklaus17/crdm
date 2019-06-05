@@ -51,14 +51,14 @@ include('navbar.php');
                     </td>
                     <th rowspan="2" style="vertical-align: middle;">Executor:</th>
                     <td rowspan="2" style="vertical-align: middle;">
-                      <input type="text" name="executor" class="form-control">
+                      <input type="text" name="executor" class="form-control" required>
                     </td>
                   </tr>
                   <tr>
                     <th style="vertical-align: middle;">Sectia:</th>
                     <td>
                       <input type="hidden" name="id" id="id" value="">
-                      <select name="section_id" id="section_id" class="form-control">
+                      <select name="section_id" id="section_id" class="form-control" required>
                         <option value="">SELECT</option>
                         <?php
                           $sql="SELECT * FROM sectie";
@@ -82,7 +82,7 @@ include('navbar.php');
                     </td>
                     <td>Anul producerii:</td>
                     <td>
-                      <input type="text" name="anul_producerii_dispozitiv" autocomplete="off" class="form-control datepicker-here"  placeholder="yyyy-mm-dd">
+                      <input type="text" name="anul_producerii_dispozitiv" autocomplete="off" class="form-control datepicker-here" value="" placeholder="yyyy-mm-dd">
                     </td>
                   </tr>
                   <tr>
@@ -247,14 +247,14 @@ include('navbar.php');
                     </td>
                     <th rowspan="2" style="vertical-align: middle;">Executor:</th>
                     <td rowspan="2" style="vertical-align: middle;">
-                      <input type="text" name="executor2" class="form-control">
+                      <input type="text" name="executor2" class="form-control" required>
                     </td>
                   </tr>
                   <tr>
                     <th style="vertical-align: middle;">Sectia:</th>
                     <td>
                       <input type="hidden" name="id" id="id" value="">
-                      <select name="section_id" id="section_id" class="form-control">
+                      <select name="section_id" id="section_id" class="form-control" required>
                         <option value="">SELECT</option>
                         <?php
                           $sql="SELECT * FROM sectie";
@@ -390,14 +390,14 @@ include('navbar.php');
                     </td>
                     <th rowspan="2" style="vertical-align: middle;">Executor:</th>
                     <td rowspan="2" style="vertical-align: middle;">
-                      <input type="text" name="executor3" class="form-control">
+                      <input type="text" name="executor3" class="form-control" required>
                     </td>
                   </tr>
                   <tr>
                     <th style="vertical-align: middle;">Sectia:</th>
                     <td>
                       <input type="hidden" name="id" id="id" value="">
-                      <select name="section_id" id="section_id" class="form-control">
+                      <select name="section_id" id="section_id" class="form-control" required>
                         <option value="">SELECT</option>
                         <?php
                           $sql="SELECT * FROM sectie";
@@ -526,9 +526,9 @@ include('navbar.php');
               <div class="modal-body">
 
                 <label>Formular de:</label> &nbsp;&nbsp;
-                <input name="chek1_4" type="radio" value="defectare"> Defectare &nbsp;&nbsp;
-                <input name="chek1_4" type="radio" value="conservare"> Conservare &nbsp;&nbsp;
-                <input name="chek1_4" type="radio" value="casare"> Casare<br>
+                <input name="chek1_4" type="radio" value="defectare" required> Defectare &nbsp;&nbsp;
+                <input name="chek1_4" type="radio" value="conservare" required> Conservare &nbsp;&nbsp;
+                <input name="chek1_4" type="radio" value="casare" required> Casare<br>
 
                 <label>Se completează de către secția medicală:</label>
                 <table class="table table-bordered">
@@ -575,7 +575,7 @@ include('navbar.php');
                   <tr>
                     <td>7</td>
                     <td>Nume dispozitiv:</td>
-                    <td><input type="text" name="nume_dispozitiv4" class="form-control"></td>
+                    <td><input type="text" name="nume_dispozitiv4" class="form-control" required></td>
                   </tr>
                   <tr>
                     <td>8</td>
@@ -1245,14 +1245,14 @@ include('navbar.php');
                     </td>
                     <th rowspan="2" style="vertical-align: middle;">Executor:</th>
                     <td rowspan="2" style="vertical-align: middle;">
-                      <input type="text" name="executor" id="executor" class="form-control">
+                      <input type="text" name="executor" id="executor" class="form-control" required>
                     </td>
                   </tr>
                   <tr>
                     <th style="vertical-align: middle;">Sectia:</th>
                     <td>
                       <input type="hidden" name="id" id="edit-section-id" value="">
-                      <select name="section_id" id="section_id" class="form-control">
+                      <select name="section_id" id="section_id" class="form-control" required>
                         <option value="">SELECT</option>
                         <?php
                           $sql="SELECT * FROM sectie";
@@ -1439,13 +1439,13 @@ include('navbar.php');
                    </td>
                    <th rowspan="2" style="vertical-align: middle;">Executor:</th>
                    <td rowspan="2" style="vertical-align: middle;">
-                     <input type="text" name="executor2" id="executor2" class="form-control">
+                     <input type="text" name="executor2" id="executor2" class="form-control" required>
                    </td>
                  </tr>
                  <tr>
                    <th style="vertical-align: middle;">Sectia:</th>
                    <td>
-                     <select name="section_id" id="section_id" class="form-control">
+                     <select name="section_id" id="section_id" class="form-control" required>
                        <option value="">SELECT</option>
                        <?php
                          $sql="SELECT * FROM sectie";
@@ -1579,13 +1579,13 @@ include('navbar.php');
                      </td>
                      <th rowspan="2" style="vertical-align: middle;">Executor:</th>
                      <td rowspan="2" style="vertical-align: middle;">
-                       <input type="text" name="executor3" id="executor3" class="form-control">
+                       <input type="text" name="executor3" id="executor3" class="form-control" required>
                      </td>
                    </tr>
                    <tr>
                      <th style="vertical-align: middle;">Sectia:</th>
                      <td>
-                       <select name="section_id" id="section_id" class="form-control">
+                       <select name="section_id" id="section_id" class="form-control" required>
                          <option value="">SELECT</option>
                          <?php
                            $sql="SELECT * FROM sectie";

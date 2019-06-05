@@ -245,7 +245,7 @@ include('navbar.php');
   			<input type="text" name="model" id="model" class="form-control" required><br>
   			<label>Alege-ți secția</label>
   			<input type="hidden" name="id" id="edit-id">
-  			<select name="section_id" id="section_id" class="form-control">
+  			<select name="section_id" id="section_id" class="form-control" required>
         <option value="">SELECT</option>
         <?php
             $sql="SELECT * FROM sectie";

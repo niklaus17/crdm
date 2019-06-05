@@ -80,14 +80,14 @@ include('db_connect.php');
     <strong><label>Date beneficiar:</label></strong>
     <table width="100%">
       <tr>
-        <th>Cabinetul:</th>
+        <th width="25%">Cabinetul:</th>
         <td><?= $row['cabinet'] ?></td>
-        <th rowspan="2" style="vertical-align: middle;">Executor:</th>
+        <th rowspan="2" style="vertical-align: middle;" width="6%">Executor:</th>
         <td rowspan="2"><?= $row['executor'] ?></td>
       </tr>
       <tr>
         <th>Secția:</th>
-        <td>
+        <td width="41%">
           <?php
           $section_id = $row['section_id'];
           $section_query = "SELECT  section from sectie where id = " . $section_id;
