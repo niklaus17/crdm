@@ -10,67 +10,64 @@ include('db_connect.php');
     <link rel="shortcut icon" href="img/logo.png" />
 
 
-  <style media="print">
-    tr, td {
-      border: 1px solid black;
-      padding-left: 2px;
-    }
-    table {
-       border-collapse: collapse;
-        margin-top: 10px;
-     }
-  </style>
-  <style media="screen">
+    <style>
 
-    .page {
-      width: 21cm;
-      min-height: 29.7cm;
-      padding: 2cm;
-      margin: 1cm auto;
-      border: 1px #D3D3D3 solid;
-      border-radius: 5px;
-      background: white;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      .page {
+        width: 21cm;
+        min-height: 29cm;
+        padding: 2cm;
+        margin: 1cm auto;
+        border-radius: 5px;
+        background: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+      @page  {
+        size: A4;
+        margin: 0;
+        overflow: hidden;
       }
 
-    @page  {
-      size: A4;
-      margin: 0;
-    }
+      table {
+         border-collapse: collapse;
+          margin-top: 10px;
+       }
 
-    table {
-       border-collapse: collapse;
-        margin-top: 10px;
-     }
+       tr, td {
+         border: 1px solid black;
+         padding-left: 5px;
+       }
 
-     tr, td {
-       border: 1px solid black;
-       padding-left: 5px;
-     }
-
-     tr { border: solid thin; }
-
-  </style>
+    </style>
 </head>
 <body>
 
   <div  class="page">
+    <?php
+      $sql="SELECT * FROM formular_4 where id =" . $_GET['id'];
+        $result_set=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
+        while($row = mysqli_fetch_array ($result_set) )
+        {
+    ?>
+    <div align="right">
 
-<div class="head">
-
-      <h3 align="right">
-          Aprobat___________________________<br>
-          Nume / Prenume___________________________<br>
-          Data___________________________
-      </h3>
+  <table>
+    <tr style="border:none;">
+      <td style="border:none;"><strong>Nume / Prenume</strong></td>
+      <td style="border:none;"> TESTEMIȚANU Andrei</td>
+    </tr>
+    <tr style="border:none;">
+      <td style="border:none; text-align:right;"><strong>Data </strong></td>
+      <td style="border:none;"> ____________________</td>
+    </tr>
+    <tr style="border:none;">
+      <td style="border:none; text-align:right;"><strong>Aprobat </strong></td>
+      <td style="border:none;"> ____________________</td>
+    </tr>
+  </table>
 </div><br><br>
 
-<?php
-  $sql="SELECT * FROM formular_4 where id =" . $_GET['id'];
-    $result_set=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
-    while($row = mysqli_fetch_array ($result_set) )
-    {
-?>
+
     <div style="text-align: center">
       <h3 style="text-transform: padding: 0px; margin: 0px;">Formular de  <?= $row['chek1_4'] ?> a dispozitivului medical</h3>
     </div><br><br>
@@ -188,6 +185,12 @@ include('db_connect.php');
       <table width="100%" >
         <tr style="border:none;">
           <td style="border:none;" width="60%"><strong> Șef secție: </strong> <?= $row['beneficiar4'] ?></td>
+          <td style="border:none;">Semnătura ____________________</td>
+        </tr>
+      </table><br>
+      <table width="100%" >
+        <tr style="border:none;">
+          <td style="border:none;" width="60%"><strong> Șef TI si TM: </strong> <?= $row['it'] ?></td>
           <td style="border:none;">Semnătura ____________________</td>
         </tr>
       </table><br>

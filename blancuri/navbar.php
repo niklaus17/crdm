@@ -3,7 +3,7 @@ include('db_connect.php');
 ?>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" style="z-index: 999;">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -20,6 +20,7 @@ include('db_connect.php');
         <li><a href="blancuri.php">Blancuri</a></li>
         <li><a href="ip.php">IP</a></li>
         <li><a href="formular.php">Formular</a></li>
+        <li><a href="violin.php">Violin</a></li>
       <?php } else { ?>
   <?php } ?>
       </ul>
@@ -28,14 +29,14 @@ include('db_connect.php');
                 <ul class="nav navbar-nav navbar-right">
 
                   <?php if (isset($_SESSION['user'])) { ?>
-                    <li class="dropdown"><a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown"><strong>Bun venit!</strong>
+                    <li class="dropdown"><a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown"  style="border: none;"><strong>Bun venit!</strong>
                       <strong style="color: white;"><?php echo $_SESSION['user']['username']?> </strong><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                           <?php if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) { ?>
                             <li><a href="home.php"><i class="icon-cog"></i> Setări</a></li>
                             <?php		}		?>
                             <li class="divider"></li>
-                            <li><a href="#" class="confirm-logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+                            <li><a href="logout.php" class="confirm-logout"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
                           <?php } else { ?>
                             <li><p class="navbar-text">Sunteți delogat!</p></li>
                             <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>

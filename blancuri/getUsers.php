@@ -15,14 +15,14 @@ while($row = mysqli_fetch_array($result)){
     $username = $row['username'];
     $email = $row['email'];
     $user_type = $row['user_type'];
-    $password = $row['password'];
+    // $password = $row['password'];
 
     array_push($return_arr, array(
       "id" => $id,
       "username" => $username,
       "email" => $email,
 			'user_type' => $user_type,
-      'password' => $password
+      // 'password' => $password
 			));
 }
 

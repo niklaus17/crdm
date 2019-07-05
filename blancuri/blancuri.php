@@ -10,7 +10,6 @@ include('navbar.php');
 <?php if (isset($_SESSION['user'])) { ?>
 
 <!-- /.modal-For insert date -->
-
 <div id="add_data_Modal" class="modal fade">
  <div class="modal-dialog">
   <div class="modal-content">
@@ -170,7 +169,7 @@ include('navbar.php');
           $type_name = mysqli_fetch_assoc($result)['format'];
           echo $type_name;
         ?> )</td>
-				<td><?= $row['name'] ?></td>
+				<td><?= $row['user'] ?></td>
 				<td>
 							<?php if (isset($_SESSION['user'])) { ?>
 

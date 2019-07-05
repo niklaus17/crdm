@@ -56,18 +56,25 @@ include('db_connect.php');
 
   <div  class="page">
 
-<div class="head">
-
-      <h3 align="right">
-          Aprobat___________________________<br>
-          Nume / Prenume___________________________<br>
-          Data___________________________
-      </h3>
-</div><br><br>
-
+	 <div align="right">
+      <table>
+        <tr style="border:none;">
+          <td style="border:none;"><strong>Nume / Prenume</strong></td>
+          <td style="border:none;"> VERBENIUC Vitalie</td>
+        </tr>
+        <tr style="border:none;">
+          <td style="border:none; text-align:right;"><strong>Data </strong></td>
+          <td style="border:none;"> __________________</td>
+        </tr>
+        <tr style="border:none;">
+          <td style="border:none; text-align:right;"><strong>Aprobat </strong></td>
+          <td style="border:none;"> __________________</td>
+        </tr>
+      </table>
+    </div><br><br>
 
     <div style="text-align: center">
-      <h3 style="text-transform: padding: 0px; margin: 0px;">Fișa de mentenanță a dispozitivului medical</h3>
+      <h3 style="text-transform: padding: 0px; margin: 0px; background-color: #d9d9d9;">Fișa de mentenanță a dispozitivului medical</h3>
     </div><br><br>
 
     <?php
@@ -80,13 +87,13 @@ include('db_connect.php');
     <strong><label>Date beneficiar:</label></strong>
     <table width="100%">
       <tr>
-        <th width="25%">Cabinetul:</th>
+        <th width="25%" bgcolor="#d9d9d9">Cabinetul:</th>
         <td><?= $row['cabinet3'] ?></td>
-        <th rowspan="2" style="vertical-align: middle;" width="6%">Executor:</th>
-        <td rowspan="2"><?= $row['executor3'] ?></td>
+        <th style="vertical-align: middle;" width="6%" bgcolor="#d9d9d9">Executor:</th>
+        <td><?= $row['executor3'] ?></td>
       </tr>
       <tr>
-        <th>Secția:</th>
+        <th bgcolor="#d9d9d9">Secția:</th>
         <td width="41%">
           <?php
           $section_id = $row['section_id'];
@@ -96,27 +103,29 @@ include('db_connect.php');
           echo $section_name;
           ?>
          </td>
+         <th bgcolor="#d9d9d9">Data efectuării:</th>
+         <td><?= explode(' ', $row['data3'])[0] ?></td>
       </tr>
     </table><br><br>
 
     <strong><label>Date dispozitiv medical:</label></strong>
       <table width="100%">
         <tr>
-          <td width="25%">Denumire dispozitiv:</td>
+          <td width="25%" bgcolor="#d9d9d9">Denumire dispozitiv:</td>
           <td width="30%"><?= $row['nume_dispozitiv3'] ?></td>
-          <td width="20%">Anul producerii: </td>
+          <td width="20%" bgcolor="#d9d9d9">Anul producerii: </td>
           <td width="25%"><?= $row['anul_producerii_dispozitiv3'] ?></td>
         </tr>
         <tr>
-          <td>Model:</td>
+          <td bgcolor="#d9d9d9">Model:</td>
           <td><?= $row['model_dispozitiv3'] ?></td>
-          <td>Nr. serie:</td>
+          <td bgcolor="#d9d9d9">Nr. serie:</td>
           <td colspan="4"><?= $row['nr_serie_dispozitiv3'] ?></td>
         </tr>
         <tr>
-          <td>Producător:</td>
+          <td bgcolor="#d9d9d9">Producător:</td>
           <td><?= $row['producator_dispozitiv3'] ?></td>
-          <td>Număr inventar:</td>
+          <td bgcolor="#d9d9d9">Număr inventar:</td>
           <td colspan="4"><?= $row['numar_inventar3'] ?></td>
         </tr>
       </table><br><br>
@@ -124,9 +133,9 @@ include('db_connect.php');
       <strong><label>Durata de exploatare a dispozitivului medical:</label></strong>
       <table width="100%">
         <tr>
-          <td>Data de procurare:</td>
+          <td bgcolor="#d9d9d9">Data de procurare:</td>
           <td><?= $row['data_proc'] ?></td>
-          <td>Data de instalare:</td>
+          <td bgcolor="#d9d9d9">Data de instalare:</td>
           <td><?= $row['data_inst'] ?></td>
         </tr>
       </table>
@@ -134,19 +143,19 @@ include('db_connect.php');
 
       <table width="100%">
         <tr>
-          <th>Mentenață</th>
-          <th>Supus</th>
-          <th colspan="3">Rsponsabil, informații de contact:</th>
+          <td bgcolor="#d9d9d9">Mentenață</td>
+          <td bgcolor="#d9d9d9">Supus</td>
+          <td colspan="3" bgcolor="#d9d9d9">Rsponsabil, informații de contact:</td>
         </tr>
         <tr>
-          <td>Mentenață preventivă:</td>
+          <td bgcolor="#d9d9d9">Mentenață preventivă:</td>
           <td><?= $row['chek1_3'] ?></td>
           <td colspan="2"><?= $row['respons'] ?></td>
         </tr>
         <tr>
-          <td>Verificarea periodică:</td>
+          <td bgcolor="#d9d9d9">Verificarea periodică:</td>
           <td><?= $row['chek2_3'] ?></td>
-          <td>Periodicitatea:</td>
+          <td bgcolor="#d9d9d9">Periodicitatea:</td>
           <td><?= $row['luni3'] ?> luni</td>
         </tr>
       </table><br>
@@ -170,6 +179,7 @@ include('db_connect.php');
           <td style="border:none;">Semnătura ____________________</td>
         </tr>
       </table><br>
+      <?php if(strlen($row['inginer2_3']) > 0) { ?>
       <table width="100%" >
         <tr style="border:none;">
           <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer2_3'] ?></td>
@@ -177,11 +187,13 @@ include('db_connect.php');
         </tr>
       </table><br>
       <table width="100%" >
+      <?php } if(strlen($row['inginer3_3']) > 0) { ?>
         <tr style="border:none;">
           <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer3_3'] ?></td>
           <td style="border:none;">Semnătura ____________________</td>
         </tr>
       </table>
+    <?php } ?>
 
       <?php		}		?>
   </div>

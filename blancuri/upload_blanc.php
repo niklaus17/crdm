@@ -10,9 +10,9 @@ if(isset($_POST['btn-upload']))
   $section_id = $_POST["section_id"];
   $number = $_POST["number"];
   $tip_id = $_POST["tip_id"];
-  $name = $_SESSION['user']['username'];
+  $user = $_SESSION['user']['username'];
 
- 	$sql="INSERT INTO blancuri(day, model, section_id, number, tip_id, name) VALUES( '$day', '$model', '$section_id', '$number', '$tip_id', '$name')";
+ 	$sql="INSERT INTO blancuri(day, model, section_id, number, tip_id, user) VALUES( '$day', '$model', '$section_id', '$number', '$tip_id', '$user')";
 
  	mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
  }

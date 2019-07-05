@@ -5,6 +5,9 @@ include_once("db_connect.php");
 ?>
 
 <title>CRDM</title>
+<link rel="stylesheet" href="compiled/flipclock.css">
+
+		<script src="compiled/flipclock.js"></script>
 
 <style>
             html, body {
@@ -25,6 +28,12 @@ include_once("db_connect.php");
                 align-items: center;
                 display: flex;
                 justify-content: center;
+            }
+
+            .clock {
+              justify-content: center;
+              align-items: center;
+              display: flex;
             }
 
             .position-ref {
@@ -58,15 +67,39 @@ include_once("db_connect.php");
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+						video {
+							position: fixed;
+							top: -10%;
+							left: 0;
+							min-width: 100%;
+							min-height: 100%;
+						}
         </style>
 <body>
+		<video src="video/video.mp4" autoplay muted loop>
 
+		</video>
   <div class="flex-center position-ref full-height">
 
     <div class="content">
-      <div class="title m-b-md crdm">Centrul Republican de Diagnosticare Medicală</div>
+      <div class="title m-b-md crdm" style="color: white;">Centrul Republican de Diagnosticare Medicală</div>
+      <div class="clock"></div>
     </div>
+
+
+
+
   </div>
+  <script type="text/javascript">
+  			var clock;
+
+  			$(document).ready(function() {
+  				clock = $('.clock').FlipClock({
+  					clockFace: 'TwentyFourHourClock'
+  				});
+  			});
+  		</script>
 
   <script type="text/javascript">
     window.addEventListener('load', changeHeader);
@@ -79,5 +112,7 @@ include_once("db_connect.php");
             }
           }
   </script>
+
+
 
 </body>

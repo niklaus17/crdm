@@ -212,6 +212,7 @@ include('navbar.php');
                     <td>
                       <input type="text" name="furnizor" class="form-control" placeholder="nume, prenume">
                       <input type="text" name="furnizor1" class="form-control" placeholder="nume, prenume">
+                      <input type="text" name="furnizor2" class="form-control" placeholder="nume, prenume">
                     </td>
                   </tr>
                 </table>
@@ -706,7 +707,7 @@ include('navbar.php');
                           <div class="thumbnail">
                             <div class="caption">
                               <div class='col-lg-12'>
-                                <span>Adaugat de : <?= $row['name'] ?></span>
+                                <span>Adăugat de : <?= $row['name'] ?></span>
                                 <a href="#" class="confirm-delete" data-toggle="modal" data-target="#delete_Modal<?= $row['id']?>" data-id="<?php  echo $row[" id "] ?>"><span class="glyphicon glyphicon-trash pull-right text-danger"></span></a>
                                 <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal_1"><span class="glyphicon glyphicon-edit pull-right text-primary"></span></a>
                               </div>
@@ -1406,6 +1407,7 @@ include('navbar.php');
                     <td>
                       <input type="text" name="furnizor" id="furnizor" class="form-control" placeholder="nume, prenume">
                       <input type="text" name="furnizor1" id="furnizor1" class="form-control" placeholder="nume, prenume">
+                      <input type="text" name="furnizor2" id="furnizor2" class="form-control" placeholder="nume, prenume">
                     </td>
                   </tr>
                 </table>
@@ -1983,6 +1985,7 @@ else {
               $("#beneficiar").val(data[0].beneficiar);
               $("#furnizor").val(data[0].furnizor);
               $("#furnizor1").val(data[0].furnizor1);
+              $("#furnizor2").val(data[0].furnizor2);
             });
           });
         </script>

@@ -61,11 +61,18 @@ include_once("db_connect.php");
 				 				<td><?= $row['email'] ?></td>
 				 				<td><?= $row['user_type'] ?></td>
 				 				<td>
+									<a href="#" class="modal-edit-pass text-info" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal_pass">Edit Password</a>&nbsp
+
 									<a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal">
 										<i class="glyphicon glyphicon-edit text-primary"></i>
-									</a >
-									<a href="#" class="confirm-delete" data-id="<?php  echo $row["id"] ?>"><i class="glyphicon glyphicon-trash text-danger"></i></a>
+									</a>&nbsp
+
+									<a href="#" class="confirm-delete" data-id="<?php  echo $row["id"] ?>">
+										<i class="glyphicon glyphicon-trash text-danger"></i>
+									</a>
+
 						   </td>
+
 							 <!-- /.modal-For Delete date -->
 								 <div id="delete_Modal<?= $row["id"]?>" class="modal fade">
 									 <div class="modal-dialog">
@@ -112,18 +119,9 @@ include_once("db_connect.php");
   			<label>User type</label>
   			<input type="hidden" name="id" id="edit-id">
   			<select name="user_type" id="user_type" class="form-control">
+					<option value="admin">Admin</option>
 				<option value="user">User</option>
-				<option value="admin">Admin</option>
   			</select>
-        <br>
-				
-				<label>Password</label>
-				<div class="input-group" id="show_hide_password">
-					<input class="form-control" type="password" name="password" id="password">
-					<div class="input-group-addon">
-						<a href=""><i class="glyphicon glyphicon-eye-open" aria-hidden="true"></i></a>
-					</div>
-				</div><br>
 
   		<div class="modal-footer">
       <button type="submit" name="btn-update" id="update" class="btn btn-primary">Editati</button>
@@ -133,6 +131,35 @@ include_once("db_connect.php");
   	 </div>
   	</div>
   </div>
+</div>
+
+	<!-- /.modal-For Update password -->
+	  <div id="edit_data_Modal_pass" class="modal fade">
+	   <div class="modal-dialog">
+	    <div class="modal-content">
+	     <div class="modal-header">
+	      <button type="button" class="close" data-dismiss="modal">&times;</button>
+	      <h4 class="modal-title">Editati informația necesară</h4>
+	     </div>
+	  		<div class="modal-body">
+	  			<form action="update_pass.php" method="post" enctype="multipart/form-data" id="edit_form_pass">
+
+					<label>Noua parola</label>
+					<input type="hidden" name="id" id="edit-pass-id">
+						<input class="form-control" type="password" name="password" id="password"><br>
+					<label>Confirma parola</label>
+						<input class="form-control" type="password" id="confirm_password" required>
+					</div><br>
+
+	  		<div class="modal-footer">
+	      <button type="submit" name="btn-update_pass" id="update_pass" class="btn btn-primary">Editati</button>
+	  		 <button type="button" class="btn btn-danger" data-dismiss="modal">Anulează</button>
+	       </form>
+	  		</div>
+	  	 </div>
+	  	</div>
+	  </div>
+	</div>
 
 <?php
 }
@@ -154,9 +181,21 @@ else {
 	       $("#username").val(data[0].username);
 	       $("#email").val(data[0].email);
 	       $("#user_type").val(data[0].user_type);
-	       $("#password").val(data[0].password);
+	       // $("#password").val(data[0].password);
 	     });
 	   });
+	 </script>
+
+	 <!-- Modal Edit password-->
+	 <script type="text/javascript">
+		 $(".modal-edit-pass").click(function() {
+			 id = $(this).data('id');
+			 $.get("getPass.php", {id: id}).done( function(data) {
+				 data = JSON.parse(data);
+				 $("#edit-pass-id").val(data[0].id);
+				 // $("#password").val(data[0].password);
+			 });
+		 });
 	 </script>
 
 	<!-- Confirm pentru delete modal -->
@@ -168,21 +207,20 @@ else {
 			});
 	</script>
 
-<script>
-$(document).ready(function() {
-    $("#show_hide_password a").on('click', function(event) {
-        event.preventDefault();
-        if($('#show_hide_password input').attr("type") == "text"){
-            $('#show_hide_password input').attr('type', 'password');
-            $('#show_hide_password i').addClass( "glyphicon-eye-close" );
-            $('#show_hide_password i').removeClass( "glyphicon-eye" );
-        }else if($('#show_hide_password input').attr("type") == "password"){
-            $('#show_hide_password input').attr('type', 'text');
-            $('#show_hide_password i').removeClass( "glyphicon-eye-close" );
-            $('#show_hide_password i').addClass( "glyphicon-eye" );
-        }
-    });
-});
+<script type="text/javascript">
+		var password = document.getElementById("password")
+		, confirm_password = document.getElementById("confirm_password");
+
+		function validatePassword(){
+		if(password.value != confirm_password.value) {
+			confirm_password.setCustomValidity("Cele două parole nu se potrivesc");
+		} else {
+			confirm_password.setCustomValidity('');
+		}
+		}
+
+		password.onchange = validatePassword;
+		confirm_password.onkeyup = validatePassword;
 </script>
 
 </body>

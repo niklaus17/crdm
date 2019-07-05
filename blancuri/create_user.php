@@ -13,7 +13,6 @@ include_once("db_connect.php");
 	</style>
 </head>
 <body>
-
 <?php if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) { ?>
 
 	<div class="col-md-4 col-md-offset-4">
@@ -62,13 +61,14 @@ include_once("db_connect.php");
 	</form>
 
 	<?php
- }
-else {
+	}
+	else {
 	 ?>
 			 <h3 class="jumbotron text-center"><a href="login.php">Trebuie să vă conectați mai întâi ca administrator ...</a></h3>
 	 <?php  }
 	 {
 		 ?>
-	   <?php		}		?>
+		 <?php		}		?>
+
 </body>
 </html>

@@ -40,6 +40,7 @@ while($row = mysqli_fetch_array($result)){
   $beneficiar = $row['beneficiar'];
   $furnizor = $row['furnizor'];
   $furnizor1 = $row['furnizor1'];
+  $furnizor2 = $row['furnizor2'];
 
     array_push($return_arr, array(
       'id' => $id,
@@ -71,6 +72,7 @@ while($row = mysqli_fetch_array($result)){
       'beneficiar' => $beneficiar,
       'furnizor' => $furnizor,
       'furnizor1' => $furnizor1,
+      'furnizor2' => $furnizor2,
 			));
 }
 

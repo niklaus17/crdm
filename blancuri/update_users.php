@@ -8,9 +8,9 @@ if(isset($_POST['btn-update']))
  	$username = $_POST['username'];
 	$email = $_POST["email"];
   $user_type = $_POST["user_type"];
-  $password = $_POST["password"];
+  // $password = $_POST["password"];
 
-  $query = "UPDATE user SET username='$username', email='$email', user_type='$user_type', password=MD5('$password') where id='$id' ";
+  $query = "UPDATE user SET username='$username', email='$email', user_type='$user_type' where id='$id' ";
 
   mysqli_query($conn, $query) or die("database error: ". mysqli_error($conn));
  }

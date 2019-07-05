@@ -29,10 +29,11 @@ if(isset($_POST['btn-update_1']))
   $data_instalarii = $_POST["data_instalarii"];
   $garantie = $_POST["garantie"];
   $net = $_POST["net"];
-  $comentarii = $_POST["comentarii"];
+  $comentarii = str_replace("'", "''",$_POST["comentarii"]);
   $beneficiar = $_POST["beneficiar"];
   $furnizor = $_POST["furnizor"];
   $furnizor1 = $_POST["furnizor1"];
+  $furnizor2 = $_POST["furnizor2"];
   $name = $_SESSION['user']['username'];
 
   $query = "UPDATE formular SET cabinet='$cabinet', section_id='$section_id', executor='$executor', nume_dispozitiv='$nume_dispozitiv', anul_producerii_dispozitiv='$anul_producerii_dispozitiv',
@@ -40,7 +41,7 @@ if(isset($_POST['btn-update_1']))
   denumire_piesa='$denumire_piesa', model_piesa='$model_piesa', producator_piesa='$producator_piesa', anul_producerii_piesa='$anul_producerii_piesa', nr_serie_dispozitiv_piesa='$nr_serie_dispozitiv_piesa',
   part_number='$part_number', denumire_piesa_instal='$denumire_piesa_instal', model_piesa_instal='$model_piesa_instal', producator_piesa_instal='$producator_piesa_instal',
   anul_producerii_piesa_instal='$anul_producerii_piesa_instal', nr_serie_dispozitiv_instal='$nr_serie_dispozitiv_instal', altele='$altele', data_instalarii='$data_instalarii',
-  garantie='$garantie', net='$net', comentarii='$comentarii', beneficiar='$beneficiar', furnizor='$furnizor', furnizor1='$furnizor1', name='$name' where id='$id' ";
+  garantie='$garantie', net='$net', comentarii='$comentarii', beneficiar='$beneficiar', furnizor='$furnizor', furnizor1='$furnizor1', furnizor2='$furnizor2', name='$name' where id='$id' ";
 
   mysqli_query($conn, $query) or die("database error: ". mysqli_error($conn));
  }
