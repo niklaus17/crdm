@@ -16,6 +16,9 @@ include('navbar.php');
 </style>
 <title>CRDM - Violin Problems</title>
 
+<link href="css/summernote.css" rel="stylesheet">
+<script src="js/summernote.js"></script>
+
 <body>
 <?php if (isset($_SESSION['user'])) { ?>
 
@@ -32,7 +35,9 @@ include('navbar.php');
   			<form action="upload_violin.php" method="post" enctype="multipart/form-data" id="insert_form">
 
   			<label>Data:</label>
-  			<input type="text" name="data" autocomplete="off" class="form-control datepicker-here"  placeholder="yyyy-mm-dd"><br>
+  			<input type="text" name="data" autocomplete="off" class="form-control datepicker-here"  placeholder="yyyy-mm-dd" required><br>
+
+        <input type="hidden" name="id" id="id" value="">
 
   			<label>Casa:</label>
         <select name="casa" id="casa" class="form-control" required>
@@ -51,13 +56,13 @@ include('navbar.php');
         </select><br>
 
   			<label>Problema:</label>
-  			<textarea name="problema" rows="2" class="form-control" required></textarea><br>
+  			<textarea name="problema" rows="2" class="form-control summernote" required></textarea><br>
 
   			<label>Solutia:</label>
-  			<textarea name="solutia" rows="2" class="form-control" required></textarea><br>
+  			<textarea name="solutia" rows="2" class="form-control summernote" required></textarea><br>
   		</div>
   		<div class="modal-footer">
-        <button type="submit" name="btn-upload" class="btn btn-primary">Încărcați</button>
+        <button type="submit" name="btn-upload-problema" class="btn btn-primary">Încărcați</button>
   		 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
   		</div>
       </form>
@@ -301,7 +306,7 @@ include('navbar.php');
             </select><br>
 
       			<label>Problema:</label>
-      			<textarea name="problema" rows="2" id="problema" class="form-control" required></textarea><br>
+      			<textarea name="problema" rows="2" id="problema" class="form-control summernote" required></textarea><br>
 
       			<label>Solutia:</label>
       			<textarea name="solutia" rows="2" id="solutia" class="form-control" required></textarea><br>
@@ -325,6 +330,15 @@ include('navbar.php');
      {
        ?>
      <?php		}		?>
+
+     <!-- edit text  -->
+  <script>
+    $(document).ready(function() {
+        $('.summernote').summernote();
+    });
+  </script>
+
+
   <!-- Modal Edit -->
   <script type="text/javascript">
     $(".modal-edit").click(function() {
@@ -334,8 +348,10 @@ include('navbar.php');
         $("#edit-rec-id").val(id);
         $("#data").val(data[0].data);
         $(`#casa option[value="${data[0].casa}"]`).attr('selected','selected');
-        $("#problema").val(data[0].problema);
-        $("#solutia").val(data[0].solutia);
+        // $("#problema").val(data[0].problema);
+        $('#problema').summernote('code', data[0].problema);
+        $('#solutia').summernote('code', data[0].solutia);
+        // $("#solutia").val(data[0].solutia);
       });
     });
   </script>

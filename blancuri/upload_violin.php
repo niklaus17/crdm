@@ -1,7 +1,7 @@
 <?php
 
 include_once 'db_connect.php';
-if(isset($_POST['btn-upload']))
+if(isset($_POST['btn-upload-problema']))
 {
 
   $id = $_POST['id'];
