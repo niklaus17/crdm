@@ -24,9 +24,6 @@ include('navbar.php');
 			<label>Data:</label>
 			<input type="text" name="day" autocomplete="off" class="form-control datepicker-here" placeholder="yyyy-mm-dd" required><br>
 
-			<label>Modelul blancului:</label>
-			<input type="text" name="model" class="form-control" required><br>
-
 			<label>Alege-ți secția</label>
 			<input type="hidden" name="id" id="id" value="">
 			<select name="section_id" id="section_id" class="form-control" required>
@@ -39,6 +36,11 @@ include('navbar.php');
                   echo "<option value=\"" . $row['id'] . "\">" . $row['section'] ."</option>";
                 }
             ?>
+      </select><br>
+
+      <label>Modelul blancului:</label>
+      <input type="hidden" name="id" id="id" value="">
+      <select name="blanc_id" id="blanc_id" class="form-control" required>
       </select><br>
 
 			<label class="col-sm-2">Nr. de blancuri:</label>
@@ -152,7 +154,14 @@ include('navbar.php');
 <tbody id="myTable">
     <tr>
 				<td><?= $row['day'] ?></td>
-				<td><?= $row['model'] ?></td>
+				<td><?php
+        $blanc_id = $row['blanc_id'];
+        $blanc_query = "SELECT  blanc from model_blanc where id = " . $blanc_id;
+        $result = mysqli_query($conn, $blanc_query) or die(mysqli_error($conn));
+        $blanc_name = mysqli_fetch_assoc($result)['blanc'];
+        echo $blanc_name;
+        ?>
+      </td>
 				<td>
           <?php
           $section_id = $row['section_id'];
@@ -193,7 +202,7 @@ include('navbar.php');
 			<h4 class="modal-title">Confirmă ștergera</h4>
 		  </div>
 		  <div class="modal-body">
-			<p>Șterge <?php echo '<span class="text-danger" >' . $row["model"] . '</span> '; ?></p>
+			<p>Șterge <?php echo '<span class="text-danger" >' . $row["blanc_id"] . '</span> '; ?></p>
 		  </div>
 		  <div class="modal-footer">
 			 <a class="btn btn-danger" href="delete_blanc.php?id=<?php echo $row['id'] ?>">Confirmă</a>
@@ -239,32 +248,34 @@ include('navbar.php');
   		<div class="modal-body">
   			<form action="update_blanc.php" method="post" enctype="multipart/form-data" id="edit_form">
   			<label>Data:</label>
-  			<input type="text" name="day" id="day" autocomplete="off" class="form-control datepicker-here" placeholder="yyyy-mm-dd" required><br>
-  			<label>Modelul blancului:</label>
-  			<input type="text" name="model" id="model" class="form-control" required><br>
-  			<label>Alege-ți secția</label>
-  			<input type="hidden" name="id" id="edit-id">
-  			<select name="section_id" id="section_id" class="form-control" required>
-        <option value="">SELECT</option>
-        <?php
-            $sql="SELECT * FROM sectie";
-            $result_set=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
-            while($row = mysqli_fetch_array ($result_set) )
-            {
-              echo "<option value=\"" . $row['id'] . "\">" . $row['section'] ."</option>";
-            }
-        ?>
-  			</select>
-        <br>
+  			<input type="text" name="day" id="edit_day" autocomplete="off" class="form-control datepicker-here" placeholder="yyyy-mm-dd" required><br>
+
+        <label>Alege-ți secția</label>
+        <input type="hidden" name="id" id="edit_id" value="">
+        <select name="section_id" id="edit_section_id" class="form-control" required>
+              <option value="">SELECT</option>
+              <?php
+                  $sql="SELECT * FROM sectie";
+                  $result_set=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
+                  while($row = mysqli_fetch_array ($result_set) )
+                  {
+                    echo "<option value=\"" . $row['id'] . "\">" . $row['section'] ."</option>";
+                  }
+              ?>
+        </select><br>
+
+        <label>Modelul blancului:</label>
+        <select name="blanc_id" id="edit_blanc_id" class="form-control" required>
+        </select><br>
 
   			<label class="col-sm-2">Nr. de blancuri:</label>
         <div class="col-sm-4">
-  			<input type="text" name="number" id="number" class="form-control" required>
+  			<input type="text" name="number" id="edit_number" class="form-control" required>
         </div>
 
         <label class="col-sm-2">Tipul de hirtie</label>
         <div class="col-sm-4">
-            <select class="form-control" id="tip_id" name="tip_id" required>
+            <select class="form-control" id="edit_tip_id" name="tip_id" required>
               <option value="">SELECT</option>
               <?php
                   $sql="SELECT * FROM tipul";
@@ -301,171 +312,204 @@ else {
      ?>
    <?php		}		?>
 
-<!-- Confirm pentru delete modal -->
-<script>
-		$('.confirm-delete').on('click', function(e) {
-			e.preventDefault();
-			var id = $(this).data('id');
-			$('#delete_Modal' + id).modal('show');
-		});
-</script>
+  <!-- Confirm pentru delete modal -->
+  <script>
+  		$('.confirm-delete').on('click', function(e) {
+  			e.preventDefault();
+  			var id = $(this).data('id');
+  			$('#delete_Modal' + id).modal('show');
+  		});
+  </script>
 
-<!-- Date range -->
-<script>
-$(document).ready(function(){
-	$(function(){
-		$("#from_date").datepicker();
-		$("#to_date").datepicker();
-	});
+  <!-- Date range -->
+  <script>
+    $(document).ready(function(){
+    	$(function(){
+    		$("#from_date").datepicker();
+    		$("#to_date").datepicker();
+    	});
 
-  $('#pdf').click(function () {
-    url = '';
-      <?php if(isset($_POST['from_date'])) {?>
-          url = `generate_pdf.php?from_date=<?=$_POST['from_date']?>\&to_date=<?=$_POST['to_date']?>`;
-        <?php } else {?>
-          url = `generate_pdf.php`;
-        <?php } ?>
-        window.open(url, '_blank');
-  })
+      $('#pdf').click(function () {
+        url = '';
+          <?php if(isset($_POST['from_date'])) {?>
+              url = `generate_pdf.php?from_date=<?=$_POST['from_date']?>\&to_date=<?=$_POST['to_date']?>`;
+            <?php } else {?>
+              url = `generate_pdf.php`;
+            <?php } ?>
+            window.open(url, '_blank');
+      })
 
-  $('#range').click(function(){
-		var from_date = $('#from_date').val();
-		var to_date = $('#to_date').val();
-		if(from_date != '' && to_date != '')
-		{
-      document.cookie = "from_date = " + from_date;
-      document.cookie = "to_date = " + to_date;
-      location.reload();
-		}
-		else
-		{
-			alert("Selectați data!");
-		}
-	});
-});
-</script>
+      $('#range').click(function(){
+    		var from_date = $('#from_date').val();
+    		var to_date = $('#to_date').val();
+    		if(from_date != '' && to_date != '')
+    		{
+          document.cookie = "from_date = " + from_date;
+          document.cookie = "to_date = " + to_date;
+          location.reload();
+    		}
+    		else
+    		{
+    			alert("Selectați data!");
+    		}
+    	});
+    });
+  </script>
+
+  <!-- Modal Edit -->
+  <script type="text/javascript">
+    $(".modal-edit").click(function() {
+      id = $(this).data('id');
+      $.get("getBlancuri.php", {id: id}).done( function(data) {
+        data = JSON.parse(data);
+        $("#edit_id").val(data[0].id);
+        $("#edit_day").val(data[0].day);
+        $(`#edit_section_id option[value="${data[0].section_id}"]`).attr('selected', 'selected');
+
+        $.get("getBlankBySection.php", {id: data[0].section_id}).done( function(data) {
+          data = JSON.parse(data);
+
+          $('#edit_blanc_id').empty();
+          $('#edit_blanc_id').append(`<option value="">SELECT</OPTION>`)
+          for (let row of data) {
+            $('#edit_blanc_id').append(`<option value="${row['id']}">${row['blanc']}</OPTION>`)
+          }
+
+        }).done( function() {
+          $(`#edit_blanc_id option[value="${data[0].blanc_id}"]`).attr('selected', 'selected');
+
+          $("#edit_number").val(data[0].number);
+          $(`#edit_tip_id option[value="${data[0].tip_id}"]`).attr('selected','selected');
+          $("#user").val(data[0].user);
+        });
 
 
-<!-- Modal Edit -->
-<script type="text/javascript">
-  $(".modal-edit").click(function() {
-    id = $(this).data('id');
-    $.get("getBlancuri.php", {id: id}).done( function(data) {
+
+      });
+    });
+  </script>
+
+
+  <!-- on change -->
+  <script>
+  $("#section_id").change(function() {
+    id = $("#section_id").find(":selected").val();
+    $.get("getBlankBySection.php", {id: id}).done( function(data) {
       data = JSON.parse(data);
-      $("#edit-id").val(data[0].id);
-      $("#day").val(data[0].day);
-      $("#model").val(data[0].model);
-      $(`#section_id option[value="${data[0].section_id}"]`).attr('selected', 'selected');
-      $("#number").val(data[0].number);
-      $(`#tip_id option[value="${data[0].tip_id}"]`).attr('selected','selected');
-      $("#name").val(data[0].name);
+
+      $('#blanc_id').empty();
+      $('#blanc_id').append(`<option value="">SELECT</OPTION>`)
+      for (let row of data) {
+        $('#blanc_id').append(`<option value="${row['id']}">${row['blanc']}</OPTION>`)
+      }
     });
   });
-</script>
 
-<!-- Search -->
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+  </script>
+
+  <!-- Search -->
+  <script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
     });
-  });
-});
-</script>
+  </script>
 
-<!-- Paginarea in tabel -->
-<script>
-getPagination('#table-id');
-function getPagination (table){
-var lastPage = 1 ;
-$('#maxRows').on('change',function(evt){
-lastPage = 1 ;
-$('.pagination').find("li").slice(1, -1).remove();
-var trnum = 0 ;									// reset tr counter
-var maxRows = parseInt($(this).val());			// get Max Rows from select option
-if(maxRows == 5000 ){
-$('.pagination').hide();
-}else {
-$('.pagination').show();
-}
-var totalRows = $(table+' tbody tr').length;		// numbers of rows
-$(table+' tr:gt(0)').each(function(){			// each TR in  table and not the header
-trnum++;									// Start Counter
-if (trnum > maxRows ){						// if tr number gt maxRows
-$(this).hide();							// fade it out
-}if (trnum <= maxRows ){$(this).show();}// else fade in Important in case if it ..
-});											//  was fade out to fade it in
-if (totalRows > maxRows){						// if tr total rows gt max rows option
-var pagenum = Math.ceil(totalRows/maxRows);	// ceil total(rows/maxrows) to get ..
-                  //	numbers of pages
-for (var i = 1; i <= pagenum ;){			// for each page append pagination li
-$('.pagination #prev').before('<li data-page="'+i+'">\
-          <span>'+ i++ +'<span class="sr-only">(current)</span></span>\
-        </li>').show();
-}											// end for i
-} 												// end if row count > max rows
-$('.pagination [data-page="1"]').addClass('active'); // add active class to the first li
-$('.pagination li').on('click',function(evt){		// on click each page
-evt.stopImmediatePropagation();
-evt.preventDefault();
-var pageNum = $(this).attr('data-page');	// get it's number
-var maxRows = parseInt($('#maxRows').val());			// get Max Rows from select option
-if(pageNum == "prev" ){
-if(lastPage == 1 ){return;}
-pageNum  = --lastPage ;
-}
-if(pageNum == "next" ){
-if(lastPage == ($('.pagination li').length -2) ){return;}
-pageNum  = ++lastPage ;
-}
-lastPage = pageNum ;
-var trIndex = 0 ;							// reset tr counter
-$('.pagination li').removeClass('active');	// remove active class from all li
-$('.pagination [data-page="'+lastPage+'"]').addClass('active');// add active class to the clicked
-// $(this).addClass('active');					// add active class to the clicked
-$(table+' tr:gt(0)').each(function(){		// each tr in table not the header
-trIndex++;								// tr index counter
-// if tr index gt maxRows*pageNum or lt maxRows*pageNum-maxRows fade if out
-if (trIndex > (maxRows*pageNum) || trIndex <= ((maxRows*pageNum)-maxRows)){
-$(this).hide();
-}else {$(this).show();} 				//else fade in
-}); 										// end of for each tr in table
-});										// end of on click pagination list
+  <!-- Paginarea in tabel -->
+  <script>
+    getPagination('#table-id');
+    function getPagination (table){
+    var lastPage = 1 ;
+    $('#maxRows').on('change',function(evt){
+    lastPage = 1 ;
+    $('.pagination').find("li").slice(1, -1).remove();
+    var trnum = 0 ;									// reset tr counter
+    var maxRows = parseInt($(this).val());			// get Max Rows from select option
+    if(maxRows == 5000 ){
+    $('.pagination').hide();
+    }else {
+    $('.pagination').show();
+    }
+    var totalRows = $(table+' tbody tr').length;		// numbers of rows
+    $(table+' tr:gt(0)').each(function(){			// each TR in  table and not the header
+    trnum++;									// Start Counter
+    if (trnum > maxRows ){						// if tr number gt maxRows
+    $(this).hide();							// fade it out
+    }if (trnum <= maxRows ){$(this).show();}// else fade in Important in case if it ..
+    });											//  was fade out to fade it in
+    if (totalRows > maxRows){						// if tr total rows gt max rows option
+    var pagenum = Math.ceil(totalRows/maxRows);	// ceil total(rows/maxrows) to get ..
+                      //	numbers of pages
+    for (var i = 1; i <= pagenum ;){			// for each page append pagination li
+    $('.pagination #prev').before('<li data-page="'+i+'">\
+              <span>'+ i++ +'<span class="sr-only">(current)</span></span>\
+            </li>').show();
+    }											// end for i
+    } 												// end if row count > max rows
+    $('.pagination [data-page="1"]').addClass('active'); // add active class to the first li
+    $('.pagination li').on('click',function(evt){		// on click each page
+    evt.stopImmediatePropagation();
+    evt.preventDefault();
+    var pageNum = $(this).attr('data-page');	// get it's number
+    var maxRows = parseInt($('#maxRows').val());			// get Max Rows from select option
+    if(pageNum == "prev" ){
+    if(lastPage == 1 ){return;}
+    pageNum  = --lastPage ;
+    }
+    if(pageNum == "next" ){
+    if(lastPage == ($('.pagination li').length -2) ){return;}
+    pageNum  = ++lastPage ;
+    }
+    lastPage = pageNum ;
+    var trIndex = 0 ;							// reset tr counter
+    $('.pagination li').removeClass('active');	// remove active class from all li
+    $('.pagination [data-page="'+lastPage+'"]').addClass('active');// add active class to the clicked
+    // $(this).addClass('active');					// add active class to the clicked
+    $(table+' tr:gt(0)').each(function(){		// each tr in table not the header
+    trIndex++;								// tr index counter
+    // if tr index gt maxRows*pageNum or lt maxRows*pageNum-maxRows fade if out
+    if (trIndex > (maxRows*pageNum) || trIndex <= ((maxRows*pageNum)-maxRows)){
+    $(this).hide();
+    }else {$(this).show();} 				//else fade in
+    }); 										// end of for each tr in table
+    });										// end of on click pagination list
 
-}).val(15).change();
-            // end of on select change
-    // END OF PAGINATION
-}
-$(function(){
-// Just to append id number for each row
-$('table tr:eq(0)').prepend('<th> Nr. </th>')
-var id = 0;
-$('table tr:gt(0)').each(function(){
-id++
-$(this).prepend('<td>'+id+'</td>');
-});
-})
-</script>
+    }).val(15).change();
+                // end of on select change
+        // END OF PAGINATION
+    }
+    $(function(){
+    // Just to append id number for each row
+    $('table tr:eq(0)').prepend('<th> Nr. </th>')
+    var id = 0;
+    $('table tr:gt(0)').each(function(){
+    id++
+    $(this).prepend('<td>'+id+'</td>');
+    });
+    })
+  </script>
 
-<script>
-$(document).ready( function() {
+  <script>
+    $(document).ready( function() {
 
-  var currentDate = currentDate = new Date();
+      var currentDate = currentDate = new Date();
 
-  $('.datepicker-here').datepicker({
-    dateFormat: 'yyyy-mm-dd',
-    language: 'ro',
-  });
+      $('.datepicker-here').datepicker({
+        dateFormat: 'yyyy-mm-dd',
+        language: 'ro',
+      });
 
-  // Access instance of plugin
-  $('.datepicker').css('z-index', '9999999');
-  $('.datepicker-here').click( function() {
-    if( $(this).val().length == 0 )
-      $(this).data('datepicker').selectDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()));
-  })
-})
-</script>
+      // Access instance of plugin
+      $('.datepicker').css('z-index', '9999999');
+      $('.datepicker-here').click( function() {
+        if( $(this).val().length == 0 )
+          $(this).data('datepicker').selectDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()));
+      })
+    })
+  </script>
 
 </body>

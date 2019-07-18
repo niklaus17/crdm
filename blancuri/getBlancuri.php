@@ -13,20 +13,20 @@ while($row = mysqli_fetch_array($result)){
 
     $id = $row['id'];
     $day = $row['day'];
-    $model = $row['model'];
+    $blanc_id = $row['blanc_id'];
     $section_id = $row['section_id'];
     $number = $row['number'];
     $tip_id = $row['tip_id'];
-    $name = $row['name'];
+    $user = $row['user'];
 
     array_push($return_arr, array(
       "id" => $id,
       "day" => $day,
-      "model" => $model,
+      "blanc_id" => $blanc_id,
 			'section_id' => $section_id,
 			'number' => $number,
       'tip_id' => $tip_id,
-      "name" => $name,
+      "user" => $user,
 			));
 }
 

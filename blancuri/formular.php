@@ -446,14 +446,48 @@ include('navbar.php');
                     </td>
                   </tr>
                 </table>
+                <br>
 
-                <label for="comment">Durata de exploatare a dispozitivului medical:</label>
                 <table class="table table-bordered">
                   <tr>
-                    <td>Data de procurare:</td>
-                    <td><input type="text" name="data_proc" autocomplete="off" class="form-control datepicker-here" placeholder="yyyy-mm-dd"></td>
-                    <td>Data de instalare:</td>
-                    <td><input type="text" name="data_inst" autocomplete="off" class="form-control datepicker-here" placeholder="yyyy-mm-dd"></td>
+                    <td>Model:</td>
+                    <td>
+                      <input type="text" name="model_1_3" class="form-control">
+                    </td>
+                    <td>Nr. serie:</td>
+                    <td>
+                      <input type="text" name="nr_serie_1_3" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Model:</td>
+                    <td>
+                      <input type="text" name="model_2_3" class="form-control">
+                    </td>
+                    <td>Nr. serie:</td>
+                    <td colspan="4">
+                      <input type="text" name="nr_serie_2_3" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Model:</td>
+                    <td>
+                      <input type="text" name="model_3_3" class="form-control">
+                    </td>
+                    <td>Nr. serie:</td>
+                    <td colspan="4">
+                      <input type="text" name="nr_serie_3_3" class="form-control">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Model:</td>
+                    <td>
+                      <input type="text" name="model_4_3" class="form-control">
+                    </td>
+                    <td>Nr. serie</td>
+                    <td>
+                      <input type="text" name="nr_serie_4_3" class="form-control">
+                    </td>
                   </tr>
                 </table>
                 <br>
@@ -1636,16 +1670,48 @@ include('navbar.php');
                    </tr>
                  </table>
 
-                 <label for="comment">Durata de exploatare a dispozitivului medical:</label>
                  <table class="table table-bordered">
                    <tr>
-                     <td>Data de procurare:</td>
-                     <td><input type="text" name="data_proc" id="data_proc" autocomplete="off" class="form-control datepicker-here" placeholder="yyyy-mm-dd"></td>
-                     <td>Data de instalare:</td>
-                     <td><input type="text" name="data_inst" id="data_inst" autocomplete="off" class="form-control datepicker-here" placeholder="yyyy-mm-dd"></td>
+                     <td>Model:</td>
+                     <td>
+                       <input type="text" name="model_1_3" id="model_1_3" class="form-control">
+                     </td>
+                     <td>Nr. serie:</td>
+                     <td>
+                       <input type="text" name="nr_serie_1_3" id="nr_serie_1_3" class="form-control">
+                     </td>
                    </tr>
-                 </table>
-                 <br>
+                   <tr>
+                     <td>Model:</td>
+                     <td>
+                       <input type="text" name="model_2_3" id="model_2_3" class="form-control">
+                     </td>
+                     <td>Nr. serie:</td>
+                     <td colspan="4">
+                       <input type="text" name="nr_serie_2_3" id="nr_serie_2_3" class="form-control">
+                     </td>
+                   </tr>
+                   <tr>
+                     <td>Model:</td>
+                     <td>
+                       <input type="text" name="model_3_3" id="model_3_3" class="form-control">
+                     </td>
+                     <td>Nr. serie:</td>
+                     <td colspan="4">
+                       <input type="text" name="nr_serie_3_3" id="nr_serie_3_3" class="form-control">
+                     </td>
+                   </tr>
+                   <tr>
+                     <td>Model:</td>
+                     <td>
+                       <input type="text" name="model_4_3" id="model_4_3" class="form-control">
+                     </td>
+                     <td>Nr. serie</td>
+                     <td>
+                       <input type="text" name="nr_serie_4_3" id="nr_serie_4_3" class="form-control">
+                     </td>
+                   </tr>
+                 </table> <br>
 
                  <table class="table table-bordered">
                    <tr>
@@ -2049,8 +2115,16 @@ else {
               $("#producator_dispozitiv3").val(data[0].producator_dispozitiv3);
               $("#numar_inventar3").val(data[0].numar_inventar3);
 
-              $("#data_proc").val(data[0].data_proc);
-              $("#data_inst").val(data[0].data_inst);
+              $("#model_1_3").val(data[0].model_1_3);
+              $("#model_2_3").val(data[0].model_2_3);
+              $("#model_3_3").val(data[0].model_3_3);
+              $("#model_4_3").val(data[0].model_4_3);
+
+              $("#nr_serie_1_3").val(data[0].nr_serie_1_3);
+              $("#nr_serie_2_3").val(data[0].nr_serie_2_3);
+              $("#nr_serie_3_3").val(data[0].nr_serie_3_3);
+              $("#nr_serie_4_3").val(data[0].nr_serie_4_3);
+
               $("#chek1_3").val(data[0].chek1_3);
               $("#respons").val(data[0].respons);
               $("#chek2_3").val(data[0].chek2_3);

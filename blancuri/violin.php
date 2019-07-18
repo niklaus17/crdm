@@ -53,6 +53,11 @@ include('navbar.php');
           <option value="Registratura 2">Registratura 2</option>
           <option value="Registratura 3">Registratura 3</option>
           <option value="Registratura 4">Registratura 4</option>
+          <option value="154/1">154/1</option>
+          <option value="154/2">154/2</option>
+          <option value="154/3">154/3</option>
+          <option value="154/4">154/4</option>
+          <option value="other">Other</option>
         </select><br>
 
   			<label>Problema:</label>
@@ -193,20 +198,20 @@ include('navbar.php');
   </div>
 </div>
 
-<!-- /.modal-For read more solutia -->
-<div id="read_more_sol<?= $row["id"]?>" class="modal fade">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-body">
-  <label>Solutia:</label> <br>
-   <p style="text-align: justify;"><?= $row['solutia'] ?></p>
-</div>
-<div class="modal-footer">
- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-</div>
-</div>
-</div>
-</div>
+    <!-- /.modal-For read more solutia -->
+    <div id="read_more_sol<?= $row["id"]?>" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <label>Solutia:</label> <br>
+             <p style="text-align: justify;"><?= $row['solutia'] ?></p>
+          </div>
+          <div class="modal-footer">
+           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 <!-- /.modal-For Delete date -->
   <div id="delete_Modal<?= $row["id"]?>" class="modal fade">
     <div class="modal-dialog">
@@ -303,6 +308,11 @@ include('navbar.php');
               <option value="Registratura 2">Registratura 2</option>
               <option value="Registratura 3">Registratura 3</option>
               <option value="Registratura 4">Registratura 4</option>
+              <option value="154/1">154/1</option>
+              <option value="154/2">154/2</option>
+              <option value="154/3">154/3</option>
+              <option value="154/4">154/4</option>
+              <option value="other">Other</option>
             </select><br>
 
       			<label>Problema:</label>

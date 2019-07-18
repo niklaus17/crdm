@@ -23,8 +23,16 @@ while($row = mysqli_fetch_array($result)){
   $producator_dispozitiv3 = $row['producator_dispozitiv3'];
   $numar_inventar3 = $row['numar_inventar3'];
 
-  $data_proc = $row["data_proc"];
-  $data_inst = $row["data_inst"];
+  $model_1_3 = $row["model_1_3"];
+  $model_2_3 = $row["model_2_3"];
+  $model_3_3 = $row["model_3_3"];
+  $model_4_3 = $row["model_4_3"];
+
+  $nr_serie_1_3 = $row["nr_serie_1_3"];
+  $nr_serie_2_3 = $row["nr_serie_2_3"];
+  $nr_serie_3_3 = $row["nr_serie_3_3"];
+  $nr_serie_4_3 = $row["nr_serie_4_3"];
+
   $chek1_3 = $row["chek1_3"];
   $respons = $row["respons"];
   $chek2_3 = $row["chek2_3"];
@@ -48,8 +56,16 @@ while($row = mysqli_fetch_array($result)){
       'producator_dispozitiv3' => $producator_dispozitiv3,
       'numar_inventar3' => $numar_inventar3,
 
-      'data_proc' => $data_proc,
-      'data_inst' => $data_inst,
+      'model_1_3' => $model_1_3,
+      'model_2_3' => $model_2_3,
+      'model_3_3' => $model_3_3,
+      'model_4_3' => $model_4_3,
+
+      'nr_serie_1_3' => $nr_serie_1_3,
+      'nr_serie_2_3' => $nr_serie_2_3,
+      'nr_serie_3_3' => $nr_serie_3_3,
+      'nr_serie_4_3' => $nr_serie_4_3,
+
       'chek1_3' => $chek1_3,
       'respons' => $respons,
       'chek2_3' => $chek2_3,

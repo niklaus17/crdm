@@ -1,220 +1,265 @@
 <?php
-include('db_connect.php');
+//include connection file
+include_once("db_connect.php");
+include_once('fpdf.php');
+
+class PDF extends tFPDF
+{
+
+// Page footer
+function Footer()
+{
+
+    // Position at 1.5 cm from bottom
+    $this->SetY(-15);
+    // Arial italic 8
+    $this->SetFont('DejaVuSansCondensed-Oblique','',8);
+    // Page number
+    $this->Cell(0,10,'Pagina '.$this->PageNo().'/{nb}',0,0,'C');
+
+}
+}
+
+$pdf = new PDF();
+//header
+$pdf->AddPage();
+//foter page
+$pdf->AliasNbPages();
+
+
+$pdf->AddFont('DejaVuSansCondensed-Bold','','DejaVuSansCondensed-Bold.ttf',true);
+$pdf->AddFont('DejaVuSansCondensed-Oblique','','DejaVuSansCondensed-Oblique.ttf',true);
+$pdf->AddFont('DejaVu','','DejaVuSansCondensed.ttf',true);
+$pdf->SetFont('DejaVu','',12);
+
+// Move to the right
+$pdf->SetX(118);
+$pdf->Cell(10,6,'Nume/Prenume',0,0);
+$pdf->SetX(155);
+$pdf->Cell(10,6,'VERBENIUC Vitalie',0,0);
+$pdf->Ln(7);
+$pdf->SetX(139);
+$pdf->Cell(10,6,'Data',0,0,'C');
+$pdf->SetX(155);
+$pdf->Cell(10,6,'__________________');
+$pdf->Ln(7);
+$pdf->SetX(136);
+$pdf->Cell(10,6,'Aprobat',0,0,'C');
+$pdf->SetX(170);
+$pdf->Cell(6,6,'__________________',0,0,'C');
+// Line break
+$pdf->Ln(20);
+$pdf->SetFillColor(217,217,217);
+$pdf->SetX(10);
+$pdf->SetFont('DejaVuSansCondensed-Bold','',12);
+$pdf->Cell(190,6,'Formular de defectare a dispozitivului medical',0,0,'C',true);
+$pdf->Ln(20);
+
+$id = $_GET['id'];
+$query = "SELECT * FROM formular_4 where id = '$id'";
+
+$result = mysqli_query($conn,$query);
+$row = $from_date = mysqli_fetch_assoc($result);
+
+$pdf->SetFont('DejaVuSansCondensed-Bold','',12);
+$pdf->SetX(10);
+$pdf->Cell(30,8,'Se completează de către secția medicală:',0,0,'L');
+$pdf->Ln(8);
+$pdf->SetX(10);
+$pdf->SetFillColor(217,217,217);
+$pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
+$pdf->Cell(90,8,'Denumirea instituției:',1,0,'L',true);
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(100,8,$row['institutia'],1,0,'L');
+$pdf->Ln();
+$pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
+$pdf->Cell(90,8,'Locația:',1,0,'L',true);
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(100,8,$row['locatia'],1,0,'L');
+$pdf->Ln();
+$pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
+$pdf->Cell(90,8,'Număr inventar:',1,0,'L',true);
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(100,8,$row['numar_inventar4'],1,0,'L');
+$pdf->Ln();
+$pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
+$pdf->Cell(90,8,'Data de non-utilizare a dispozitivului medical:',1,0,'L',true);
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(100,8,$row['data_non'],1,0,'L');
+$pdf->Ln(15);
+
+$pdf->SetFont('DejaVuSansCondensed-Bold','',12);
+$pdf->SetX(10);
+$pdf->Cell(30,8,'Se completează de către departamentul/secția de inginerie biomedicală:',0,0,'L');
+$pdf->Ln(8);
+
+$pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
+$pdf->Cell(90,8,'Producator:',1,0,'L',true);
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(100,8,$row['producator'],1,0,'L');
+$pdf->Ln();
+$pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
+$pdf->Cell(90,8,'Anul producerii:',1,0,'L',true);
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(100,8,$row['anul_producerii'],1,0,'L');
+$pdf->Ln();
+$pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
+$pdf->Cell(90,8,'Nume dispozitiv:',1,0,'L',true);
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(100,8,$row['nume_dispozitiv4'],1,0,'L');
+$pdf->Ln();
+$pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
+$pdf->Cell(90,8,'Model:',1,0,'L',true);
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(100,8,$row['model'],1,0,'L');
+$pdf->Ln();
+$pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
+$pdf->Cell(90,8,'Numar de serie:',1,0,'L',true);
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(100,8,$row['numar_serie'],1,0,'L');
+$pdf->Ln();
+$pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
+$pdf->Cell(90,8,'Număr inventar:',1,0,'L',true);
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(100,8,$row['numar_inventar2_4'],1,0,'L');
+$pdf->Ln(15);
+
+$pdf->SetFont('DejaVuSansCondensed-Bold','',12);
+$pdf->SetX(10);
+$pdf->Cell(30,8,'Se completează de către departamentul contabilitate:',0,0,'L');
+$pdf->Ln(8);
+
+$pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
+$pdf->Cell(90,8,'Uzura:',1,0,'L',true);
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(100,8,$row['uzura'],1,0,'L');
+$pdf->Ln();
+$pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
+$pdf->Cell(90,8,'Data dării în exploatare:',1,0,'L',true);
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(100,8,$row['data_exploatare'],1,0,'L');
+$pdf->Ln();
+$pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
+$pdf->Cell(90,8,'Uzura:',1,0,'L',true);
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(100,8,$row['uzura'],1,0,'L');
+$pdf->Ln();
+$pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
+$pdf->Cell(90,8,'Termenul de exploatare:',1,0,'L',true);
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(100,8,$row['termen'],1,0,'L');
+$pdf->Ln();
+$pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
+$pdf->Cell(90,8,'Preț nominal:',1,0,'L',true);
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(100,8,$row['pret'],1,0,'L');
+$pdf->Ln();
+$pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
+$pdf->Cell(90,8,'Valoarea curentă a dispozitivului:',1,0,'L',true);
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(100,8,$row['valoarea'],1,0,'L');
+$pdf->Ln(15);
+
+$pdf->SetFont('DejaVuSansCondensed-Bold','',12);
+$pdf->SetX(10);
+$pdf->Cell(30,8,'Descrierea stării tehnice a dispozitivului:',0,0,'L');
+$pdf->Ln(8);
+
+$pdf->SetFont('DejaVu','',12);
+$pdf->SetFillColor(255,255,255);
+$pdf->MultiCell(190,5,$row['descrierea'],1,1,'L');
+$pdf->Ln(10);
+
+$pdf->SetFont('DejaVuSansCondensed-Bold','',12);
+$pdf->SetX(10);
+$pdf->Cell(30,8,'Cauza neutralizarii:',0,0,'L');
+$pdf->Ln(8);
+
+$pdf->SetFont('DejaVu','',12);
+$pdf->SetFillColor(255,255,255);
+$pdf->MultiCell(190,5,$row['cauza'],1,1,'L');
+$pdf->Ln(10);
+
+$pdf->SetFont('DejaVuSansCondensed-Bold','',12);
+$pdf->SetX(10);
+$pdf->Cell(30,8,'Nota:',0,0,'L');
+$pdf->Ln(8);
+
+$pdf->SetFont('DejaVu','',12);
+$pdf->SetFillColor(255,255,255);
+$pdf->MultiCell(190,5,$row['nota'],1,1,'L');
+$pdf->Ln(30);
+
+// Beneficiari
+if(strlen($row['beneficiar4']) > 0) {
+
+$pdf->SetX(10);
+$pdf->SetFont('DejaVuSansCondensed-Bold','',12);
+$pdf->Cell(40,8,'Șef secție:',0,0,'L');
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(80,8,$row['beneficiar4'],0,0,'L');
+$pdf->Cell(70,8,'Semnătura ________________',0,0,'L');
+$pdf->Ln(10);
+
+}
+if(strlen($row['contabil']) > 0) {
+
+$pdf->SetX(10);
+$pdf->SetFont('DejaVuSansCondensed-Bold','',12);
+$pdf->Cell(40,8,'Șef contabil:',0,0,'L');
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(80,8,$row['contabil'],0,0,'L');
+$pdf->Cell(70,8,'Semnătura ________________',0,0,'L');
+$pdf->Ln(10);
+
+}
+if(strlen($row['it']) > 0) {
+
+$pdf->SetX(10);
+$pdf->SetFont('DejaVuSansCondensed-Bold','',12);
+$pdf->Cell(40,8,'Șef TI si TM:',0,0,'L');
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(80,8,$row['it'],0,0,'L');
+$pdf->Cell(70,8,'Semnătura ________________',0,0,'L');
+$pdf->Ln(10);
+
+}
+if(strlen($row['inginer1_4']) > 0) {
+
+$pdf->SetX(10);
+$pdf->SetFont('DejaVuSansCondensed-Bold','',12);
+$pdf->Cell(40,8,'Executor/Inginer:',0,0,'L');
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(80,8,$row['inginer1_4'],0,0,'L');
+$pdf->Cell(70,8,'Semnătura ________________',0,0,'L');
+$pdf->Ln(10);
+
+}
+if(strlen($row['inginer2_4']) > 0) {
+
+$pdf->SetX(10);
+$pdf->SetFont('DejaVuSansCondensed-Bold','',12);
+$pdf->Cell(40,8,'Executor/Inginer:',0,0,'L');
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(80,8,$row['inginer2_4'],0,0,'L');
+$pdf->Cell(70,8,'Semnătura ________________',0,0,'L');
+$pdf->Ln(10);
+
+}
+if(strlen($row['inginer3_4']) > 0) {
+
+$pdf->SetX(10);
+$pdf->SetFont('DejaVuSansCondensed-Bold','',12);
+$pdf->Cell(40,8,'Executor/Inginer:',0,0,'L');
+$pdf->SetFont('DejaVu','',12);
+$pdf->Cell(80,8,$row['inginer3_4'],0,0,'L');
+$pdf->Cell(70,8,'Semnătura ________________',0,0,'L');
+
+    	}
+
+
+
+// Cell(width, height, 'Text', border, new line, 'Text align')
+$pdf->Output();
+
 ?>
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raport</title>
-    <link rel="shortcut icon" href="img/logo.png" />
-
-
-    <style>
-
-      .page {
-        width: 21cm;
-        min-height: 29cm;
-        padding: 2cm;
-        margin: 1cm auto;
-        border-radius: 5px;
-        background: white;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
-
-      @page  {
-        size: A4;
-        margin: 0;
-        overflow: hidden;
-      }
-
-      table {
-         border-collapse: collapse;
-          margin-top: 10px;
-       }
-
-       tr, td {
-         border: 1px solid black;
-         padding-left: 5px;
-       }
-
-    </style>
-</head>
-<body>
-
-  <div  class="page">
-    <?php
-      $sql="SELECT * FROM formular_4 where id =" . $_GET['id'];
-        $result_set=mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
-        while($row = mysqli_fetch_array ($result_set) )
-        {
-    ?>
-    <div align="right">
-
-  <table>
-    <tr style="border:none;">
-      <td style="border:none;"><strong>Nume / Prenume</strong></td>
-      <td style="border:none;"> TESTEMIȚANU Andrei</td>
-    </tr>
-    <tr style="border:none;">
-      <td style="border:none; text-align:right;"><strong>Data </strong></td>
-      <td style="border:none;"> ____________________</td>
-    </tr>
-    <tr style="border:none;">
-      <td style="border:none; text-align:right;"><strong>Aprobat </strong></td>
-      <td style="border:none;"> ____________________</td>
-    </tr>
-  </table>
-</div><br><br>
-
-
-    <div style="text-align: center">
-      <h3 style="text-transform: padding: 0px; margin: 0px;">Formular de  <?= $row['chek1_4'] ?> a dispozitivului medical</h3>
-    </div><br><br>
-
-    <strong><label>Se completează de către secția medicală:</label></strong>
-    <table width="100%">
-      <tr>
-        <td width="5%">1</td>
-        <td width="40%">Denumirea instituției:</td>
-        <td><?= $row['institutia'] ?></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Locația:</td>
-        <td><?= $row['locatia'] ?></td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Număr inventar:</td>
-        <td><?= $row['numar_inventar4'] ?></td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>Data de non-utilizare a dispozitivului medical:</td>
-        <td><?= $row['data_non'] ?></td>
-      </tr>
-    </table><br>
-
-    <strong><label>Se completează de către departamentul/secția de inginerie biomedicală:</label></strong>
-    <table width="100%">
-      <tr>
-        <td width="5%">5</td>
-        <td width="40%">Producator:</td>
-        <td><?= $row['producator'] ?></td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td>Anul producerii:</td>
-        <td><?= $row['anul_producerii'] ?></td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td>Nume dispozitiv:</td>
-        <td><?= $row['nume_dispozitiv4'] ?></td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td>Model:</td>
-        <td><?= $row['model'] ?></td>
-      </tr>
-      <tr>
-        <td>9</td>
-        <td>Numar de serie:</td>
-        <td><?= $row['numar_serie'] ?></td>
-      </tr>
-      <tr>
-        <td>10</td>
-        <td>Număr inventar:</td>
-        <td><?= $row['numar_inventar2_4'] ?></td>
-      </tr>
-    </table><br>
-
-    <strong><label>Se completează de către departamentul contabilitate:</label></strong>
-    <table width="100%">
-      <tr>
-        <td width="5%">11</td>
-        <td width="40%">Uzura:</td>
-        <td><?= $row['uzura'] ?></td>
-      </tr>
-      <tr>
-        <td>12</td>
-        <td>Data dării în exploatare:</td>
-        <td><?= $row['data_exploatare'] ?></td>
-      </tr>
-      <tr>
-        <td>13</td>
-        <td>Termenul de exploatare:</td>
-        <td><?= $row['termen'] ?></td>
-      </tr>
-      <tr>
-        <td>14</td>
-        <td>Preț nominal:</td>
-        <td><?= $row['pret'] ?></td>
-      </tr>
-      <tr>
-        <td>15</td>
-        <td>Valoarea curentă a dispozitivului:</td>
-        <td><?= $row['valoarea'] ?></td>
-      </tr>
-    </table><br>
-
-    <strong><label>Descrierea stării tehnice a dispozitivului:</label></strong>
-    <table width="100%">
-      <tr>
-        <td style="height: 20px;"><?= $row['descrierea'] ?></td>
-      </tr>
-    </table>
-    <br>
-
-    <strong><label>Cauza neutralizarii:</label></strong>
-    <table width="100%">
-      <tr>
-        <td style="height: 20px;"><?= $row['cauza'] ?></td>
-      </tr>
-    </table>
-    <br>
-
-    <strong><label>Nota:</label></strong>
-    <table width="100%">
-      <tr>
-        <td style="height: 20px;"><?= $row['nota'] ?></td>
-      </tr>
-    </table><br><br><br>
-
-      <table width="100%" >
-        <tr style="border:none;">
-          <td style="border:none;" width="60%"><strong> Șef secție: </strong> <?= $row['beneficiar4'] ?></td>
-          <td style="border:none;">Semnătura ____________________</td>
-        </tr>
-      </table><br>
-      <table width="100%" >
-        <tr style="border:none;">
-          <td style="border:none;" width="60%"><strong> Șef TI si TM: </strong> <?= $row['it'] ?></td>
-          <td style="border:none;">Semnătura ____________________</td>
-        </tr>
-      </table><br>
-      <table width="100%" >
-        <tr style="border:none;">
-          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer1_4'] ?></td>
-          <td style="border:none;">Semnătura ____________________</td>
-        </tr>
-      </table><br>
-      <table width="100%" >
-        <tr style="border:none;">
-          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer2_4'] ?></td>
-          <td style="border:none;">Semnătura ____________________</td>
-        </tr>
-      </table><br>
-      <table width="100%" >
-        <tr style="border:none;">
-          <td style="border:none;" width="60%"><strong> Executor/Inginer: </strong> <?= $row['inginer3_4'] ?></td>
-          <td style="border:none;">Semnătura ____________________</td>
-        </tr>
-      </table>
-
-      <?php		}		?>
-  </div>
-
-</body>
-</html>

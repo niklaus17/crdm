@@ -13,7 +13,7 @@ $desc=array (
 );
 $up=-63;
 $ut=44;
-$ttffile='C:\xampp\htdocs\1\cerneala\crdm\blancuri/font/unifont/DejaVuSansCondensed-Bold.ttf';
+$ttffile='C:\xampp\htdocs\1\crdm\blancuri/font/unifont/DejaVuSansCondensed-Bold.ttf';
 $originalsize=665028;
 $fontkey='dejavusanscondensed-bold';
 ?>

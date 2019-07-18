@@ -6,13 +6,13 @@ if(isset($_POST['btn-upload']))
 
   $id = $_POST['id'];
  	$day = $_POST['day'];
-	$model = $_POST["model"];
+	$blanc_id = $_POST["blanc_id"];
   $section_id = $_POST["section_id"];
   $number = $_POST["number"];
   $tip_id = $_POST["tip_id"];
   $user = $_SESSION['user']['username'];
 
- 	$sql="INSERT INTO blancuri(day, model, section_id, number, tip_id, user) VALUES( '$day', '$model', '$section_id', '$number', '$tip_id', '$user')";
+ 	$sql="INSERT INTO blancuri(day, blanc_id, section_id, number, tip_id, user) VALUES( '$day', '$blanc_id', '$section_id', '$number', '$tip_id', '$user')";
 
  	mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
  }

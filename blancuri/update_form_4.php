@@ -22,9 +22,9 @@ if(isset($_POST['btn-update_4']))
   $termen = $_POST["termen"];
   $pret = $_POST["pret"];
   $valoarea = $_POST["valoarea"];
-  $descrierea = $_POST["descrierea"];
-  $cauza = $_POST["cauza"];
-  $nota = $_POST["nota"];
+  $descrierea = str_replace("'", "''",$_POST["descrierea"]);
+  $cauza = str_replace("'", "''",$_POST["cauza"]);
+  $nota = str_replace("'", "''",$_POST["nota"]);
   $beneficiar4 = $_POST["beneficiar4"];
   $contabil = $_POST["contabil"];
   $it = $_POST["it"];

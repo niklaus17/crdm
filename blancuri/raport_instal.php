@@ -4,29 +4,33 @@ include_once("db_connect.php");
 include_once('fpdf.php');
 
 
-// Page footer
-function Footer()
+class PDF extends tFPDF
 {
-    // Position at 1.5 cm from bottom
-    $this->SetY(-15);
-    // Arial italic 8
-    $this->SetFont('Arial','I',8);
-    // Page number
-    $this->Cell(0,10,'Pagina '.$this->PageNo().'/{nb}',0,0,'C');
+  // Page footer
+  function Footer()
+  {
 
-}
+      // Position at 1.5 cm from bottom
+      $this->SetY(-15);
+      // Arial italic 8
+      $this->SetFont('DejaVuSansCondensed-Oblique','',8);
+      // Page number
+      $this->Cell(0,10,'Pagina '.$this->PageNo().'/{nb}',0,0,'C');
+
+  }
+  }
+
+  $pdf = new PDF();
+  //header
+  $pdf->AddPage();
+  //foter page
+  $pdf->AliasNbPages();
 
 
-$pdf = new tFPDF();
-//header
-$pdf->AddPage();
-//foter page
-$pdf->AliasNbPages();
-
-
-$pdf->AddFont('DejaVuSansCondensed-Bold','','DejaVuSansCondensed-Bold.ttf',true);
-$pdf->AddFont('DejaVu','','DejaVuSansCondensed.ttf',true);
-$pdf->SetFont('DejaVu','',12);
+  $pdf->AddFont('DejaVuSansCondensed-Bold','','DejaVuSansCondensed-Bold.ttf',true);
+  $pdf->AddFont('DejaVuSansCondensed-Oblique','','DejaVuSansCondensed-Oblique.ttf',true);
+  $pdf->AddFont('DejaVu','','DejaVuSansCondensed.ttf',true);
+  $pdf->SetFont('DejaVu','',12);
 
 // Move to the right
 $pdf->SetX(118);

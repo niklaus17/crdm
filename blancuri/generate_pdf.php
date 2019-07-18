@@ -56,9 +56,9 @@ function Footer()
 
 
 
-$display_heading = array('id'=>'Nr.', 'day'=> 'Data', 'model'=> 'Modelul blancului','section_id'=> 'Secția','number'=> 'Cantitate','tip_id'=> 'Tip','user'=> 'Utilizator',);
+$display_heading = array('id'=>'Nr.', 'day'=> 'Data', 'blanc_id'=> 'Modelul blancului','section_id'=> 'Secția','number'=> 'Cantitate','tip_id'=> 'Tip','user'=> 'Utilizator',);
 
-$result = mysqli_query($conn, "SELECT id, day, model, section_id, number, tip_id, user FROM blancuri WHERE day BETWEEN '" . $from_date . "' AND  '" . $to_date . "'") or die("database error:". mysqli_error($connString));
+$result = mysqli_query($conn, "SELECT id, day, blanc_id, section_id, number, tip_id, user FROM blancuri WHERE day BETWEEN '" . $from_date . "' AND  '" . $to_date . "'") or die("database error:". mysqli_error($connString));
 
 
 $header = mysqli_query($conn, "SHOW columns FROM blancuri");
@@ -77,7 +77,7 @@ $pdf->SetFont('DejaVu','',12);
 $pdf->SetFillColor(204,255,204);
 $pdf->Cell(10,8,$display_heading['id'],1, null, 'C', true);
 $pdf->Cell(20,8,$display_heading['day'],1, null, 'C', true);
-$pdf->Cell(60,8,$display_heading['model'],1, null, 'C', true);
+$pdf->Cell(60,8,$display_heading['blanc_id'],1, null, 'C', true);
 $pdf->Cell(37,8,$display_heading['section_id'],1, null, 'C', true);
 $pdf->Cell(20,8,$display_heading['number'],1, null, 'C', true);
 $pdf->Cell(18,8,$display_heading['tip_id'],1, null, 'C', true);
@@ -90,15 +90,23 @@ $pdf->Ln();
 $pdf->SetFont('DejaVu','',10);
 $pdf->Cell(10,8,$i++,1, null, 'C');
 $pdf->Cell(20,8,$row['day'],1, null, 'C');
-// $pdf->Cell(60,8,$row['model'],1);
-$model = mysqli_fetch_assoc($result)['model'];
-$pdf->Cell(60,8,iconv('UTF-8', 'ASCII//TRANSLIT', substr($model, 0, 30)) . '...',1);
+
+$blanc_id = $row['blanc_id'];
+$blanc_query = "SELECT  blanc from model_blanc where id = " . $blanc_id;
+$result = mysqli_query($conn, $blanc_query) or die(mysqli_error($conn));
+$blanc_name = mysqli_fetch_assoc($result)['blanc'];
+
+if(strlen($blanc_name) > 30 ) {
+  $pdf->Cell(60,8,iconv('UTF-8', 'ASCII//TRANSLIT',substr($blanc_name, 0, 30)) . '...',1);
+} else {
+  $pdf->Cell(60,8,iconv('UTF-8', 'ASCII//TRANSLIT',$blanc_name), 1);
+}
 
 $section_id = $row['section_id'];
 $section_query = "SELECT  section from sectie where id = " . $section_id;
 $result = mysqli_query($conn, $section_query) or die(mysqli_error($conn));
 $section_name = mysqli_fetch_assoc($result)['section'];
-$pdf->Cell(37,8,iconv('UTF-8', 'ASCII//TRANSLIT', substr($section_name, 0, 15)) . '...',1);
+$pdf->Cell(37,8,iconv('UTF-8', 'ASCII//TRANSLIT', substr($section_name, 0, 18)) . '...',1);
 
 $pdf->Cell(20,8,$row['number'],1, null, 'C');
 

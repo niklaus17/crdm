@@ -49,6 +49,7 @@ include_once("db_connect.php");
 						 <a href="create_user.php"><button type="submit" class="btn btn-success" name="register_btn">+ Adaugă utilizator</button></a>
 						 <a href="section.php"><button type="submit" class="btn btn-success" name="">+ Adaugă secție</button></a>
 						 <a href="type.php"><button type="submit" class="btn btn-success" name="">+ Adaugă format</button></a>
+						 <a href="model_blanc.php"><button type="submit" class="btn btn-success" name="">+ Adaugă blanc</button></a>
 						 <a href="cabinet.php"><button type="submit" class="btn btn-success" name="">+ Adaugă cabinete</button></a>
 						 <a href="users.php"><button type="submit" class="btn btn-success" name="">Vezi utilizatorii</button></a><br><br>
 						<a href="index.php"><button type="button" class="btn btn-danger">Anulează</button></a>
