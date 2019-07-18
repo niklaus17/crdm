@@ -58,8 +58,7 @@ include_once("db_connect.php");
   <a href="home.php"><button type="button" class="btn btn-danger">Anulează</button></a> <br> <br>
 
 	<label>Alege-ți secția</label>
-	<input type="hidden" name="id" id="id" value="">
-	<select name="section_id" id="section_id" class="form-control" required>
+	<select name="section_id" id="filter_section_id" class="form-control" required>
 				<option value="">SELECT</option>
 				<?php
 						$sql="SELECT * FROM sectie";
@@ -77,9 +76,9 @@ include_once("db_connect.php");
 			<thead>
     	<tr class="success " style="font-weight:bold">
         <!-- <td>Nr.</td> -->
-        <td>Blancul</td>
-				<td>sectia</td>
-        <td>Acțiuni</td>
+        <th>Blancul</th>
+				<th>sectia</th>
+        <th>Acțiuni</th>
         </tr>
 			</thead>
 			<tbody id="myTable">
@@ -91,20 +90,15 @@ include_once("db_connect.php");
 
 				while($row = mysqli_fetch_array ($result_set) )
 				{
-
+					$section_id = $row['section_id'];
+					$section_query = "SELECT  section from sectie where id = " . $section_id;
+					$result = mysqli_query($conn, $section_query) or die(mysqli_error($conn));
+					$section_name = mysqli_fetch_assoc($result)['section'];
 				?>
 
 				 <tr>
 					<td><?= $row['blanc'] ?></td>
-					<td>
-							<?php
-			          $section_id = $row['section_id'];
-			          $section_query = "SELECT  section from sectie where id = " . $section_id;
-			          $result = mysqli_query($conn, $section_query) or die(mysqli_error($conn));
-			          $section_name = mysqli_fetch_assoc($result)['section'];
-		          echo $section_name;
-		          ?>
-					</td>
+					<td><?= $section_name ?></td>
 					<td>
             <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal<?= $row['id']?>">
     					<i class="glyphicon glyphicon-edit text-primary"></i>
@@ -211,7 +205,34 @@ include_once("db_connect.php");
 			$(`#section_id option[value="${data[0].section_id}"]`).attr('selected', 'selected');
     });
   });
+
+
+	$('#filter_section_id').change( function() {
+
+		filter = $('#filter_section_id option:selected').text();
+		select = $('#filter_section_id option:first-child').text();
+		if(filter == select) {
+			$('tbody').find('tr').show();
+			return;
+		}
+		$('tbody').find('tr').each(function() {
+				if($(this).find('td:nth-child(3)').text() !== filter) {
+					$(this).hide();
+				} else {
+					$(this).show();
+				}
+			// }
+		})
+		// $('tr td:nth-child(2)').text());
+	});
+
+
+
+
+
 </script>
+
+
 
 
 <!-- Paginarea in tabel -->

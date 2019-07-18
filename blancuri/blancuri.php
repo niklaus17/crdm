@@ -404,7 +404,6 @@ else {
       }
     });
   });
-
   </script>
 
   <!-- Search -->
