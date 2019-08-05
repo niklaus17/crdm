@@ -168,16 +168,13 @@ include('navbar.php');
         <td width="8%"><button type="button" class="btn btn-info btn-xs btn-add-file" data-toggle="modal" data-target="#myModal<?= $row['id']?>">View files <span class="badge"> <?= $total ?></span></button></td>
 
         <td width="8%">
-              <?php if (isset($_SESSION['user'])) { ?>
+              <?php if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) { ?>
             <a href="#" class="modal-edit-file" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#upload_data_Modal">
               <button type="button" class="btn btn-primary btn-xs btn-add-file">Add file</button>
             </a>
             <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal">
               <i class="glyphicon glyphicon-edit text-primary"></i>
-            </a ><?php		}		?>
-
-
-            <?php if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) { ?>
+            </a >
             <a href="#" class="confirm-delete" data-id="<?php  echo $row["id"] ?>"><i class="glyphicon glyphicon-trash text-danger"></i></a>
               <?php		}		?>
         </td>

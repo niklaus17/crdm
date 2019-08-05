@@ -30,7 +30,7 @@ if(isset($_POST['btn-upload']))
   $respons = $_POST["respons"];
   $chek2_3 = $_POST["chek2_3"];
   $luni3 = $_POST["luni3"];
-  $comentarii3 = $_POST["comentarii3"];
+  $comentarii3 = str_replace("'", "''",$_POST["comentarii3"]);
 
   $beneficiar3 = $_POST["beneficiar3"];
   $inginer1_3 = $_POST["inginer1_3"];

@@ -23,8 +23,8 @@ if(isset($_POST['btn-upload']))
   $pret = $_POST["pret"];
   $valoarea = $_POST["valoarea"];
   $descrierea = $_POST["descrierea"];
-  $cauza = $_POST["cauza"];
-  $nota = $_POST["nota"];
+  $cauza = str_replace("'", "''",$_POST["cauza"]);
+  $nota = str_replace("'", "''",$_POST["nota"]);
 
   $beneficiar4 = $_POST["beneficiar4"];
   $contabil = $_POST["contabil"];

@@ -141,8 +141,7 @@ include_once("db_connect.php");
               			<form action="update_model_blanc.php" method="post" enctype="multipart/form-data" id="edit_form">
 
               			<label>Modelul blancului:</label>
-                    <input type="hidden" name="id" value="<?=$row['id']?>">
-              			<input type="text" name="blanc" id="blanc" class="form-control" required><br>
+              			<input type="text" name="blanc" id="edit_blanc" class="form-control" required><br>
 
 										<label>Alege-ți secția</label>
 										<input type="hidden" name="id" id="edit-id">
@@ -201,7 +200,7 @@ include_once("db_connect.php");
     $.get("getModel_Blanc.php", {id: id}).done( function(data) {
       data = JSON.parse(data);
 			$("#edit-id").val(data[0].id);
-      $("#blanc").val(data[0].blanc);
+      $("#edit_blanc").val(data[0].blanc);
 			$(`#section_id option[value="${data[0].section_id}"]`).attr('selected', 'selected');
     });
   });

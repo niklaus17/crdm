@@ -30,7 +30,7 @@ if(isset($_POST['btn-upload']))
   $data_instalarii = $_POST["data_instalarii"];
   $garantie = $_POST["garantie"];
   $net = $_POST["net"];
-  $comentarii = $_POST["comentarii"];
+  $comentarii = str_replace("'", "''",$_POST["comentarii"]);
   $beneficiar = $_POST["beneficiar"];
   $furnizor = $_POST["furnizor"];
   $furnizor1 = $_POST["furnizor1"];

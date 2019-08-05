@@ -202,7 +202,7 @@ include('navbar.php');
 			<h4 class="modal-title">Confirmă ștergera</h4>
 		  </div>
 		  <div class="modal-body">
-			<p>Șterge <?php echo '<span class="text-danger" >' . $row["blanc_id"] . '</span> '; ?></p>
+			<p>Înregistrărea din data de <?php echo '<span class="text-danger" >' . $row["day"] . '</span> '; ?></p>
 		  </div>
 		  <div class="modal-footer">
 			 <a class="btn btn-danger" href="delete_blanc.php?id=<?php echo $row['id'] ?>">Confirmă</a>
@@ -392,15 +392,15 @@ else {
 
   <!-- on change -->
   <script>
-  $("#section_id").change(function() {
-    id = $("#section_id").find(":selected").val();
+  $("#section_id, #edit_section_id").change(function() {
+    id = $(this).find(":selected").val();
     $.get("getBlankBySection.php", {id: id}).done( function(data) {
       data = JSON.parse(data);
 
-      $('#blanc_id').empty();
-      $('#blanc_id').append(`<option value="">SELECT</OPTION>`)
+      $('#blanc_id, #edit_blanc_id').empty();
+      $('#blanc_id, #edit_blanc_id').append(`<option value="">SELECT</OPTION>`)
       for (let row of data) {
-        $('#blanc_id').append(`<option value="${row['id']}">${row['blanc']}</OPTION>`)
+        $('#blanc_id, #edit_blanc_id').append(`<option value="${row['id']}">${row['blanc']}</OPTION>`)
       }
     });
   });
