@@ -68,22 +68,14 @@ include_once("db_connect.php");
                 margin-bottom: 30px;
             }
 
-						video {
-							position: fixed;
-							top: -10%;
-							left: 0;
-							min-width: 100%;
-							min-height: 100%;
-						}
+			
         </style>
 <body>
-		<video src="video/video.mp4" autoplay muted loop>
-
-		</video>
+		
   <div class="flex-center position-ref full-height">
 
     <div class="content">
-      <div class="title m-b-md crdm" style="color: white;">Centrul Republican de Diagnosticare Medicală</div>
+      <div class="title m-b-md crdm">Centrul Republican de Diagnosticare Medicală</div>
       <div class="clock"></div>
     </div>
 

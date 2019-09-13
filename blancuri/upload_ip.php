@@ -6,20 +6,9 @@ if(isset($_POST['btn-upload']))
 
   $id = $_POST['id'];
   $section_id = $_POST["section_id"];
- 	$cabinet = $_POST['cabinet'];
+  $cabinet = $_POST['cabinet'];
   $numepc = $_POST['numepc'];
-
-  $nums = $_POST["ip"];
-  $ip = "";
-  for($i = 0; $i < 4; $i++) {
-    if($i == 3) {
-        $ip .= $nums[$i];
-        break;
-    }
-    $ip .= $nums[$i] . ".";
-  }
-  $ip = $ip;
-
+  $ip = $_POST['ip'];
   $mac = $_POST["mac"];
   $net = $_POST["net"];
   $coment = $_POST["coment"];

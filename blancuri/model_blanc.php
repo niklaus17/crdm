@@ -100,7 +100,7 @@ include_once("db_connect.php");
 					<td><?= $row['blanc'] ?></td>
 					<td><?= $section_name ?></td>
 					<td>
-            <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal<?= $row['id']?>">
+            <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal">
     					<i class="glyphicon glyphicon-edit text-primary"></i>
     				</a >
 						<a href="#" class="confirm-delete" data-id="<?php  echo $row["id"] ?>"><i class="glyphicon glyphicon-trash text-danger"></i></a>
@@ -130,7 +130,7 @@ include_once("db_connect.php");
 
             <!-- /.modal-For Update date -->
 
-              <div id="edit_data_Modal<?= $row['id']?>" class="modal fade">
+              <div id="edit_data_Modal" class="modal fade">
                <div class="modal-dialog">
                 <div class="modal-content">
                  <div class="modal-header">

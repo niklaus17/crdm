@@ -13,7 +13,7 @@ $desc=array (
 );
 $up=-63;
 $ut=44;
-$ttffile='C:\xampp\htdocs\1\crdm\blancuri/font/unifont/DejaVuSansCondensed-Oblique.ttf';
+$ttffile='font/unifont/DejaVuSansCondensed-Oblique.ttf';
 $originalsize=599292;
 $fontkey='dejavusanscondensed-oblique';
 ?>

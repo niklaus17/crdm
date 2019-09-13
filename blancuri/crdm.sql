@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Июл 18 2019 г., 11:34
+-- Время создания: Авг 28 2019 г., 12:33
 -- Версия сервера: 10.1.38-MariaDB
 -- Версия PHP: 7.3.2
 
@@ -337,15 +337,6 @@ CREATE TABLE `user` (
   `password` varchar(100) COLLATE utf8_romanian_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_romanian_ci;
 
---
--- Дамп данных таблицы `user`
---
-
-INSERT INTO `user` (`id`, `username`, `email`, `user_type`, `password`) VALUES
-(9, 'Niculița Nicolae', 'nicu@crdm.md', 'admin', '098f6bcd4621d373cade4e832627b4f6'),
-(11, 'Test', 'test@test.com', 'admin', '098f6bcd4621d373cade4e832627b4f6'),
-(12, 'root', 'root@root.com', 'user', '63a9f0ea7bb98050796b649e85481845');
-
 -- --------------------------------------------------------
 
 --
@@ -559,7 +550,7 @@ ALTER TABLE `uploads4`
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `violin`

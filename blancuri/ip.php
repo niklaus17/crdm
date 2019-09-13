@@ -6,10 +6,23 @@ include('navbar.php');
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css"/>
-<script src="js/ipv4_input.js"></script>
 <title>CRDM - Blancuri</title>
 
 <body>
+
+<?php
+/*
+* Getting MAC Address using PHP
+*/
+ob_start(); // Turn on output buffering
+system('ipconfig /all'); //Execute external program to display output
+$mycom=ob_get_contents(); // Capture the output into a variable
+ob_clean(); // Clean (erase) the output buffer
+$findme = "Physical";
+$pmac = strpos($mycom, $findme); // Find the position of Physical text
+$mac=substr($mycom,($pmac+36),17); // Get Physical Address
+
+?>
 
 <?php if (isset($_SESSION['user'])) { ?>
 
@@ -40,29 +53,27 @@ include('navbar.php');
           ?>
         </select><br>
 
-        <label class="col-sm-2">Cabinetul:</label>
-        <div class="col-sm-4">
-        <input type="text" name="cabinet" class="form-control">
-        </div>
+        <label>Cabinetul:</label>
+			<input type="text" name="cabinet" class="form-control" required>
+		<br>
 
-        <label class="col-sm-2">Nume PC:</label>
-        <div class="col-sm-4">
-  			<input type="text" name="numepc" class="form-control">
-        </div><br>
+        <label>Nume PC:</label>
+  			<input type="text" name="numepc" value="<?php echo gethostname()?>" class="form-control">
+        <br>
+		
 
-        <div class="col-sm-12">
-        <label>IP:</label>
-        <div id="demo" class="well"></div>
-      </div><br>
+        <label>Ip address:</label> <!-- $_SERVER['REMOTE_ADDR']; , echo gethostbyname('')-->
+			<input type="text" name="ip" value="<?php echo gethostbyname('') ?>" class="form-control">
+		 <br>
+		 
+        <label>Mac address:</label><br>
+			<input type="text" name="mac" value="<?php echo $mac ?>" class="form-control">
+		<br>
 
-        <label class="col-sm-2">Mac address:</label>
-        <div class="col-sm-4">
-        <input type="text" name="mac" class="form-control">
-      </div><br>
-
-        <label>Conexiune net:</label>&nbsp;&nbsp;
-        <input name="net" type="radio" value="Da"> Da &nbsp;&nbsp;
-        <input name="net" type="radio" value="Nu"> Nu <br><br>
+        <label>Conexiune externa net:</label>&nbsp;&nbsp;
+			<input name="net" type="radio" value="Da"> Da &nbsp;&nbsp;
+			<input name="net" type="radio" value="Nu"> Nu
+		<br><br>
 
         <label for="comment">Comentariu:</label>
         <textarea class="form-control" rows="3" name="coment" id="comment"></textarea>
@@ -144,9 +155,9 @@ include('navbar.php');
         echo $section_name;
         ?>
        </td>
-				<td><?= $row['cabinet'] ?></td>
+		<td><?= $row['cabinet'] ?></td>
         <td><?= $row['numepc'] ?></td>
-				<td><?= $row['ip'] ?></td>
+		<td><?= $row['ip'] ?></td>
         <td><?= $row['mac'] ?></td>
         <td><?= $row['net'] ?></td>
         <td><?= $row['coment'] ?></td>
@@ -156,8 +167,8 @@ include('navbar.php');
 							<?php if (isset($_SESSION['user'])) { ?>
 
             <a href="#" class="modal-edit" data-id="<?= $row['id'] ?>" type="button" data-toggle="modal" data-target="#edit_data_Modal">
-    					<i class="glyphicon glyphicon-edit text-primary"></i>
-    				</a >
+    		<i class="glyphicon glyphicon-edit text-primary"></i>
+    		</a >
           </a ><?php		}		?>
 
 
@@ -177,7 +188,7 @@ include('navbar.php');
 			<h4 class="modal-title">Confirmă ștergera</h4>
 		  </div>
 		  <div class="modal-body">
-			<p>Șterge <?php echo '<span class="text-danger" >Cab -' . $row["cabinet"] . ' &nbsp;IP:' . $row["ip"] . '</span> '; ?></p>
+			<p>Șterge <?php echo '<span class="text-danger" >Cab - ' . $row["cabinet"] . ' &nbsp;IP: ' . $row["ip"] . '</span> '; ?></p>
 		  </div>
 		  <div class="modal-footer">
 			 <a class="btn btn-danger" href="delete_ip.php?id=<?php echo $row['id'] ?>">Confirmă</a>
@@ -238,25 +249,21 @@ include('navbar.php');
     			</select>
           <br>
 
-          <label class="col-sm-2">Cabinetul:</label>
-           <div class="col-sm-4">
-          <input type="text" name="cabinet" id="cabinet" class="form-control">
-           </div>
+          <label>Cabinetul:</label>
+			<input type="text" name="cabinet" id="cabinet" class="form-control">
+          <br>
 
-           <label class="col-sm-2">Nume PC:</label>
-           <div class="col-sm-4">
-           <input type="text" name="numepc" id="numepc" class="form-control">
-           </div><br>
+           <label>Nume PC:</label>
+			<input type="text" name="numepc" id="numepc" class="form-control">
+           <br>
+		   
+		   <label>Ip address:</label>
+			<input type="text" name="ip" id="ip" class="form-control">
+		   <br>
 
-          <div class="col-sm-12">
-          <label >IP:</label>
-          <div id="demo2" class="well" ></div>
-        </div><br>
-
-          <label class="col-sm-2">Mac address:</label>
-           <div class="col-sm-4">
-          <input type="text" name="mac" id="mac" class="form-control">
-        </div><br>&nbsp;&nbsp;
+          <label>Mac address:</label>
+			<input type="text" name="mac" id="mac" class="form-control">
+          <br>&nbsp;&nbsp;
 
           <label>Conexiune net:</label><br>&nbsp;&nbsp;
           <input name="net" type="radio" id="netDa" value="Da"> Da &nbsp;&nbsp;
@@ -264,7 +271,6 @@ include('navbar.php');
 
          <label for="comment">Comentariu:</label>
          <textarea class="form-control" rows="3" name="coment" id="coment"></textarea>
-
 
   		</div>
   		<div class="modal-footer">
@@ -308,13 +314,7 @@ else {
       $(`#section_id option[value="${data[0].section_id}"]`).attr('selected', 'selected');
       $("#cabinet").val(data[0].cabinet);
       $("#numepc").val(data[0].numepc);
-      ip = data[0].ip;
-      ip = ip.split('.');
-
-      $($("#demo2 .ipv4-cell")[0]).val(ip[0]);
-      $($("#demo2 .ipv4-cell")[1]).val(ip[1]);
-      $($("#demo2 .ipv4-cell")[2]).val(ip[2]);
-      $($("#demo2 .ipv4-cell")[3]).val(ip[3]);
+	  $("#ip").val(data[0].ip);
       $("#mac").val(data[0].mac);
       $("#net").val(data[0].net);
       if (data[0].net == 'Da') {
@@ -412,17 +412,6 @@ id++
 $(this).prepend('<td>'+id+'</td>');
 });
 })
-</script>
-
-
-<script> <!-- IP -->
-		$(function() {
-			$("#demo").ipv4_input();
-			$("#demo2").ipv4_input();
-			$(".ipv4-cell").attr("name", "ip[]");
-			$(".ipv4-cell").css("width", "24%")
-
-		});
 </script>
 
 
