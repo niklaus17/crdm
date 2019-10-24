@@ -102,12 +102,17 @@ $pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
 $pdf->Cell(90,8,'Anul producerii:',1,0,'L',true);
 $pdf->SetFont('DejaVu','',12);
 $pdf->Cell(100,8,$row['anul_producerii'],1,0,'L');
+
+
 $pdf->Ln();
 $pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
-$pdf->Cell(90,8,'Nume dispozitiv:',1,0,'L',true);
+$x = $pdf->GetX();
+$y = $pdf->GetY();
+$pdf->MultiCell(90,10,'Nume dispozitiv:', 1, 1, true);
 $pdf->SetFont('DejaVu','',12);
-$pdf->Cell(100,8,$row['nume_dispozitiv4'],1,0,'L');
-$pdf->Ln();
+$pdf->SetXY($x + 90, $y);
+$pdf->MultiCell(100,5,$row['nume_dispozitiv4'], 1, 1,);
+
 $pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
 $pdf->Cell(90,8,'Model:',1,0,'L',true);
 $pdf->SetFont('DejaVu','',12);
@@ -168,7 +173,7 @@ $pdf->Ln(8);
 $pdf->SetFont('DejaVu','',12);
 $pdf->SetFillColor(255,255,255);
 $pdf->MultiCell(190,5,$row['descrierea'],1,1,'L');
-$pdf->Ln(10);
+$pdf->Ln(30);
 
 $pdf->SetFont('DejaVuSansCondensed-Bold','',12);
 $pdf->SetX(10);

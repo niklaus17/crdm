@@ -10,19 +10,16 @@ include('navbar.php');
 
 <body>
 
-<?php
-/*
-* Getting MAC Address using PHP
-*/
-ob_start(); // Turn on output buffering
-system('ipconfig /all'); //Execute external program to display output
-$mycom=ob_get_contents(); // Capture the output into a variable
-ob_clean(); // Clean (erase) the output buffer
-$findme = "Physical";
-$pmac = strpos($mycom, $findme); // Find the position of Physical text
-$mac=substr($mycom,($pmac+36),17); // Get Physical Address
-
-?>
+      <?php
+      /*
+      * Getting IP Address using PHP
+      */
+      if(isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARTDED_FOR'] != '') {
+         $ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
+      } else {
+         $ip_address = $_SERVER['REMOTE_ADDR'];
+      }
+      ?>
 
 <?php if (isset($_SESSION['user'])) { ?>
 
@@ -58,16 +55,16 @@ $mac=substr($mycom,($pmac+36),17); // Get Physical Address
 		<br>
 
         <label>Nume PC:</label>
-  			<input type="text" name="numepc" value="<?php echo gethostname()?>" class="form-control">
+  			<input type="text" name="numepc" value="<?php echo gethostbyaddr($_SERVER['REMOTE_ADDR']); ?>" class="form-control">
         <br>
-		
 
-        <label>Ip address:</label> <!-- $_SERVER['REMOTE_ADDR']; , echo gethostbyname('')-->
-			<input type="text" name="ip" value="<?php echo gethostbyname('') ?>" class="form-control">
+
+        <label>Ip address:</label>
+			<input type="text" name="ip" value="<?php echo $ip_address ?>" class="form-control">
 		 <br>
-		 
+
         <label>Mac address:</label><br>
-			<input type="text" name="mac" value="<?php echo $mac ?>" class="form-control">
+			<input type="text" name="mac" value="" class="form-control">
 		<br>
 
         <label>Conexiune externa net:</label>&nbsp;&nbsp;
@@ -256,7 +253,7 @@ $mac=substr($mycom,($pmac+36),17); // Get Physical Address
            <label>Nume PC:</label>
 			<input type="text" name="numepc" id="numepc" class="form-control">
            <br>
-		   
+
 		   <label>Ip address:</label>
 			<input type="text" name="ip" id="ip" class="form-control">
 		   <br>
