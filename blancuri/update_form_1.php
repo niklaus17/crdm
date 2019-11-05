@@ -8,6 +8,7 @@ if(isset($_POST['btn-update_1']))
   $cabinet = $_POST["cabinet"];
   $section_id = $_POST["section_id"];
   $executor = $_POST["executor"];
+  $data1 = $_POST['data1'];
   $nume_dispozitiv = $_POST["nume_dispozitiv"];
   $anul_producerii_dispozitiv = $_POST["anul_producerii_dispozitiv"];
   $model_dispozitiv = $_POST["model_dispozitiv"];
@@ -36,7 +37,7 @@ if(isset($_POST['btn-update_1']))
   $furnizor2 = $_POST["furnizor2"];
   $name = $_SESSION['user']['username'];
 
-  $query = "UPDATE formular SET cabinet='$cabinet', section_id='$section_id', executor='$executor', nume_dispozitiv='$nume_dispozitiv', anul_producerii_dispozitiv='$anul_producerii_dispozitiv',
+  $query = "UPDATE formular SET cabinet='$cabinet', section_id='$section_id', executor='$executor', data1='$data1', nume_dispozitiv='$nume_dispozitiv', anul_producerii_dispozitiv='$anul_producerii_dispozitiv',
   model_dispozitiv='$model_dispozitiv', nr_serie_dispozitiv='$nr_serie_dispozitiv', producator_dispozitiv='$producator_dispozitiv', numar_inventar='$numar_inventar',
   denumire_piesa='$denumire_piesa', model_piesa='$model_piesa', producator_piesa='$producator_piesa', anul_producerii_piesa='$anul_producerii_piesa', nr_serie_dispozitiv_piesa='$nr_serie_dispozitiv_piesa',
   part_number='$part_number', denumire_piesa_instal='$denumire_piesa_instal', model_piesa_instal='$model_piesa_instal', producator_piesa_instal='$producator_piesa_instal',

@@ -5,6 +5,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap v3.4.0.css"> -->
   <link rel="shortcut icon" href="img/logo.png" />
   <link href="dist/css/datepicker.min.css" rel="stylesheet" type="text/css">
 </head>

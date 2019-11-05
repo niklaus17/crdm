@@ -6,6 +6,7 @@ if(isset($_POST['btn-upload']))
 
   $id = $_POST['id'];
 
+  $data4 = $_POST['data4'];
   $chek1_4 = $_POST["chek1_4"];
   $institutia = $_POST['institutia'];
   $locatia = $_POST['locatia'];
@@ -35,10 +36,10 @@ if(isset($_POST['btn-upload']))
   $inginer3_4 = $_POST["inginer3_4"];
   $name = $_SESSION['user']['username'];
 
- 	$sql="INSERT INTO formular_4(chek1_4, institutia, locatia, numar_inventar4, data_non, producator, anul_producerii, nume_dispozitiv4, model, numar_serie, numar_inventar2_4, uzura, data_exploatare,
+ 	$sql="INSERT INTO formular_4(data4, chek1_4, institutia, locatia, numar_inventar4, data_non, producator, anul_producerii, nume_dispozitiv4, model, numar_serie, numar_inventar2_4, uzura, data_exploatare,
     termen, pret, valoarea, descrierea, cauza, nota, beneficiar4, contabil, it, inginer1_4, inginer2_4, inginer3_4, name)
 
-        VALUES('$chek1_4', '$institutia', '$locatia', '$numar_inventar4', '$data_non', '$producator', '$anul_producerii', '$nume_dispozitiv4', '$model', '$numar_serie', '$numar_inventar2_4', '$uzura',
+        VALUES('$data4', '$chek1_4', '$institutia', '$locatia', '$numar_inventar4', '$data_non', '$producator', '$anul_producerii', '$nume_dispozitiv4', '$model', '$numar_serie', '$numar_inventar2_4', '$uzura',
           '$data_exploatare', '$termen', '$pret', '$valoarea', '$descrierea', '$cauza', '$nota', '$beneficiar4', '$contabil', '$it', '$inginer1_4', '$inginer2_4', '$inginer3_4', '$name')";
 
  	mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));

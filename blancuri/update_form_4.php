@@ -6,6 +6,7 @@ if(isset($_POST['btn-update_4']))
 
   $id = $_POST['id'];
 
+  $data4 = $_POST["data4"];
   $chek1_4 = $_POST["chek1_4"];
   $institutia = $_POST["institutia"];
   $locatia = $_POST["locatia"];
@@ -33,7 +34,7 @@ if(isset($_POST['btn-update_4']))
   $inginer3_4 = $_POST["inginer3_4"];
   $name = $_SESSION['user']['username'];
 
-  $query = "UPDATE formular_4 SET chek1_4='$chek1_4', institutia='$institutia', locatia='$locatia', numar_inventar4='$numar_inventar4', data_non='$data_non',
+  $query = "UPDATE formular_4 SET data4='$data4', chek1_4='$chek1_4', institutia='$institutia', locatia='$locatia', numar_inventar4='$numar_inventar4', data_non='$data_non',
   producator='$producator', anul_producerii='$anul_producerii', nume_dispozitiv4='$nume_dispozitiv4', model='$model', numar_serie='$numar_serie',
   numar_inventar2_4='$numar_inventar2_4', uzura='$uzura', data_exploatare='$data_exploatare', termen='$termen', pret='$pret', valoarea='$valoarea',
   descrierea='$descrierea', cauza='$cauza', nota='$nota', beneficiar4='$beneficiar4', contabil='$contabil', it='$it', inginer1_4='$inginer1_4',

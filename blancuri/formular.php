@@ -49,8 +49,8 @@ include('navbar.php');
                     <td>
                       <input type="text" name="cabinet" class="form-control" required>
                     </td>
-                    <th rowspan="2" style="vertical-align: middle;">Executor:</th>
-                    <td rowspan="2" style="vertical-align: middle;">
+                    <th style="vertical-align: middle;">Executor:</th>
+                    <td>
                       <input type="text" name="executor" class="form-control" required>
                     </td>
                   </tr>
@@ -69,6 +69,10 @@ include('navbar.php');
                           }
                       ?>
                       </select>
+                    </td>
+                    <th style="vertical-align: middle;">Data efectuării:</th>
+                    <td>
+                      <input type="text" name="data1" class="form-control datepicker-here" value="" placeholder="yyyy-mm-dd" required>
                     </td>
                   </tr>
                 </table>
@@ -203,7 +207,7 @@ include('navbar.php');
                 <table class="table table-bordered">
                   <tr>
                     <td><strong>Beneficiar:</strong></td>
-                    <td><strong>Executor/Furnizor:</strong></td>
+                    <td><strong>Executor/Inginer:</strong></td>
                   </tr>
                   <tr>
                     <td>
@@ -246,8 +250,8 @@ include('navbar.php');
                     <td>
                       <input type="text" name="cabinet2" class="form-control" required>
                     </td>
-                    <th rowspan="2" style="vertical-align: middle;">Executor:</th>
-                    <td rowspan="2" style="vertical-align: middle;">
+                    <th style="vertical-align: middle;">Executor:</th>
+                    <td style="vertical-align: middle;">
                       <input type="text" name="executor2" class="form-control" required>
                     </td>
                   </tr>
@@ -266,6 +270,10 @@ include('navbar.php');
                           }
                       ?>
                       </select>
+                    </td>
+                    <th style="vertical-align: middle;">Data efectuării:</th>
+                    <td>
+                      <input type="text" name="data2" class="form-control datepicker-here" value="" placeholder="yyyy-mm-dd" required>
                     </td>
                   </tr>
                 </table>
@@ -389,8 +397,8 @@ include('navbar.php');
                     <td>
                       <input type="text" name="cabinet3" class="form-control" required>
                     </td>
-                    <th rowspan="2" style="vertical-align: middle;">Executor:</th>
-                    <td rowspan="2" style="vertical-align: middle;">
+                    <th style="vertical-align: middle;">Executor:</th>
+                    <td style="vertical-align: middle;">
                       <input type="text" name="executor3" class="form-control" required>
                     </td>
                   </tr>
@@ -409,6 +417,10 @@ include('navbar.php');
                           }
                       ?>
                       </select>
+                    </td>
+                    <th style="vertical-align: middle;">Data efectuării:</th>
+                    <td>
+                      <input type="text" name="data3" class="form-control datepicker-here" value="" placeholder="yyyy-mm-dd" required>
                     </td>
                   </tr>
                 </table>
@@ -563,8 +575,12 @@ include('navbar.php');
                 <label>Formular de:</label> &nbsp;&nbsp;
                 <input name="chek1_4" type="radio" value="defectare" required> Defectare &nbsp;&nbsp;
                 <input name="chek1_4" type="radio" value="conservare" required> Conservare &nbsp;&nbsp;
-                <input name="chek1_4" type="radio" value="casare" required> Casare<br>
+                <input name="chek1_4" type="radio" value="casare" required> Casare &nbsp;&nbsp;
 
+                <label>Data efectuării:</label>
+                <label>
+                <input type="text" name="data4" class="form-control datepicker-here" value="" placeholder="yyyy-mm-dd" required>
+                </label><br>
                 <label>Se completează de către secția medicală:</label>
                 <table class="table table-bordered">
                   <tr>
@@ -748,6 +764,7 @@ include('navbar.php');
                               <div class='col-lg-12 well well-add-card'>
                                 <h4>Cabinetul: <?= $row['cabinet'] ?></h4>
                                 <h4>Nr. inventar: <?= $row['numar_inventar'] ?></h4>
+                                <h4>Data efectuării: <?= explode(' ', $row['data1'])[0] ?></h4>
                               </div>
                               <div class='col-lg-12'>
 
@@ -853,6 +870,7 @@ include('navbar.php');
                         <div class='col-lg-12 well well-add-card'>
                           <h4>Cabinetul: <?= $row['cabinet2'] ?></h4>
                           <h4>Nr. inventar: <?= $row['numar_inventar2'] ?></h4>
+                          <h4>Data efectuării: <?= explode(' ', $row['data2'])[0] ?></h4>
                         </div>
                         <div class='col-lg-12'>
 
@@ -960,6 +978,7 @@ include('navbar.php');
                         <div class='col-lg-12 well well-add-card'>
                           <h4>Cabinetul: <?= $row['cabinet3'] ?></h4>
                           <h4>Nr. inventar: <?= $row['numar_inventar3'] ?></h4>
+                          <h4>Data efectuării: <?= explode(' ', $row['data3'])[0] ?></h4>
                         </div>
                         <div class='col-lg-12'>
 
@@ -1066,6 +1085,7 @@ include('navbar.php');
                         <div class='col-lg-12 well well-add-card'>
                           <h4>Numar inventar: <?= $row['numar_inventar4'] ?></h4>
                           <h4>Nume dispozitiv: <?= $row['nume_dispozitiv4'] ?></h4>
+                          <h4>Data efectuării: <?= explode(' ', $row['data4'])[0] ?></h4>
                         </div>
                         <div class='col-lg-12'>
 
@@ -1278,8 +1298,8 @@ include('navbar.php');
                     <td>
                       <input type="text" name="cabinet" id="cabinet" class="form-control" required>
                     </td>
-                    <th rowspan="2" style="vertical-align: middle;">Executor:</th>
-                    <td rowspan="2" style="vertical-align: middle;">
+                    <th>Executor:</th>
+                    <td>
                       <input type="text" name="executor" id="executor" class="form-control" required>
                     </td>
                   </tr>
@@ -1298,6 +1318,10 @@ include('navbar.php');
                           }
                       ?>
                       </select>
+                    </td>
+                    <th style="vertical-align: middle;">Data efectuării:</th>
+                    <td>
+                      <input type="text" name="data1" id="data1" class="form-control datepicker-here" autocomplete="off" placeholder="yyyy-mm-dd" required>
                     </td>
                   </tr>
                 </table>
@@ -1473,8 +1497,8 @@ include('navbar.php');
                    <td>
                      <input type="text" name="cabinet2" id="cabinet2" class="form-control" required>
                    </td>
-                   <th rowspan="2" style="vertical-align: middle;">Executor:</th>
-                   <td rowspan="2" style="vertical-align: middle;">
+                   <th>Executor:</th>
+                   <td>
                      <input type="text" name="executor2" id="executor2" class="form-control" required>
                    </td>
                  </tr>
@@ -1492,6 +1516,10 @@ include('navbar.php');
                          }
                      ?>
                      </select>
+                   </td>
+                   <th style="vertical-align: middle;">Data efectuării:</th>
+                   <td>
+                     <input type="text" name="data2" id="data2" class="form-control datepicker-here" autocomplete="off" placeholder="yyyy-mm-dd" required>
                    </td>
                  </tr>
                </table>
@@ -1613,8 +1641,8 @@ include('navbar.php');
                      <td>
                        <input type="text" name="cabinet3" id="cabinet3" class="form-control" required>
                      </td>
-                     <th rowspan="2" style="vertical-align: middle;">Executor:</th>
-                     <td rowspan="2" style="vertical-align: middle;">
+                     <th>Executor:</th>
+                     <td>
                        <input type="text" name="executor3" id="executor3" class="form-control" required>
                      </td>
                    </tr>
@@ -1632,6 +1660,10 @@ include('navbar.php');
                            }
                        ?>
                        </select>
+                     </td>
+                     <th style="vertical-align: middle;">Data efectuării:</th>
+                     <td>
+                       <input type="text" name="data3" id="data3" class="form-control datepicker-here" autocomplete="off" placeholder="yyyy-mm-dd" required>
                      </td>
                    </tr>
                  </table>
@@ -1783,7 +1815,12 @@ include('navbar.php');
                    <label>Formular de:</label> &nbsp;&nbsp;
                    <input name="chek1_4" type="radio" value="defectare" id="defectare"> Defectare &nbsp;&nbsp;
                    <input name="chek1_4" type="radio" value="conservare" id="conservare"> Conservare &nbsp;&nbsp;
-                   <input name="chek1_4" type="radio" value="casare" id="casare"> Casare<br>
+                   <input name="chek1_4" type="radio" value="casare" id="casare"> Casare &nbsp;&nbsp;
+
+                   <label>Data efectuării:</label>
+                   <label>
+                   <input type="text" name="data4" id="data4" class="form-control datepicker-here" autocomplete="off" placeholder="yyyy-mm-dd" required>
+                   </label><br>
 
                    <label>Se completează de către secția medicală:</label>
                    <table class="table table-bordered">
@@ -2018,6 +2055,7 @@ else {
               $("#cabinet").val(data[0].cabinet);
               $(`#section_id option[value="${data[0].section_id}"]`).attr('selected', 'selected');
               $("#executor").val(data[0].executor);
+              $("#data1").val(data[0].data1);
               $("#nume_dispozitiv").val(data[0].nume_dispozitiv);
               $("#anul_producerii_dispozitiv").val(data[0].anul_producerii_dispozitiv);
               $("#model_dispozitiv").val(data[0].model_dispozitiv);
@@ -2068,6 +2106,7 @@ else {
               $("#cabinet2").val(data[0].cabinet2);
               $(`#section_id option[value="${data[0].section_id}"]`).attr('selected', 'selected');
               $("#executor2").val(data[0].executor2);
+              $("#data2").val(data[0].data2);
               $("#nume_dispozitiv2").val(data[0].nume_dispozitiv2);
               $("#anul_producerii_dispozitiv2").val(data[0].anul_producerii_dispozitiv2);
               $("#model_dispozitiv2").val(data[0].model_dispozitiv2);
@@ -2108,6 +2147,7 @@ else {
               $("#cabinet3").val(data[0].cabinet3);
               $(`#section_id option[value="${data[0].section_id}"]`).attr('selected', 'selected');
               $("#executor3").val(data[0].executor3);
+              $("#data3").val(data[0].data3);
               $("#nume_dispozitiv3").val(data[0].nume_dispozitiv3);
               $("#anul_producerii_dispozitiv3").val(data[0].anul_producerii_dispozitiv3);
               $("#model_dispozitiv3").val(data[0].model_dispozitiv3);
@@ -2166,6 +2206,7 @@ else {
               }
 
               $("#institutia").val(data[0].institutia);
+              $("#data4").val(data[0].data4);
               $("#locatia").val(data[0].locatia);
               $("#numar_inventar4").val(data[0].numar_inventar4);
               $("#data_non").val(data[0].data_non);

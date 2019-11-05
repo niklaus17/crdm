@@ -9,6 +9,7 @@ if(isset($_POST['btn-upload']))
   $cabinet3 = $_POST['cabinet3'];
   $section_id = $_POST['section_id'];
   $executor3 = $_POST['executor3'];
+  $data3 = $_POST['data3'];
  	$nume_dispozitiv3 = $_POST['nume_dispozitiv3'];
 	$anul_producerii_dispozitiv3 = $_POST["anul_producerii_dispozitiv3"];
   $model_dispozitiv3 = $_POST["model_dispozitiv3"];
@@ -38,11 +39,11 @@ if(isset($_POST['btn-upload']))
   $inginer3_3 = $_POST["inginer3_3"];
   $name = $_SESSION['user']['username'];
 
- 	$sql="INSERT INTO formular_3(cabinet3, section_id, executor3, nume_dispozitiv3, anul_producerii_dispozitiv3, model_dispozitiv3, nr_serie_dispozitiv3,
+ 	$sql="INSERT INTO formular_3(cabinet3, section_id, executor3, data3, nume_dispozitiv3, anul_producerii_dispozitiv3, model_dispozitiv3, nr_serie_dispozitiv3,
     producator_dispozitiv3, numar_inventar3, model_1_3, model_2_3, model_3_3, model_4_3, nr_serie_1_3, nr_serie_2_3, nr_serie_3_3, nr_serie_4_3,
     chek1_3, respons, chek2_3, luni3, comentarii3, beneficiar3, inginer1_3, inginer2_3, inginer3_3, name)
 
-        VALUES('$cabinet3', '$section_id', '$executor3', '$nume_dispozitiv3', '$anul_producerii_dispozitiv3', '$model_dispozitiv3', '$nr_serie_dispozitiv3',
+        VALUES('$cabinet3', '$section_id', '$executor3', '$data3', '$nume_dispozitiv3', '$anul_producerii_dispozitiv3', '$model_dispozitiv3', '$nr_serie_dispozitiv3',
           '$producator_dispozitiv3', '$numar_inventar3', '$model_1_3', '$model_2_3', '$model_3_3', '$model_4_3', '$nr_serie_1_3', '$nr_serie_2_3', '$nr_serie_3_3',
           '$nr_serie_4_3', '$chek1_3', '$respons', '$chek2_3', '$luni3', '$comentarii3', '$beneficiar3', '$inginer1_3', '$inginer2_3', '$inginer2_3', '$name')";
 

@@ -33,10 +33,10 @@ $pdf->AddFont('DejaVu','','DejaVuSansCondensed.ttf',true);
 $pdf->SetFont('DejaVu','',12);
 
 // Move to the right
-$pdf->SetX(118);
-$pdf->Cell(10,6,'Nume/Prenume',0,0);
+$pdf->SetX(98);
+$pdf->Cell(10,6,'Directorului al IMSP CRDM',0,0);
 $pdf->SetX(155);
-$pdf->Cell(10,6,'VERBENIUC Vitalie',0,0);
+$pdf->Cell(10,6,'__________________',0,0);
 $pdf->Ln(7);
 $pdf->SetX(139);
 $pdf->Cell(10,6,'Data',0,0,'C');
@@ -48,12 +48,12 @@ $pdf->Cell(10,6,'Aprobat',0,0,'C');
 $pdf->SetX(170);
 $pdf->Cell(6,6,'__________________',0,0,'C');
 // Line break
-$pdf->Ln(20);
+$pdf->Ln(15);
 $pdf->SetFillColor(217,217,217);
 $pdf->SetX(10);
 $pdf->SetFont('DejaVuSansCondensed-Bold','',12);
 $pdf->Cell(190,6,'Formular de defectare a dispozitivului medical',0,0,'C',true);
-$pdf->Ln(20);
+$pdf->Ln(10);
 
 $id = $_GET['id'];
 $query = "SELECT * FROM formular_4 where id = '$id'";
@@ -86,7 +86,7 @@ $pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
 $pdf->Cell(90,8,'Data de non-utilizare a dispozitivului medical:',1,0,'L',true);
 $pdf->SetFont('DejaVu','',12);
 $pdf->Cell(100,8,$row['data_non'],1,0,'L');
-$pdf->Ln(15);
+$pdf->Ln(10);
 
 $pdf->SetFont('DejaVuSansCondensed-Bold','',12);
 $pdf->SetX(10);
@@ -127,7 +127,7 @@ $pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
 $pdf->Cell(90,8,'Număr inventar:',1,0,'L',true);
 $pdf->SetFont('DejaVu','',12);
 $pdf->Cell(100,8,$row['numar_inventar2_4'],1,0,'L');
-$pdf->Ln(15);
+$pdf->Ln(10);
 
 $pdf->SetFont('DejaVuSansCondensed-Bold','',12);
 $pdf->SetX(10);
@@ -163,7 +163,7 @@ $pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
 $pdf->Cell(90,8,'Valoarea curentă a dispozitivului:',1,0,'L',true);
 $pdf->SetFont('DejaVu','',12);
 $pdf->Cell(100,8,$row['valoarea'],1,0,'L');
-$pdf->Ln(15);
+$pdf->Ln(10);
 
 $pdf->SetFont('DejaVuSansCondensed-Bold','',12);
 $pdf->SetX(10);
@@ -173,7 +173,7 @@ $pdf->Ln(8);
 $pdf->SetFont('DejaVu','',12);
 $pdf->SetFillColor(255,255,255);
 $pdf->MultiCell(190,5,$row['descrierea'],1,1,'L');
-$pdf->Ln(30);
+$pdf->Ln(10);
 
 $pdf->SetFont('DejaVuSansCondensed-Bold','',12);
 $pdf->SetX(10);
@@ -193,7 +193,7 @@ $pdf->Ln(8);
 $pdf->SetFont('DejaVu','',12);
 $pdf->SetFillColor(255,255,255);
 $pdf->MultiCell(190,5,$row['nota'],1,1,'L');
-$pdf->Ln(30);
+$pdf->Ln(10);
 
 // Beneficiari
 if(strlen($row['beneficiar4']) > 0) {

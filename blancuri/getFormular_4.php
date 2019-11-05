@@ -13,6 +13,7 @@ while($row = mysqli_fetch_array($result)){
 
   $id = $row['id'];
 
+  $data4 = $row['data4'];
   $chek1_4 = $row["chek1_4"];
   $institutia = $row['institutia'];
   $locatia = $row['locatia'];
@@ -44,6 +45,7 @@ while($row = mysqli_fetch_array($result)){
     array_push($return_arr, array(
       'id' => $id,
 
+      'data4' => $data4,
       'chek1_4' => $chek1_4,
       'institutia' => $institutia,
       'locatia' => $locatia,

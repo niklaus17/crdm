@@ -9,6 +9,7 @@ if(isset($_POST['btn-upload']))
   $cabinet2 = $_POST['cabinet2'];
   $section_id = $_POST['section_id'];
   $executor2 = $_POST['executor2'];
+  $data2 = $_POST['data2'];
  	$nume_dispozitiv2 = $_POST['nume_dispozitiv2'];
 	$anul_producerii_dispozitiv2 = $_POST["anul_producerii_dispozitiv2"];
   $model_dispozitiv2 = $_POST["model_dispozitiv2"];
@@ -29,10 +30,10 @@ if(isset($_POST['btn-upload']))
   $inginer3 = $_POST["inginer3"];
   $name = $_SESSION['user']['username'];
 
- 	$sql="INSERT INTO formular_2(cabinet2, section_id, executor2, nume_dispozitiv2, anul_producerii_dispozitiv2, model_dispozitiv2, nr_serie_dispozitiv2,
+ 	$sql="INSERT INTO formular_2(cabinet2, section_id, executor2, data2, nume_dispozitiv2, anul_producerii_dispozitiv2, model_dispozitiv2, nr_serie_dispozitiv2,
     producator_dispozitiv2, numar_inventar2, desc_defect, cauza_defect, actiuni, data_instalarii2, ore, chek, materiale, comentarii2, beneficiar2, inginer1, inginer2, inginer3, name)
 
-        VALUES('$cabinet2', '$section_id', '$executor2', '$nume_dispozitiv2', '$anul_producerii_dispozitiv2', '$model_dispozitiv2', '$nr_serie_dispozitiv2',
+        VALUES('$cabinet2', '$section_id', '$executor2', '$data2', '$nume_dispozitiv2', '$anul_producerii_dispozitiv2', '$model_dispozitiv2', '$nr_serie_dispozitiv2',
           '$producator_dispozitiv2', '$numar_inventar2', '$desc_defect', '$cauza_defect', '$actiuni', '$data_instalarii2', '$ore', '$chek', '$materiale', '$comentarii2', '$beneficiar2', '$inginer1', '$inginer2', '$inginer3', '$name')";
 
  	mysqli_query($conn, $sql) or die("database error: ". mysqli_error($conn));
