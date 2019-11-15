@@ -41,6 +41,10 @@ include('navbar.php');
             <form action="upload_formular.php" method="post" enctype="multipart/form-data" id="insert_form">
 
               <div class="modal-body">
+                <label>Vicedirectorului DTI și TM:</label>
+                <label>
+                  <input type="text" name="director1" class="form-control">
+                </label><br>
 
                 <label>Date beneficiar:</label>
                 <table class="table table-bordered">
@@ -242,6 +246,10 @@ include('navbar.php');
             <form action="upload_formular_2.php" method="post" enctype="multipart/form-data" id="insert_form_2">
 
               <div class="modal-body">
+                <label>Vicedirectorului DTI și TM:</label>
+                <label>
+                  <input type="text" name="director2" class="form-control">
+                </label><br>
 
                 <label>Date beneficiar:</label>
                 <table class="table table-bordered">
@@ -389,6 +397,10 @@ include('navbar.php');
             <form action="upload_formular_3.php" method="post" enctype="multipart/form-data" id="insert_form_3">
 
               <div class="modal-body">
+                <label>Vicedirectorului DTI și TM:</label>
+                <label>
+                  <input type="text" name="director3" class="form-control">
+                </label><br>
 
                 <label>Date beneficiar:</label>
                 <table class="table table-bordered">
@@ -571,6 +583,10 @@ include('navbar.php');
             <form action="upload_formular_4.php" method="post" enctype="multipart/form-data" id="insert_form_4">
 
               <div class="modal-body">
+                <label>Directorului al IMSP CRDM:</label>
+                <label>
+                  <input type="text" name="director4" class="form-control">
+                </label><br>
 
                 <label>Formular de:</label> &nbsp;&nbsp;
                 <input name="chek1_4" type="radio" value="defectare" required> Defectare &nbsp;&nbsp;
@@ -579,7 +595,7 @@ include('navbar.php');
 
                 <label>Data efectuării:</label>
                 <label>
-                <input type="text" name="data4" class="form-control datepicker-here" value="" placeholder="yyyy-mm-dd" required>
+                  <input type="text" name="data4" class="form-control datepicker-here" value="" placeholder="yyyy-mm-dd" required>
                 </label><br>
                 <label>Se completează de către secția medicală:</label>
                 <table class="table table-bordered">
@@ -1291,6 +1307,10 @@ include('navbar.php');
         		<div class="modal-body">
 
         			<form action="update_form_1.php" method="post" enctype="multipart/form-data" id="edit_form">
+                <label>Vicedirectorului DTI și TM:</label>
+                <label>
+                  <input type="text" name="director1" id="director1" class="form-control" required>
+                </label><br>
                 <label>Date beneficiar:</label>
                 <table class="table table-bordered">
                   <tr>
@@ -1490,6 +1510,10 @@ include('navbar.php');
              <div class="modal-body">
                <form action="update_form_2.php" method="post" enctype="multipart/form-data" id="edit_form_2">
                  <input type="hidden" name="id" id="id2" value="">
+                 <label>Vicedirectorului DTI și TM:</label>
+                 <label>
+                   <input type="text" name="director2" id="director2" class="form-control" required>
+                 </label><br>
                <label>Date beneficiar:</label>
                <table class="table table-bordered">
                  <tr>
@@ -1634,6 +1658,10 @@ include('navbar.php');
              <div class="modal-body">
                <form action="update_form_3.php" method="post" enctype="multipart/form-data" id="edit_form">
                  <input type="hidden" name="id" id="id3" value="">
+                 <label>Vicedirectorului DTI și TM:</label>
+                 <label>
+                   <input type="text" name="director3" id="director3" class="form-control" required>
+                 </label><br>
                  <label>Date beneficiar:</label>
                  <table class="table table-bordered">
                    <tr>
@@ -1812,6 +1840,10 @@ include('navbar.php');
 
                  <form action="update_form_4.php" method="post" enctype="multipart/form-data" id="edit_form4">
                     <input type="hidden" name="id" id="id4" value="">
+                    <label>Directorului al IMSP CRDM:</label>
+                    <label>
+                      <input type="text" name="director4" id="director4" class="form-control" required>
+                    </label><br>
                    <label>Formular de:</label> &nbsp;&nbsp;
                    <input name="chek1_4" type="radio" value="defectare" id="defectare"> Defectare &nbsp;&nbsp;
                    <input name="chek1_4" type="radio" value="conservare" id="conservare"> Conservare &nbsp;&nbsp;
@@ -2052,6 +2084,7 @@ else {
             $.get("getFormular.php", {id: id}).done( function(data) {
               data = JSON.parse(data);
               $("#edit-section-id").val(data[0].id);
+              $("#director1").val(data[0].director1);
               $("#cabinet").val(data[0].cabinet);
               $(`#section_id option[value="${data[0].section_id}"]`).attr('selected', 'selected');
               $("#executor").val(data[0].executor);
@@ -2102,7 +2135,7 @@ else {
             $.get("getFormular_2.php", {id: id}).done( function(data) {
               data = JSON.parse(data);
               $('#id2').val(data[0].id);
-
+              $("#director2").val(data[0].director2);
               $("#cabinet2").val(data[0].cabinet2);
               $(`#section_id option[value="${data[0].section_id}"]`).attr('selected', 'selected');
               $("#executor2").val(data[0].executor2);
@@ -2143,7 +2176,7 @@ else {
             $.get("getFormular_3.php", {id: id}).done( function(data) {
               data = JSON.parse(data);
               $('#id3').val(data[0].id);
-
+              $("#director3").val(data[0].director3);
               $("#cabinet3").val(data[0].cabinet3);
               $(`#section_id option[value="${data[0].section_id}"]`).attr('selected', 'selected');
               $("#executor3").val(data[0].executor3);
@@ -2204,7 +2237,7 @@ else {
               if(data[0].chek1_4.length > 0) {
                 $('#' + data[0].chek1_4 ).prop("checked", true);
               }
-
+              $("#director4").val(data[0].director4);
               $("#institutia").val(data[0].institutia);
               $("#data4").val(data[0].data4);
               $("#locatia").val(data[0].locatia);

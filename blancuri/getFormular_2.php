@@ -12,6 +12,7 @@ $result = mysqli_query($conn,$query);
 while($row = mysqli_fetch_array($result)){
 
   $id = $row['id'];
+  $director2 = $row['director2'];
   $cabinet2 = $row['cabinet2'];
   $section_id = $row['section_id'];
   $executor2 = $row['executor2'];
@@ -37,6 +38,7 @@ while($row = mysqli_fetch_array($result)){
 
     array_push($return_arr, array(
       'id' => $id,
+      'director2' => $director2,
       'cabinet2' => $cabinet2,
       'section_id' => $section_id,
       'executor2' => $executor2,

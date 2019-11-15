@@ -27,6 +27,13 @@ $pdf->AddPage();
 $pdf->AliasNbPages();
 
 
+$id = $_GET['id'];
+$query = "SELECT * FROM formular_4 where id = '$id'";
+
+$result = mysqli_query($conn,$query);
+$row = $from_date = mysqli_fetch_assoc($result);
+
+
 $pdf->AddFont('DejaVuSansCondensed-Bold','','DejaVuSansCondensed-Bold.ttf',true);
 $pdf->AddFont('DejaVuSansCondensed-Oblique','','DejaVuSansCondensed-Oblique.ttf',true);
 $pdf->AddFont('DejaVu','','DejaVuSansCondensed.ttf',true);
@@ -36,12 +43,12 @@ $pdf->SetFont('DejaVu','',12);
 $pdf->SetX(98);
 $pdf->Cell(10,6,'Directorului al IMSP CRDM',0,0);
 $pdf->SetX(155);
-$pdf->Cell(10,6,'__________________',0,0);
+$pdf->Cell(10,6,$row['director4'],0,0);
 $pdf->Ln(7);
 $pdf->SetX(139);
 $pdf->Cell(10,6,'Data',0,0,'C');
 $pdf->SetX(155);
-$pdf->Cell(10,6,'__________________');
+$pdf->Cell(10,6,explode(' ', $row['data4'])[0]);
 $pdf->Ln(7);
 $pdf->SetX(136);
 $pdf->Cell(10,6,'Aprobat',0,0,'C');
@@ -54,12 +61,6 @@ $pdf->SetX(10);
 $pdf->SetFont('DejaVuSansCondensed-Bold','',12);
 $pdf->Cell(190,6,'Formular de defectare a dispozitivului medical',0,0,'C',true);
 $pdf->Ln(10);
-
-$id = $_GET['id'];
-$query = "SELECT * FROM formular_4 where id = '$id'";
-
-$result = mysqli_query($conn,$query);
-$row = $from_date = mysqli_fetch_assoc($result);
 
 $pdf->SetFont('DejaVuSansCondensed-Bold','',12);
 $pdf->SetX(10);
@@ -103,7 +104,6 @@ $pdf->Cell(90,8,'Anul producerii:',1,0,'L',true);
 $pdf->SetFont('DejaVu','',12);
 $pdf->Cell(100,8,$row['anul_producerii'],1,0,'L');
 
-
 $pdf->Ln();
 $pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
 $x = $pdf->GetX();
@@ -111,7 +111,8 @@ $y = $pdf->GetY();
 $pdf->MultiCell(90,10,'Nume dispozitiv:', 1, 1, true);
 $pdf->SetFont('DejaVu','',12);
 $pdf->SetXY($x + 90, $y);
-$pdf->MultiCell(100,5,$row['nume_dispozitiv4'], 1, 1,);
+$pdf->MultiCell(100,5,$row['nume_dispozitiv4'], 1, 1);
+$x = $x + 10;
 
 $pdf->SetFont('DejaVuSansCondensed-Bold','',10,5);
 $pdf->Cell(90,8,'Model:',1,0,'L',true);

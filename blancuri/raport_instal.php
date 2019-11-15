@@ -26,6 +26,12 @@ class PDF extends tFPDF
   //foter page
   $pdf->AliasNbPages();
 
+  $id = $_GET['id'];
+  $query = "SELECT * FROM formular where id = '$id'";
+
+  $result = mysqli_query($conn,$query);
+  $row = $from_date = mysqli_fetch_assoc($result);
+
 
   $pdf->AddFont('DejaVuSansCondensed-Bold','','DejaVuSansCondensed-Bold.ttf',true);
   $pdf->AddFont('DejaVuSansCondensed-Oblique','','DejaVuSansCondensed-Oblique.ttf',true);
@@ -33,15 +39,15 @@ class PDF extends tFPDF
   $pdf->SetFont('DejaVu','',12);
 
 // Move to the right
-$pdf->SetX(118);
+$pdf->SetX(99);
 $pdf->Cell(10,6,'Vicedirectorului DTI și TM',0,0);
 $pdf->SetX(155);
-$pdf->Cell(10,6,'__________________',0,0);
+$pdf->Cell(10,6,$row['director1'],0,0);
 $pdf->Ln(7);
 $pdf->SetX(139);
 $pdf->Cell(10,6,'Data',0,0,'C');
 $pdf->SetX(155);
-$pdf->Cell(10,6,'__________________');
+$pdf->Cell(10,6,explode(' ', $row['data1'])[0]);
 $pdf->Ln(7);
 $pdf->SetX(136);
 $pdf->Cell(10,6,'Aprobat',0,0,'C');
@@ -54,12 +60,6 @@ $pdf->SetX(10);
 $pdf->SetFont('DejaVuSansCondensed-Bold','',12);
 $pdf->Cell(190,6,'Formular de instalare a piesei de schimb/accesoriu la dispozitivul medical',0,0,'C',true);
 $pdf->Ln(10);
-
-$id = $_GET['id'];
-$query = "SELECT * FROM formular where id = '$id'";
-
-$result = mysqli_query($conn,$query);
-$row = $from_date = mysqli_fetch_assoc($result);
 
 $pdf->SetFont('DejaVuSansCondensed-Bold','',12);
 $pdf->SetX(10);

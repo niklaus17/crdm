@@ -5,6 +5,7 @@ if(isset($_POST['btn-update_3']))
 {
 
   $id = $_POST['id'];
+  $director3 = $_POST["director3"];
   $cabinet3 = $_POST['cabinet3'];
   $section_id = $_POST['section_id'];
   $executor3 = $_POST['executor3'];
@@ -38,7 +39,7 @@ if(isset($_POST['btn-update_3']))
   $inginer3_3 = $_POST["inginer3_3"];
   $name = $_SESSION['user']['username'];
 
-  $query = "UPDATE formular_3 SET cabinet3='$cabinet3', section_id='$section_id', executor3='$executor3', data3='$data3', nume_dispozitiv3='$nume_dispozitiv3',
+  $query = "UPDATE formular_3 SET director3='$director3', cabinet3='$cabinet3', section_id='$section_id', executor3='$executor3', data3='$data3', nume_dispozitiv3='$nume_dispozitiv3',
   anul_producerii_dispozitiv3='$anul_producerii_dispozitiv3',  model_dispozitiv3='$model_dispozitiv3', nr_serie_dispozitiv3='$nr_serie_dispozitiv3',
   producator_dispozitiv3='$producator_dispozitiv3', numar_inventar3='$numar_inventar3', model_1_3='$model_1_3', model_2_3='$model_2_3', model_3_3='$model_3_3',
   model_4_3='$model_4_3', nr_serie_1_3='$nr_serie_1_3', nr_serie_2_3='$nr_serie_2_3', nr_serie_3_3='$nr_serie_3_3',  nr_serie_4_3='$nr_serie_4_3', chek1_3='$chek1_3',
